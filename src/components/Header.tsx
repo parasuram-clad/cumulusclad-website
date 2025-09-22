@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import cumulusLogo from '@/assets/cumulusclad-logo.png';
+import cumulusLogo from '@/assets/cumulusclad-logo-new.png';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);

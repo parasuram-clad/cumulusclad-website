@@ -6,6 +6,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
+import Work from "./pages/Work";
+import Careers from "./pages/Careers";
+import Contact from "./pages/Contact";
+import AISolutions from "./pages/services/AISolutions";
+import DigitalExperience from "./pages/services/DigitalExperience";
+import CloudSolutions from "./pages/services/CloudSolutions";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -20,10 +26,13 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/work" element={<NotFound />} />
-          <Route path="/careers" element={<NotFound />} />
-          <Route path="/contact" element={<NotFound />} />
+          <Route path="/work" element={<Work />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/contact" element={<Contact />} />
           {/* Service-specific routes */}
+          <Route path="/services/ai-solutions" element={<AISolutions />} />
+          <Route path="/services/digital-experience" element={<DigitalExperience />} />
+          <Route path="/services/cloud-solutions" element={<CloudSolutions />} />
           <Route path="/services/*" element={<NotFound />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
