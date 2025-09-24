@@ -45,22 +45,26 @@ const ServiceDetail = () => {
         {
           title: "Machine Learning Models",
           description:
-            "Custom ML models tailored to your specific business needs and data patterns.",
+            "Custom ML models tailored to your specific business needs and data patterns. Our expert team designs and implements sophisticated algorithms that learn from your data to make intelligent predictions and automate complex decision-making processes.",
+          image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=250&fit=crop",
         },
         {
           title: "Natural Language Processing",
           description:
-            "Extract insights from text data, enable chatbots, and automate content analysis.",
+            "Extract insights from text data, enable chatbots, and automate content analysis. Transform unstructured text into actionable intelligence with advanced NLP techniques including sentiment analysis, entity recognition, and language translation capabilities.",
+          image: "https://images.unsplash.com/photo-1587560699334-cc4ff634909a?w=400&h=250&fit=crop",
         },
         {
           title: "Computer Vision",
           description:
-            "Advanced image and video analysis for quality control, security, and automation.",
+            "Advanced image and video analysis for quality control, security, and automation. Implement intelligent visual recognition systems that can identify objects, detect anomalies, and provide real-time insights for industrial and commercial applications.",
+          image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=250&fit=crop",
         },
         {
           title: "Predictive Analytics",
           description:
-            "Forecast trends, customer behavior, and business outcomes with high accuracy.",
+            "Forecast trends, customer behavior, and business outcomes with high accuracy. Leverage statistical modeling and machine learning to anticipate future scenarios, optimize resource allocation, and make data-driven strategic decisions.",
+          image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop",
         },
       ],
       benefits: [
@@ -128,22 +132,26 @@ const ServiceDetail = () => {
         {
           title: "UI/UX Design",
           description:
-            "Human-centered design that creates intuitive and engaging user interfaces.",
+            "Human-centered design that creates intuitive and engaging user interfaces. We craft digital experiences that delight users through thoughtful design patterns, accessibility standards, and conversion-focused user journeys.",
+          image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=250&fit=crop",
         },
         {
           title: "Web Development",
           description:
-            "Modern, responsive websites built with the latest technologies and best practices.",
+            "Modern, responsive websites built with the latest technologies and best practices. From corporate websites to complex web applications, we deliver high-performance solutions that scale with your business needs.",
+          image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=400&h=250&fit=crop",
         },
         {
           title: "Mobile Applications",
           description:
-            "Native and cross-platform mobile apps that deliver seamless user experiences.",
+            "Native and cross-platform mobile apps that deliver seamless user experiences. Build engaging mobile solutions for iOS and Android that leverage device capabilities and provide offline functionality.",
+          image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=250&fit=crop",
         },
         {
           title: "Progressive Web Apps",
           description:
-            "Fast, reliable web applications that work offline and feel like native apps.",
+            "Fast, reliable web applications that work offline and feel like native apps. Combine the best of web and mobile experiences with progressive enhancement, service workers, and responsive design principles.",
+          image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=250&fit=crop",
         },
       ],
       benefits: [
@@ -193,22 +201,26 @@ const ServiceDetail = () => {
         {
           title: "Cloud Migration",
           description:
-            "Seamless migration of your existing infrastructure to cloud platforms with minimal downtime.",
+            "Seamless migration of your existing infrastructure to cloud platforms with minimal downtime. Our comprehensive migration strategy ensures data integrity, security compliance, and optimal performance throughout the transition process.",
+          image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=250&fit=crop",
         },
         {
           title: "Infrastructure as Code",
           description:
-            "Automated infrastructure provisioning and management using modern DevOps practices.",
+            "Automated infrastructure provisioning and management using modern DevOps practices. Implement version-controlled, repeatable infrastructure deployment with tools like Terraform, CloudFormation, and Kubernetes for consistent environments.",
+          image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=250&fit=crop",
         },
         {
           title: "Serverless Architecture",
           description:
-            "Event-driven computing that automatically scales and reduces operational overhead.",
+            "Event-driven computing that automatically scales and reduces operational overhead. Build cost-effective applications that scale to zero when not in use and handle massive spikes in traffic without infrastructure management.",
+          image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=400&h=250&fit=crop",
         },
         {
           title: "DevOps & CI/CD",
           description:
-            "Streamlined development workflows with automated testing and deployment pipelines.",
+            "Streamlined development workflows with automated testing and deployment pipelines. Accelerate software delivery with continuous integration, automated quality gates, and zero-downtime deployment strategies.",
+          image: "https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=400&h=250&fit=crop",
         },
       ],
       benefits: [
@@ -258,22 +270,26 @@ const ServiceDetail = () => {
         {
           title: "Process Automation",
           description:
-            "Streamline operations with intelligent automation and workflow optimization.",
+            "Streamline operations with intelligent automation and workflow optimization. Eliminate manual processes through robotic process automation, AI-powered decision making, and integrated business process management systems.",
+          image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&h=250&fit=crop",
         },
         {
           title: "Legacy System Modernization",
           description:
-            "Transform outdated systems into modern, efficient, and scalable solutions.",
+            "Transform outdated systems into modern, efficient, and scalable solutions. Migrate from monolithic architectures to microservices, update technology stacks, and improve system performance while maintaining business continuity.",
+          image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=250&fit=crop",
         },
         {
           title: "Digital Strategy Consulting",
           description:
-            "Strategic planning and roadmap development for successful digital transformation.",
+            "Strategic planning and roadmap development for successful digital transformation. Assess current capabilities, define target architecture, and create actionable plans that align technology initiatives with business objectives.",
+          image: "https://images.unsplash.com/photo-1553484771-371a605b060b?w=400&h=250&fit=crop",
         },
         {
           title: "Change Management",
           description:
-            "Organizational change support to ensure smooth adoption of new technologies.",
+            "Organizational change support to ensure smooth adoption of new technologies. Provide training programs, communication strategies, and stakeholder engagement to maximize user adoption and transformation success.",
+          image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&h=250&fit=crop",
         },
       ],
       benefits: [
@@ -321,22 +337,26 @@ const ServiceDetail = () => {
         {
           title: "IoT Platform Development",
           description:
-            "End-to-end IoT platforms for device management, data collection, and analytics.",
+            "End-to-end IoT platforms for device management, data collection, and analytics. Build scalable IoT ecosystems that connect millions of devices, process real-time data streams, and provide actionable insights through advanced dashboards.",
+          image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=250&fit=crop",
         },
         {
           title: "Sensor Integration",
           description:
-            "Smart sensor networks for environmental monitoring and industrial automation.",
+            "Smart sensor networks for environmental monitoring and industrial automation. Deploy wireless sensor networks that collect environmental data, monitor equipment health, and trigger automated responses based on predefined conditions.",
+          image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=250&fit=crop",
         },
         {
           title: "Edge Computing",
           description:
-            "Local data processing and real-time decision making at the edge of your network.",
+            "Local data processing and real-time decision making at the edge of your network. Reduce latency and bandwidth costs by processing data closer to the source, enabling real-time analytics and autonomous device behavior.",
+          image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=250&fit=crop",
         },
         {
           title: "Data Analytics",
           description:
-            "Advanced analytics and machine learning on IoT data for actionable insights.",
+            "Advanced analytics and machine learning on IoT data for actionable insights. Transform raw sensor data into valuable business intelligence with predictive maintenance, anomaly detection, and performance optimization algorithms.",
+          image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop",
         },
       ],
       benefits: [
@@ -386,22 +406,26 @@ const ServiceDetail = () => {
         {
           title: "Security Assessments",
           description:
-            "Comprehensive security audits to identify vulnerabilities and compliance gaps.",
+            "Comprehensive security audits to identify vulnerabilities and compliance gaps. Conduct thorough penetration testing, code reviews, and infrastructure assessments to uncover potential security risks and provide actionable remediation strategies.",
+          image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&h=250&fit=crop",
         },
         {
           title: "Penetration Testing",
           description:
-            "Ethical hacking to test your systems' defenses against real-world attacks.",
+            "Ethical hacking to test your systems' defenses against real-world attacks. Simulate sophisticated cyber attacks to identify weaknesses in your security posture and validate the effectiveness of your security controls.",
+          image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=250&fit=crop",
         },
         {
           title: "Identity Management",
           description:
-            "Secure access control and user authentication systems with multi-factor authentication.",
+            "Secure access control and user authentication systems with multi-factor authentication. Implement zero-trust security models with advanced identity verification, privileged access management, and single sign-on solutions.",
+          image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=400&h=250&fit=crop",
         },
         {
           title: "Compliance Solutions",
           description:
-            "Ensure regulatory compliance with GDPR, HIPAA, SOX, and other standards.",
+            "Ensure regulatory compliance with GDPR, HIPAA, SOX, and other standards. Implement comprehensive compliance frameworks that meet industry regulations while maintaining operational efficiency and user experience.",
+          image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=250&fit=crop",
         },
       ],
       benefits: [
@@ -509,24 +533,40 @@ const ServiceDetail = () => {
             <h2 className="text-4xl lg:text-5xl font-bold heading-luxury mb-6">
               Our <span className="text-gradient-luxury">Offerings</span>
             </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Comprehensive solutions designed to address your unique business challenges
+            </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 xl:grid-cols-2 gap-8">
             {service.offerings.map((offering, index) => (
               <div
                 key={index}
-                className="card-luxury animate-scale-in"
+                className="group bg-card rounded-2xl overflow-hidden shadow-luxury hover:shadow-2xl transition-all duration-500 animate-scale-in border border-border hover:border-primary/20"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <CheckCircle className="w-6 h-6 text-primary" />
+                {/* Thumbnail Image */}
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={offering.image}
+                    alt={offering.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                  <div className="absolute bottom-4 left-4">
+                    <div className="w-12 h-12 bg-primary/90 rounded-xl flex items-center justify-center backdrop-blur-sm">
+                      <CheckCircle className="w-6 h-6 text-white" />
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-3">{offering.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {offering.description}
-                    </p>
-                  </div>
+                </div>
+                
+                {/* Content */}
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors duration-300">
+                    {offering.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed text-sm">
+                    {offering.description}
+                  </p>
                 </div>
               </div>
             ))}
@@ -535,7 +575,6 @@ const ServiceDetail = () => {
       </section>
 
       {/* Benefits Section */}
-
       <section className="py-24 bg-card">
         <div className="container max-w-6xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -543,32 +582,35 @@ const ServiceDetail = () => {
             <h2 className="text-4xl lg:text-5xl font-bold heading-luxury mb-6">
               Key <span className="text-gradient-luxury">Benefits</span>
             </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Measurable advantages that drive your business forward
+            </p>
           </div>
 
-          {/* Benefits List - Left Side */}
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Benefits List - Left Side */}
-            <div className="grid gap-3">
+            {/* Benefits Cards - Left Side */}
+            <div className="space-y-4">
               {service.benefits.map((benefit, index) => (
                 <div
                   key={index}
-                  className=" bg-background  border-2 border-transparent   animate-fade-in group"
+                  className="group bg-background rounded-xl p-6 border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300 animate-fade-in"
                   style={{ animationDelay: `${index * 0.05}s` }}
                 >
-                  <div className="flex items-center">
-                    <div className="w-16 h-16  bg-primary/90 rounded-xl  flex items-center justify-center mr-4 ">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-14 h-14 bg-primary/90 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                       {getBenefitIcon(benefit.icon)}
                     </div>
                     <div>
-                      <span className="text-lg group-hover:text-primary transition-colors">
+                      <h4 className="text-lg font-semibold group-hover:text-primary transition-colors duration-300">
                         {benefit.text}
-                      </span>
+                      </h4>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
-            {/* Image - Right Side */}
+            
+            {/* Benefits Illustration - Right Side */}
             <div className="animate-fade-in-up">
               <div className="relative overflow-hidden rounded-2xl shadow-luxury">
                 <img
@@ -576,10 +618,17 @@ const ServiceDetail = () => {
                   alt="Benefits Illustration"
                   className="w-full h-96 object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-transparent" />
                 <div className="absolute bottom-6 left-6">
                   <div className="w-16 h-16 bg-primary/90 rounded-xl flex items-center justify-center backdrop-blur-sm">
                     <Users className="w-8 h-8 text-white" />
+                  </div>
+                </div>
+                {/* Floating Stats */}
+                <div className="absolute top-6 right-6">
+                  <div className="bg-background/90 backdrop-blur-sm rounded-xl p-4 border border-border">
+                    <div className="text-2xl font-bold text-primary">99.9%</div>
+                    <div className="text-xs text-muted-foreground">Reliability</div>
                   </div>
                 </div>
               </div>
@@ -621,28 +670,47 @@ const ServiceDetail = () => {
       </section>
 
       {/* Tech Stack Section */}
-      <section className="py-24 bg-card">
+      <section className="py-24 bg-background">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="accent-line mx-auto mb-6" />
             <h2 className="text-4xl lg:text-5xl font-bold heading-luxury mb-6">
               Technology <span className="text-gradient-luxury">Stack</span>
             </h2>
-            <p className="text-xl text-muted-foreground">
-              We leverage cutting-edge technologies to deliver exceptional
-              results
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              We leverage cutting-edge technologies and industry-leading tools to deliver exceptional results
             </p>
           </div>
-          <div className="flex flex-wrap justify-center gap-4">
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
             {service.techStack.map((tech, index) => (
               <div
                 key={index}
-                className="px-6 py-3 bg-background rounded-xl border border-border hover:border-primary hover:shadow-md transition-all duration-300 animate-fade-in"
+                className="group bg-card rounded-xl p-6 border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300 animate-fade-in flex flex-col items-center text-center"
                 style={{ animationDelay: `${index * 0.05}s` }}
               >
-                <span className="font-medium text-foreground">{tech}</span>
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors duration-300">
+                  <div className="w-8 h-8 bg-primary/80 rounded-lg flex items-center justify-center">
+                    <span className="text-white text-xs font-bold">
+                      {tech.substring(0, 2).toUpperCase()}
+                    </span>
+                  </div>
+                </div>
+                <span className="font-medium text-foreground text-sm group-hover:text-primary transition-colors duration-300">
+                  {tech}
+                </span>
               </div>
             ))}
+          </div>
+          
+          {/* Additional Info */}
+          <div className="mt-16 text-center">
+            <div className="inline-flex items-center space-x-2 bg-card rounded-full px-6 py-3 border border-border">
+              <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+              <span className="text-sm text-muted-foreground">
+                Always staying updated with the latest technologies
+              </span>
+            </div>
           </div>
         </div>
       </section>
