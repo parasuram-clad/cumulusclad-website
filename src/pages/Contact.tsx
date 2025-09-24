@@ -1,265 +1,391 @@
-import React, { useState } from 'react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import { MapPin, Phone, Mail, Clock, Send, MessageSquare } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
+import Layout from "@/components/Layout";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  Send,
+  Linkedin,
+  Twitter,
+  Github,
+  Globe,
+  MessageSquare,
+  Users,
+  Headphones,
+} from "lucide-react";
+import { useState } from "react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    message: ''
+    name: "",
+    email: "",
+    company: "",
+    subject: "",
+    message: "",
   });
 
-  const offices = [
-    {
-      city: 'Mumbai',
-      address: 'BKC, Mumbai - 400051',
-      phone: '+91 22 4567 8901',
-      email: 'mumbai@cumulusclad.com'
-    },
-    {
-      city: 'Bangalore',
-      address: 'Koramangala, Bangalore - 560095', 
-      phone: '+91 80 4567 8902',
-      email: 'bangalore@cumulusclad.com'
-    },
-    {
-      city: 'Delhi NCR',
-      address: 'Gurgaon, Haryana - 122018',
-      phone: '+91 124 4567 8903', 
-      email: 'delhi@cumulusclad.com'
-    }
-  ];
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle form submission here
+    console.log("Form submitted:", formData);
+  };
+
+  const contactInfo = [
+    {
+      icon: Phone,
+      title: "Phone",
+      details: ["+91 9944553287", "+91 44-6688777"],
+      description: "Mon-Fri 9AM-6PM IST",
+      links: ["tel:+919944553287", "tel:+91446688777"],
+    },
+    {
+      icon: Mail,
+      title: "Email",
+      details: ["global@cumulusclad.com", "info@cumulusclad.com"],
+      description: "We'll respond within 24 hours",
+      links: ["mailto:global@cumulusclad.com", "mailto:info@cumulusclad.com"],
+    },
+    {
+      icon: MapPin,
+      title: "CumulusClad Technologies LLP.",
+      details: [
+        "No. 39B, 2nd Floor, Kongunadu Trust, 1st Street, Chakrapani Colony, North Parade Road, St.Thomas Mount, Chennai - 600 016",
+      ],
+      description: "Visit our main office",
+      links: ["https://maps.app.goo.gl/Jevnhvux4z9Nbf9W8"],
+    },
+  ];
+
+  const socialMedia = [
+    {
+      icon: Linkedin,
+      name: "LinkedIn",
+      url: "https://linkedin.com/company/cumulusclad",
+      handle: "@cumulusclad",
+    },
+    {
+      icon: Twitter,
+      name: "Twitter",
+      url: "https://twitter.com/cumulusclad",
+      handle: "@cumulusclad",
+    },
+    {
+      icon: Github,
+      name: "GitHub",
+      url: "https://github.com/cumulusclad",
+      handle: "@cumulusclad",
+    },
+    {
+      icon: Globe,
+      name: "Website",
+      url: "https://cumulusclad.com",
+      handle: "cumulusclad.com",
+    },
+  ];
+
+  const inquiryTypes = [
+    {
+      icon: MessageSquare,
+      title: "General Inquiry",
+      description: "Questions about our services or company",
+    },
+    {
+      icon: Users,
+      title: "Partnership",
+      description: "Interested in partnering with us",
+    },
+    {
+      icon: Headphones,
+      title: "Support",
+      description: "Technical support or existing project help",
+    },
+  ];
+
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <main className="pt-20">
-        {/* Hero Section */}
-        <section className="section-padding relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-luxury-red/5 to-luxury-red/10" />
-          <div className="container-luxury relative z-10 text-center">
-            <div className="space-y-6 animate-fade-in">
-              <div className="flex items-center justify-center space-x-3 text-luxury-red font-medium">
-                <MessageSquare className="h-5 w-5" />
-                <span className="tracking-wider uppercase text-sm">Get In Touch</span>
+    <Layout>
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 bg-gradient-hero relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-luxury-red/5 to-luxury-red/10" />
+
+        <div className="container mx-auto px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-4xl mx-auto animate-fade-in">
+            <div className="accent-line mx-auto mb-6" />
+            <h1 className="text-5xl lg:text-6xl font-bold heading-luxury mb-6">
+              Simplifying IT,{" "}
+              <span className="text-gradient-luxury">Amplifying Success</span>
+            </h1>
+            <p className="text-xl text-muted-foreground leading-relaxed">
+              Ready to transform your business with cutting-edge technology?
+              Let's start a conversation about your vision and how we can help
+              bring it to life.
+            </p>
+          </div>
+        </div>
+      </section>
+      {/* Inquiry Form Section */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16">
+            {/* Contact Form */}
+            <div className="animate-fade-in">
+              <div className="mb-8">
+                <div className="accent-line mb-6" />
+                <h2 className="text-4xl font-bold heading-luxury mb-4">
+                  Get in <span className="text-gradient-luxury">Touch</span>
+                </h2>
+                <p className="text-muted-foreground">
+                  Tell us about your project and we'll get back to you within 24
+                  hours.
+                </p>
               </div>
-              
-              <h1 className="text-hero text-charcoal">
-                Let's Build Something <span className="text-gradient-primary">Amazing Together</span>
-              </h1>
-              
-              <p className="text-xl text-dark-gray max-w-4xl mx-auto leading-relaxed">
-                Ready to transform your business with cutting-edge technology? Get in touch with our 
-                team and let's discuss how we can help you achieve your digital goals.
+
+              {/* Inquiry Type Selection */}
+              <div className="mb-8">
+                <h3 className="text-lg font-semibold mb-4">
+                  What can we help you with?
+                </h3>
+                <div className="grid grid-cols-1 gap-3">
+                  {inquiryTypes.map((type, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center space-x-3 p-4 bg-card rounded-xl  border-border hover:border-primary  transition-all duration-300"
+                    >
+                      <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
+                        <type.icon className="w-5 h-5 text-primary" />
+                      </div>
+                      <div>
+                        <div className="font-medium">{type.title}</div>
+                        <div className="text-sm text-muted-foreground">
+                          {type.description}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      Name
+                    </label>
+                    <Input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      placeholder="Your full name"
+                      required
+                      className="focus:ring-primary "
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      Email
+                    </label>
+                    <Input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder="your.email@company.com"
+                      required
+                      className="focus:ring-primary "
+                    />
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      Company
+                    </label>
+                    <Input
+                      type="text"
+                      name="company"
+                      value={formData.company}
+                      onChange={handleInputChange}
+                      placeholder="Your company name"
+                      className="focus:ring-primary "
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      Subject
+                    </label>
+                    <Input
+                      type="text"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleInputChange}
+                      placeholder="Brief subject line"
+                      required
+                      className="focus:ring-primary "
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label
+                    className="block text-sm font-medium mb-2 "
+                    htmlFor="message"
+                  >
+                    Message
+                  </label>
+                  <Textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    placeholder="Tell us about your project, timeline, and any specific requirements..."
+                    rows={6}
+                    required
+                    className="focus:ring-primary "
+                  />
+                </div>
+
+                <Button type="submit" size="lg" className="btn-luxury w-full">
+                  Send Message
+                  <Send className="ml-2 h-5 w-5" />
+                </Button>
+              </form>
+            </div>
+
+            {/* Contact Information */}
+            {/* Contact Information */}
+            <div className="animate-fade-in-up">
+              <div className="space-y-8">
+                {contactInfo.map((info, index) => (
+                  <div
+                    key={index}
+                    className="card-luxury"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <div className="flex items-start space-x-4">
+                      <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <info.icon className="w-6 h-6 text-primary" />
+                      </div>
+                      <div className="flex-1">
+                        {info.title === "CumulusClad Technologies LLP." ? (
+                          <a
+                            href={info.links?.[0] || "#"}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-bold mb-2 hover:text-primary hover:underline transition-all duration-300 cursor-pointer block"
+                          >
+                            {info.title}
+                          </a>
+                        ) : (
+                          <h3 className="font-bold mb-2">{info.title}</h3>
+                        )}
+                        {info.details.map((detail, idx) => (
+                          <div key={idx}>
+                            {info.title === "Phone" ||
+                            info.title === "Email" ? (
+                              <a
+                                href={info.links?.[idx] || "#"}
+                                className="text-muted-foreground mb-1 hover:text-primary hover:underline transition-all duration-300 cursor-pointer block"
+                              >
+                                {detail}
+                              </a>
+                            ) : (
+                              <p className="text-muted-foreground mb-1">
+                                {detail}
+                              </p>
+                            )}
+                          </div>
+                        ))}
+                        <p className="text-sm text-muted-foreground mt-2">
+                          {info.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Social Media */}
+              <div className="mt-12">
+                <h3 className="text-xl font-bold mb-6">Follow Us</h3>
+                <div className="grid grid-cols-2 gap-4">
+                  {socialMedia.map((social, index) => (
+                    <a
+                      key={index}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-3 p-4 bg-card rounded-xl border border-border hover:border-primary hover:shadow-md transition-all duration-300"
+                    >
+                      <social.icon className="w-5 h-5 text-primary" />
+                      <div>
+                        <div className="font-medium text-sm">{social.name}</div>
+                        <div className="text-xs text-muted-foreground">
+                          {social.handle}
+                        </div>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Office Locations */} {/* Office Locations */}
+      <section className="py-6 bg-muted/20">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="accent-line mx-auto mb-6" />
+            <h2 className="text-4xl font-bold heading-luxury mb-4">
+              Visit Our <span className="text-gradient-luxury">Office</span>
+            </h2>
+            <p className="text-muted-foreground">
+              Come see us at our main headquarters in Chennai. We'd love to meet
+              you in person and discuss how we can help your business thrive.
+            </p>
+          </div>
+
+          <div className="bg-card rounded-2xl overflow-hidden shadow-lg border border-border">
+            <div className="aspect-video w-full lg:h-[400px]">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.4539074212375!2d80.19774327489361!3d13.0067413873119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b9b1f2258ba00f%3A0x9ff63e961b67ee17!2sCumulusClad%20Technologies!5e0!3m2!1sen!2sin!4v1758619260665!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full"
+              />
+            </div>
+            <div className="p-8">
+              <h3 className="text-2xl font-bold mb-4">
+                CumulusClad Technologies LLP
+              </h3>
+              <p className="text-muted-foreground mb-2">
+                No. 39B, 2nd Floor, Kongunadu Trust, 1st Street, Chakrapani
+                Colony,
+              </p>
+              <p className="text-muted-foreground">
+                North Parade Road, St.Thomas Mount, Chennai - 600 016
               </p>
             </div>
           </div>
-        </section>
-
-        {/* Contact Form & Info */}
-        <section className="section-padding bg-soft-gray">
-          <div className="container-luxury">
-            <div className="grid lg:grid-cols-3 gap-16">
-              
-              {/* Contact Form */}
-              <div className="lg:col-span-2">
-                <Card className="card-luxury">
-                  <CardContent className="p-8">
-                    <div className="mb-8">
-                      <h2 className="text-2xl font-semibold text-charcoal mb-4 font-space-grotesk">Send Us a Message</h2>
-                      <p className="text-dark-gray">Fill out the form below and we'll get back to you within 24 hours.</p>
-                    </div>
-
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                          <label className="block text-sm font-medium text-charcoal mb-2">Full Name</label>
-                          <Input
-                            type="text"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleChange}
-                            className="input-luxury focus:ring-2 focus:ring-luxury-red/20 focus:border-luxury-red"
-                            placeholder="Your full name"
-                            required
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-sm font-medium text-charcoal mb-2">Email Address</label>
-                          <Input
-                            type="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            className="input-luxury focus:ring-2 focus:ring-luxury-red/20 focus:border-luxury-red"
-                            placeholder="your@email.com"
-                            required
-                          />
-                        </div>
-                      </div>
-
-                      <div>
-                        <label className="block text-sm font-medium text-charcoal mb-2">Company Name</label>
-                        <Input
-                          type="text"
-                          name="company"
-                          value={formData.company}
-                          onChange={handleChange}
-                          className="input-luxury focus:ring-2 focus:ring-luxury-red/20 focus:border-luxury-red"
-                          placeholder="Your company name"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-sm font-medium text-charcoal mb-2">Message</label>
-                        <Textarea
-                          name="message"
-                          value={formData.message}
-                          onChange={handleChange}
-                          rows={6}
-                          className="input-luxury focus:ring-2 focus:ring-luxury-red/20 focus:border-luxury-red resize-none"
-                          placeholder="Tell us about your project and requirements..."
-                          required
-                        />
-                      </div>
-
-                      <Button type="submit" size="lg" className="btn-luxury w-full group">
-                        Send Message
-                        <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-medium" />
-                      </Button>
-                    </form>
-                  </CardContent>
-                </Card>
-              </div>
-
-              {/* Contact Info */}
-              <div className="space-y-8">
-                <Card className="card-luxury">
-                  <CardContent className="p-6">
-                    <h3 className="text-lg font-semibold text-charcoal mb-4 font-space-grotesk">Quick Contact</h3>
-                    
-                    <div className="space-y-4">
-                      <div className="flex items-center space-x-3">
-                        <div className="w-10 h-10 bg-luxury-red/10 rounded-lg flex items-center justify-center">
-                          <Phone className="h-5 w-5 text-luxury-red" />
-                        </div>
-                        <div>
-                          <div className="font-medium text-charcoal">+91 1800 123 4567</div>
-                          <div className="text-sm text-dark-gray">24/7 Support Hotline</div>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center space-x-3">
-                        <div className="w-10 h-10 bg-luxury-red/10 rounded-lg flex items-center justify-center">
-                          <Mail className="h-5 w-5 text-luxury-red" />
-                        </div>
-                        <div>
-                          <div className="font-medium text-charcoal">hello@cumulusclad.com</div>
-                          <div className="text-sm text-dark-gray">General Inquiries</div>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center space-x-3">
-                        <div className="w-10 h-10 bg-luxury-red/10 rounded-lg flex items-center justify-center">
-                          <Clock className="h-5 w-5 text-luxury-red" />
-                        </div>
-                        <div>
-                          <div className="font-medium text-charcoal">Mon - Fri, 9AM - 7PM</div>
-                          <div className="text-sm text-dark-gray">IST (Indian Standard Time)</div>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card className="card-luxury">
-                  <CardContent className="p-6">
-                    <h3 className="text-lg font-semibold text-charcoal mb-4 font-space-grotesk">Follow Us</h3>
-                    
-                    <div className="flex space-x-4">
-                      <div className="w-10 h-10 bg-luxury-red/10 rounded-lg flex items-center justify-center cursor-pointer hover:bg-luxury-red/20 transition-colors duration-300">
-                        <span className="text-luxury-red font-medium">Li</span>
-                      </div>
-                      <div className="w-10 h-10 bg-luxury-red/10 rounded-lg flex items-center justify-center cursor-pointer hover:bg-luxury-red/20 transition-colors duration-300">
-                        <span className="text-luxury-red font-medium">Tw</span>
-                      </div>
-                      <div className="w-10 h-10 bg-luxury-red/10 rounded-lg flex items-center justify-center cursor-pointer hover:bg-luxury-red/20 transition-colors duration-300">
-                        <span className="text-luxury-red font-medium">Gh</span>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Office Locations */}
-        <section className="section-padding">
-          <div className="container-luxury">
-            <div className="text-center mb-16">
-              <h2 className="text-section-title text-charcoal mb-6">Our Offices Across India</h2>
-              <p className="text-xl text-dark-gray">Visit us at any of our locations across major Indian tech hubs</p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {offices.map((office, index) => (
-                <Card key={office.city} className="card-luxury text-center animate-slide-up" style={{ animationDelay: `${index * 100}ms` }}>
-                  <CardContent className="p-8">
-                    <div className="w-16 h-16 bg-luxury-red/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                      <MapPin className="h-8 w-8 text-luxury-red" />
-                    </div>
-                    
-                    <h3 className="text-xl font-semibold text-charcoal mb-4 font-space-grotesk">{office.city}</h3>
-                    
-                    <div className="space-y-3 text-sm text-dark-gray">
-                      <div>{office.address}</div>
-                      <div className="font-medium">{office.phone}</div>
-                      <div className="text-luxury-red">{office.email}</div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-
-            {/* Map Placeholder */}
-            <div className="mt-16">
-              <Card className="card-luxury overflow-hidden">
-                <CardContent className="p-0">
-                  <div className="h-64 bg-gradient-to-r from-luxury-red/10 to-luxury-red/20 flex items-center justify-center">
-                    <div className="text-center">
-                      <MapPin className="h-16 w-16 text-luxury-red mx-auto mb-4" />
-                      <div className="text-xl font-semibold text-charcoal">Interactive Map</div>
-                      <div className="text-dark-gray">Find our offices across India</div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-      </main>
-      <Footer />
-    </div>
+        </div>
+      </section>
+    </Layout>
   );
 };
 

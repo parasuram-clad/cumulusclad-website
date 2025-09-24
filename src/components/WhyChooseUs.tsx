@@ -1,106 +1,89 @@
-import React from 'react';
-import { Zap, Users, Shield, Rocket, Clock, Target } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
+import { 
+  Zap, 
+  Users, 
+  Eye, 
+  Target, 
+  Award, 
+  Clock 
+} from "lucide-react";
 
 const WhyChooseUs = () => {
-  const advantages = [
+  const features = [
     {
       icon: Zap,
-      title: 'Agile Development',
-      description: 'We work side-by-side with your team through agile sprints and iterative feedback. You\'re always in the loop, and your input shapes the final product.'
+      title: "Agile Sprints",
+      description: "Fast, iterative development cycles that deliver results quickly and efficiently.",
     },
     {
       icon: Users,
-      title: 'Collaborative Partnership',
-      description: 'Your success is our success. We don\'t just build software; we become an extension of your team, deeply understanding your business goals.'
+      title: "Collaborative Approach",
+      description: "We work side-by-side with your team, ensuring seamless integration and knowledge transfer.",
     },
     {
-      icon: Shield,
-      title: 'Enterprise Security',
-      description: 'Built-in security from day one with enterprise-grade practices, compliance standards, and robust data protection protocols.'
-    },
-    {
-      icon: Rocket,
-      title: 'Scalable Solutions',
-      description: 'Future-proof architecture that grows with your business. Our solutions are designed to handle scale from startup to enterprise.'
-    },
-    {
-      icon: Clock,
-      title: 'Rapid Delivery',
-      description: 'Fast time-to-market without compromising quality. Our streamlined processes ensure efficient delivery of robust solutions.'
+      icon: Eye,
+      title: "Transparency",
+      description: "You're always in the loop with real-time updates and clear communication channels.",
     },
     {
       icon: Target,
-      title: 'Results-Driven',
-      description: 'We measure success by your business outcomes. Every solution is designed to deliver measurable value and ROI.'
-    }
+      title: "Results-Driven",
+      description: "Every solution is designed with your business goals and ROI in mind.",
+    },
+    {
+      icon: Award,
+      title: "Quality Assurance",
+      description: "Rigorous testing and quality control ensure robust, reliable solutions.",
+    },
+    {
+      icon: Clock,
+      title: "On-Time Delivery",
+      description: "We respect your timeline and consistently deliver projects on schedule.",
+    },
   ];
 
   return (
-    <section className="section-padding bg-soft-gray">
-      <div className="container-luxury">
-        <div className="text-center space-y-6 mb-16 animate-fade-in">
-          <div className="flex items-center justify-center space-x-3 text-luxury-red font-medium">
-            <Target className="h-5 w-5" />
-            <span className="tracking-wider uppercase text-sm">Why Choose Us</span>
-          </div>
-          
-          <h2 className="text-section-title text-charcoal">
-            Your <span className="text-gradient-primary">Trusted Technology Partner</span>
+    <section className="py-24 bg-background">
+      <div className="container mx-auto px-6 lg:px-8">
+        <div className="text-center mb-16 animate-fade-in">
+          <div className="accent-line mx-auto mb-6" />
+          <h2 className="text-4xl lg:text-5xl font-bold heading-luxury mb-6">
+            Why <span className="text-gradient-luxury">Choose Us?</span>
           </h2>
-          
-          <p className="text-xl text-dark-gray max-w-3xl mx-auto leading-relaxed">
-            We combine technical excellence with business acumen to deliver solutions 
-            that don't just work—they drive real business transformation.
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            We work side-by-side with your team through agile sprints and iterative feedback. 
+            You're always in the loop, and your input shapes the final product.
           </p>
         </div>
 
-        <div className="grid-luxury gap-8">
-          {advantages.map((advantage, index) => (
-            <Card 
-              key={advantage.title} 
-              className="card-luxury group animate-slide-up"
-              style={{ animationDelay: `${index * 100}ms` }}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature, index) => (
+            <div
+              key={feature.title}
+              className="group relative p-8 rounded-2xl bg-card border border-border hover:border-primary transition-all duration-300 hover:shadow-luxury animate-scale-in"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <CardContent className="p-8 text-center space-y-6">
+              {/* Background Glow Effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              
+              <div className="relative z-10">
                 {/* Icon */}
-                <div className="relative mx-auto">
-                  <div className="w-20 h-20 bg-luxury-red/10 rounded-3xl flex items-center justify-center group-hover:bg-luxury-red/20 transition-all duration-medium mx-auto">
-                    <advantage.icon className="h-10 w-10 text-luxury-red" />
-                  </div>
-                  <div className="absolute inset-0 w-20 h-20 bg-luxury-red/20 rounded-3xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-medium mx-auto" />
+                <div className="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/30 transition-colors duration-300">
+                  <feature.icon className="w-8 h-8 text-primary" />
                 </div>
 
                 {/* Content */}
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-charcoal font-space-grotesk">
-                    {advantage.title}
-                  </h3>
-                  
-                  <p className="text-dark-gray leading-relaxed">
-                    {advantage.description}
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+                <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors duration-300">
+                  {feature.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
 
-        {/* Bottom CTA */}
-        <div className="text-center mt-16 animate-fade-in">
-          <div className="inline-flex items-center space-x-4 p-8 bg-white rounded-2xl shadow-elegant">
-            <div className="w-16 h-16 bg-luxury-red/10 rounded-2xl flex items-center justify-center">
-              <Rocket className="h-8 w-8 text-luxury-red" />
+              {/* Hover Border Effect */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary to-red-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-sm" />
             </div>
-            <div className="text-left">
-              <h3 className="text-xl font-semibold text-charcoal font-space-grotesk">
-                Ready to Transform Your Business?
-              </h3>
-              <p className="text-dark-gray">
-                Let's discuss how we can help you achieve your technology goals.
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

@@ -1,237 +1,285 @@
-import React from 'react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import { Shield, Users, Target, Award, Rocket, Globe, Eye, Heart, Zap, CheckCircle } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import Layout from "@/components/Layout";
+import { Button } from "@/components/ui/button";
+import {
+  Eye,
+  Target,
+  Heart,
+  Users,
+  Award,
+  Lightbulb,
+  ArrowRight,
+} from "lucide-react";
+import cybersecurityBg from "@/assets/cybersecurity-bg.jpg";
 
 const About = () => {
   const values = [
     {
-      icon: Zap,
-      title: 'Innovation First',
-      description: 'We embrace cutting-edge technologies to solve complex business challenges.'
+      icon: Eye,
+      title: "Transparency",
+      description:
+        "Open communication and honest partnerships built on trust and clarity.",
+    },
+    {
+      icon: Target,
+      title: "Excellence",
+      description:
+        "Uncompromising quality in every solution we deliver to our clients.",
     },
     {
       icon: Heart,
-      title: 'Client Success',
-      description: 'Your success is our success. We partner with you for long-term growth.'
+      title: "Passion",
+      description:
+        "Genuine enthusiasm for technology and solving complex business challenges.",
     },
     {
-      icon: CheckCircle,
-      title: 'Quality Excellence',
-      description: 'We deliver solutions that exceed expectations with rigorous quality standards.'
+      icon: Users,
+      title: "Collaboration",
+      description:
+        "Working together as one team to achieve extraordinary results.",
     },
     {
-      icon: Globe,
-      title: 'Global Vision',
-      description: 'Bringing world-class technology solutions to the Indian market and beyond.'
-    }
-  ];
-
-  const milestones = [
-    { year: '2018', event: 'Founded in Bangalore with a vision to transform Indian businesses' },
-    { year: '2019', event: 'Expanded to Mumbai and Delhi, served first 50 clients' },
-    { year: '2020', event: 'Pivoted to cloud-first solutions during the pandemic' },
-    { year: '2021', event: 'Reached 500+ clients across 15 Indian states' },
-    { year: '2022', event: 'Launched AI/ML division, partnered with global tech giants' },
-    { year: '2023', event: 'Achieved ISO certifications and expanded to international markets' },
-    { year: '2024', event: 'Serving 2000+ clients with 200+ team members across India' }
+      icon: Award,
+      title: "Innovation",
+      description:
+        "Pushing boundaries and exploring new possibilities in technology.",
+    },
+    {
+      icon: Lightbulb,
+      title: "Continuous Learning",
+      description:
+        "Always evolving our skills and staying ahead of technology trends.",
+    },
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <main className="pt-20">
-        {/* Hero Section */}
-        <section className="section-padding particles-bg">
-          <div className="container-luxury text-center">
-            <div className="space-y-6 animate-fade-in">
-              <div className="flex items-center justify-center space-x-3 text-luxury-red font-medium">
-                <Shield className="h-5 w-5" />
-                <span className="tracking-wider uppercase text-sm">About CumulusClad</span>
-              </div>
-              
-              <h1 className="text-hero text-charcoal">
-                Empowering India's <span className="text-gradient-primary">Digital Revolution</span>
-              </h1>
-              
-              <p className="text-xl text-dark-gray max-w-4xl mx-auto leading-relaxed">
-                At CumulusClad Technologies, we're not just building software – we're architecting 
-                the future of Indian business. From Mumbai's financial districts to Bangalore's 
-                innovation hubs, we're transforming how enterprises operate in the digital age.
-              </p>
-            </div>
+    <Layout>
+      {/* Hero Section */}
+      <section className="relative py-32 overflow-hidden">
+        {" "}
+        <div className="absolute inset-0 bg-gradient-to-br from-luxury-red/5 to-luxury-red/10" />
+        {/* <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+          style={{ backgroundImage: `url(${cybersecurityBg})` }}
+        /> */}
+        <div className="absolute inset-0 bg-gradient-hero" />
+        <div className="relative z-10 container mx-auto px-6 lg:px-8 text-center">
+          <div className="max-w-4xl mx-auto space-y-8 animate-fade-in">
+            <div className="accent-line mx-auto" />
+            <h1 className="text-5xl lg:text-7xl font-bold heading-luxury">
+              Fortify Your Business with{" "}
+              <span className="text-gradient-luxury">Trusted IT Security</span>
+            </h1>
+            <p className="text-xl text-muted-foreground leading-relaxed mb-8">
+              We're a team of passionate technologists, designers, and
+              strategists who believe in the power of technology to transform
+              businesses and improve lives.
+            </p>
+            <Button className="btn-luxury">
+              Learn Our Story
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Our Story */}
-        <section className="section-padding bg-soft-gray">
-          <div className="container-luxury">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <div className="space-y-6 animate-fade-in">
-                <h2 className="text-section-title text-charcoal">
-                  Our <span className="text-gradient-primary">Story</span>
+      {/* Our Story */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div className="space-y-8 animate-fade-in">
+              <div className="space-y-6">
+                <div className="accent-line" />
+                <h2 className="text-4xl lg:text-5xl font-bold heading-luxury">
+                  Our Story
                 </h2>
-                
-                <p className="text-lg text-dark-gray leading-relaxed">
-                  Founded in 2018 by a team of passionate technologists in Bangalore, CumulusClad 
-                  emerged from a simple belief: every Indian business deserves access to world-class 
-                  technology solutions.
+
+                <p className="text-xl text-muted-foreground leading-relaxed">
+                  CumulusClad is a technology-first company dedicated to
+                  delivering pioneering solutions in artificial intelligence,
+                  digital transformation, cloud computing, IoT, healthcare
+                  innovation, and application security. We combine technical
+                  expertise with industry insight to help businesses modernize
+                  operations, enhance data security, and unlock new digital
+                  capabilities. Whether it's transforming patient care with
+                  healthcare tech or securing applications in a cloud-first
+                  world, our solutions are designed to scale with your vision.
+                  At CumulusClad, innovation isn't just a buzzword; it's the
+                  core of everything we do.
                 </p>
-                
-                <p className="text-lg text-dark-gray leading-relaxed">
-                  What started as a small team of 5 engineers has grown into a 200+ member organization 
-                  serving over 2000 clients across India. We've helped everyone from startups in Hyderabad 
-                  to Fortune 500 companies in Mumbai achieve their digital transformation goals.
+                {/* <p className="text-xl text-muted-foreground leading-relaxed">
+                  Founded with a vision to bridge the gap between innovative
+                  technology and real-world business challenges, CumulusClad
+                  Technologies emerged from a simple belief: every great idea
+                  deserves exceptional execution.
                 </p>
-
-                <div className="grid grid-cols-2 gap-6 pt-6">
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-luxury-red">6+</div>
-                    <div className="text-sm text-dark-gray">Years of Excellence</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-luxury-red">2000+</div>
-                    <div className="text-sm text-dark-gray">Happy Clients</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="relative animate-slide-up">
-                <div className="aspect-[4/3] bg-gradient-to-br from-luxury-red/10 to-luxury-red/30 rounded-3xl flex items-center justify-center shadow-luxury">
-                  <div className="text-center space-y-4 p-8">
-                    <Rocket className="h-24 w-24 text-luxury-red mx-auto" />
-                    <h3 className="text-2xl font-bold text-charcoal">Innovation Hub</h3>
-                    <p className="text-dark-gray">Building tomorrow's solutions today</p>
-                  </div>
-                </div>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Since our inception, we've been dedicated to helping
+                  businesses of all sizes harness the power of technology to
+                  achieve their goals, streamline operations, and create
+                  meaningful connections with their customers.
+                </p> */}
               </div>
             </div>
-          </div>
-        </section>
 
-        {/* Vision & Mission */}
-        <section className="section-padding">
-          <div className="container-luxury">
-            <div className="grid lg:grid-cols-2 gap-16">
-              <Card className="card-luxury animate-slide-up">
-                <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 bg-luxury-red/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <Eye className="h-8 w-8 text-luxury-red" />
+            <div className="relative animate-slide-in-right">
+              <div className="grid grid-cols-2 gap-6">
+                {/* Project Delivered Card */}
+                <div className="card-luxury p-6 text-center">
+                  <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Award className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="text-2xl font-semibold text-charcoal mb-4 font-space-grotesk">Our Vision</h3>
-                  <p className="text-dark-gray leading-relaxed">
-                    To become India's most trusted technology partner, enabling businesses to thrive 
-                    in the digital economy while contributing to the nation's technological advancement 
-                    and global competitiveness.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="card-luxury animate-slide-up delay-200">
-                <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 bg-luxury-red/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <Target className="h-8 w-8 text-luxury-red" />
+                  <div className="text-4xl font-bold text-primary mb-2">
+                    150+
                   </div>
-                  <h3 className="text-2xl font-semibold text-charcoal mb-4 font-space-grotesk">Our Mission</h3>
-                  <p className="text-dark-gray leading-relaxed">
-                    To democratize access to cutting-edge technology solutions across India, helping 
-                    businesses of all sizes harness the power of AI, cloud computing, and digital 
-                    transformation to achieve unprecedented growth.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Values & Culture */}
-        <section className="section-padding bg-soft-gray">
-          <div className="container-luxury">
-            <div className="text-center mb-16 animate-fade-in">
-              <h2 className="text-section-title text-charcoal mb-6">Our Values & Culture</h2>
-              <p className="text-xl text-dark-gray max-w-3xl mx-auto">
-                The principles that guide everything we do and the culture that makes us who we are.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-              {values.map((value, index) => (
-                <Card key={value.title} className="card-luxury text-center animate-slide-up" style={{ animationDelay: `${index * 100}ms` }}>
-                  <CardContent className="p-6">
-                    <value.icon className="h-12 w-12 text-luxury-red mx-auto mb-4" />
-                    <h3 className="text-lg font-semibold text-charcoal mb-3 font-space-grotesk">{value.title}</h3>
-                    <p className="text-dark-gray text-sm">{value.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-
-            {/* Team Image */}
-            <Card className="card-luxury overflow-hidden animate-fade-in">
-              <CardContent className="p-0">
-                <div className="h-64 bg-gradient-to-r from-luxury-red/20 via-luxury-red/10 to-luxury-red/20 flex items-center justify-center relative">
-                  <div className="text-center space-y-4">
-                    <Users className="h-16 w-16 text-luxury-red mx-auto" />
-                    <h3 className="text-2xl font-bold text-charcoal">Our Amazing Team</h3>
-                    <p className="text-dark-gray">200+ passionate professionals across India</p>
+                  <div className="text-sm text-muted-foreground uppercase tracking-wide">
+                    Projects Delivered
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
 
-        {/* Timeline */}
-        <section className="section-padding">
-          <div className="container-luxury">
-            <div className="text-center mb-16 animate-fade-in">
-              <h2 className="text-section-title text-charcoal mb-6">Our Journey</h2>
-              <p className="text-xl text-dark-gray">Milestones that shaped our path to becoming India's trusted tech partner</p>
-            </div>
+                {/* Happy Clients Card */}
+                <div className="card-luxury p-6 text-center">
+                  <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Users className="w-6 h-6 text-primary" />
+                  </div>
+                  <div className="text-4xl font-bold text-primary mb-2">
+                    50+
+                  </div>
+                  <div className="text-sm text-muted-foreground uppercase tracking-wide">
+                    Happy Clients
+                  </div>
+                </div>
 
-            <div className="max-w-4xl mx-auto">
-              <div className="relative">
-                {/* Timeline Line */}
-                <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-luxury-red/20" />
-                
-                <div className="space-y-8">
-                  {milestones.map((milestone, index) => (
-                    <div key={milestone.year} className="relative flex items-center animate-slide-up" style={{ animationDelay: `${index * 100}ms` }}>
-                      <div className="absolute left-6 w-4 h-4 bg-luxury-red rounded-full z-10" />
-                      <div className="ml-16 flex items-center space-x-6">
-                        <div className="text-2xl font-bold text-luxury-red min-w-[80px]">{milestone.year}</div>
-                        <div className="text-dark-gray">{milestone.event}</div>
-                      </div>
-                    </div>
-                  ))}
+                {/* Industries Served Card */}
+                <div className="card-luxury p-6 text-center">
+                  <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Target className="w-6 h-6 text-primary" />
+                  </div>
+                  <div className="text-4xl font-bold text-primary mb-2">8+</div>
+                  <div className="text-sm text-muted-foreground uppercase tracking-wide">
+                    Industries Served
+                  </div>
+                </div>
+
+                {/* Years Experience Card */}
+                <div className="card-luxury p-6 text-center">
+                  <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Heart className="w-6 h-6 text-primary" />
+                  </div>
+                  <div className="text-4xl font-bold text-primary mb-2">5</div>
+                  <div className="text-sm text-muted-foreground uppercase tracking-wide">
+                    Years Experience
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Careers Teaser */}
-        <section className="section-padding bg-luxury-red relative overflow-hidden">
-          <div className="absolute inset-0 bg-black/20" />
-          <div className="container-luxury relative z-10 text-center">
-            <div className="space-y-6 animate-fade-in">
-              <Users className="h-16 w-16 text-white mx-auto" />
-              <h2 className="text-4xl font-bold text-white">Join Our Mission</h2>
-              <p className="text-xl text-white/90 max-w-2xl mx-auto">
-                Be part of India's digital transformation story. We're always looking for 
-                passionate individuals who want to make a difference.
-              </p>
-              <Button size="lg" className="bg-white text-luxury-red hover:bg-white/90">
-                Explore Careers
-              </Button>
+      {/* Vision & Mission */}
+      <section className="py-24 bg-card">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
+            <div className="space-y-8 animate-fade-in">
+              <div className="space-y-6">
+                <div className="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center">
+                  <Eye className="w-8 h-8 text-primary" />
+                </div>
+                <h2 className="text-4xl lg:text-5xl font-bold heading-luxury">
+                  Our Vision
+                </h2>
+                <p className="text-xl text-muted-foreground leading-relaxed">
+                  To be a global leader in driving intelligent, secure, and
+                  transformative digital solutions, empowering industries to
+                  innovate, connect, and thrive in an increasingly digital
+                  world.
+                </p>
+              </div>
+            </div>
+
+            <div
+              className="space-y-8 animate-fade-in"
+              style={{ animationDelay: "0.2s" }}
+            >
+              <div className="space-y-6">
+                <div className="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center">
+                  <Target className="w-8 h-8 text-primary" />
+                </div>
+                <h2 className="text-4xl lg:text-5xl font-bold heading-luxury">
+                  Our Mission
+                </h2>
+                <p className="text-xl text-muted-foreground leading-relaxed">
+                  Deliver cutting-edge solutions in artificial intelligence,
+                  cloud, and IoT to accelerate business transformation.
+                  Strengthen industries through secure and scalable application
+                  infrastructure. Innovate in healthcare technology to improve
+                  outcomes and efficiency. Champion digital transformation with
+                  customer-centric, agile, and future-ready technologies. Foster
+                  a culture of continuous innovation, collaboration, and ethical
+                  growth.
+                </p>
+              </div>
             </div>
           </div>
-        </section>
-      </main>
-      <Footer />
-    </div>
+        </div>
+      </section>
+
+      {/* Values & Culture */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16 animate-fade-in">
+            <div className="accent-line mx-auto mb-6" />
+            <h2 className="text-4xl lg:text-5xl font-bold heading-luxury mb-6">
+              Our Values & <span className="text-gradient-luxury">Culture</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              These core values guide everything we do and shape the culture
+              that makes CumulusClad Technologies a great place to work and
+              partner with.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {values.map((value, index) => (
+              <div
+                key={value.title}
+                className="card-luxury text-center animate-scale-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center mx-auto mb-6">
+                  <value.icon className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4">{value.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {value.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Join Our Team Teaser */}
+      <section className="py-24 bg-card relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent" />
+
+        <div className="relative z-10 container mx-auto px-6 lg:px-8 text-center">
+          <div className="max-w-3xl mx-auto space-y-8 animate-fade-in">
+            <h2 className="text-4xl lg:text-5xl font-bold heading-luxury">
+              Join Our <span className="text-gradient-luxury">Team</span>
+            </h2>
+            <p className="text-xl text-muted-foreground leading-relaxed">
+              Ready to be part of something extraordinary? Explore career
+              opportunities and help us shape the future of technology.
+            </p>
+            <Button className="btn-luxury">
+              View Open Positions
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </div>
+        </div>
+      </section>
+    </Layout>
   );
 };
 

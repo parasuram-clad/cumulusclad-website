@@ -1,31 +1,58 @@
-import React from 'react';
-import Header from '@/components/Header';
-import Hero from '@/components/Hero';
-import ServicesGrid from '@/components/ServicesGrid';
-import CaseStudySection from '@/components/CaseStudySection';
-import CaseStudySection2 from '@/components/CaseStudySection2';
-import IndustriesSection from '@/components/IndustriesSection';
-import WhyChooseUs from '@/components/WhyChooseUs';
-import Statistics from '@/components/Statistics';
-import CTABanner from '@/components/CTABanner';
-import Footer from '@/components/Footer';
-
+import Layout from "@/components/Layout";
+import Hero from "@/components/Hero";
+import Services from "@/components/Services";
+import CaseStudy from "@/components/CaseStudy";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import Industries from "@/components/Industries";
+import CTABanner from "@/components/CTABanner";
+import TrustedCompanies from "@/components/TrustedCompanies";
+import { Users, TrendingUp, Clock, Award, Target, Zap } from "lucide-react";
+import caseStudy1 from "@/assets/case-study-1.jpg";
+import caseStudy2 from "@/assets/case-study-2.jpg";
+import EnquiryModal from "@/components/EnquiryModal";
 const Index = () => {
+  const caseStudy1Stats = [
+    { label: "Users", value: "50K+", icon: Users },
+    { label: "Growth", value: "300%", icon: TrendingUp },
+    { label: "Time Saved", value: "40%", icon: Clock },
+  ];
+
+  const caseStudy2Stats = [
+    { label: "Efficiency", value: "85%", icon: Award },
+    { label: "Accuracy", value: "99.9%", icon: Target },
+    { label: "Performance", value: "5x", icon: Zap },
+  ];
+
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <main>
-        <Hero />
-        <ServicesGrid />
-        <CaseStudySection />
-        <CaseStudySection2 />
-        <IndustriesSection />
-        <WhyChooseUs />
-        <Statistics />
-        <CTABanner />
-      </main>
-      <Footer />
-    </div>
+    <Layout>
+      <Hero />
+      <Services />
+
+      <CaseStudy
+        title="Real-World Impact Through Smart Software Engineering"
+        description="From education to enterprise, we've helped organizations of all sizes solve complex challenges, streamline operations, and innovate faster through custom-built technology solutions."
+        imageUrl={caseStudy1}
+        stats={caseStudy1Stats}
+        caseStudyId="1"
+      />
+
+      <WhyChooseUs />
+
+      {/* <TrustedCompanies /> */}
+
+      <CaseStudy
+        title="Accelerating Growth Through Digital Innovation"
+        description="At CumulusClad, we don't just build software; we solve problems. From early-stage startups to large-scale enterprises, we've helped our clients streamline operations, launch innovative products, and accelerate growth through smart, scalable, and secure custom software solutions."
+        imageUrl={caseStudy2}
+        stats={caseStudy2Stats}
+        reverse={true}
+        darkBg={true}
+        caseStudyId="2"
+      />
+
+      <Industries />
+      <CTABanner />
+    </Layout>
   );
 };
 

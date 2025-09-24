@@ -1,233 +1,380 @@
-import React, { useState } from 'react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import { Users, MapPin, Clock, ArrowRight, Heart, Coffee, Zap, Award } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import Layout from "@/components/Layout";
+import { Button } from "@/components/ui/button";
+import {
+  MapPin,
+  Clock,
+  DollarSign,
+  Users,
+  Heart,
+  Coffee,
+  Laptop,
+  Rocket,
+  ChevronDown,
+  ChevronUp,
+  Send,
+} from "lucide-react";
+import { useState } from "react";
 
 const Careers = () => {
-  const [expandedJob, setExpandedJob] = useState<number | null>(null);
-
-  const cultureImages = [
-    { title: 'Team Collaboration', image: 'bg-gradient-to-br from-blue-400 to-blue-600' },
-    { title: 'Innovation Labs', image: 'bg-gradient-to-br from-purple-400 to-purple-600' },
-    { title: 'Office Spaces', image: 'bg-gradient-to-br from-green-400 to-green-600' },
-    { title: 'Team Events', image: 'bg-gradient-to-br from-orange-400 to-orange-600' },
-  ];
+  const [expandedJob, setExpandedJob] = useState<string | null>(null);
 
   const jobOpenings = [
     {
-      id: 1,
-      title: 'Senior AI/ML Engineer',
-      location: 'Bangalore, India',
-      type: 'Full-time',
-      experience: '4-6 years',
-      description: 'Build cutting-edge AI solutions for our enterprise clients across India. Work with TensorFlow, PyTorch, and cloud platforms.',
-      requirements: ['Master\'s in CS/AI', 'Experience with ML frameworks', 'Python expertise', 'Cloud platform knowledge']
+      id: "ai-developer",
+      title: "AI Developer",
+      department: "Engineering",
+      location: "Chennai",
+      type: "Full-time",
+      salary: "₹12L - ₹18L",
+      description:
+        "Develop cutting-edge AI solutions and machine learning models for enterprise applications.",
+      requirements: [
+        "3+ years of experience in AI/ML development",
+        "Strong proficiency in Python, TensorFlow, PyTorch",
+        "Experience with cloud platforms (AWS, Azure, GCP)",
+        "Bachelor's/Master's in Computer Science, AI, or related field",
+      ],
+      responsibilities: [
+        "Design and implement AI/ML algorithms and models",
+        "Develop and optimize machine learning pipelines",
+        "Collaborate with data scientists and engineers",
+        "Deploy AI solutions in production environments",
+      ],
     },
     {
-      id: 2,
-      title: 'Full Stack Developer',
-      location: 'Mumbai, India', 
-      type: 'Full-time',
-      experience: '3-5 years',
-      description: 'Develop scalable web applications using React, Node.js, and cloud technologies for Indian enterprises.',
-      requirements: ['React/Node.js expertise', 'Database design', 'AWS/Azure experience', 'Agile methodology']
+      id: "fullstack-developer",
+      title: "Full Stack Developer",
+      department: "Engineering",
+      location: "Chennai",
+      type: "Full-time",
+      salary: "₹8L - ₹14L",
+      description:
+        "Build scalable web applications using modern technologies and frameworks for our clients.",
+      requirements: [
+        "2+ years of full-stack development experience",
+        "Proficiency in React, Node.js, TypeScript",
+        "Experience with databases (PostgreSQL, MongoDB)",
+        "Knowledge of cloud services and DevOps practices",
+      ],
+      responsibilities: [
+        "Develop and maintain web applications using React and Node.js",
+        "Design and implement RESTful APIs and GraphQL endpoints",
+        "Collaborate with designers to implement responsive UIs",
+        "Optimize application performance and scalability",
+      ],
     },
     {
-      id: 3,
-      title: 'Cloud Architect',
-      location: 'Delhi NCR, India',
-      type: 'Full-time', 
-      experience: '6-8 years',
-      description: 'Design and implement cloud infrastructure for large-scale Indian enterprises moving to digital platforms.',
-      requirements: ['AWS/Azure certifications', 'Kubernetes expertise', 'DevOps experience', 'Architecture design']
+      id: "ux-designer",
+      title: "UI/UX Designer",
+      department: "Design",
+      location: "Chennai",
+      type: "Full-time",
+      salary: "₹6L - ₹12L",
+      description:
+        "Create intuitive and beautiful user experiences for our digital products and client projects.",
+      requirements: [
+        "2+ years of UX/UI design experience",
+        "Proficiency in Figma, Adobe Creative Suite",
+        "Experience with user research and testing methodologies",
+        "Portfolio demonstrating web and mobile applications",
+      ],
+      responsibilities: [
+        "Design user-centered interfaces and experiences",
+        "Conduct user research and usability testing",
+        "Create wireframes, prototypes, and design systems",
+        "Collaborate with development teams on implementation",
+      ],
+    },
+  ];
+
+  const benefits = [
+    {
+      icon: Heart,
+      title: "Health & Wellness",
+      description:
+        "Comprehensive health insurance, dental, vision, and wellness programs",
     },
     {
-      id: 4,
-      title: 'UX/UI Designer',
-      location: 'Hyderabad, India',
-      type: 'Full-time',
-      experience: '2-4 years', 
-      description: 'Create intuitive user experiences for mobile and web applications serving millions of Indian users.',
-      requirements: ['Design portfolio', 'Figma/Adobe Suite', 'User research', 'Prototyping skills']
-    }
+      icon: Coffee,
+      title: "Work-Life Balance",
+      description:
+        "Flexible working hours, unlimited PTO, and remote work options",
+    },
+    {
+      icon: Laptop,
+      title: "Equipment & Setup",
+      description:
+        "Latest tech equipment, home office stipend, and co-working space access",
+    },
+    {
+      icon: Rocket,
+      title: "Growth & Learning",
+      description:
+        "Professional development budget, conference attendance, and mentorship programs",
+    },
+  ];
+
+  const cultureImages = [
+    {
+      url: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop",
+      title: "Collaborative Teamwork",
+      description: "Working together to solve complex challenges",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=400&fit=crop",
+      title: "Innovation Hub",
+      description: "Modern office spaces designed for creativity",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&h=400&fit=crop",
+      title: "Team Events",
+      description: "Regular team building and social activities",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&h=400&fit=crop",
+      title: "Learning & Development",
+      description: "Continuous learning and skill development",
+    },
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <main className="pt-20">
-        {/* Hero Section */}
-        <section className="section-padding relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-luxury-red/5 to-luxury-red/10" />
-          <div className="container-luxury relative z-10 text-center">
-            <div className="space-y-6 animate-fade-in">
-              <div className="flex items-center justify-center space-x-3 text-luxury-red font-medium">
-                <Users className="h-5 w-5" />
-                <span className="tracking-wider uppercase text-sm">Join Our Team</span>
+    <Layout>
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 bg-gradient-hero relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-luxury-red/5 to-luxury-red/10" />
+        <div className="container mx-auto px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-4xl mx-auto animate-fade-in">
+            <div className="accent-line mx-auto mb-6" />
+            <h1 className="text-5xl lg:text-6xl font-bold heading-luxury mb-6">
+              Smarter IT Infrastructure for a{" "}
+              <span className="text-gradient-luxury">Smarter Future</span>
+            </h1>
+            <p className="text-xl text-muted-foreground leading-relaxed mb-8">
+              We don't just develop technology; we pioneer solutions that shape
+              the future. From AI and digital transformation to cloud computing,
+              IoT, healthcare, and application security, we are at the forefront
+              of a technological revolution.
+            </p>
+            <div className="grid md:grid-cols-3 gap-6 mt-12">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-primary mb-2">50+</div>
+                <div className="text-muted-foreground">Team Members</div>
               </div>
-              
-              <h1 className="text-hero text-charcoal">
-                Build the Future of <span className="text-gradient-primary">Indian Technology</span>
-              </h1>
-              
-              <p className="text-xl text-dark-gray max-w-4xl mx-auto leading-relaxed">
-                Join CumulusClad's mission to transform India's digital landscape. Work on cutting-edge 
-                projects with the best minds in technology while making a real impact.
-              </p>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-primary mb-2">15+</div>
+                <div className="text-muted-foreground">Countries</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-primary mb-2">98%</div>
+                <div className="text-muted-foreground">
+                  Employee Satisfaction
+                </div>
+              </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Life at CumulusClad */}
-        <section className="section-padding bg-soft-gray">
-          <div className="container-luxury">
-            <div className="text-center mb-16">
-              <h2 className="text-section-title text-charcoal mb-6">Life at CumulusClad</h2>
-              <p className="text-xl text-dark-gray max-w-3xl mx-auto">
-                Experience a culture of innovation, collaboration, and growth in our state-of-the-art offices across India.
-              </p>
-            </div>
-
-            {/* Culture Images Carousel */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-              {cultureImages.map((image, index) => (
-                <Card key={image.title} className="card-luxury group overflow-hidden animate-slide-up" style={{ animationDelay: `${index * 100}ms` }}>
-                  <CardContent className="p-0">
-                    <div className={`h-48 ${image.image} flex items-center justify-center group-hover:scale-105 transition-transform duration-500`}>
-                      <div className="text-white font-semibold text-lg">{image.title}</div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-
-            {/* Culture Values */}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-              <Card className="card-luxury text-center">
-                <CardContent className="p-6">
-                  <Heart className="h-12 w-12 text-luxury-red mx-auto mb-4" />
-                  <h3 className="text-lg font-semibold text-charcoal mb-2">Work-Life Balance</h3>
-                  <p className="text-dark-gray text-sm">Flexible hours and remote work options</p>
-                </CardContent>
-              </Card>
-              
-              <Card className="card-luxury text-center">
-                <CardContent className="p-6">
-                  <Zap className="h-12 w-12 text-luxury-red mx-auto mb-4" />
-                  <h3 className="text-lg font-semibold text-charcoal mb-2">Innovation First</h3>
-                  <p className="text-dark-gray text-sm">20% time for personal projects and learning</p>
-                </CardContent>
-              </Card>
-              
-              <Card className="card-luxury text-center">
-                <CardContent className="p-6">
-                  <Coffee className="h-12 w-12 text-luxury-red mx-auto mb-4" />
-                  <h3 className="text-lg font-semibold text-charcoal mb-2">Great Benefits</h3>
-                  <p className="text-dark-gray text-sm">Health insurance, meals, and wellness programs</p>
-                </CardContent>
-              </Card>
-              
-              <Card className="card-luxury text-center">
-                <CardContent className="p-6">
-                  <Award className="h-12 w-12 text-luxury-red mx-auto mb-4" />
-                  <h3 className="text-lg font-semibold text-charcoal mb-2">Growth Opportunities</h3>
-                  <p className="text-dark-gray text-sm">Learning budget and career advancement paths</p>
-                </CardContent>
-              </Card>
-            </div>
+      {/* Life at CumulusClad */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="accent-line mx-auto mb-6" />
+            <h2 className="text-4xl lg:text-5xl font-bold heading-luxury mb-6">
+              Life at <span className="text-gradient-luxury">CumulusClad</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Join a culture of innovation, collaboration, and continuous
+              growth. We believe in empowering our team members to do their best
+              work while maintaining a healthy work-life balance.
+            </p>
           </div>
-        </section>
 
-        {/* Job Openings */}
-        <section className="section-padding">
-          <div className="container-luxury">
-            <div className="text-center mb-16">
-              <h2 className="text-section-title text-charcoal mb-6">Current Openings</h2>
-              <p className="text-xl text-dark-gray">Join our growing team and help build India's digital future</p>
-            </div>
+          {/* Culture Images Carousel */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            {cultureImages.map((image, index) => (
+              <div
+                key={index}
+                className="group relative overflow-hidden rounded-2xl animate-scale-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="aspect-square overflow-hidden">
+                  <img
+                    src={image.url}
+                    alt={image.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-luxury-black/80 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <h3 className="font-bold mb-1">{image.title}</h3>
+                  <p className="text-sm opacity-90">{image.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
 
-            <div className="max-w-4xl mx-auto space-y-6">
-              {jobOpenings.map((job, index) => (
-                <Card 
-                  key={job.id} 
-                  className="card-luxury cursor-pointer animate-slide-up"
-                  style={{ animationDelay: `${index * 100}ms` }}
+          {/* Benefits */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {benefits.map((benefit, index) => (
+              <div
+                key={index}
+                className="card-luxury text-center animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center mx-auto mb-6">
+                  <benefit.icon className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold mb-4">{benefit.title}</h3>
+                <p className="text-muted-foreground">{benefit.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Current Job Openings */}
+      <section className="py-24 bg-card">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="accent-line mx-auto mb-6" />
+            <h2 className="text-4xl lg:text-5xl font-bold heading-luxury mb-6">
+              Current <span className="text-gradient-luxury">Openings</span>
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              Join our team of innovators and help shape the future of
+              technology
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            {jobOpenings.map((job, index) => (
+              <div
+                key={job.id}
+                className="bg-background rounded-2xl border border-border hover:border-primary transition-all duration-300 animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                {/* Job Header */}
+                <div
+                  className="p-6 cursor-pointer"
+                  onClick={() =>
+                    setExpandedJob(expandedJob === job.id ? null : job.id)
+                  }
                 >
-                  <CardContent className="p-0">
-                    <div 
-                      className="p-6 cursor-pointer"
-                      onClick={() => setExpandedJob(expandedJob === job.id ? null : job.id)}
-                    >
-                      <div className="flex items-center justify-between">
-                        <div className="flex-1">
-                          <h3 className="text-xl font-semibold text-charcoal mb-2 font-space-grotesk">{job.title}</h3>
-                          <div className="flex items-center space-x-6 text-dark-gray text-sm">
-                            <div className="flex items-center space-x-2">
-                              <MapPin className="h-4 w-4" />
-                              <span>{job.location}</span>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                              <Clock className="h-4 w-4" />
-                              <span>{job.type}</span>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                              <Users className="h-4 w-4" />
-                              <span>{job.experience}</span>
-                            </div>
-                          </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex-1">
+                      <div className="flex items-center space-x-4 mb-2">
+                        <h3 className="text-xl font-bold">{job.title}</h3>
+                        <span className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-lg">
+                          {job.department}
+                        </span>
+                      </div>
+                      <p className="text-muted-foreground mb-4">
+                        {job.description}
+                      </p>
+                      <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
+                        <div className="flex items-center">
+                          <MapPin className="w-4 h-4 mr-1" />
+                          {job.location}
                         </div>
-                        <ArrowRight className={`h-5 w-5 text-luxury-red transition-transform duration-300 ${
-                          expandedJob === job.id ? 'rotate-90' : ''
-                        }`} />
+                        <div className="flex items-center">
+                          <Clock className="w-4 h-4 mr-1" />
+                          {job.type}
+                        </div>
+                        <div className="flex items-center">
+                          {/* <DollarSign className="w-4 h-4 mr-1" /> */}
+                          {job.salary}
+                        </div>
                       </div>
                     </div>
+                    <div className="ml-6">
+                      {expandedJob === job.id ? (
+                        <ChevronUp className="w-6 h-6 text-muted-foreground" />
+                      ) : (
+                        <ChevronDown className="w-6 h-6 text-muted-foreground" />
+                      )}
+                    </div>
+                  </div>
+                </div>
 
-                    {/* Expanded Content */}
-                    {expandedJob === job.id && (
-                      <div className="border-t border-medium-gray/30 p-6 space-y-4 animate-fade-in">
-                        <div>
-                          <h4 className="font-semibold text-charcoal mb-2">Description</h4>
-                          <p className="text-dark-gray">{job.description}</p>
-                        </div>
-                        
-                        <div>
-                          <h4 className="font-semibold text-charcoal mb-2">Requirements</h4>
-                          <ul className="space-y-1">
-                            {job.requirements.map((req, idx) => (
-                              <li key={idx} className="flex items-center space-x-2 text-dark-gray">
-                                <div className="w-1.5 h-1.5 bg-luxury-red rounded-full" />
-                                <span>{req}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        <div className="pt-4">
-                          <Button className="btn-luxury">
-                            Apply Now
-                            <ArrowRight className="ml-2 h-4 w-4" />
-                          </Button>
-                        </div>
+                {/* Job Details */}
+                {expandedJob === job.id && (
+                  <div className="px-6 pb-6 border-t border-border animate-fade-in">
+                    <div className="grid md:grid-cols-2 gap-8 pt-6">
+                      <div>
+                        <h4 className="font-semibold mb-4">Requirements</h4>
+                        <ul className="space-y-2">
+                          {job.requirements.map((req, idx) => (
+                            <li key={idx} className="flex items-start">
+                              <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0" />
+                              <span className="text-muted-foreground">
+                                {req}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
-                    )}
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+                      <div>
+                        <h4 className="font-semibold mb-4">Responsibilities</h4>
+                        <ul className="space-y-2">
+                          {job.responsibilities.map((resp, idx) => (
+                            <li key={idx} className="flex items-start">
+                              <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0" />
+                              <span className="text-muted-foreground">
+                                {resp}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                    <div className="mt-8 pt-6 border-t border-border flex justify-end">
+                      <Button className="btn-luxury">
+                        Apply Now
+                        <Send className="ml-2 h-4 w-4" />
+                      </Button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
 
-            <div className="text-center mt-12">
-              <p className="text-dark-gray mb-4">Don't see the right role? We're always looking for exceptional talent.</p>
-              <Button variant="outline" className="btn-luxury-outline">
+          {/* Call to Action */}
+          <div className="text-center mt-16">
+            <div className="card-luxury max-w-2xl mx-auto">
+              <h3 className="text-2xl font-bold mb-4">
+                Don't see the right role?
+              </h3>
+              <p className="text-muted-foreground mb-6">
+                We're always looking for talented individuals to join our team.
+                Send us your resume and let us know how you'd like to
+                contribute.
+              </p>
+              <Button className="btn-luxury">
                 Send Your Resume
+                <Send className="ml-2 h-4 w-4" />
               </Button>
             </div>
           </div>
-        </section>
-      </main>
-      <Footer />
-    </div>
+        </div>
+      </section>
+
+      {/* Join Our Team CTA */}
+      {/* <section className="py-24 bg-gradient-cta relative overflow-hidden">
+        <div className="container mx-auto px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-4xl mx-auto">
+            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+              If you're driven by the idea of transforming industries, solving complex challenges, and improving lives through technology, we want you on our team.
+            </h2>
+            <Button size="lg" className="btn-secondary">
+              Explore All Opportunities
+              <Rocket className="ml-2 h-5 w-5" />
+            </Button>
+          </div>
+        </div>
+      </section> */}
+    </Layout>
   );
 };
 

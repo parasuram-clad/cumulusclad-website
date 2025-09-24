@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Luxury CumulusClad Design System - Professional Dark Theme
+All colors MUST be HSL. Black (#000000), Deep Red (#8B0000), White (#FFFFFF)
+*/
+
+@layer base {
+  :root {
+    /* Core Brand Colors */
+    --background: 0 0% 0%; /* Pure Black #000000 */
+    --foreground: 0 0% 100%; /* Pure White #FFFFFF */
+
+    --luxury-black: 0 0% 0%; /* #000000 */
+    /* --luxury-red: 0 100% 27%;  */
+
+    --luxury-red: 0deg 100% 74.53%; /* #8B0000 Deep Red */
+    --luxury-white: 0 0% 100%; /* #FFFFFF */
+
+    /* Component Colors */
+    --card: 0 0% 5%; /* Slightly lighter black for cards */
+    --card-foreground: 0 0% 100%; /* White text on cards */
+
+    --popover: 0 0% 8%; /* Dark popover background */
+    --popover-foreground: 0 0% 100%; /* White popover text */
+
+    /* --primary: 0 100% 27%;  */
+    --primary: 0, 100%, 50%; /* Deep Red primary */
+
+    --primary-foreground: 0 0% 100%; /* White on red */
+
+    --secondary: 0 0% 15%; /* Dark gray secondary */
+    --secondary-foreground: 0 0% 100%; /* White on dark gray */
+
+    --muted: 0 0% 10%; /* Muted dark background */
+    --muted-foreground: 0 0% 70%; /* Light gray text */
+
+    /* --accent: 0 100% 27%;  */
+    --accent: 0, 77%, 46%; /* Red accent */
+    --accent-foreground: 0 0% 100%; /* White on red accent */
+
+    --destructive: 0 84% 60%; /* Bright red for destructive actions */
+    --destructive-foreground: 0 0% 100%; /* White on destructive */
+
+    --border: 0 0% 20%; /* Dark border */
+    --input: 0 0% 10%; /* Dark input background */
+    --ring: 0 100% 27%; /* Red focus ring */
+
+    --radius: 0.75rem; /* Luxury rounded corners */
+
+    /* Luxury Gradients */
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(0 100% 27%),
+      hsl(0 100% 40%)
+    );
+    --gradient-hero: linear-gradient(
+      180deg,
+      hsl(var(--luxury-black)),
+      hsl(0 0% 8%)
+    );
+    --gradient-accent: linear-gradient(
+      90deg,
+      hsl(var(--luxury-red) / 0.8),
+      hsl(var(--luxury-red) / 0.4)
+    );
+
+    /* Glow Effects */
+    --glow-red: 0 0 20px hsl(var(--luxury-red) / 0.5);
+    --glow-red-intense: 0 0 40px hsl(var(--luxury-red) / 0.8);
+    --shadow-luxury: 0 25px 50px -12px hsl(var(--luxury-red) / 0.25);
+
+    /* Animation Variables */
+    --transition-luxury: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-glow: all 0.3s ease-out;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Dark theme is default for CumulusClad luxury design */
+  .dark {
+    /* Use same luxury colors - dark theme is primary */
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    overflow-x: hidden;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Luxury Button Variants */
+  .btn-luxury {
+    @apply bg-gradient-to-r from-primary to-red-600 text-primary-foreground px-8 py-4 rounded-lg font-semibold tracking-wide uppercase text-sm;
+    @apply transition-all duration-300 hover:shadow-2xl transform hover:scale-105;
+    box-shadow: var(--glow-red);
+  }
+
+  .btn-luxury:hover {
+    box-shadow: var(--glow-red-intense);
+  }
+
+  .btn-ghost-luxury {
+    @apply border-2 border-primary text-white bg-transparent px-8 py-4 rounded-lg font-semibold tracking-wide uppercase text-sm;
+    @apply transition-all duration-300 hover:bg-primary hover:text-primary-foreground;
+  }
+
+  /* Luxury Text Styles */
+  .text-gradient-luxury {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--luxury-white)),
+      hsl(var(--luxury-red))
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .heading-luxury {
+    @apply text-foreground font-bold tracking-tight;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Luxury Cards */
+  .card-luxury {
+    @apply bg-card border border-border rounded-lg p-8;
+    @apply transition-all duration-300 hover:border-primary;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+  }
+
+  .card-luxury:hover {
+    box-shadow: var(--shadow-luxury);
+    transform: translateY(-5px);
+  }
+
+  /* Accent Lines */
+  .accent-line {
+    @apply w-20 h-1 bg-gradient-to-r from-primary to-red-600 rounded-full;
+  }
+
+  /* Glow Effects */
+  .glow-red {
+    box-shadow: var(--glow-red);
+  }
+
+  .glow-red-intense {
+    box-shadow: var(--glow-red-intense);
+  }
+
+  /* Navigation Underline Animation */
+  .nav-link {
+    @apply relative transition-colors duration-300 hover:text-primary;
+  }
+
+  .nav-link::after {
+    content: "";
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 transition-transform duration-300 origin-left;
+  }
+
+  .nav-link:hover::after {
+    @apply scale-x-100;
+  }
+}
