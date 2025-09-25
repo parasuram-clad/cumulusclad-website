@@ -93,7 +93,7 @@ const Services = () => {
 
                 {/* Content */}
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
+                  <h3 className="text-xl font-bold  mb-3 group-hover:text-primary transition-colors duration-300">
                     {service.title}
                   </h3>
                   <p className="text-muted-foreground leading-relaxed text-sm">
@@ -102,7 +102,7 @@ const Services = () => {
 
                   {/* Learn More Link */}
                   <div className="mt-4">
-                    <span className="text-primary font-semibold text-sm uppercase tracking-wide group-hover:underline transition-all duration-300">
+                    <span className="text-primary font-normal text-sm uppercase tracking-wide group-hover:underline transition-all duration-300">
                       Learn More →
                     </span>
                   </div>

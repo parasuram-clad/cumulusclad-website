@@ -1,5 +1,5 @@
 import Layout from "@/components/Layout";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   ExternalLink,
   Calendar,
@@ -11,15 +11,17 @@ import {
   Clock,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
-import caseStudy1 from "@/assets/case-study-1.jpg";
-import caseStudy2 from "@/assets/case-study-2.jpg";
-import education from "../assets/industries/education.png";
-import healthcare from "../assets/industries/healthcare.jpg";
-import manufacturing from "../assets/industries/manufacturing.jpg";
-import smartCity from "../assets/industries/smart-city.jpg";
-
+import { Link, useSearchParams, useNavigate } from "react-router-dom";
+import healthcare from "@/assets/works/ai-powered-healthcare-platform.jpeg";
+import trading from "@/assets/works/real-time-trading.jpeg";
+import manufacturing from "@/assets/works/smart-manufacturing-IoT-system.jpeg";
+import education from "@/assets/works/interactive-e-learning -platform.jpg";
+import retail from "@/assets/works/inventory-management.jpeg";
+import smartCity from "@/assets/works/smart-city-infrastructure.jpeg";
 const Work = () => {
+  const [searchParams, setSearchParams] = useSearchParams(); // Use setSearchParams instead of navigate
+  const categoryFromUrl = searchParams.get("category");
+  const navigate = useNavigate();
   const projects = [
     {
       id: "healthcare-platform",
@@ -42,15 +44,14 @@ const Work = () => {
         "Increased patient satisfaction to 98%",
         "Expanded healthcare access to rural areas",
       ],
-      year: "2023",
+      year: "2024",
       duration: "8 months",
     },
     {
       id: "fintech-trading-platform",
       title: "Real-Time Trading Platform",
       category: "FinTech",
-      image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+      image: trading,
       description:
         "High-frequency trading platform with real-time analytics and risk management.",
       fullDescription:
@@ -67,7 +68,7 @@ const Work = () => {
         "Reduced trading latency by 80%",
         "Improved risk management accuracy",
       ],
-      year: "2023",
+      year: "2024",
       duration: "12 months",
     },
     {
@@ -97,7 +98,7 @@ const Work = () => {
         "Saved $2M annually in maintenance costs",
         "Enhanced equipment lifespan by 30%",
       ],
-      year: "2022",
+      year: "2025",
       duration: "10 months",
     },
     {
@@ -121,15 +122,14 @@ const Work = () => {
         "Reduced instructor workload by 30%",
         "Expanded global reach to 50+ countries",
       ],
-      year: "2023",
+      year: "2024",
       duration: "6 months",
     },
     {
       id: "retail-analytics",
       title: "Retail Analytics & Inventory Management",
       category: "Retail",
-      image:
-        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
+      image: retail,
       description:
         "AI-driven retail analytics platform with demand forecasting and inventory optimization.",
       fullDescription:
@@ -152,7 +152,7 @@ const Work = () => {
         "Improved customer satisfaction by 40%",
         "Optimized supply chain efficiency",
       ],
-      year: "2022",
+      year: "2025",
       duration: "8 months",
     },
     {
@@ -177,7 +177,7 @@ const Work = () => {
         "Enhanced public safety response time",
         "Increased citizen engagement by 60%",
       ],
-      year: "2023",
+      year: "2024",
       duration: "14 months",
     },
   ];
@@ -186,7 +186,37 @@ const Work = () => {
     "All",
     ...Array.from(new Set(projects.map((p) => p.category))),
   ];
-  const [activeCategory, setActiveCategory] = useState("All");
+
+  // Initialize activeCategory with category from URL or "All"
+  const [activeCategory, setActiveCategory] = useState(
+    categoryFromUrl && categories.includes(categoryFromUrl)
+      ? categoryFromUrl
+      : "All"
+  );
+
+  // Update activeCategory when URL parameter changes
+  useEffect(() => {
+    if (categoryFromUrl && categories.includes(categoryFromUrl)) {
+      setActiveCategory(categoryFromUrl);
+    } else if (!categoryFromUrl) {
+      setActiveCategory("All");
+    }
+  }, [categoryFromUrl, categories]);
+
+  // Function to handle category filter click
+  const handleCategoryClick = (category: string) => {
+    setActiveCategory(category);
+
+    if (category === "All") {
+      // Remove category parameter from URL
+      const newSearchParams = new URLSearchParams(searchParams);
+      newSearchParams.delete("category");
+      setSearchParams(newSearchParams);
+    } else {
+      // Update URL with new category
+      setSearchParams({ category });
+    }
+  };
 
   const filteredProjects =
     activeCategory === "All"
@@ -215,26 +245,65 @@ const Work = () => {
       </section>
 
       {/* Category Filter */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-4 mb-16">
+      <section className="pt-12 sm:pt-14 md:pt-16 bg-background">
+        <div className="container mx-auto px-4 sm:px-5 md:px-6 lg:px-8">
+          {/* Mobile Select Dropdown (only on small screens) */}
+          <div className="block md:hidden mb-6 sm:mb-8">
+            <div className="relative">
+              <select
+                value={activeCategory}
+                onChange={(e) => handleCategoryClick(e.target.value)}
+                className="w-full px-4 py-3 bg-background border-2 border-primary/20 rounded-xl text-foreground font-medium focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 appearance-none transition-all duration-200 text-base"
+              >
+                {categories.map((category) => (
+                  <option key={category} value={category}>
+                    {category === "All" ? "All Categories" : category}
+                  </option>
+                ))}
+              </select>
+              <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+                <svg
+                  className="h-5 w-5 text-primary"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          {/* Tablet & Desktop Tabs */}
+          <div className="hidden md:flex flex-wrap justify-center gap-3 md:gap-4 lg:gap-6 xl:gap-8 mb-10 md:mb-14 lg:mb-16">
             {categories.map((category) => (
               <button
                 key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
+                onClick={() => handleCategoryClick(category)}
+                className={`group relative px-3 md:px-4 py-3 md:py-3 font-medium transition-all duration-300 text-base md:text-lg lg:text-lg ${
                   activeCategory === category
-                    ? "bg-primary text-white shadow-luxury"
-                    : "bg-card text-foreground hover:bg-primary/10 hover:text-primary border border-border"
+                    ? "text-primary font-semibold"
+                    : "text-muted-foreground hover:text-primary/80"
                 }`}
               >
                 {category}
+                <span
+                  className={`absolute bottom-2 md:bottom-2.5 left-0 w-full h-0.5 bg-primary transition-all duration-300 ${
+                    activeCategory === category
+                      ? "scale-100 opacity-100"
+                      : "scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-50"
+                  }`}
+                />
               </button>
             ))}
           </div>
         </div>
       </section>
-
       {/* Projects Grid */}
       <section className="pb-24 bg-background">
         <div className="container mx-auto px-6 lg:px-8">

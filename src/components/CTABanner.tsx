@@ -46,21 +46,29 @@ const CTABanner = () => {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center pt-6 sm:pt-8 w-full max-w-md mx-auto sm:max-w-none">
               <Button
                 size="lg"
-                onClick={handleButtonClick} // Use the debug function
-                className="bg-white text-[hsl(0_100%_27%)] hover:bg-white/90 px-8 py-4 text-lg  group shadow-2xl relative z-10" // Added z-10
+                onClick={handleButtonClick}
+                className="bg-white text-[hsl(0_100%_27%)] hover:bg-white/90 
+               px-6 sm:px-8 py-3 sm:py-4 
+               text-base sm:text-lg 
+               group shadow-2xl relative z-10
+               w-full sm:w-auto text-center"
               >
-                Start Your Project
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                Connect With Us
+                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" />
               </Button>
 
-              <Link to={`/work`}>
+              <Link to="/work" className="w-full sm:w-auto">
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-2 border-white bg-transparent text-white hover:bg-white hover:text-[hsl(0_100%_27%)] px-8 py-4 text-lg  relative z-10" // Added z-10
+                  className="border-2 border-white bg-transparent text-white 
+                 hover:bg-white/20 hover:text-white 
+                 px-6 sm:px-8 py-3 sm:py-4 
+                 text-base sm:text-lg 
+                 relative z-10 w-full text-center"
                 >
                   View Our Work
                 </Button>

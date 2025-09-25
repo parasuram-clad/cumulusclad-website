@@ -2,13 +2,12 @@ import { Button } from "@/components/ui/button";
 import heroBackground from "@/assets/hero-background.jpg";
 import aiAbstract from "@/assets/ai-abstract.jpg";
 import { useState } from "react";
-import SimpleEnquiryModal from "./EnquiryModal"; // Change this import
+import SimpleEnquiryModal from "./EnquiryModal";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Add this to debug
   const handleButtonClick = () => {
     console.log("Button clicked");
     setIsModalOpen(true);
@@ -56,26 +55,51 @@ const Hero = () => {
             <div className="space-y-8 animate-fade-in-up">
               <div className="space-y-6">
                 <div className="accent-line" />
-                <h1 className="text-5xl lg:text-7xl font-bold heading-luxury leading-tight">
-                  From Idea to{" "}
-                  <span className="text-gradient-luxury">Execution</span>, We're
-                  Your Tech Team
-                </h1>
-                <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed">
-                  Transform your vision into reality with cutting-edge
-                  technology solutions. We build the future, one innovation at a
-                  time.
-                </p>
+
+                {/* Main Title */}
+                <div className="space-y-4">
+                  <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold heading-luxury leading-tight">
+                    Think Deep <br />
+                    <span className="text-gradient-luxury"> Make Impact</span>
+                  </h1>
+
+                  {/* Subtitle */}
+                  {/* <h2 className="text-xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold leading-snug">
+                    From Idea to Execution We're Your Tech Team
+                  </h2> */}
+
+                  {/* Description */}
+                  {/* <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground leading-relaxed">
+                    Transform your vision into reality with cutting-edge
+                    technology solutions. We build the future, one innovation at
+                    a time.
+                  </p> */}
+                  <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground leading-relaxed">
+                    From Idea to Execution We're Your Tech Team
+                  </p>
+                </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-6">
+              {/* Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
                 <Button
-                  className="btn-luxury group"
+                  className="btn-luxury group text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 
+             relative overflow-hidden
+             transition-all duration-500 ease-out 
+             hover:scale-105 hover:shadow-2xl hover:bg-primary/90
+             transform-gpu
+             before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/10 before:to-transparent 
+             before:translate-x-[-100%] before:transition-transform before:duration-500 
+             hover:before:translate-x-[100%]"
                   onClick={handleButtonClick}
                 >
-                  Start Your Project
+                  <span className="relative z-10 transition-all duration-300 group-hover:tracking-wider">
+                    Connect With Us
+                  </span>
                   <svg
-                    className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1"
+                    className="ml-2 h-4 w-4 sm:h-5 sm:w-5 relative z-10
+               transition-all duration-500 ease-out 
+               group-hover:translate-x-2 group-hover:scale-110"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -88,10 +112,10 @@ const Hero = () => {
                     />
                   </svg>
                 </Button>
-                <Link to={`/work`}>
+                <Link to="/work" className="flex">
                   <Button
                     variant="outline"
-                    className="border-luxury-red text-luxury-red hover:bg-luxury-red hover:text-white transition-all duration-300 px-8 py-4 rounded-lg  tracking-wide uppercase text-sm"
+                    className="border-luxury-red text-luxury-red hover:bg-luxury-red/10 hover:text-red transition-all duration-300 px-6 sm:px-8 py-3 sm:py-4 rounded-lg tracking-wide uppercase text-sm sm:text-base flex-1"
                   >
                     View Our Work
                   </Button>
@@ -99,28 +123,28 @@ const Hero = () => {
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-3 gap-8 pt-8 border-t border-border">
+              <div className="grid grid-cols-3 gap-4 sm:gap-6 lg:gap-8 pt-6 sm:pt-8 border-t border-border">
                 <div className="text-center">
-                  <div className="text-3xl lg:text-4xl font-bold text-primary">
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary">
                     150+
                   </div>
-                  <div className="text-sm text-muted-foreground uppercase tracking-wide">
+                  <div className="text-xs sm:text-sm text-muted-foreground uppercase tracking-wide mt-1">
                     Projects
                   </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl lg:text-4xl font-bold text-primary">
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary">
                     50+
                   </div>
-                  <div className="text-sm text-muted-foreground uppercase tracking-wide">
+                  <div className="text-xs sm:text-sm text-muted-foreground uppercase tracking-wide mt-1">
                     Clients
                   </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl lg:text-4xl font-bold text-primary">
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary">
                     8+
                   </div>
-                  <div className="text-sm text-muted-foreground uppercase tracking-wide">
+                  <div className="text-xs sm:text-sm text-muted-foreground uppercase tracking-wide mt-1">
                     Industries
                   </div>
                 </div>
@@ -128,19 +152,19 @@ const Hero = () => {
             </div>
 
             {/* Right Content - Abstract Image */}
-            <div className="relative animate-slide-in-right">
+            <div className="relative animate-slide-in-right mt-8 lg:mt-0">
               <div className="relative">
                 <img
                   src={aiAbstract}
                   alt="AI and Cloud Technology"
-                  className="w-full h-auto rounded-2xl shadow-luxury animate-float"
+                  className="w-full h-auto rounded-2xl shadow-luxury animate-float max-w-md mx-auto lg:max-w-full"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-2xl" />
 
                 {/* Floating Elements */}
-                <div className="absolute -top-6 -right-6 w-20 h-20 bg-primary/20 rounded-full blur-xl animate-glow-pulse" />
+                <div className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 w-16 h-16 sm:w-20 sm:h-20 bg-primary/20 rounded-full blur-xl animate-glow-pulse" />
                 <div
-                  className="absolute -bottom-8 -left-8 w-32 h-32 bg-primary/10 rounded-full blur-2xl animate-glow-pulse"
+                  className="absolute -bottom-6 -left-6 sm:-bottom-8 sm:-left-8 w-24 h-24 sm:w-32 sm:h-32 bg-primary/10 rounded-full blur-2xl animate-glow-pulse"
                   style={{ animationDelay: "1s" }}
                 />
               </div>
@@ -154,7 +178,7 @@ const Hero = () => {
             <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-pulse" />
           </div>
         </div>
-      </section>{" "}
+      </section>
     </>
   );
 };

@@ -1,6 +1,10 @@
 import { useParams, Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
+import StackIcon from "tech-stack-icons";
+import { FC } from "react";
+import DynamicIcon from "../components/DynamicIcon";
+import { useState } from "react";
 import {
   Brain,
   Monitor,
@@ -15,10 +19,77 @@ import {
   Award,
   BarChart3,
   DollarSign,
+  TrendingUp,
+  Eye,
+  Smartphone,
+  Search,
+  Zap,
+  Infinity,
+  Server,
+  HardDrive,
+  Settings,
+  Trophy,
+  Calendar,
+  Activity,
+  Wrench,
+  Battery,
+  MonitorCheck,
+  FileCheck,
+  RefreshCw,
+  ThumbsUp,
+  Lock,
+  AlertTriangle,
 } from "lucide-react";
 import CTABanner from "@/components/CTABanner";
-
 const ServiceDetail = () => {
+  const [activeCategory, setActiveCategory] = useState("All");
+  const getFilteredTechStack = (techStack: any, activeCategory: string) => {
+    if (!techStack || typeof techStack !== "object") return [];
+
+    if (activeCategory === "All") {
+      return Object.entries(techStack).flatMap(([category, technologies]) =>
+        Array.isArray(technologies)
+          ? technologies.map((tech: string) => ({ tech, category }))
+          : []
+      );
+    }
+
+    return Array.isArray(techStack[activeCategory])
+      ? techStack[activeCategory].map((tech: string) => ({
+          tech,
+          category: activeCategory,
+        }))
+      : [];
+  };
+
+  // Move the TechCard component outside the main component or fix the scope
+  const TechCard = ({
+    tech,
+    category,
+    index,
+  }: {
+    tech: string;
+    category: string;
+    index: number;
+  }) => (
+    <div
+      className="group relative bg-card/50 rounded-2xl p-4 border border-border/50 hover:border-primary/40 hover:bg-card hover:shadow-lg transition-all duration-300 animate-fade-in"
+      style={{ animationDelay: `${index * 0.03}s` }}
+      title={tech}
+    >
+      <div className="w-10 h-10 md:w-14 md:h-14 flex items-center justify-center">
+        <DynamicIcon iconName={tech} alt={tech} />
+      </div>
+
+      {/* Tech name tooltip */}
+      <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+        <span className="bg-foreground text-background text-xs px-2 py-1 rounded-md whitespace-nowrap">
+          {tech}
+        </span>
+      </div>
+    </div>
+  );
+
   const getBenefitIcon = (iconName: string) => {
     const iconMap: { [key: string]: JSX.Element } = {
       Brain: <Brain className="w-6 h-6 text-white" />,
@@ -27,9 +98,32 @@ const ServiceDetail = () => {
       DollarSign: <DollarSign className="w-6 h-6 text-white" />,
       Users: <Users className="w-6 h-6 text-white" />,
       Award: <Award className="w-6 h-6 text-white" />,
+      TrendingUp: <TrendingUp className="w-6 h-6 text-white" />,
+      Eye: <Eye className="w-6 h-6 text-white" />,
+      Smartphone: <Smartphone className="w-6 h-6 text-white" />,
+      Search: <Search className="w-6 h-6 text-white" />,
+      Zap: <Zap className="w-6 h-6 text-white" />,
+      Infinity: <Infinity className="w-6 h-6 text-white" />,
+      Shield: <Shield className="w-6 h-6 text-white" />,
+      Server: <Server className="w-6 h-6 text-white" />,
+      Globe: <Globe className="w-6 h-6 text-white" />,
+      HardDrive: <HardDrive className="w-6 h-6 text-white" />,
+      Settings: <Settings className="w-6 h-6 text-white" />,
+      Trophy: <Trophy className="w-6 h-6 text-white" />,
+      Calendar: <Calendar className="w-6 h-6 text-white" />,
+      Activity: <Activity className="w-6 h-6 text-white" />,
+      Monitor: <Monitor className="w-6 h-6 text-white" />,
+      Wrench: <Wrench className="w-6 h-6 text-white" />,
+      Battery: <Battery className="w-6 h-6 text-white" />,
+      MonitorCheck: <MonitorCheck className="w-6 h-6 text-white" />,
+      FileCheck: <FileCheck className="w-6 h-6 text-white" />,
+      RefreshCw: <RefreshCw className="w-6 h-6 text-white" />,
+      ThumbsUp: <ThumbsUp className="w-6 h-6 text-white" />,
+      Lock: <Lock className="w-6 h-6 text-white" />,
+      AlertTriangle: <AlertTriangle className="w-6 h-6 text-white" />,
     };
 
-    return iconMap[iconName] || <Star className="w-5 h-5 text-primary" />;
+    return iconMap[iconName] || <Star className="w-6 h-6 text-white" />;
   };
   const { serviceId } = useParams();
 
@@ -46,25 +140,43 @@ const ServiceDetail = () => {
           title: "Machine Learning Models",
           description:
             "Custom ML models tailored to your specific business needs and data patterns. Our expert team designs and implements sophisticated algorithms that learn from your data to make intelligent predictions and automate complex decision-making processes.",
-          image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=250&fit=crop",
+          image:
+            "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=250&fit=crop",
         },
         {
           title: "Natural Language Processing",
           description:
             "Extract insights from text data, enable chatbots, and automate content analysis. Transform unstructured text into actionable intelligence with advanced NLP techniques including sentiment analysis, entity recognition, and language translation capabilities.",
-          image: "https://images.unsplash.com/photo-1587560699334-cc4ff634909a?w=400&h=250&fit=crop",
+          image:
+            "https://images.unsplash.com/photo-1587560699334-cc4ff634909a?w=400&h=250&fit=crop",
         },
         {
           title: "Computer Vision",
           description:
             "Advanced image and video analysis for quality control, security, and automation. Implement intelligent visual recognition systems that can identify objects, detect anomalies, and provide real-time insights for industrial and commercial applications.",
-          image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=250&fit=crop",
+          image:
+            "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=250&fit=crop",
         },
         {
           title: "Predictive Analytics",
           description:
             "Forecast trends, customer behavior, and business outcomes with high accuracy. Leverage statistical modeling and machine learning to anticipate future scenarios, optimize resource allocation, and make data-driven strategic decisions.",
-          image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop",
+          image:
+            "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop",
+        },
+        {
+          title: "AI Consulting & Strategy",
+          description:
+            "Comprehensive AI roadmap development and implementation guidance. Our experts help you identify high-impact AI opportunities, build business cases, and create sustainable AI strategies aligned with your organizational goals.",
+          image:
+            "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&h=250&fit=crop",
+        },
+        {
+          title: "AI Integration & Deployment",
+          description:
+            "Seamless integration of AI solutions into your existing workflows and systems. We ensure smooth deployment, provide comprehensive training, and establish monitoring frameworks for continuous AI performance optimization.",
+          image:
+            "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=250&fit=crop",
         },
       ],
       benefits: [
@@ -97,29 +209,38 @@ const ServiceDetail = () => {
         {
           title: "Healthcare Diagnostics",
           description:
-            "AI-powered medical imaging analysis for early disease detection and treatment planning.",
+            "AI-powered medical imaging analysis for early disease detection and treatment planning. Leverages deep learning algorithms to analyze MRI, CT scans, and X-rays with radiologist-level accuracy.",
         },
         {
           title: "Financial Fraud Detection",
           description:
-            "Real-time transaction monitoring and anomaly detection to prevent fraudulent activities.",
+            "Real-time transaction monitoring and anomaly detection to prevent fraudulent activities. Uses machine learning models to identify suspicious patterns and reduce false positives by 70%.",
         },
         {
           title: "Supply Chain Optimization",
           description:
-            "Predictive analytics for inventory management and demand forecasting.",
+            "Predictive analytics for inventory management and demand forecasting. Implements AI algorithms to optimize logistics, reduce costs, and improve delivery efficiency by 40%.",
         },
       ],
-      techStack: [
-        "TensorFlow",
-        "PyTorch",
-        "OpenAI GPT",
-        "AWS SageMaker",
-        "Azure AI",
-        "Scikit-learn",
-        "Pandas",
-        "NumPy",
-      ],
+      techStack: {
+        "AI Frameworks": [
+          "TensorFlow",
+          "PyTorch",
+          "Scikit-learn",
+          "Keras",
+
+          "JAX",
+          "ONNX",
+        ],
+        "Computer Vision": ["OpenCV", "MediaPipe"],
+        "Data Science": ["Pandas", "NumPy", "Matplotlib", "Seaborn", "SciPy"],
+        "Language Models": [
+          "OpenAI GPT",
+          "Anthropic Claude",
+          "Google PaLM",
+          "Meta Llama",
+        ],
+      },
     },
     "digital-experience": {
       icon: Monitor,
@@ -133,62 +254,114 @@ const ServiceDetail = () => {
           title: "UI/UX Design",
           description:
             "Human-centered design that creates intuitive and engaging user interfaces. We craft digital experiences that delight users through thoughtful design patterns, accessibility standards, and conversion-focused user journeys.",
-          image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=250&fit=crop",
+          image:
+            "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=250&fit=crop",
         },
         {
           title: "Web Development",
           description:
             "Modern, responsive websites built with the latest technologies and best practices. From corporate websites to complex web applications, we deliver high-performance solutions that scale with your business needs.",
-          image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=400&h=250&fit=crop",
+          image:
+            "https://images.unsplash.com/photo-1547658719-da2b51169166?w=400&h=250&fit=crop",
         },
         {
           title: "Mobile Applications",
           description:
             "Native and cross-platform mobile apps that deliver seamless user experiences. Build engaging mobile solutions for iOS and Android that leverage device capabilities and provide offline functionality.",
-          image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=250&fit=crop",
+          image:
+            "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=250&fit=crop",
         },
         {
           title: "Progressive Web Apps",
           description:
             "Fast, reliable web applications that work offline and feel like native apps. Combine the best of web and mobile experiences with progressive enhancement, service workers, and responsive design principles.",
-          image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=250&fit=crop",
+          image:
+            "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=250&fit=crop",
+        },
+        {
+          title: "E-commerce Solutions",
+          description:
+            "Complete online store development with secure payment gateways, inventory management, and customer analytics. Create seamless shopping experiences that drive conversions and customer loyalty.",
+          image:
+            "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop",
+        },
+        {
+          title: "Digital Strategy & Consulting",
+          description:
+            "Comprehensive digital transformation guidance to maximize your online presence. We analyze your business objectives, target audience, and market trends to create data-driven digital strategies.",
+          image:
+            "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&h=250&fit=crop",
         },
       ],
       benefits: [
-        "Improved User Engagement",
-        "Higher Conversion Rates",
-        "Enhanced Brand Recognition",
-        "Mobile-First Approach",
-        "SEO Optimization",
-        "Performance Excellence",
+        {
+          text: "Improved User Engagement",
+          icon: "Users",
+        },
+        {
+          text: "Higher Conversion Rates",
+          icon: "TrendingUp",
+        },
+        {
+          text: "Enhanced Brand Recognition",
+          icon: "Eye",
+        },
+        {
+          text: "Mobile-First Approach",
+          icon: "Smartphone",
+        },
+        {
+          text: "SEO Optimization",
+          icon: "Search",
+        },
+        {
+          text: "Performance Excellence",
+          icon: "Zap",
+        },
       ],
       useCases: [
         {
           title: "E-commerce Platform",
           description:
-            "Complete online shopping experience with personalized recommendations and seamless checkout.",
+            "Complete online shopping experience with personalized recommendations and seamless checkout. Advanced AI-driven product discovery and omnichannel customer journey integration.",
         },
         {
           title: "Healthcare Portal",
           description:
-            "Patient management system with telemedicine capabilities and health tracking.",
+            "Patient management system with telemedicine capabilities and health tracking. Secure patient-provider communication with real-time health monitoring and automated appointment scheduling.",
         },
         {
           title: "Educational Platform",
           description:
-            "Interactive learning management system with virtual classrooms and progress tracking.",
+            "Interactive learning management system with virtual classrooms and progress tracking. Personalized learning paths with AI-powered assessments and collaborative tools for remote education.",
         },
       ],
-      techStack: [
-        "React",
-        "Vue.js",
-        "Angular",
-        "React Native",
-        "Flutter",
-        "Node.js",
-        "TypeScript",
-        "Tailwind CSS",
-      ],
+      techStack: {
+        "Frontend Frameworks": [
+          "React",
+          "Vue.js",
+          "Angular",
+          "Svelte",
+          "Next.js",
+          "Nuxt.js",
+        ],
+        "Content Management": [
+          "Contentful",
+          "Sanity",
+          "Strapi",
+          "WordPress (Headless)",
+          "Storybook",
+          "Prismic",
+        ],
+        "Mobile Development": [
+          "React Native",
+          "Flutter",
+          "Ionic",
+          "Swift",
+          "Kotlin",
+        ],
+        Analytics: ["Google Analytics", , "Mixpanel", "Amplitude", "Hotjar"],
+      },
     },
     "cloud-solutions": {
       icon: Cloud,
@@ -202,62 +375,124 @@ const ServiceDetail = () => {
           title: "Cloud Migration",
           description:
             "Seamless migration of your existing infrastructure to cloud platforms with minimal downtime. Our comprehensive migration strategy ensures data integrity, security compliance, and optimal performance throughout the transition process.",
-          image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=250&fit=crop",
+          image:
+            "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=250&fit=crop",
         },
         {
           title: "Infrastructure as Code",
           description:
             "Automated infrastructure provisioning and management using modern DevOps practices. Implement version-controlled, repeatable infrastructure deployment with tools like Terraform, CloudFormation, and Kubernetes for consistent environments.",
-          image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=250&fit=crop",
+          image:
+            "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=250&fit=crop",
         },
         {
           title: "Serverless Architecture",
           description:
             "Event-driven computing that automatically scales and reduces operational overhead. Build cost-effective applications that scale to zero when not in use and handle massive spikes in traffic without infrastructure management.",
-          image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=400&h=250&fit=crop",
+          image:
+            "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=400&h=250&fit=crop",
         },
         {
           title: "DevOps & CI/CD",
           description:
             "Streamlined development workflows with automated testing and deployment pipelines. Accelerate software delivery with continuous integration, automated quality gates, and zero-downtime deployment strategies.",
-          image: "https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=400&h=250&fit=crop",
+          image:
+            "https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=400&h=250&fit=crop",
+        },
+        {
+          title: "Cloud Security & Compliance",
+          description:
+            "Comprehensive security frameworks and compliance management for cloud environments. Implement multi-layered security controls, identity management, and regulatory compliance for GDPR, HIPAA, SOC2, and other standards.",
+          image:
+            "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&h=250&fit=crop",
+        },
+        {
+          title: "Cloud Cost Optimization",
+          description:
+            "Strategic cost management and optimization for cloud resources. Analyze usage patterns, implement cost-saving measures, and establish monitoring systems to ensure optimal cloud spending without compromising performance.",
+          image:
+            "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=250&fit=crop",
         },
       ],
       benefits: [
-        "Infinite Scalability",
-        "Cost Optimization",
-        "Enhanced Security",
-        "Improved Reliability",
-        "Global Availability",
-        "Automated Backups",
+        {
+          text: "Infinite Scalability",
+          icon: "Infinity",
+        },
+        {
+          text: "Cost Optimization",
+          icon: "DollarSign",
+        },
+        {
+          text: "Enhanced Security",
+          icon: "Shield",
+        },
+        {
+          text: "Improved Reliability",
+          icon: "Server",
+        },
+        {
+          text: "Global Availability",
+          icon: "Globe",
+        },
+        {
+          text: "Automated Backups",
+          icon: "HardDrive",
+        },
       ],
       useCases: [
         {
           title: "Enterprise Modernization",
           description:
-            "Legacy system migration to modern cloud-native architecture for improved performance.",
+            "Legacy system migration to modern cloud-native architecture for improved performance. Containerized applications with microservices architecture and automated CI/CD pipelines for faster deployment.",
         },
         {
           title: "Startup Infrastructure",
           description:
-            "Scalable cloud foundation that grows with your business without upfront investment.",
+            "Scalable cloud foundation that grows with your business without upfront investment. Pay-as-you-go model with auto-scaling capabilities and built-in high availability for rapid growth.",
         },
         {
           title: "Disaster Recovery",
           description:
-            "Robust backup and recovery solutions ensuring business continuity.",
+            "Robust backup and recovery solutions ensuring business continuity. Automated failover systems with geo-redundant storage and recovery time objectives under 15 minutes.",
         },
       ],
-      techStack: [
-        "AWS",
-        "Microsoft Azure",
-        "Google Cloud",
-        "Kubernetes",
-        "Docker",
-        "Terraform",
-        "Jenkins",
-        "Prometheus",
-      ],
+      techStack: {
+        "Compute Services": [
+          "AWS EC2",
+          "Azure VMs",
+          "Google Compute Engine",
+          "AWS Lambda",
+          "Azure Functions",
+        ],
+        "Data & Storage": [
+          "Amazon S3",
+          "Azure Blob Storage",
+          "Google Cloud Storage",
+          "Amazon RDS",
+          "MongoDB Atlas",
+        ],
+        "Networking & CDN": [
+          "AWS CloudFront",
+          "Azure CDN",
+          "Cloudflare",
+          "AWS Route 53",
+        ],
+        "Management & DevOps": [
+          "AWS CloudWatch",
+          "Azure Monitor",
+          "Datadog",
+          "Terraform",
+          "Ansible",
+        ],
+        Security: [
+          "AWS IAM",
+          "Azure Active Directory",
+          "Google Cloud IAM",
+          "Cloudflare Security",
+        ],
+        Containers: ["Docker", "Kubernetes", "AWS EKS", "Azure AKS"],
+      },
     },
     "digital-transformation": {
       icon: Rocket,
@@ -271,60 +506,100 @@ const ServiceDetail = () => {
           title: "Process Automation",
           description:
             "Streamline operations with intelligent automation and workflow optimization. Eliminate manual processes through robotic process automation, AI-powered decision making, and integrated business process management systems.",
-          image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&h=250&fit=crop",
+          image:
+            "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&h=250&fit=crop",
         },
         {
           title: "Legacy System Modernization",
           description:
             "Transform outdated systems into modern, efficient, and scalable solutions. Migrate from monolithic architectures to microservices, update technology stacks, and improve system performance while maintaining business continuity.",
-          image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=250&fit=crop",
+          image:
+            "https://cdn.elearningindustry.com/wp-content/uploads/2024/01/How-To-Implement-An-Impactful-Digital-Transformation-Strategy-In-Your-Organization.jpg",
         },
         {
           title: "Digital Strategy Consulting",
           description:
             "Strategic planning and roadmap development for successful digital transformation. Assess current capabilities, define target architecture, and create actionable plans that align technology initiatives with business objectives.",
-          image: "https://images.unsplash.com/photo-1553484771-371a605b060b?w=400&h=250&fit=crop",
+          image:
+            "https://images.unsplash.com/photo-1553484771-371a605b060b?w=400&h=250&fit=crop",
         },
         {
           title: "Change Management",
           description:
             "Organizational change support to ensure smooth adoption of new technologies. Provide training programs, communication strategies, and stakeholder engagement to maximize user adoption and transformation success.",
-          image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&h=250&fit=crop",
+          image:
+            "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&h=250&fit=crop",
+        },
+        {
+          title: "Cloud Transformation",
+          description:
+            "Accelerate innovation with secure and scalable cloud solutions. Implement cloud-native architectures, optimize cloud infrastructure, and enable flexible, cost-effective digital operations across hybrid and multi-cloud environments.",
+          image:
+            "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=250&fit=crop",
+        },
+        {
+          title: "Data Analytics & AI Integration",
+          description:
+            "Harness the power of data to drive intelligent decision-making. Implement advanced analytics platforms, machine learning models, and business intelligence tools that transform raw data into actionable insights and predictive capabilities.",
+          image:
+            "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop",
         },
       ],
       benefits: [
-        "Operational Excellence",
-        "Competitive Advantage",
-        "Future-Ready Infrastructure",
-        "Enhanced Customer Experience",
-        "Data-Driven Decision Making",
-        "Improved Agility",
+        {
+          text: "Operational Excellence",
+          icon: "Settings",
+        },
+        {
+          text: "Competitive Advantage",
+          icon: "Trophy",
+        },
+        {
+          text: "Future-Ready Infrastructure",
+          icon: "Calendar",
+        },
+        {
+          text: "Enhanced Customer Experience",
+          icon: "Users",
+        },
+        {
+          text: "Data-Driven Decision Making",
+          icon: "BarChart3",
+        },
+        {
+          text: "Improved Agility",
+          icon: "Activity",
+        },
       ],
       useCases: [
         {
           title: "Manufacturing 4.0",
           description:
-            "Smart factory implementation with IoT sensors, AI analytics, and automated processes.",
+            "Smart factory implementation with IoT sensors, AI analytics, and automated processes. Real-time production monitoring with predictive maintenance and digital twin technology for optimized operations.",
         },
         {
           title: "Digital Banking",
           description:
-            "Complete banking ecosystem transformation with mobile-first approach and AI-powered services.",
+            "Complete banking ecosystem transformation with mobile-first approach and AI-powered services. Automated customer onboarding with blockchain security and personalized financial advisory through machine learning.",
         },
         {
           title: "Smart Retail",
           description:
-            "Omnichannel retail experience with personalization and inventory optimization.",
+            "Omnichannel retail experience with personalization and inventory optimization. AI-driven customer behavior analysis with automated supply chain management and augmented reality shopping experiences.",
         },
       ],
-      techStack: [
-        "Microservices",
-        "API Gateway",
-        "Event-Driven Architecture",
-        "Blockchain",
-        "RPA",
-        "Low-Code Platforms",
-      ],
+      techStack: {
+        "Core Platforms": [
+          "Salesforce",
+          "ServiceNow",
+          "Microsoft Dynamics 365",
+        ],
+        "Process Automation": ["UiPath", "Microsoft Power Automate"],
+        "Data & Analytics": ["Tableau", "Power BI", "Databricks", "Alteryx"],
+        Collaboration: ["Microsoft 365", "Slack", "Teams", "Asana"],
+        "Customer Experience": ["Adobe Experience Cloud", "HubSpot"],
+        Integration: ["MuleSoft", "Dell Boomi", "Azure API Management"],
+      },
     },
     "iot-solutions": {
       icon: Globe,
@@ -338,62 +613,108 @@ const ServiceDetail = () => {
           title: "IoT Platform Development",
           description:
             "End-to-end IoT platforms for device management, data collection, and analytics. Build scalable IoT ecosystems that connect millions of devices, process real-time data streams, and provide actionable insights through advanced dashboards.",
-          image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=250&fit=crop",
+          image:
+            "https://64.media.tumblr.com/f2422bf41f75935449a3d7426c2a7fe1/tumblr_inline_pskgtgzPpx1wd3x7h_500.pnj",
         },
         {
           title: "Sensor Integration",
           description:
             "Smart sensor networks for environmental monitoring and industrial automation. Deploy wireless sensor networks that collect environmental data, monitor equipment health, and trigger automated responses based on predefined conditions.",
-          image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=250&fit=crop",
+          image:
+            "https://cdn.thingsup.io/wp-content/uploads/2023/09/11186-scaled.jpg",
         },
         {
           title: "Edge Computing",
           description:
             "Local data processing and real-time decision making at the edge of your network. Reduce latency and bandwidth costs by processing data closer to the source, enabling real-time analytics and autonomous device behavior.",
-          image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=250&fit=crop",
+          image:
+            "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&w=400&h=250&fit=crop",
         },
         {
           title: "Data Analytics",
           description:
             "Advanced analytics and machine learning on IoT data for actionable insights. Transform raw sensor data into valuable business intelligence with predictive maintenance, anomaly detection, and performance optimization algorithms.",
-          image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop",
+          image:
+            "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop",
+        },
+        {
+          title: "Predictive Maintenance Solutions",
+          description:
+            "AI-driven maintenance systems that anticipate equipment failures before they occur. Reduce downtime and maintenance costs by analyzing sensor data to predict component failures and schedule proactive repairs.",
+          image:
+            "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=400&h=250&fit=crop",
+        },
+        {
+          title: "IoT Security & Compliance",
+          description:
+            "End-to-end security frameworks for protecting connected devices and data. Implement robust security protocols, device authentication, data encryption, and compliance measures to safeguard your IoT ecosystem from cyber threats.",
+          image:
+            "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=250&fit=crop",
         },
       ],
       benefits: [
-        "Real-time Monitoring",
-        "Predictive Maintenance",
-        "Energy Efficiency",
-        "Remote Management",
-        "Cost Reduction",
-        "Improved Safety",
+        {
+          text: "Real-time Monitoring",
+          icon: "Monitor",
+        },
+        {
+          text: "Predictive Maintenance",
+          icon: "Wrench",
+        },
+        {
+          text: "Energy Efficiency",
+          icon: "Battery",
+        },
+        {
+          text: "Remote Management",
+          icon: "monitor-check",
+        },
+        {
+          text: "Cost Reduction",
+          icon: "DollarSign",
+        },
+        {
+          text: "Improved Safety",
+          icon: "Shield",
+        },
       ],
       useCases: [
         {
           title: "Smart Cities",
           description:
-            "Connected infrastructure for traffic management, environmental monitoring, and public safety.",
+            "Connected infrastructure for traffic management, environmental monitoring, and public safety. Real-time data collection from sensors and cameras enables optimized resource allocation and emergency response coordination.",
         },
         {
           title: "Industrial IoT",
           description:
-            "Manufacturing equipment monitoring and predictive maintenance systems.",
+            "Manufacturing equipment monitoring and predictive maintenance systems. Continuous sensor data analysis prevents downtime through early fault detection and automated maintenance scheduling.",
         },
         {
           title: "Smart Agriculture",
           description:
-            "Precision farming with soil sensors, weather monitoring, and automated irrigation.",
+            "Precision farming with soil sensors, weather monitoring, and automated irrigation. Data-driven insights optimize water usage, crop health monitoring, and yield prediction for sustainable farming.",
         },
       ],
-      techStack: [
-        "Arduino",
-        "Raspberry Pi",
-        "MQTT",
-        "LoRaWAN",
-        "AWS IoT",
-        "Azure IoT",
-        "ThingSpeak",
-        "Node-RED",
-      ],
+      techStack: {
+        "IoT Platforms": [
+          "AWS IoT Core",
+          "Azure IoT Hub",
+          "Google Cloud IoT Core",
+        ],
+        "Hardware & Devices": ["Arduino", "Raspberry Pi", "ESP32"],
+        Connectivity: ["MQTT", "LoRaWAN", "Bluetooth LE"],
+        "Edge Computing": [
+          "AWS IoT Greengrass",
+          "Azure IoT Edge",
+          "NVIDIA Jetson",
+        ],
+        "Data & Analytics": [
+          "InfluxDB",
+          "Grafana",
+          "Azure Time Series Insights",
+        ],
+        Security: ["Azure Sphere", "AWS IoT Device Defender", ,],
+      },
     },
     cybersecurity: {
       icon: Shield,
@@ -407,62 +728,114 @@ const ServiceDetail = () => {
           title: "Security Assessments",
           description:
             "Comprehensive security audits to identify vulnerabilities and compliance gaps. Conduct thorough penetration testing, code reviews, and infrastructure assessments to uncover potential security risks and provide actionable remediation strategies.",
-          image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&h=250&fit=crop",
+          image:
+            "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&h=250&fit=crop",
         },
         {
           title: "Penetration Testing",
           description:
             "Ethical hacking to test your systems' defenses against real-world attacks. Simulate sophisticated cyber attacks to identify weaknesses in your security posture and validate the effectiveness of your security controls.",
-          image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=250&fit=crop",
+          image:
+            "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=250&fit=crop",
         },
         {
           title: "Identity Management",
           description:
             "Secure access control and user authentication systems with multi-factor authentication. Implement zero-trust security models with advanced identity verification, privileged access management, and single sign-on solutions.",
-          image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=400&h=250&fit=crop",
+          image:
+            "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=400&h=250&fit=crop",
         },
         {
           title: "Compliance Solutions",
           description:
             "Ensure regulatory compliance with GDPR, HIPAA, SOX, and other standards. Implement comprehensive compliance frameworks that meet industry regulations while maintaining operational efficiency and user experience.",
-          image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=250&fit=crop",
+          image:
+            "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=250&fit=crop",
+        },
+        {
+          title: "Managed Detection & Response",
+          description:
+            "24/7 security monitoring and incident response services to protect against advanced threats. Leverage advanced SIEM systems, threat intelligence, and security automation to detect and respond to cyber threats in real-time.",
+          image:
+            "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=250&fit=crop",
+        },
+        {
+          title: "Cloud Security Architecture",
+          description:
+            "Secure cloud infrastructure design and implementation for multi-cloud environments. Build robust security frameworks for AWS, Azure, and GCP with proper network segmentation, data encryption, and cloud-native security controls.",
+          image:
+            "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=250&fit=crop",
         },
       ],
       benefits: [
-        "Risk Mitigation",
-        "Regulatory Compliance",
-        "Business Continuity",
-        "Trust & Reputation",
-        "Data Protection",
-        "Incident Prevention",
+        {
+          text: "Risk Mitigation",
+          icon: "Shield",
+        },
+        {
+          text: "Regulatory Compliance",
+          icon: "FileCheck",
+        },
+        {
+          text: "Business Continuity",
+          icon: "RefreshCw",
+        },
+        {
+          text: "Trust & Reputation",
+          icon: "ThumbsUp",
+        },
+        {
+          text: "Data Protection",
+          icon: "Lock",
+        },
+        {
+          text: "Incident Prevention",
+          icon: "AlertTriangle",
+        },
       ],
       useCases: [
         {
           title: "Financial Security",
           description:
-            "Banking-grade security for financial institutions and fintech companies.",
+            "Banking-grade security for financial institutions and fintech companies. Advanced threat detection with real-time transaction monitoring and regulatory compliance for PCI DSS and SOX requirements.",
         },
         {
           title: "Healthcare Protection",
           description:
-            "HIPAA-compliant security solutions for healthcare organizations and patient data.",
+            "HIPAA-compliant security solutions for healthcare organizations and patient data. Encrypted medical records with access controls and audit trails to protect sensitive health information.",
         },
         {
           title: "Enterprise Security",
           description:
-            "Comprehensive security framework for large organizations with complex IT infrastructure.",
+            "Comprehensive security framework for large organizations with complex IT infrastructure. Zero-trust architecture with identity management and advanced endpoint protection across distributed networks.",
         },
       ],
-      techStack: [
-        "SIEM",
-        "Zero Trust",
-        "Multi-Factor Authentication",
-        "Encryption",
-        "Firewall",
-        "VPN",
-        "PKI",
-        "SOAR",
-      ],
+      techStack: {
+        "Prevention & Perimeter": [
+          "Palo Alto Networks",
+          "CrowdStrike",
+
+          "Zscaler",
+        ],
+        "Identity & Access": [
+          "Okta",
+          "Azure AD",
+          "Duo Security",
+          "Ping Identity",
+        ],
+        "Detection & Response": [
+          "Splunk",
+          "Microsoft Sentinel",
+          "Cortex XSOAR",
+          "Varonis",
+        ],
+        "Governance & Compliance": [
+          "Tenable",
+          "Prisma Cloud",
+          "SailPoint",
+          "RSA Archer",
+        ],
+      },
     },
   };
 
@@ -534,10 +907,11 @@ const ServiceDetail = () => {
               Our <span className="text-gradient-luxury">Offerings</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Comprehensive solutions designed to address your unique business challenges
+              Comprehensive solutions designed to address your unique business
+              challenges
             </p>
           </div>
-          <div className="grid md:grid-cols-2 xl:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {service.offerings.map((offering, index) => (
               <div
                 key={index}
@@ -558,7 +932,7 @@ const ServiceDetail = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Content */}
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors duration-300">
@@ -593,7 +967,7 @@ const ServiceDetail = () => {
               {service.benefits.map((benefit, index) => (
                 <div
                   key={index}
-                  className="group bg-background rounded-xl p-6 border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300 animate-fade-in"
+                  className="group bg-background rounded-xl    transition-all duration-300 animate-fade-in"
                   style={{ animationDelay: `${index * 0.05}s` }}
                 >
                   <div className="flex items-center space-x-4">
@@ -609,7 +983,7 @@ const ServiceDetail = () => {
                 </div>
               ))}
             </div>
-            
+
             {/* Benefits Illustration - Right Side */}
             <div className="animate-fade-in-up">
               <div className="relative overflow-hidden rounded-2xl shadow-luxury">
@@ -628,7 +1002,9 @@ const ServiceDetail = () => {
                 <div className="absolute top-6 right-6">
                   <div className="bg-background/90 backdrop-blur-sm rounded-xl p-4 border border-border">
                     <div className="text-2xl font-bold text-primary">99.9%</div>
-                    <div className="text-xs text-muted-foreground">Reliability</div>
+                    <div className="text-xs text-muted-foreground">
+                      Reliability
+                    </div>
                   </div>
                 </div>
               </div>
@@ -670,7 +1046,7 @@ const ServiceDetail = () => {
       </section>
 
       {/* Tech Stack Section */}
-      <section className="py-24 bg-background">
+      {/* <section className="py-24 bg-background">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="accent-line mx-auto mb-6" />
@@ -678,10 +1054,11 @@ const ServiceDetail = () => {
               Technology <span className="text-gradient-luxury">Stack</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              We leverage cutting-edge technologies and industry-leading tools to deliver exceptional results
+              We leverage cutting-edge technologies and industry-leading tools
+              to deliver exceptional results
             </p>
           </div>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
             {service.techStack.map((tech, index) => (
               <div
@@ -702,8 +1079,8 @@ const ServiceDetail = () => {
               </div>
             ))}
           </div>
-          
-          {/* Additional Info */}
+
+         
           <div className="mt-16 text-center">
             <div className="inline-flex items-center space-x-2 bg-card rounded-full px-6 py-3 border border-border">
               <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
@@ -713,8 +1090,63 @@ const ServiceDetail = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+      {/* Tech Stack Section */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="accent-line mx-auto mb-6" />
+            <h2 className="text-4xl lg:text-5xl font-bold heading-luxury mb-6">
+              Technology <span className="text-gradient-luxury">Stack</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              We leverage cutting-edge technologies and industry-leading tools
+              to deliver exceptional results
+            </p>
+          </div>
 
+          {/* Category Filter Tabs - FIXED */}
+          <div className="flex flex-wrap justify-center gap-2 mb-12">
+            <button
+              onClick={() => setActiveCategory("All")}
+              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                activeCategory === "All"
+                  ? "bg-primary text-primary-foreground shadow-lg"
+                  : "bg-card/50 text-foreground/80 hover:bg-card hover:text-foreground border border-border/50"
+              }`}
+            >
+              All Technologies
+            </button>
+
+            {service.techStack &&
+              Object.keys(service.techStack).map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setActiveCategory(category)}
+                  className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                    activeCategory === category
+                      ? "bg-primary text-primary-foreground shadow-lg"
+                      : "bg-card/50 text-foreground/80 hover:bg-card hover:text-foreground border border-border/50"
+                  }`}
+                >
+                  {category}
+                </button>
+              ))}
+          </div>
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+            {getFilteredTechStack(service.techStack, activeCategory).map(
+              ({ tech, category }, index) => (
+                <TechCard
+                  key={`${category}-${tech}-${index}`}
+                  tech={tech}
+                  category={category}
+                  index={index}
+                />
+              )
+            )}
+          </div>
+        </div>
+      </section>
       <CTABanner />
     </Layout>
   );

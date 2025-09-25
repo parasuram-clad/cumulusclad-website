@@ -6,10 +6,17 @@ import {
   Factory,
   Banknote,
 } from "lucide-react";
-import education from "../assets/industries/education.png";
-import healthcare from "../assets/industries/healthcare.jpg";
-import manufacturing from "../assets/industries/manufacturing.jpg";
+import education from "../assets/industries/education.jpeg";
+import healthcare from "../assets/industries/healthcare.jpeg";
+import manufacturing from "../assets/industries/manufacturing.jpeg";
+import enterprise from "../assets/industries/enterprise.jpeg";
+import finance from "../assets/industries/finances.jpeg";
+import retail from "../assets/industries/retail.jpeg";
+import { useNavigate } from "react-router-dom"; // Add this import
+
 const Industries = () => {
+  const navigate = useNavigate(); // Add this hook
+
   const industries = [
     {
       icon: GraduationCap,
@@ -17,22 +24,23 @@ const Industries = () => {
       description:
         "Learning management systems, student portals, and educational technology platforms.",
       image: education,
+      category: "Education", // Add category mapping
     },
     {
       icon: Banknote,
       title: "Finance",
       description:
         "Secure financial applications, trading platforms, and banking solutions.",
-      image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&crop=center",
+      image: finance,
+      category: "FinTech", // Add category mapping
     },
     {
       icon: ShoppingCart,
       title: "Retail",
       description:
         "E-commerce platforms, inventory management, and customer experience solutions.",
-      image:
-        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop&crop=center",
+      image: retail,
+      category: "Retail", // Add category mapping
     },
     {
       icon: Heart,
@@ -40,6 +48,7 @@ const Industries = () => {
       description:
         "Patient management systems, telemedicine platforms, and health monitoring apps.",
       image: healthcare,
+      category: "Healthcare", // Add category mapping
     },
     {
       icon: Factory,
@@ -47,16 +56,22 @@ const Industries = () => {
       description:
         "Supply chain optimization, IoT integration, and production management systems.",
       image: manufacturing,
+      category: "Manufacturing", // Add category mapping
     },
     {
       icon: Building2,
       title: "Enterprise",
       description:
         "Custom business solutions, workflow automation, and enterprise integrations.",
-      image:
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop&crop=center",
+      image: enterprise,
+      category: "Enterprise", // Add category mapping - you might need to add this category to your projects
     },
   ];
+
+  // Function to handle card click
+  const handleIndustryClick = (category: string) => {
+    navigate(`/work?category=${encodeURIComponent(category)}`);
+  };
 
   return (
     <section className="py-24 bg-card">
@@ -77,7 +92,8 @@ const Industries = () => {
           {industries.map((industry, index) => (
             <div
               key={industry.title}
-              className="group relative overflow-hidden rounded-2xl bg-background border border-border hover:border-primary transition-all duration-500 hover:shadow-luxury animate-scale-in"
+              onClick={() => handleIndustryClick(industry.category)} // Add click handler
+              className="group relative overflow-hidden rounded-2xl bg-background border border-border hover:border-primary transition-all duration-500 hover:shadow-luxury animate-scale-in cursor-pointer" // Added cursor-pointer
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Background Image */}
@@ -110,8 +126,9 @@ const Industries = () => {
                 {/* Learn More Link */}
                 <div className="mt-6">
                   <span className="text-primary font-semibold text-sm uppercase tracking-wide group-hover:underline transition-all duration-300">
-                    Learn More →
-                  </span>
+                    View Projects →
+                  </span>{" "}
+                  {/* Changed text */}
                 </div>
               </div>
 

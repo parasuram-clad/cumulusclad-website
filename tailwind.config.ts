@@ -16,6 +16,8 @@ export default {
       fontFamily: {
         sans: ['Univers', 'sans-serif'],
         condensed: ['Univers Condensed', 'sans-serif'],
+      }, letterSpacing: {
+        'luxury': '0.0625rem',
       },
       colors: {
         border: "hsl(var(--border))",
@@ -76,6 +78,7 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        '2xl': '0.25rem',
       },
       keyframes: {
         "accordion-down": {
@@ -130,5 +133,15 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), function ({ addBase, theme }) {
+    addBase({
+      'body': {
+        letterSpacing: '0.0625rem',
+      },
+      // Or apply to all elements:
+      '*': {
+        letterSpacing: '0.0625rem',
+      },
+    });
+  },],
 } satisfies Config;

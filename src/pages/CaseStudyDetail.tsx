@@ -10,15 +10,32 @@ import {
   Zap,
   Clock,
   ArrowLeft,
+  CheckCircle,
+  CheckCircleIcon,
+  ShieldCheckIcon,
+  BoltIcon,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import caseStudy1 from "@/assets/case-study-1.jpg";
-import caseStudy2 from "@/assets/case-study-2.jpg";
-import education from "../assets/industries/education.png";
-import healthcare from "../assets/industries/healthcare.jpg";
-import manufacturing from "../assets/industries/manufacturing.jpg";
-import smartCity from "../assets/industries/smart-city.jpg";
-
+import DynamicIcon from "../components/DynamicIcon";
+import healthcare from "@/assets/works/ai-powered-healthcare-platform.jpeg";
+import trading from "@/assets/works/real-time-trading.jpeg";
+import manufacturing from "@/assets/works/smart-manufacturing-IoT-system.jpeg";
+import education from "@/assets/works/interactive-e-learning -platform.jpg";
+import retail from "@/assets/works/inventory-management.jpeg";
+import smartCity from "@/assets/works/smart-city-infrastructure.jpeg";
+const TechCard = ({ tech, index }: { tech: string; index: number }) => (
+  <div className="group relative flex items-center justify-center" title={tech}>
+    <div className="w-10 h-10 md:w-14 md:h-14 flex items-center justify-center">
+      <DynamicIcon iconName={tech} alt={tech} />
+    </div>
+    <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+      <span className="bg-foreground text-background text-xs px-2 py-1 rounded-md whitespace-nowrap">
+        {tech}
+      </span>
+    </div>
+  </div>
+);
+const icons = ShieldCheckIcon;
 const CaseStudyDetail = () => {
   const { id } = useParams<{ id: string }>();
 
@@ -32,7 +49,15 @@ const CaseStudyDetail = () => {
         "Revolutionary telemedicine platform with AI diagnostics and patient management system.",
       fullDescription:
         "We developed a comprehensive healthcare platform that combines telemedicine, AI-powered diagnostics, and patient management into a single, intuitive system. The platform serves over 50,000 patients and has improved diagnostic accuracy by 40%. Our solution addresses critical healthcare challenges including accessibility, efficiency, and quality of care delivery.",
-      technologies: ["React", "Node.js", "TensorFlow", "AWS", "MongoDB"],
+      technologies: [
+        "React",
+        "Node.js",
+        "Python",
+        "TensorFlow",
+        "AWS",
+        "MongoDB",
+      ],
+
       stats: [
         { label: "Patients Served", value: "50K+", icon: Users },
         { label: "Diagnostic Accuracy", value: "95%", icon: Target },
@@ -59,12 +84,19 @@ const CaseStudyDetail = () => {
       id: "fintech-trading-platform",
       title: "Real-Time Trading Platform",
       category: "FinTech",
-      image: caseStudy1,
+      image: trading,
       description:
         "High-frequency trading platform with real-time analytics and risk management.",
       fullDescription:
         "Built a cutting-edge trading platform capable of processing millions of transactions per second with real-time market analytics, automated risk management, and compliance monitoring. The platform handles high-frequency trading while ensuring regulatory compliance and risk mitigation.",
-      technologies: ["React", "WebSocket", "Python", "Redis", "PostgreSQL"],
+      technologies: [
+        "React",
+        "WebSocket",
+        "Python",
+        "Redis",
+        "PostgreSQL",
+        "AWS",
+      ],
       stats: [
         { label: "Transactions/Second", value: "100K+", icon: TrendingUp },
         { label: "Uptime", value: "99.99%", icon: Award },
@@ -96,13 +128,7 @@ const CaseStudyDetail = () => {
         "Industrial IoT platform for predictive maintenance and production optimization.",
       fullDescription:
         "Implemented a comprehensive IoT solution for smart manufacturing, including sensor networks, predictive maintenance algorithms, and real-time production monitoring across multiple facilities. The system transformed traditional manufacturing operations into data-driven, efficient processes.",
-      technologies: [
-        "IoT Sensors",
-        "Edge Computing",
-        "Machine Learning",
-        "Azure IoT",
-        "Power BI",
-      ],
+      technologies: ["Arduino", "Docker", "PyTorch", "Azure IoT", "Power BI"],
       stats: [
         { label: "Equipment Monitored", value: "500+", icon: Users },
         { label: "Downtime Reduction", value: "70%", icon: TrendingUp },
@@ -161,7 +187,7 @@ const CaseStudyDetail = () => {
       id: "retail-analytics",
       title: "Retail Analytics & Inventory Management",
       category: "Retail",
-      image: caseStudy2,
+      image: retail,
       description:
         "AI-driven retail analytics platform with demand forecasting and inventory optimization.",
       fullDescription:
@@ -204,7 +230,7 @@ const CaseStudyDetail = () => {
         "Comprehensive smart city solution with traffic management and environmental monitoring.",
       fullDescription:
         "Implemented a city-wide smart infrastructure system including intelligent traffic management, environmental monitoring, waste management optimization, and citizen services portal. The solution transforms urban management through data-driven insights and automation.",
-      technologies: ["IoT", "Edge Computing", "React", "Node.js", "PostgreSQL"],
+      technologies: ["IoT", "Docker", "React", "Node.js", "PostgreSQL"],
       stats: [
         { label: "Traffic Efficiency", value: "+40%", icon: TrendingUp },
         { label: "Energy Savings", value: "25%", icon: Award },
@@ -273,31 +299,36 @@ const CaseStudyContent = ({ project }: { project: any }) => {
       <section className="pt-32 pb-20 bg-gradient-hero relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-luxury-red/5 to-luxury-red/10" />
         <div className="container mx-auto px-6 lg:px-8 relative z-10">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-6xl mx-auto">
+            {/* Back to Work link - left aligned */}
             <Link
               to="/work"
-              className="inline-flex items-center text-primary hover:text-primary/80 transition-colors duration-300 mb-8"
+              className="inline-flex items-center text-primary hover:text-primary/80 transition-colors duration-300 mb-12"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Work
             </Link>
 
             <div className="animate-fade-in">
-              <div className="flex items-center gap-4 mb-6">
-                <span className="px-4 py-2 bg-primary/20 text-primary rounded-lg font-medium">
-                  {project.category}
-                </span>
-                <span className="text-muted-foreground">
-                  {project.year} • {project.duration}
-                </span>
+              {/* Centered title and description */}
+              <div className="text-center mb-5">
+                <h1 className="text-5xl lg:text-6xl font-bold heading-luxury mb-6">
+                  {project.title}
+                </h1>
+                <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+                  {project.description}
+                </p>
               </div>
 
-              <h1 className="text-5xl lg:text-6xl font-bold heading-luxury mb-6">
-                {project.title}
-              </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed">
-                {project.description}
-              </p>
+              {/* Category and date at the bottom */}
+              <div className="flex flex-col items-center justify-center gap-4 mt-2">
+                <p className="px-4 py-2 bg-primary/20 text-primary rounded-lg font-medium">
+                  {project.category}
+                </p>
+                {/* <p className="text-muted-foreground">
+                  Year: {project.year} • Duration: {project.duration}
+                </p> */}
+              </div>
             </div>
           </div>
         </div>
@@ -310,7 +341,7 @@ const CaseStudyContent = ({ project }: { project: any }) => {
             <img
               src={project.image}
               alt={project.title}
-              className="w-full h-96 lg:h-[500px] object-cover"
+              className="w-full h-96 lg:h-[800px] object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent" />
           </div>
@@ -371,37 +402,37 @@ const CaseStudyContent = ({ project }: { project: any }) => {
 
               {/* Technologies */}
               <div className="animate-fade-in">
-                <h2 className="text-3xl font-bold mb-6">Technologies Used</h2>
-                <div className="grid grid-cols-2 gap-3">
-                  {project.technologies.map((tech: string) => (
-                    <span
-                      key={tech}
-                      className="px-4 py-3 bg-card border border-border rounded-lg text-center font-medium hover:border-primary transition-colors duration-300"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                {project.challenges && (
-                  <div className="mt-8">
+                {project.challenges?.length > 0 && (
+                  <div className="mb-8">
                     <h3 className="text-xl font-semibold mb-4">
                       Key Challenges
                     </h3>
-                    <ul className="space-y-2">
+                    <ul className="space-y-3">
                       {project.challenges.map(
-                        (challenge: string, index: number) => (
-                          <li key={index} className="flex items-start">
-                            <div className="w-2 h-2 bg-primary rounded-full mt-3 mr-3 flex-shrink-0" />
-                            <span className="text-muted-foreground">
-                              {challenge}
-                            </span>
-                          </li>
-                        )
+                        (challenge: string, index: number) => {
+                          const Icon = icons; // Cycle through icons
+                          return (
+                            <li key={index} className="flex items-center">
+                              <Icon className="w-5 h-5 text-primary mr-3 flex-shrink-0" />
+                              <span className="text-muted-foreground">
+                                {challenge}
+                              </span>
+                            </li>
+                          );
+                        }
                       )}
                     </ul>
                   </div>
                 )}
+
+                <h2 className="text-xl font-semibold mb-4">
+                  Technologies Used
+                </h2>
+                <div className="flex flex-wrap gap-3">
+                  {project.technologies.map((tech, index) => (
+                    <TechCard key={tech} tech={tech} index={index} />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -426,14 +457,17 @@ const CaseStudyContent = ({ project }: { project: any }) => {
               {/* Results */}
               <div className="animate-fade-in">
                 <h2 className="text-3xl font-bold mb-6">Key Results</h2>
-                <div className="space-y-4">
+                <div className="flex flex-col gap-2">
                   {project.results.map((result: string, index: number) => (
                     <div
                       key={index}
-                      className="flex items-center p-4 bg-background rounded-lg border border-border"
+                      className="flex items-center bg-transparent m-0 p-0"
                     >
-                      <div className="w-3 h-3 bg-primary rounded-full mr-4 flex-shrink-0" />
-                      <span className="text-muted-foreground">{result}</span>
+                      {/* ✅ Tick icon */}
+                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                      <span className="ml-2 text-muted-foreground text-base sm:text-lg">
+                        {result}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -444,25 +478,28 @@ const CaseStudyContent = ({ project }: { project: any }) => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-background">
+      <section className="py-24 bg-gradient-luxury relative overflow-hidden">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center animate-fade-in">
-            <h2 className="text-4xl font-bold heading-luxury mb-6">
+            <h2 className="text-4xl lg:text-6xl font-bold text-white leading-tight mb-4">
               Ready to Start Your Project?
             </h2>
-            <p className="text-xl text-muted-foreground mb-8">
+            <p className="text-xl lg:text-2xl text-white/90 leading-relaxed mb-4">
               Let's discuss how we can help transform your business with
               cutting-edge technology solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact">
-                <Button className="btn-luxury">Get in Touch</Button>
+                <Button className="bg-white text-[hsl(0_100%_27%)] hover:bg-white/90 px-8 py-4 text-lg  group shadow-2xl relative z-10">
+                  {" "}
+                  Connect With Us
+                </Button>
               </Link>
-              <Link to="/work">
+              {/* <Link to="/work">
                 <Button variant="outline" className="btn-ghost-luxury">
                   View More Projects
                 </Button>
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>

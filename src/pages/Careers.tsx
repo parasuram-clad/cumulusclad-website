@@ -93,24 +93,32 @@ const Careers = () => {
       title: "Health & Wellness",
       description:
         "Comprehensive health insurance, dental, vision, and wellness programs",
+      image:
+        "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400&h=300&fit=crop&crop=center",
     },
     {
       icon: Coffee,
       title: "Work-Life Balance",
       description:
         "Flexible working hours, unlimited PTO, and remote work options",
+      image:
+        "https://images.unsplash.com/photo-1495465798138-718f86d1a4f1?w=400&h=300&fit=crop&crop=center",
     },
     {
       icon: Laptop,
       title: "Equipment & Setup",
       description:
         "Latest tech equipment, home office stipend, and co-working space access",
+      image:
+        "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=300&fit=crop&crop=center",
     },
     {
       icon: Rocket,
       title: "Growth & Learning",
       description:
         "Professional development budget, conference attendance, and mentorship programs",
+      image:
+        "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=300&fit=crop&crop=center",
     },
   ];
 
@@ -176,7 +184,7 @@ const Careers = () => {
       </section>
 
       {/* Life at CumulusClad */}
-      <section className="py-24 bg-background">
+      <section className="pt-24 bg-background">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="accent-line mx-auto mb-6" />
@@ -189,8 +197,6 @@ const Careers = () => {
               work while maintaining a healthy work-life balance.
             </p>
           </div>
-
-          {/* Culture Images Carousel */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {cultureImages.map((image, index) => (
               <div
@@ -205,36 +211,64 @@ const Careers = () => {
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-luxury-black/80 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <h3 className="font-bold mb-1">{image.title}</h3>
-                  <p className="text-sm opacity-90">{image.description}</p>
+
+                {/* Enhanced Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent" />
+
+                {/* Enhanced Text Container */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                  <h3 className="font-bold text-lg mb-2 text-white drop-shadow-2xl">
+                    {image.title}
+                  </h3>
+                  <p className="text-sm text-white/95 drop-shadow-lg leading-tight">
+                    {image.description}
+                  </p>
                 </div>
               </div>
             ))}
           </div>
+          {/* Culture Images Carousel */}
 
-          {/* Benefits */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Benefits with Images */}
+          {/* <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
               <div
                 key={index}
-                className="card-luxury text-center animate-fade-in"
+                className="card-luxury group overflow-hidden animate-fade-in p-0"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center mx-auto mb-6">
-                  <benefit.icon className="w-8 h-8 text-primary" />
+              
+                <div className="relative h-40 overflow-hidden">
+                  <img
+                    src={benefit.image}
+                    alt={benefit.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20" />
+                 
+                  <div className="absolute top-4 right-4">
+                    <div className="w-12 h-12 bg-primary/90 rounded-xl flex items-center justify-center backdrop-blur-sm">
+                      <benefit.icon className="w-6 h-6 text-white" />
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold mb-4">{benefit.title}</h3>
-                <p className="text-muted-foreground">{benefit.description}</p>
+
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {benefit.description}
+                  </p>
+                </div>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </section>
 
       {/* Current Job Openings */}
-      <section className="py-24 bg-card">
+      <section className="py-20 bg-card">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="accent-line mx-auto mb-6" />
@@ -281,10 +315,7 @@ const Careers = () => {
                           <Clock className="w-4 h-4 mr-1" />
                           {job.type}
                         </div>
-                        <div className="flex items-center">
-                          {/* <DollarSign className="w-4 h-4 mr-1" /> */}
-                          {job.salary}
-                        </div>
+                        <div className="flex items-center">{job.salary}</div>
                       </div>
                     </div>
                     <div className="ml-6">
@@ -329,7 +360,15 @@ const Careers = () => {
                       </div>
                     </div>
                     <div className="mt-8 pt-6 border-t border-border flex justify-end">
-                      <Button className="btn-luxury">
+                      <Button
+                        className="btn-luxury"
+                        onClick={() => {
+                          const subject = encodeURIComponent(
+                            `Application: ${job.title} at CumulusClad`
+                          );
+                          window.location.href = `mailto:hr@cumulusclad.com?subject=${subject}`;
+                        }}
+                      >
                         Apply Now
                         <Send className="ml-2 h-4 w-4" />
                       </Button>
@@ -351,7 +390,13 @@ const Careers = () => {
                 Send us your resume and let us know how you'd like to
                 contribute.
               </p>
-              <Button className="btn-luxury">
+              <Button
+                className="btn-luxury"
+                onClick={() => {
+                  window.location.href =
+                    "mailto:hr@cumulusclad.com?subject=General Application - CumulusClad Careers";
+                }}
+              >
                 Send Your Resume
                 <Send className="ml-2 h-4 w-4" />
               </Button>
@@ -359,21 +404,6 @@ const Careers = () => {
           </div>
         </div>
       </section>
-
-      {/* Join Our Team CTA */}
-      {/* <section className="py-24 bg-gradient-cta relative overflow-hidden">
-        <div className="container mx-auto px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-              If you're driven by the idea of transforming industries, solving complex challenges, and improving lives through technology, we want you on our team.
-            </h2>
-            <Button size="lg" className="btn-secondary">
-              Explore All Opportunities
-              <Rocket className="ml-2 h-5 w-5" />
-            </Button>
-          </div>
-        </div>
-      </section> */}
     </Layout>
   );
 };

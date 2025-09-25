@@ -9,6 +9,7 @@ import {
   Lightbulb,
   ArrowRight,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import cybersecurityBg from "@/assets/cybersecurity-bg.jpg";
 
 const About = () => {
@@ -55,29 +56,39 @@ const About = () => {
     <Layout>
       {/* Hero Section */}
       <section className="relative py-32 overflow-hidden">
-        {" "}
         <div className="absolute inset-0 bg-gradient-to-br from-luxury-red/5 to-luxury-red/10" />
-        {/* <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
-          style={{ backgroundImage: `url(${cybersecurityBg})` }}
-        /> */}
         <div className="absolute inset-0 bg-gradient-hero" />
         <div className="relative z-10 container mx-auto px-6 lg:px-8 text-center">
           <div className="max-w-4xl mx-auto space-y-8 animate-fade-in">
-            <div className="accent-line mx-auto" />
-            <h1 className="text-5xl lg:text-7xl font-bold heading-luxury">
+            <div className="accent-line mx-auto mb-0" />
+            <h1 className="text-5xl lg:text-7xl font-bold heading-luxury mt-0">
               Fortify Your Business with{" "}
               <span className="text-gradient-luxury">Trusted IT Security</span>
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed mb-8">
+            <p className="text-xl text-muted-foreground leading-relaxed">
               We're a team of passionate technologists, designers, and
               strategists who believe in the power of technology to transform
               businesses and improve lives.
             </p>
-            <Button className="btn-luxury">
-              Learn Our Story
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+            <div className="pt-4">
+              {" "}
+              {/* Added padding-top instead of margin */}
+              <Link to="/work">
+                <Button
+                  className="btn-luxury group text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 
+             relative overflow-hidden
+             transition-all duration-500 ease-out 
+             hover:scale-105 hover:shadow-2xl hover:bg-primary/90
+             transform-gpu
+             before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/10 before:to-transparent 
+             before:translate-x-[-100%] before:transition-transform before:duration-500 
+             hover:before:translate-x-[100%]"
+                >
+                  View Our Works
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -272,7 +283,16 @@ const About = () => {
               Ready to be part of something extraordinary? Explore career
               opportunities and help us shape the future of technology.
             </p>
-            <Button className="btn-luxury">
+            <Button
+              className="btn-luxury group text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 
+             relative overflow-hidden
+             transition-all duration-500 ease-out 
+             hover:scale-105 hover:shadow-2xl hover:bg-primary/90
+             transform-gpu
+             before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/10 before:to-transparent 
+             before:translate-x-[-100%] before:transition-transform before:duration-500 
+             hover:before:translate-x-[100%]"
+            >
               View Open Positions
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>

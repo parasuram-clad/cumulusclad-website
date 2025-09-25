@@ -127,7 +127,7 @@ const SimpleEnquiryModal = ({ isOpen, onClose }: EnquiryModalProps) => {
                 type="button"
                 variant="outline"
                 onClick={onClose}
-                className="flex-1"
+                className="flex-1 hover:bg-black/20 hover:text-black"
               >
                 Cancel
               </Button>

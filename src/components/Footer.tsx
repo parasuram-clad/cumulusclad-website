@@ -7,6 +7,7 @@ import {
   Mail,
   Phone,
   MapPin,
+  Globe,
 } from "lucide-react";
 import logo from "@/assets/logo.png";
 
@@ -15,14 +16,14 @@ const Footer = () => {
 
   const footerLinks = {
     Services: [
-      { name: "AI Solutions", href: "/services/ai" },
+      { name: "AI Solutions", href: "/services/ai-solutions" },
       { name: "Digital Experience", href: "/services/digital-experience" },
-      { name: "Cloud Solutions", href: "/services/cloud" },
+      { name: "Cloud Solutions", href: "/services/cloud-solutions" },
       {
-        name: "Digital Transformations",
+        name: "Digital Transformation",
         href: "/services/digital-transformation",
       },
-      { name: "IoT Solutions", href: "/services/iot" },
+      { name: "IoT Solutions", href: "/services/iot-solutions" },
       { name: "Cyber Security", href: "/services/cybersecurity" },
     ],
     Company: [
@@ -31,19 +32,28 @@ const Footer = () => {
       { name: "Careers", href: "/careers" },
       { name: "Contact", href: "/contact" },
     ],
-    Resources: [
-      { name: "Blog", href: "/blog" },
-      { name: "Case Studies", href: "/case-studies" },
-      { name: "Privacy Policy", href: "/privacy" },
-      { name: "Terms of Service", href: "/terms" },
+    "Follow Us": [
+      {
+        name: "LinkedIn",
+        href: "https://linkedin.com/company/cumulusclad",
+        icon: Linkedin,
+      },
+      {
+        name: "Instagram",
+        href: "https://www.instagram.com/cumulusclad/",
+        icon: Instagram,
+      },
+      {
+        name: "Website",
+        href: "https://cumulusclad.com",
+        icon: Globe,
+      },
     ],
   };
 
-  const socialLinks = [
-    { name: "LinkedIn", href: "#", icon: Linkedin },
-    { name: "Twitter", href: "#", icon: Twitter },
-    { name: "Facebook", href: "#", icon: Facebook },
-    { name: "Instagram", href: "#", icon: Instagram },
+  const supportLinks = [
+    { name: "Terms of Service", href: "/terms" },
+    { name: "Privacy Policy", href: "/privacy" },
   ];
 
   return (
@@ -52,7 +62,7 @@ const Footer = () => {
       <div className="h-1 bg-gradient-luxury" />
 
       <div className="container mx-auto px-6 lg:px-8 py-16">
-        <div className="grid lg:grid-cols-4 gap-12">
+        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
           {/* Company Info */}
           <div className="lg:col-span-1 space-y-6">
             <Link to="/" className="inline-block">
@@ -101,45 +111,84 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Footer Links */}
-          {Object.entries(footerLinks).map(([category, links]) => (
-            <div key={category} className="space-y-6">
-              <h3 className="text-lg font-semibold">{category}</h3>
-              <ul className="space-y-3">
-                {links.map((link) => (
+          {/* Services Links */}
+          <div className="space-y-6">
+            <h3 className="text-lg font-semibold ">Services</h3>
+            <ul className="space-y-3">
+              {footerLinks.Services.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    to={link.href}
+                    className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm "
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company Links */}
+          <div className="space-y-6">
+            <h3 className="text-lg font-semibold ">Company</h3>
+            <ul className="space-y-3">
+              {footerLinks.Company.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    to={link.href}
+                    className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm "
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Follow Us with Icons */}
+          <div className="space-y-6">
+            <h3 className="text-lg font-semibold ">Follow Us</h3>
+            <ul className="space-y-4">
+              {footerLinks["Follow Us"].map((link) => {
+                const IconComponent = link.icon;
+                return (
                   <li key={link.name}>
-                    <Link
-                      to={link.href}
-                      className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm"
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-3 text-muted-foreground hover:text-primary transition-colors duration-300 text-sm group"
                     >
-                      {link.name}
-                    </Link>
+                      <IconComponent className="h-5 w-5 text-primary" />
+                      <span className="group-hover:underline underline-offset-4">
+                        {link.name}
+                      </span>
+                    </a>
                   </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+                );
+              })}
+            </ul>
+          </div>
         </div>
 
-        {/* Bottom Section */}
+        {/* Bottom Section with Support Links */}
         <div className="border-t border-border mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <div className="flex flex-col md:flex-row justify-between items-center  space-y-4 md:space-y-0">
             {/* Copyright */}
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground ">
               © {currentYear} CumulusClad Technologies. All rights reserved.
             </p>
 
-            {/* Social Links */}
+            {/* Support Links */}
             <div className="flex items-center space-x-6">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  className="text-muted-foreground hover:text-primary transition-colors duration-300"
-                  aria-label={social.name}
+              {supportLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 hover:underline underline-offset-4"
                 >
-                  <social.icon className="h-5 w-5" />
-                </a>
+                  {link.name}
+                </Link>
               ))}
             </div>
           </div>

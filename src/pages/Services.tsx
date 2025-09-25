@@ -198,47 +198,49 @@ const Services = () => {
 
       {/* Services Grid */}
       <section className="py-24 bg-background">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {services.map((service, index) => (
-            <Link
-              key={service.title}
-              to={`/services/${service.id}`}
-              className="card-luxury2 group cursor-pointer animate-scale-in overflow-hidden w-full max-w-sm mx-auto p-0"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="relative">
-                {/* Service Image - Full Width Without Padding */}
-                <div className="relative overflow-hidden rounded-t-lg">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-black/20" />
-                </div>
-
-                {/* Content */}
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
-                    {service.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm">
-                    {service.description}
-                  </p>
-
-                  {/* Learn More Link */}
-                  <div className="mt-4">
-                    <span className="text-primary font-semibold text-sm uppercase tracking-wide group-hover:underline transition-all duration-300">
-                      Learn More →
-                    </span>
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {services.map((service, index) => (
+              <Link
+                key={service.title}
+                to={`/services/${service.id}`}
+                className="card-luxury2 group cursor-pointer animate-scale-in overflow-hidden w-full max-w-sm mx-auto p-0"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="relative">
+                  {/* Service Image - Full Width Without Padding */}
+                  <div className="relative overflow-hidden rounded-t-lg">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-black/20" />
                   </div>
-                </div>
 
-                {/* Hover Effect Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
-              </div>
-            </Link>
-          ))}
+                  {/* Content */}
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold  mb-3 group-hover:text-primary transition-colors duration-300">
+                      {service.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed text-sm">
+                      {service.description}
+                    </p>
+
+                    {/* Learn More Link */}
+                    <div className="mt-4">
+                      <span className="text-primary font-normal text-sm uppercase tracking-wide group-hover:underline transition-all duration-300">
+                        Learn More →
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Hover Effect Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
