@@ -197,6 +197,12 @@ All colors MUST be HSL. Black (#000000), Deep Red (#8B0000), White (#FFFFFF)
   html {
     scroll-behavior: smooth;
   }
+  html,
+  body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 @layer components {
@@ -319,13 +325,5 @@ All colors MUST be HSL. Black (#000000), Deep Red (#8B0000), White (#FFFFFF)
   }
   .rounded-xl {
     border-radius: 0.25rem;
-  }
-  .text-sm {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
-  .text-muted-foreground {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
   }
 }

@@ -186,23 +186,56 @@ const Careers = () => {
       {/* Life at CumulusClad */}
       <section className="pt-24 bg-background">
         <div className="container mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="accent-line mx-auto mb-6" />
-            <h2 className="text-4xl lg:text-5xl font-bold heading-luxury mb-6">
+          <div
+            className="text-center mb-16"
+            data-aos="fade-in"
+            data-aos-delay="100"
+            data-aos-duration="400"
+            data-aos-easing="ease-out"
+            data-aos-once="true"
+          >
+            <div
+              className="accent-line mx-auto mb-6"
+              data-aos="zoom-in"
+              data-aos-delay="200"
+              data-aos-duration="400"
+              data-aos-easing="ease-out"
+              data-aos-once="true"
+            />
+            <h2
+              className="text-4xl lg:text-5xl font-bold heading-luxury mb-6"
+              data-aos="fade-up"
+              data-aos-delay="300"
+              data-aos-duration="400"
+              data-aos-easing="ease-out"
+              data-aos-once="true"
+            >
               Life at <span className="text-gradient-luxury">CumulusClad</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p
+              className="text-xl text-muted-foreground max-w-3xl mx-auto"
+              data-aos="fade-up"
+              data-aos-delay="400"
+              data-aos-duration="400"
+              data-aos-easing="ease-out"
+              data-aos-once="true"
+            >
               Join a culture of innovation, collaboration, and continuous
               growth. We believe in empowering our team members to do their best
               work while maintaining a healthy work-life balance.
             </p>
           </div>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {cultureImages.map((image, index) => (
               <div
                 key={index}
-                className="group relative overflow-hidden rounded-2xl animate-scale-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="group relative overflow-hidden rounded-2xl"
+                data-aos="fade-up"
+                data-aos-delay={`${100 + index * 100}`}
+                data-aos-duration="500"
+                data-aos-easing="ease-out"
+                data-aos-once="true"
               >
                 <div className="aspect-square overflow-hidden">
                   <img
@@ -227,6 +260,7 @@ const Careers = () => {
               </div>
             ))}
           </div>
+
           {/* Culture Images Carousel */}
 
           {/* Benefits with Images */}
@@ -270,12 +304,40 @@ const Careers = () => {
       {/* Current Job Openings */}
       <section className="py-20 bg-card">
         <div className="container mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="accent-line mx-auto mb-6" />
-            <h2 className="text-4xl lg:text-5xl font-bold heading-luxury mb-6">
+          <div
+            className="text-center mb-16"
+            data-aos="fade-in"
+            data-aos-delay="100"
+            data-aos-duration="400"
+            data-aos-easing="ease-out"
+            data-aos-once="true"
+          >
+            <div
+              className="accent-line mx-auto mb-6"
+              data-aos="zoom-in"
+              data-aos-delay="200"
+              data-aos-duration="400"
+              data-aos-easing="ease-out"
+              data-aos-once="true"
+            />
+            <h2
+              className="text-4xl lg:text-5xl font-bold heading-luxury mb-6"
+              data-aos="fade-up"
+              data-aos-delay="300"
+              data-aos-duration="400"
+              data-aos-easing="ease-out"
+              data-aos-once="true"
+            >
               Current <span className="text-gradient-luxury">Openings</span>
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p
+              className="text-xl text-muted-foreground"
+              data-aos="fade-up"
+              data-aos-delay="400"
+              data-aos-duration="400"
+              data-aos-easing="ease-out"
+              data-aos-once="true"
+            >
               Join our team of innovators and help shape the future of
               technology
             </p>
@@ -285,8 +347,12 @@ const Careers = () => {
             {jobOpenings.map((job, index) => (
               <div
                 key={job.id}
-                className="bg-background rounded-2xl border border-border hover:border-primary transition-all duration-300 animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="bg-background rounded-2xl border border-border hover:border-primary transition-all duration-300"
+                data-aos="fade-up"
+                data-aos-delay={`${100 + index * 100}`}
+                data-aos-duration="500"
+                data-aos-easing="ease-out"
+                data-aos-once="true"
               >
                 {/* Job Header */}
                 <div
@@ -330,7 +396,13 @@ const Careers = () => {
 
                 {/* Job Details */}
                 {expandedJob === job.id && (
-                  <div className="px-6 pb-6 border-t border-border animate-fade-in">
+                  <div
+                    className="px-6 pb-6 border-t border-border"
+                    data-aos="fade-in"
+                    data-aos-delay="100"
+                    data-aos-duration="400"
+                    data-aos-easing="ease-out"
+                  >
                     <div className="grid md:grid-cols-2 gap-8 pt-6">
                       <div>
                         <h4 className="font-semibold mb-4">Requirements</h4>
@@ -361,13 +433,11 @@ const Careers = () => {
                     </div>
                     <div className="mt-8 pt-6 border-t border-border flex justify-end">
                       <Button
-                        className="btn-luxury transition-all duration-300 ease-out "
-                        onClick={() => {
-                          const subject = encodeURIComponent(
-                            `Application: ${job.title} at CumulusClad`
-                          );
-                          window.location.href = `mailto:hr@cumulusclad.com?subject=${subject}`;
-                        }}
+                        className="btn-luxury transition-all duration-300 ease-out"
+                        data-aos="zoom-in"
+                        data-aos-delay="200"
+                        data-aos-duration="400"
+                        data-aos-easing="ease-out"
                       >
                         Apply Now
                         <Send className="ml-2 h-4 w-4" />
@@ -380,8 +450,22 @@ const Careers = () => {
           </div>
 
           {/* Call to Action */}
-          <div className="text-center mt-16">
-            <div className="card-luxury max-w-2xl mx-auto">
+          <div
+            className="text-center mt-16"
+            data-aos="fade-up"
+            data-aos-delay="200"
+            data-aos-duration="500"
+            data-aos-easing="ease-out"
+            data-aos-once="true"
+          >
+            <div
+              className="card-luxury max-w-2xl mx-auto"
+              data-aos="zoom-in"
+              data-aos-delay="300"
+              data-aos-duration="500"
+              data-aos-easing="ease-out"
+              data-aos-once="true"
+            >
               <h3 className="text-2xl font-bold mb-4">
                 Don't see the right role?
               </h3>
@@ -391,7 +475,12 @@ const Careers = () => {
                 contribute.
               </p>
               <Button
-                className="btn-luxury transition-all duration-300 ease-out "
+                className="btn-luxury transition-all duration-300 ease-out"
+                data-aos="zoom-in"
+                data-aos-delay="400"
+                data-aos-duration="500"
+                data-aos-easing="ease-out"
+                data-aos-once="true"
                 onClick={() => {
                   window.location.href =
                     "mailto:hr@cumulusclad.com?subject=General Application - CumulusClad Careers";

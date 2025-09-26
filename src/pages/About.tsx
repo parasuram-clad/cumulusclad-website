@@ -97,14 +97,30 @@ const About = () => {
       <section className="py-24 bg-background">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <div className="space-y-8 animate-fade-in">
+            {/* Left Content - Our Story */}
+            <div className="space-y-8">
               <div className="space-y-6">
-                <div className="accent-line" />
-                <h2 className="text-4xl lg:text-5xl font-bold heading-luxury">
+                <div
+                  className="accent-line"
+                  data-aos="fade-right"
+                  data-aos-duration="600"
+                  data-aos-delay="100"
+                />
+                <h2
+                  className="text-4xl lg:text-5xl font-bold heading-luxury"
+                  data-aos="fade-right"
+                  data-aos-duration="600"
+                  data-aos-delay="150"
+                >
                   Our Story
                 </h2>
 
-                <p className="text-xl text-muted-foreground leading-relaxed">
+                <p
+                  className="text-xl text-muted-foreground leading-relaxed"
+                  data-aos="fade-right"
+                  data-aos-duration="600"
+                  data-aos-delay="200"
+                >
                   CumulusClad is a technology-first company dedicated to
                   delivering pioneering solutions in artificial intelligence,
                   digital transformation, cloud computing, IoT, healthcare
@@ -117,25 +133,19 @@ const About = () => {
                   At CumulusClad, innovation isn't just a buzzword; it's the
                   core of everything we do.
                 </p>
-                {/* <p className="text-xl text-muted-foreground leading-relaxed">
-                  Founded with a vision to bridge the gap between innovative
-                  technology and real-world business challenges, CumulusClad
-                  Technologies emerged from a simple belief: every great idea
-                  deserves exceptional execution.
-                </p>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Since our inception, we've been dedicated to helping
-                  businesses of all sizes harness the power of technology to
-                  achieve their goals, streamline operations, and create
-                  meaningful connections with their customers.
-                </p> */}
               </div>
             </div>
 
-            <div className="relative animate-slide-in-right">
+            {/* Right Content - Stats Cards */}
+            <div className="relative">
               <div className="grid grid-cols-2 gap-6">
                 {/* Project Delivered Card */}
-                <div className="card-luxury p-6 text-center">
+                <div
+                  className="card-luxury p-6 text-center"
+                  data-aos="fade-up"
+                  data-aos-duration="500"
+                  data-aos-delay="300"
+                >
                   <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
                     <Award className="w-6 h-6 text-primary" />
                   </div>
@@ -148,7 +158,12 @@ const About = () => {
                 </div>
 
                 {/* Happy Clients Card */}
-                <div className="card-luxury p-6 text-center">
+                <div
+                  className="card-luxury p-6 text-center"
+                  data-aos="fade-up"
+                  data-aos-duration="500"
+                  data-aos-delay="400"
+                >
                   <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
                     <Users className="w-6 h-6 text-primary" />
                   </div>
@@ -161,7 +176,12 @@ const About = () => {
                 </div>
 
                 {/* Industries Served Card */}
-                <div className="card-luxury p-6 text-center">
+                <div
+                  className="card-luxury p-6 text-center"
+                  data-aos="fade-up"
+                  data-aos-duration="500"
+                  data-aos-delay="500"
+                >
                   <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
                     <Target className="w-6 h-6 text-primary" />
                   </div>
@@ -172,7 +192,12 @@ const About = () => {
                 </div>
 
                 {/* Years Experience Card */}
-                <div className="card-luxury p-6 text-center">
+                <div
+                  className="card-luxury p-6 text-center"
+                  data-aos="fade-up"
+                  data-aos-duration="500"
+                  data-aos-delay="600"
+                >
                   <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
                     <Heart className="w-6 h-6 text-primary" />
                   </div>
@@ -186,14 +211,26 @@ const About = () => {
           </div>
         </div>
       </section>
-
       {/* Vision & Mission */}
       <section className="py-24 bg-card">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
-            <div className="space-y-8 animate-fade-in">
+            {/* Vision */}
+            <div
+              className="space-y-8"
+              data-aos="fade-up"
+              data-aos-duration="400"
+              data-aos-delay="100"
+              data-aos-once="true"
+            >
               <div className="space-y-6">
-                <div className="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center">
+                <div
+                  className="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center"
+                  data-aos="zoom-in"
+                  data-aos-duration="400"
+                  data-aos-delay="150"
+                  data-aos-once="true"
+                >
                   <Eye className="w-8 h-8 text-primary" />
                 </div>
                 <h2 className="text-4xl lg:text-5xl font-bold heading-luxury">
@@ -208,12 +245,22 @@ const About = () => {
               </div>
             </div>
 
+            {/* Mission */}
             <div
-              className="space-y-8 animate-fade-in"
-              style={{ animationDelay: "0.2s" }}
+              className="space-y-8"
+              data-aos="fade-up"
+              data-aos-duration="400"
+              data-aos-delay="300"
+              data-aos-once="true"
             >
               <div className="space-y-6">
-                <div className="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center">
+                <div
+                  className="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center"
+                  data-aos="zoom-in"
+                  data-aos-duration="400"
+                  data-aos-delay="350"
+                  data-aos-once="true"
+                >
                   <Target className="w-8 h-8 text-primary" />
                 </div>
                 <h2 className="text-4xl lg:text-5xl font-bold heading-luxury">
@@ -238,8 +285,22 @@ const About = () => {
       {/* Values & Culture */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16 animate-fade-in">
-            <div className="accent-line mx-auto mb-6" />
+          <div
+            className="text-center mb-16"
+            data-aos="fade-in"
+            data-aos-delay="100"
+            data-aos-duration="400"
+            data-aos-easing="ease-out"
+            data-aos-once="true"
+          >
+            <div
+              className="accent-line mx-auto mb-6"
+              data-aos="zoom-in"
+              data-aos-delay="200"
+              data-aos-duration="400"
+              data-aos-easing="ease-out"
+              data-aos-once="true"
+            />
             <h2 className="text-4xl lg:text-5xl font-bold heading-luxury mb-6">
               Our Values & <span className="text-gradient-luxury">Culture</span>
             </h2>
@@ -254,10 +315,21 @@ const About = () => {
             {values.map((value, index) => (
               <div
                 key={value.title}
-                className="card-luxury text-center animate-scale-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="card-luxury text-center"
+                data-aos="fade-up"
+                data-aos-delay={`${100 + index * 100}`}
+                data-aos-duration="400"
+                data-aos-easing="ease-out"
+                data-aos-once="true"
               >
-                <div className="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center mx-auto mb-6">
+                <div
+                  className="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center mx-auto mb-6"
+                  data-aos="zoom-in"
+                  data-aos-delay={`${200 + index * 100}`}
+                  data-aos-duration="400"
+                  data-aos-easing="ease-out"
+                  data-aos-once="true"
+                >
                   <value.icon className="w-8 h-8 text-primary" />
                 </div>
                 <h3 className="text-2xl font-bold mb-4">{value.title}</h3>
@@ -275,23 +347,49 @@ const About = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent" />
 
         <div className="relative z-10 container mx-auto px-6 lg:px-8 text-center">
-          <div className="max-w-3xl mx-auto space-y-8 animate-fade-in">
-            <h2 className="text-4xl lg:text-5xl font-bold heading-luxury">
+          <div
+            className="max-w-3xl mx-auto space-y-8"
+            data-aos="fade-in"
+            data-aos-delay="100"
+            data-aos-duration="500"
+            data-aos-easing="ease-out"
+            data-aos-once="true"
+          >
+            <h2
+              className="text-4xl lg:text-5xl font-bold heading-luxury"
+              data-aos="fade-up"
+              data-aos-delay="200"
+              data-aos-duration="500"
+              data-aos-easing="ease-out"
+              data-aos-once="true"
+            >
               Join Our <span className="text-gradient-luxury">Team</span>
             </h2>
-            <p className="text-xl text-muted-foreground leading-relaxed">
+            <p
+              className="text-xl text-muted-foreground leading-relaxed"
+              data-aos="fade-up"
+              data-aos-delay="300"
+              data-aos-duration="500"
+              data-aos-easing="ease-out"
+              data-aos-once="true"
+            >
               Ready to be part of something extraordinary? Explore career
               opportunities and help us shape the future of technology.
             </p>
             <Button
               className="btn-luxury group text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 
-             relative overflow-hidden
-             transition-all duration-500 ease-out 
-             hover:scale-105 hover:shadow-2xl hover:bg-primary/90
-             transform-gpu
-             before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/10 before:to-transparent 
-             before:translate-x-[-100%] before:transition-transform before:duration-500 
-             hover:before:translate-x-[100%]"
+       relative overflow-hidden
+       transition-all duration-500 ease-out 
+       hover:scale-105 hover:shadow-2xl hover:bg-primary/90
+       transform-gpu
+       before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/10 before:to-transparent 
+       before:translate-x-[-100%] before:transition-transform before:duration-500 
+       hover:before:translate-x-[100%]"
+              data-aos="zoom-in"
+              data-aos-delay="400"
+              data-aos-duration="500"
+              data-aos-easing="ease-out"
+              data-aos-once="true"
             >
               View Open Positions
               <ArrowRight className="ml-2 h-5 w-5" />

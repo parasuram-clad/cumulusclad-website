@@ -41,6 +41,45 @@ import {
   AlertTriangle,
 } from "lucide-react";
 import CTABanner from "@/components/CTABanner";
+import ai from "@/assets/services/page-image/ai.jpeg";
+import digitalExperience from "@/assets/services/page-image/digital-experience.jpeg";
+import cloud from "@/assets/services/page-image/cloud.jpeg";
+import digitalTransformation from "@/assets/services/page-image/digital-transformation.jpeg";
+import aiSolutionsImg from "@/assets/services/ai-solutions.jpg";
+import digitalExperienceImg from "@/assets/services/digital-experience.jpg";
+import cloudSolutionsImg from "@/assets/services/cloud-solutions.jpg";
+import digitalTransformationImg from "@/assets/services/digital-transformation.jpg";
+import iotSolutionsImg from "@/assets/services/iot-solutions.jpg";
+import cybersecurityImg from "@/assets/services/cybersecurity.jpg";
+
+//cards images
+import machineLearningModelsImg from "@/assets/services/ai-offerings/Machine-Learning-Models.png";
+import naturalLanguageProcessingImg from "@/assets/services/ai-offerings/natural-language processing.jpeg";
+import computerVisionImg from "@/assets/services/ai-offerings/computer-vision.jpeg";
+import predictiveAnalyticsImg from "@/assets/services/ai-offerings/predictive-analytics.jpeg";
+import aiConsultingStrategyImg from "@/assets/services/ai-offerings/ai-consulting-strategy.jpeg";
+import aiIntegrationDeploymentImg from "@/assets/services/ai-offerings/ai-integration-deployment.jpeg";
+import uiUxImg from "@/assets/services/digital-experience/ui-ux.jpeg";
+import webAppImg from "@/assets/services/digital-experience/webs-app.jpeg";
+import mobileAppImg from "@/assets/services/digital-experience/mobile-app.jpeg";
+import progressiveWebAppImg from "@/assets/services/digital-experience/progressive-web-apps.jpeg";
+import eCommercesImg from "@/assets/services/digital-experience/e-commerces.jpeg";
+import digitalStrategyImg from "@/assets/services/digital-experience/digital-strategy.jpeg";
+
+import cloudMigrationImg from "@/assets/services/cloud/cloud-migration.jpeg";
+import infrastructureCodeImg from "@/assets/services/cloud/infrastructure-code.jpeg";
+import serverlessArchitectureImg from "@/assets/services/cloud/serverless architecture.jpeg";
+import devopsImg from "@/assets/services/cloud/devops.jpeg";
+import cloudSecurityImg from "@/assets/services/cloud/cloud-security.jpeg";
+import cloudOptimizationImg from "@/assets/services/cloud/cloud-optimization.jpeg";
+
+import processAutomationImg from "@/assets/services/digital-transformation/process-automation.jpeg";
+import legacySystemImg from "@/assets/services/digital-transformation/legacy-system.jpeg";
+import digitalStrategy from "@/assets/services/digital-transformation/digital-strategy .jpeg";
+import changeManagementImg from "@/assets/services/digital-transformation/change-management.jpeg";
+import cloudTransformationImg from "@/assets/services/digital-transformation/cloud-transformation.jpeg";
+import dataAnalyticsImg from "@/assets/services/digital-transformation/data-analytics.jpeg";
+
 const ServiceDetail = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const getFilteredTechStack = (techStack: any, activeCategory: string) => {
@@ -132,51 +171,44 @@ const ServiceDetail = () => {
       icon: Brain,
       title: "AI Solutions",
       description:
-        "Transform your business with intelligent systems that learn, adapt, and evolve. Our AI solutions leverage cutting-edge machine learning algorithms to automate processes, predict outcomes, and deliver personalized experiences.",
-      heroImage:
-        "https://images.unsplash.com/photo-1555255707-c07966088b7b?w=1200&h=600&fit=crop",
+        "We design intelligent systems that learn, adapt, and grow with your business. From automation to predictive analytics, our AI solutions empower smarter decisions and unlock future-ready capabilities across your operations.",
+      heroImage: aiSolutionsImg,
       offerings: [
         {
           title: "Machine Learning Models",
           description:
             "Custom ML models tailored to your specific business needs and data patterns. Our expert team designs and implements sophisticated algorithms that learn from your data to make intelligent predictions and automate complex decision-making processes.",
-          image:
-            "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=250&fit=crop",
+          image: machineLearningModelsImg,
         },
         {
           title: "Natural Language Processing",
           description:
             "Extract insights from text data, enable chatbots, and automate content analysis. Transform unstructured text into actionable intelligence with advanced NLP techniques including sentiment analysis, entity recognition, and language translation capabilities.",
-          image:
-            "https://images.unsplash.com/photo-1587560699334-cc4ff634909a?w=400&h=250&fit=crop",
+          image: naturalLanguageProcessingImg,
         },
         {
           title: "Computer Vision",
           description:
             "Advanced image and video analysis for quality control, security, and automation. Implement intelligent visual recognition systems that can identify objects, detect anomalies, and provide real-time insights for industrial and commercial applications.",
-          image:
-            "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=250&fit=crop",
+          image: computerVisionImg,
         },
         {
           title: "Predictive Analytics",
           description:
             "Forecast trends, customer behavior, and business outcomes with high accuracy. Leverage statistical modeling and machine learning to anticipate future scenarios, optimize resource allocation, and make data-driven strategic decisions.",
-          image:
-            "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop",
+          image: predictiveAnalyticsImg,
         },
         {
           title: "AI Consulting & Strategy",
           description:
             "Comprehensive AI roadmap development and implementation guidance. Our experts help you identify high-impact AI opportunities, build business cases, and create sustainable AI strategies aligned with your organizational goals.",
-          image:
-            "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&h=250&fit=crop",
+          image: aiConsultingStrategyImg,
         },
         {
           title: "AI Integration & Deployment",
           description:
             "Seamless integration of AI solutions into your existing workflows and systems. We ensure smooth deployment, provide comprehensive training, and establish monitoring frameworks for continuous AI performance optimization.",
-          image:
-            "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=250&fit=crop",
+          image: aiIntegrationDeploymentImg,
         },
       ],
       benefits: [
@@ -246,51 +278,44 @@ const ServiceDetail = () => {
       icon: Monitor,
       title: "Digital Experience",
       description:
-        "Create exceptional digital experiences that engage users, drive conversions, and build lasting relationships. Our user-centric approach combines cutting-edge design with robust development.",
-      heroImage:
-        "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1200&h=600&fit=crop",
+        "Exceptional digital experiences are born where design meets purpose. We create intuitive, responsive, and emotionally engaging interfaces that turn every customer touchpoint into a powerful brand connection.",
+      heroImage: digitalExperienceImg,
       offerings: [
         {
           title: "UI/UX Design",
           description:
             "Human-centered design that creates intuitive and engaging user interfaces. We craft digital experiences that delight users through thoughtful design patterns, accessibility standards, and conversion-focused user journeys.",
-          image:
-            "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=250&fit=crop",
+          image: uiUxImg,
         },
         {
           title: "Web Development",
           description:
             "Modern, responsive websites built with the latest technologies and best practices. From corporate websites to complex web applications, we deliver high-performance solutions that scale with your business needs.",
-          image:
-            "https://images.unsplash.com/photo-1547658719-da2b51169166?w=400&h=250&fit=crop",
+          image: webAppImg,
         },
         {
           title: "Mobile Applications",
           description:
             "Native and cross-platform mobile apps that deliver seamless user experiences. Build engaging mobile solutions for iOS and Android that leverage device capabilities and provide offline functionality.",
-          image:
-            "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=250&fit=crop",
+          image: mobileAppImg,
         },
         {
           title: "Progressive Web Apps",
           description:
             "Fast, reliable web applications that work offline and feel like native apps. Combine the best of web and mobile experiences with progressive enhancement, service workers, and responsive design principles.",
-          image:
-            "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=250&fit=crop",
+          image: progressiveWebAppImg,
         },
         {
           title: "E-commerce Solutions",
           description:
             "Complete online store development with secure payment gateways, inventory management, and customer analytics. Create seamless shopping experiences that drive conversions and customer loyalty.",
-          image:
-            "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop",
+          image: eCommercesImg,
         },
         {
           title: "Digital Strategy & Consulting",
           description:
             "Comprehensive digital transformation guidance to maximize your online presence. We analyze your business objectives, target audience, and market trends to create data-driven digital strategies.",
-          image:
-            "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&h=250&fit=crop",
+          image: digitalStrategyImg,
         },
       ],
       benefits: [
@@ -367,51 +392,44 @@ const ServiceDetail = () => {
       icon: Cloud,
       title: "Cloud Solutions",
       description:
-        "Harness the power of cloud computing to scale your business, reduce costs, and improve reliability. Our cloud solutions provide secure, scalable, and cost-effective infrastructure.",
-      heroImage:
-        "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=600&fit=crop",
+        "Fuel innovation with cloud strategies engineered for dynamic growth, seamless performance, and enterprise-grade security. From seamless migrations to cloud-native innovations, we help you accelerate transformation and operate with freedom and confidence.",
+      heroImage: cloudSolutionsImg,
       offerings: [
         {
           title: "Cloud Migration",
           description:
             "Seamless migration of your existing infrastructure to cloud platforms with minimal downtime. Our comprehensive migration strategy ensures data integrity, security compliance, and optimal performance throughout the transition process.",
-          image:
-            "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=250&fit=crop",
+          image: cloudMigrationImg,
         },
         {
           title: "Infrastructure as Code",
           description:
             "Automated infrastructure provisioning and management using modern DevOps practices. Implement version-controlled, repeatable infrastructure deployment with tools like Terraform, CloudFormation, and Kubernetes for consistent environments.",
-          image:
-            "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=250&fit=crop",
+          image: infrastructureCodeImg,
         },
         {
           title: "Serverless Architecture",
           description:
             "Event-driven computing that automatically scales and reduces operational overhead. Build cost-effective applications that scale to zero when not in use and handle massive spikes in traffic without infrastructure management.",
-          image:
-            "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=400&h=250&fit=crop",
+          image: serverlessArchitectureImg,
         },
         {
           title: "DevOps & CI/CD",
           description:
             "Streamlined development workflows with automated testing and deployment pipelines. Accelerate software delivery with continuous integration, automated quality gates, and zero-downtime deployment strategies.",
-          image:
-            "https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=400&h=250&fit=crop",
+          image: devopsImg,
         },
         {
           title: "Cloud Security & Compliance",
           description:
             "Comprehensive security frameworks and compliance management for cloud environments. Implement multi-layered security controls, identity management, and regulatory compliance for GDPR, HIPAA, SOC2, and other standards.",
-          image:
-            "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&h=250&fit=crop",
+          image: cloudSecurityImg,
         },
         {
           title: "Cloud Cost Optimization",
           description:
             "Strategic cost management and optimization for cloud resources. Analyze usage patterns, implement cost-saving measures, and establish monitoring systems to ensure optimal cloud spending without compromising performance.",
-          image:
-            "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=250&fit=crop",
+          image: cloudOptimizationImg,
         },
       ],
       benefits: [
@@ -498,51 +516,44 @@ const ServiceDetail = () => {
       icon: Rocket,
       title: "Digital Transformation",
       description:
-        "Revolutionize your business operations with comprehensive digital transformation strategies. We help organizations modernize processes, adopt new technologies, and drive innovation.",
-      heroImage:
-        "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&h=600&fit=crop",
+        "Transformation is more than going digital—it’s about reimagining how your business works and evolves. We help you modernize core systems, adopt new technologies, and align digital strategy with real-world impact.",
+      heroImage: digitalTransformationImg,
       offerings: [
         {
           title: "Process Automation",
           description:
             "Streamline operations with intelligent automation and workflow optimization. Eliminate manual processes through robotic process automation, AI-powered decision making, and integrated business process management systems.",
-          image:
-            "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&h=250&fit=crop",
+          image: processAutomationImg,
         },
         {
           title: "Legacy System Modernization",
           description:
             "Transform outdated systems into modern, efficient, and scalable solutions. Migrate from monolithic architectures to microservices, update technology stacks, and improve system performance while maintaining business continuity.",
-          image:
-            "https://cdn.elearningindustry.com/wp-content/uploads/2024/01/How-To-Implement-An-Impactful-Digital-Transformation-Strategy-In-Your-Organization.jpg",
+          image: legacySystemImg,
         },
         {
           title: "Digital Strategy Consulting",
           description:
             "Strategic planning and roadmap development for successful digital transformation. Assess current capabilities, define target architecture, and create actionable plans that align technology initiatives with business objectives.",
-          image:
-            "https://images.unsplash.com/photo-1553484771-371a605b060b?w=400&h=250&fit=crop",
+          image: digitalStrategy,
         },
         {
           title: "Change Management",
           description:
             "Organizational change support to ensure smooth adoption of new technologies. Provide training programs, communication strategies, and stakeholder engagement to maximize user adoption and transformation success.",
-          image:
-            "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&h=250&fit=crop",
+          image: changeManagementImg,
         },
         {
           title: "Cloud Transformation",
           description:
             "Accelerate innovation with secure and scalable cloud solutions. Implement cloud-native architectures, optimize cloud infrastructure, and enable flexible, cost-effective digital operations across hybrid and multi-cloud environments.",
-          image:
-            "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=250&fit=crop",
+          image: cloudTransformationImg,
         },
         {
           title: "Data Analytics & AI Integration",
           description:
             "Harness the power of data to drive intelligent decision-making. Implement advanced analytics platforms, machine learning models, and business intelligence tools that transform raw data into actionable insights and predictive capabilities.",
-          image:
-            "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop",
+          image: dataAnalyticsImg,
         },
       ],
       benefits: [
@@ -605,7 +616,7 @@ const ServiceDetail = () => {
       icon: Globe,
       title: "IoT Solutions",
       description:
-        "Connect the physical and digital worlds with intelligent IoT solutions. Our comprehensive IoT platform enables real-time monitoring, control, and optimization of connected devices.",
+        "In an interconnected world, data is power. Our IoT solutions transform physical environments into intelligent ecosystems—enabling smarter operations, real-time insights, and automated control at scale.",
       heroImage:
         "https://research.aimultiple.com/wp-content/uploads/2021/11/smart-factory-concept-2020-724x432-1.jpg",
       offerings: [
@@ -720,7 +731,7 @@ const ServiceDetail = () => {
       icon: Shield,
       title: "Cyber Security",
       description:
-        "Protect your digital assets with comprehensive cybersecurity solutions. Our multi-layered security approach ensures your business stays protected against evolving threats.",
+        "Your digital trust is only as strong as your security. We deliver advanced cybersecurity frameworks that protect against evolving threats, ensuring your data, systems, and reputation remain uncompromised.",
       heroImage:
         "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&h=600&fit=crop",
       offerings: [
@@ -899,14 +910,30 @@ const ServiceDetail = () => {
       </section>
 
       {/* Offerings Section */}
-      <section className="py-24 bg-background">
+      <section className="py-24 bg-background" data-aos="fade-up">
         <div className="container mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="accent-line mx-auto mb-6" />
-            <h2 className="text-4xl lg:text-5xl font-bold heading-luxury mb-6">
+          <div
+            className="text-center mb-16"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <div
+              className="accent-line mx-auto mb-6"
+              data-aos="fade-right"
+              data-aos-delay="200"
+            />
+            <h2
+              className="text-4xl lg:text-5xl font-bold heading-luxury mb-6"
+              data-aos="fade-up"
+              data-aos-delay="150"
+            >
               Our <span className="text-gradient-luxury">Offerings</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p
+              className="text-xl text-muted-foreground max-w-3xl mx-auto"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
               Comprehensive solutions designed to address your unique business
               challenges
             </p>
@@ -916,7 +943,9 @@ const ServiceDetail = () => {
               <div
                 key={index}
                 className="group bg-card rounded-2xl overflow-hidden shadow-luxury hover:shadow-2xl transition-all duration-500 animate-scale-in border border-border hover:border-primary/20"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                data-aos="fade-up"
+                data-aos-delay={300 + index * 100}
+                data-aos-duration="500"
               >
                 {/* Thumbnail Image */}
                 <div className="relative h-48 overflow-hidden">
@@ -949,14 +978,30 @@ const ServiceDetail = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-24 bg-card">
+      <section className="py-24 bg-card" data-aos="fade-up">
         <div className="container max-w-6xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="accent-line mx-auto mb-6" />
-            <h2 className="text-4xl lg:text-5xl font-bold heading-luxury mb-6">
+          <div
+            className="text-center mb-16"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <div
+              className="accent-line mx-auto mb-6"
+              data-aos="fade-right"
+              data-aos-delay="200"
+            />
+            <h2
+              className="text-4xl lg:text-5xl font-bold heading-luxury mb-6"
+              data-aos="fade-up"
+              data-aos-delay="150"
+            >
               Key <span className="text-gradient-luxury">Benefits</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p
+              className="text-xl text-muted-foreground max-w-3xl mx-auto"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
               Measurable advantages that drive your business forward
             </p>
           </div>
@@ -967,8 +1012,10 @@ const ServiceDetail = () => {
               {service.benefits.map((benefit, index) => (
                 <div
                   key={index}
-                  className="group bg-background rounded-xl    transition-all duration-300 animate-fade-in"
-                  style={{ animationDelay: `${index * 0.05}s` }}
+                  className="group bg-background rounded-xl transition-all duration-300"
+                  data-aos="fade-right"
+                  data-aos-delay={300 + index * 100}
+                  data-aos-duration="500"
                 >
                   <div className="flex items-center space-x-4">
                     <div className="w-14 h-14 bg-primary/90 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -985,26 +1032,29 @@ const ServiceDetail = () => {
             </div>
 
             {/* Benefits Illustration - Right Side */}
-            <div className="animate-fade-in-up">
-              <div className="relative overflow-hidden rounded-2xl shadow-luxury">
-                <img
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=600&fit=crop"
-                  alt="Benefits Illustration"
-                  className="w-full h-96 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-transparent" />
-                <div className="absolute bottom-6 left-6">
-                  <div className="w-16 h-16 bg-primary/90 rounded-xl flex items-center justify-center backdrop-blur-sm">
-                    <Users className="w-8 h-8 text-white" />
-                  </div>
+            <div
+              className="relative overflow-hidden rounded-2xl shadow-luxury"
+              data-aos="fade-left"
+              data-aos-delay="400"
+              data-aos-duration="600"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=600&fit=crop"
+                alt="Benefits Illustration"
+                className="w-full h-96 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-transparent" />
+              <div className="absolute bottom-6 left-6">
+                <div className="w-16 h-16 bg-primary/90 rounded-xl flex items-center justify-center backdrop-blur-sm">
+                  <Users className="w-8 h-8 text-white" />
                 </div>
-                {/* Floating Stats */}
-                <div className="absolute top-6 right-6">
-                  <div className="bg-background/90 backdrop-blur-sm rounded-xl p-4 border border-border">
-                    <div className="text-2xl font-bold text-primary">99.9%</div>
-                    <div className="text-xs text-muted-foreground">
-                      Reliability
-                    </div>
+              </div>
+              {/* Floating Stats */}
+              <div className="absolute top-6 right-6">
+                <div className="bg-background/90 backdrop-blur-sm rounded-xl p-4 border border-border">
+                  <div className="text-2xl font-bold text-primary">99.9%</div>
+                  <div className="text-xs text-muted-foreground">
+                    Reliability
                   </div>
                 </div>
               </div>
@@ -1014,11 +1064,23 @@ const ServiceDetail = () => {
       </section>
 
       {/* Use Cases Section */}
-      <section className="py-24 bg-background">
+      <section className="py-24 bg-background" data-aos="fade-up">
         <div className="container mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="accent-line mx-auto mb-6" />
-            <h2 className="text-4xl lg:text-5xl font-bold heading-luxury mb-6">
+          <div
+            className="text-center mb-16"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <div
+              className="accent-line mx-auto mb-6"
+              data-aos="fade-right"
+              data-aos-delay="200"
+            />
+            <h2
+              className="text-4xl lg:text-5xl font-bold heading-luxury mb-6"
+              data-aos="fade-up"
+              data-aos-delay="150"
+            >
               Real-World{" "}
               <span className="text-gradient-luxury">Applications</span>
             </h2>
@@ -1027,8 +1089,10 @@ const ServiceDetail = () => {
             {service.useCases.map((useCase, index) => (
               <div
                 key={index}
-                className="card-luxury group animate-scale-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="card-luxury group"
+                data-aos="fade-up"
+                data-aos-delay={300 + index * 100}
+                data-aos-duration="500"
               >
                 <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/30 transition-colors duration-300">
                   <Award className="w-6 h-6 text-primary" />
@@ -1046,60 +1110,33 @@ const ServiceDetail = () => {
       </section>
 
       {/* Tech Stack Section */}
-      {/* <section className="py-24 bg-background">
-        <div className="container mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="accent-line mx-auto mb-6" />
-            <h2 className="text-4xl lg:text-5xl font-bold heading-luxury mb-6">
-              Technology <span className="text-gradient-luxury">Stack</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              We leverage cutting-edge technologies and industry-leading tools
-              to deliver exceptional results
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-            {service.techStack.map((tech, index) => (
-              <div
-                key={index}
-                className="group bg-card rounded-xl p-6 border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300 animate-fade-in flex flex-col items-center text-center"
-                style={{ animationDelay: `${index * 0.05}s` }}
-              >
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors duration-300">
-                  <div className="w-8 h-8 bg-primary/80 rounded-lg flex items-center justify-center">
-                    <span className="text-white text-xs font-bold">
-                      {tech.substring(0, 2).toUpperCase()}
-                    </span>
-                  </div>
-                </div>
-                <span className="font-medium text-foreground text-sm group-hover:text-primary transition-colors duration-300">
-                  {tech}
-                </span>
-              </div>
-            ))}
-          </div>
-
-         
-          <div className="mt-16 text-center">
-            <div className="inline-flex items-center space-x-2 bg-card rounded-full px-6 py-3 border border-border">
-              <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-              <span className="text-sm text-muted-foreground">
-                Always staying updated with the latest technologies
-              </span>
-            </div>
-          </div>
-        </div>
-      </section> */}
-      {/* Tech Stack Section */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="accent-line mx-auto mb-6" />
-            <h2 className="text-4xl lg:text-5xl font-bold heading-luxury mb-6">
+          <div
+            className="text-center mb-16"
+            data-aos="zoom-in"
+            data-aos-delay="50"
+          >
+            <div
+              className="accent-line mx-auto mb-6"
+              data-aos="fade-right"
+              data-aos-delay="100"
+              data-aos-duration="300"
+            />
+            <h2
+              className="text-4xl lg:text-5xl font-bold heading-luxury mb-6"
+              data-aos="fade-up"
+              data-aos-delay="75"
+              data-aos-duration="300"
+            >
               Technology <span className="text-gradient-luxury">Stack</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p
+              className="text-xl text-muted-foreground max-w-3xl mx-auto"
+              data-aos="fade-up"
+              data-aos-delay="100"
+              data-aos-duration="300"
+            >
               We leverage cutting-edge technologies and industry-leading tools
               to deliver exceptional results
             </p>

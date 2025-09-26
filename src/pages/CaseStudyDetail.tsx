@@ -14,6 +14,16 @@ import {
   CheckCircleIcon,
   ShieldCheckIcon,
   BoltIcon,
+  Server,
+  Globe,
+  Shield,
+  DollarSign,
+  ShoppingCart,
+  RefreshCw,
+  Video,
+  TrendingDown,
+  Heart,
+  Activity,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import DynamicIcon from "../components/DynamicIcon";
@@ -44,54 +54,54 @@ const CaseStudyDetail = () => {
 
   const projects = [
     {
-      id: "healthcare-platform",
-      title: "AI-Powered Healthcare Platform",
-      category: "Healthcare",
+      id: "nextgen-learning-ecosystem",
+      title: "NextGen Learning Ecosystem",
+      category: "Education",
       image: healthcare,
       description:
-        "Revolutionary telemedicine platform with AI diagnostics and patient management system.",
+        "Unified digital learning environment with AI-powered personalization for global university network.",
       fullDescription:
-        "We developed a comprehensive healthcare platform that combines telemedicine, AI-powered diagnostics, and patient management into a single, intuitive system. The platform serves over 50,000 patients and has improved diagnostic accuracy by 40%. Our solution addresses critical healthcare challenges including accessibility, efficiency, and quality of care delivery.",
+        "A global university network sought a unified digital learning environment that could adapt to individual student needs and support real-time analytics across multiple campuses. We built a cloud-based learning ecosystem with intelligent course recommendations, virtual classrooms, and adaptive assessments. Educators could track performance in real-time, and students received dynamic content tailored to their learning pace and style.",
       technologies: [
         "React",
-        "Node.js",
-        "Python",
         "TensorFlow",
-        "AWS",
-        "MongoDB",
-      ],
+        "Scikit-Learn",
 
+        "Node.js",
+        "Power BI",
+      ],
       stats: [
-        { label: "Patients Served", value: "50K+", icon: Users },
-        { label: "Diagnostic Accuracy", value: "95%", icon: Target },
-        { label: "Response Time", value: "2s", icon: Zap },
+        { label: "Student Engagement", value: "45%", icon: TrendingUp },
+        { label: "Course Completion", value: "30% faster", icon: Target },
+        { label: "Countries Deployed", value: "9+", icon: Globe },
+        { label: "Platform Uptime", value: "99.98%", icon: Server },
       ],
       results: [
-        "Reduced patient wait times by 60%",
-        "Improved diagnostic accuracy by 40%",
-        "Increased patient satisfaction to 98%",
-        "Expanded healthcare access to rural areas",
+        "45% improvement in student engagement",
+        "30% faster course completion rates",
+        "Used in 9+ countries across global campuses",
+        "Platform uptime exceeded 99.98% in first year",
       ],
       challenges: [
-        "Integration with existing healthcare systems",
-        "Ensuring HIPAA compliance and data security",
-        "Real-time processing of medical data",
-        "Scalability across multiple healthcare facilities",
+        "Fragmented systems with no centralized content delivery",
+        "Limited real-time tracking of student engagement",
+        "Poor accessibility for students in remote regions",
+        "Lack of personalization in the learning journey",
       ],
       solution:
-        "Our team developed a modular, cloud-native platform that seamlessly integrates with existing healthcare infrastructure while maintaining the highest security standards. We implemented advanced AI algorithms for diagnostic assistance and created an intuitive interface for both healthcare providers and patients.",
+        "We developed a comprehensive learning ecosystem featuring AI-powered learning paths, virtual classrooms using WebRTC, and cloud-native infrastructure. The platform provides real-time analytics dashboards for educators and personalized learning experiences for students, addressing accessibility and engagement challenges across diverse geographical locations.",
       year: "2024",
-      duration: "8 months",
+      duration: "6.5 months",
     },
     {
-      id: "fintech-trading-platform",
-      title: "Real-Time Trading Platform",
+      id: "quantum-risk-analytics",
+      title: "Quantum Risk Analytics Suite",
       category: "FinTech",
       image: trading,
       description:
-        "High-frequency trading platform with real-time analytics and risk management.",
+        "Futuristic risk management tool with quantum-inspired modeling for real-time high-risk scenario prediction.",
       fullDescription:
-        "Built a cutting-edge trading platform capable of processing millions of transactions per second with real-time market analytics, automated risk management, and compliance monitoring. The platform handles high-frequency trading while ensuring regulatory compliance and risk mitigation.",
+        "A multinational investment firm needed a futuristic risk management tool capable of scanning global data sources and predicting high-risk scenarios with minimal latency. We developed a hybrid quantum-classical system that scanned financial news, social sentiment, and portfolio data in real time. AI flagged risk patterns and visualized alerts in a compliance-friendly dashboard with full traceability.",
       technologies: [
         "React",
         "WebSocket",
@@ -101,59 +111,70 @@ const CaseStudyDetail = () => {
         "AWS",
       ],
       stats: [
-        { label: "Transactions/Second", value: "100K+", icon: TrendingUp },
-        { label: "Uptime", value: "99.99%", icon: Award },
-        { label: "Latency", value: "<1ms", icon: Clock },
+        { label: "Risk Identification", value: "30% faster", icon: TrendingUp },
+        { label: "Compliance Review", value: "60% reduction", icon: Award },
+        { label: "Cost Savings", value: "$2M/year", icon: DollarSign },
+        {
+          label: "Model Transparency",
+          value: "Regulator Approved",
+          icon: Shield,
+        },
       ],
       results: [
-        "Processed $2B+ in trading volume",
-        "Achieved 99.99% uptime",
-        "Reduced trading latency by 80%",
-        "Improved risk management accuracy",
+        "30% faster identification of high-risk events",
+        "60% reduction in manual compliance review time",
+        "$2M/year in cost savings from early risk intervention",
+        "Enhanced trust from regulators through transparent AI models",
       ],
       challenges: [
-        "Ultra-low latency requirements",
-        "High-frequency data processing",
-        "Regulatory compliance across multiple jurisdictions",
-        "Real-time risk assessment and management",
+        "Inability to process large-scale unstructured data in real time",
+        "Poor visibility into systemic risks across portfolios",
+        "Compliance requirements for model transparency",
+        "Delays in risk mitigation due to manual reviews",
       ],
       solution:
-        "We architected a distributed system using cutting-edge technology stack optimized for speed and reliability. Our solution includes advanced caching mechanisms, real-time data pipelines, and sophisticated risk management algorithms.",
+        "We developed a hybrid quantum-classical system that scanned financial news, social sentiment, and portfolio data in real time. AI flagged risk patterns and visualized alerts in a compliance-friendly dashboard with full traceability, addressing compliance requirements while providing unprecedented risk visibility.",
       year: "2024",
-      duration: "12 months",
+      duration: "4.5 months",
     },
     {
-      id: "smart-manufacturing",
-      title: "Smart Manufacturing IoT System",
+      id: "smart-factory-automation",
+      title: "Smart Factory Automation",
       category: "Manufacturing",
       image: manufacturing,
       description:
-        "Industrial IoT platform for predictive maintenance and production optimization.",
+        "Industry 4.0 smart factory transformation with real-time machine monitoring and predictive maintenance.",
       fullDescription:
-        "Implemented a comprehensive IoT solution for smart manufacturing, including sensor networks, predictive maintenance algorithms, and real-time production monitoring across multiple facilities. The system transformed traditional manufacturing operations into data-driven, efficient processes.",
+        "A legacy manufacturer wanted to modernize its plants into Industry 4.0-ready smart factories with real-time machine monitoring and predictive maintenance. We equipped production lines with IoT sensors and built edge AI systems to detect anomalies before breakdowns. The central dashboard visualized real-time KPIs across plants and recommended energy-saving adjustments.",
       technologies: ["Arduino", "Docker", "PyTorch", "Azure IoT", "Power BI"],
       stats: [
-        { label: "Equipment Monitored", value: "500+", icon: Users },
-        { label: "Downtime Reduction", value: "70%", icon: TrendingUp },
-        { label: "Cost Savings", value: "$2M", icon: Target },
+        {
+          label: "Unplanned Downtime",
+          value: "35% reduction",
+          icon: TrendingDown,
+        },
+        { label: "Energy Usage", value: "25% drop", icon: Zap },
+        { label: "Equipment Uptime", value: "98%", icon: Activity },
+        { label: "ROI Period", value: "7 months", icon: DollarSign },
       ],
       results: [
-        "Reduced unplanned downtime by 70%",
-        "Improved production efficiency by 25%",
-        "Saved $2M annually in maintenance costs",
-        "Enhanced equipment lifespan by 30%",
+        "35% reduction in unplanned downtime",
+        "25% drop in energy usage",
+        "98% equipment uptime maintained across 3 global sites",
+        "ROI achieved within 7 months through cost savings and efficiency gains",
       ],
       challenges: [
-        "Legacy equipment integration",
-        "Industrial environment networking",
-        "Real-time data processing at scale",
-        "Predictive maintenance accuracy",
+        "Manual workflows prone to human error",
+        "Unexpected machine failures causing delays",
+        "No visibility into production line efficiency",
+        "Inconsistent energy usage across sites",
       ],
       solution:
-        "Our IoT platform bridges the gap between legacy industrial equipment and modern analytics. We deployed edge computing nodes for real-time processing and implemented machine learning models for predictive maintenance.",
+        "We equipped production lines with IoT sensors and built edge AI systems to detect anomalies before breakdowns. The central dashboard visualized real-time KPIs across plants and recommended energy-saving adjustments, transforming legacy manufacturing into data-driven smart factories.",
       year: "2025",
-      duration: "10 months",
+      duration: "4 months",
     },
+
     {
       id: "e-learning-platform",
       title: "Interactive E-Learning Platform",
@@ -187,14 +208,15 @@ const CaseStudyDetail = () => {
       duration: "6 months",
     },
     {
-      id: "retail-analytics",
-      title: "Retail Analytics & Inventory Management",
+      id: "personalized-shopper-experience",
+      title: "Hyper-Personalized Shopper Experience",
       category: "Retail",
       image: retail,
       description:
-        "AI-driven retail analytics platform with demand forecasting and inventory optimization.",
+        "AI-driven omnichannel personalization platform for global fashion retailer boosting customer loyalty and conversion.",
       fullDescription:
-        "Developed a sophisticated retail analytics platform that combines customer behavior analysis, demand forecasting, and automated inventory management to optimize retail operations and increase profitability. The platform provides actionable insights for strategic decision-making.",
+        "A global fashion retailer wanted to elevate customer loyalty and boost conversion by delivering personalized content and product recommendations across web, mobile, and physical stores. We unified all customer touchpoints into a real-time engagement engine, delivering smart recommendations and personalized campaigns. In-store kiosks recognized repeat visitors and showed tailored promotions using edge AI and facial analytics (privacy-compliant).",
+
       technologies: [
         "React",
         "Python",
@@ -203,26 +225,68 @@ const CaseStudyDetail = () => {
         "Apache Kafka",
       ],
       stats: [
-        { label: "Inventory Accuracy", value: "98%", icon: Target },
-        { label: "Sales Increase", value: "35%", icon: TrendingUp },
-        { label: "Waste Reduction", value: "50%", icon: Award },
+        { label: "Conversion Rate", value: "50% increase", icon: TrendingUp },
+        { label: "Customer Retention", value: "35% boost", icon: Users },
+        {
+          label: "In-Store Engagement",
+          value: "40% increase",
+          icon: ShoppingCart,
+        },
+        { label: "Product Returns", value: "20% decrease", icon: RefreshCw },
       ],
       results: [
-        "Increased sales revenue by 35%",
-        "Reduced inventory waste by 50%",
-        "Improved customer satisfaction by 40%",
-        "Optimized supply chain efficiency",
+        "50% increase in conversion rates",
+        "35% boost in customer retention",
+        "40% increase in in-store engagement via smart kiosks",
+        "20% decrease in product return rates thanks to AR try-ons",
       ],
       challenges: [
-        "Complex demand forecasting",
-        "Real-time inventory tracking",
-        "Multi-channel sales integration",
-        "Customer behavior analysis",
+        "Data silos between online and offline systems",
+        "Poor personalization across devices",
+        "Static promotions with low engagement",
+        "No real-time behavioral segmentation",
       ],
       solution:
-        "Our analytics platform leverages machine learning for accurate demand forecasting and provides real-time insights into inventory levels, customer behavior, and market trends.",
-      year: "2025",
-      duration: "8 months",
+        "We unified all customer touchpoints into a real-time engagement engine, delivering smart recommendations and personalized campaigns. In-store kiosks recognized repeat visitors and showed tailored promotions using edge AI and facial analytics (privacy-compliant), creating seamless omnichannel experiences.",
+      year: "2024",
+      duration: "4.5 months",
+    },
+    {
+      id: "ai-telehealth-network",
+      title: "AI-Driven Telehealth Network",
+      category: "Healthcare",
+      image: healthcare,
+      description:
+        "Scalable virtual care platform with AI diagnostics and IoT integration for hospital group serving remote patients.",
+      fullDescription:
+        "A hospital group needed a scalable virtual care platform to serve patients remotely, automate diagnostics, and reduce pressure on emergency departments. We launched a digital care platform with virtual consultations, AI-powered symptom triage, and IoT-based patient monitoring. The system auto-updated EMRs and alerted doctors when critical thresholds were crossed.",
+      technologies: ["React", "GraphQL", "Python", "TensorFlow", "AWS"],
+      stats: [
+        { label: "Virtual Consultations", value: "60% increase", icon: Video },
+        {
+          label: "ER Overflow Reduction",
+          value: "50% reduction",
+          icon: TrendingDown,
+        },
+        { label: "Patient Satisfaction", value: "92%", icon: Heart },
+        { label: "Patients Monitored", value: "20K+", icon: Users },
+      ],
+      results: [
+        "60% increase in virtual patient consultations",
+        "50% reduction in ER overflow visits",
+        "92% patient satisfaction score",
+        "Real-time vitals tracking enabled proactive care for 20,000+ patients",
+      ],
+      challenges: [
+        "Overburdened in-person clinics",
+        "Delayed access to diagnostics",
+        "Low digital literacy among patients",
+        "Strict healthcare compliance requirements",
+      ],
+      solution:
+        "We launched a digital care platform with virtual consultations, AI-powered symptom triage, and IoT-based patient monitoring. The system auto-updated EMRs and alerted doctors when critical thresholds were crossed, ensuring compliance while improving accessibility and care quality.",
+      year: "2024",
+      duration: "4.5 months",
     },
     {
       id: "smart-city-infrastructure",
@@ -507,11 +571,17 @@ const CaseStudyContent = ({ project }: { project: any }) => {
       {/* Stats Grid */}
       <section className="py-16 bg-card">
         <div className="container mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 animate-fade-in">
+          <div
+            className="flex overflow-x-auto gap-8 animate-fade-in scrollbar-hide justify-center px-4"
+            data-aos="fade-up"
+          >
             {project.stats.map((stat: any, index: number) => (
               <div
                 key={index}
-                className="text-center p-8 bg-background rounded-2xl border border-border hover:border-primary transition-all duration-300"
+                className="min-w-[250px] text-center p-8 bg-background rounded-2xl border border-border hover:border-primary transition-all duration-300 flex-shrink-0"
+                data-aos="zoom-in"
+                data-aos-delay={index * 100}
+                data-aos-duration="400"
               >
                 <div className="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <stat.icon className="w-8 h-8 text-primary" />
@@ -525,7 +595,6 @@ const CaseStudyContent = ({ project }: { project: any }) => {
           </div>
         </div>
       </section>
-
       {/* Project Details */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-6 lg:px-8">

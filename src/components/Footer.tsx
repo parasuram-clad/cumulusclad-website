@@ -43,11 +43,6 @@ const Footer = () => {
         href: "https://www.instagram.com/cumulusclad/",
         icon: Instagram,
       },
-      {
-        name: "Website",
-        href: "https://cumulusclad.com",
-        icon: Globe,
-      },
     ],
   };
 
@@ -175,7 +170,7 @@ const Footer = () => {
         <div className="border-t border-border mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center  space-y-4 md:space-y-0">
             {/* Copyright */}
-            <p className=" text-black/60  md:text-base">
+            <p className=" text-black/60  md:text-sm">
               © {currentYear} CumulusClad Technologies. All rights reserved.
             </p>
 
@@ -185,7 +180,7 @@ const Footer = () => {
                 <Link
                   key={link.name}
                   to={link.href}
-                  className=" hover:text-primary md:text-base text-black/60 transition-colors duration-300 hover:underline underline-offset-4"
+                  className=" hover:text-primary md:text-sm text-black/60 transition-colors duration-300 hover:underline underline-offset-4"
                 >
                   {link.name}
                 </Link>

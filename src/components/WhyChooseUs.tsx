@@ -1,57 +1,76 @@
-import { 
-  Zap, 
-  Users, 
-  Eye, 
-  Target, 
-  Award, 
-  Clock 
-} from "lucide-react";
+import { Heart, Users, Palette, Search, Zap, Sparkles } from "lucide-react";
 
 const WhyChooseUs = () => {
   const features = [
     {
-      icon: Zap,
-      title: "Agile Sprints",
-      description: "Fast, iterative development cycles that deliver results quickly and efficiently.",
+      icon: Heart, // Represents "understanding" and personal connection
+      title: "Tech that Understands You",
+      description:
+        "No two businesses are the same. That's why our digital strategy begins with understanding your DNA and ends with building a tech backbone that's truly yours.",
     },
     {
-      icon: Users,
-      title: "Collaborative Approach",
-      description: "We work side-by-side with your team, ensuring seamless integration and knowledge transfer.",
+      icon: Users, // Perfect for human-centered approach
+      title: "Human-Centered Digital Thinking",
+      description:
+        "Tech without empathy is just noise. At CumulusClad, every experience we build is made for people first — not platforms.",
     },
     {
-      icon: Eye,
-      title: "Transparency",
-      description: "You're always in the loop with real-time updates and clear communication channels.",
+      icon: Palette, // Represents the combination of art and engineering
+      title: "We Design Like Artists. We Think Like Engineers.",
+      description: "Logic and beauty don't compete here they collaborate.",
     },
     {
-      icon: Target,
-      title: "Results-Driven",
-      description: "Every solution is designed with your business goals and ROI in mind.",
+      icon: Search, // Represents decoding, analyzing, and insight
+      title: "We Don't Guess. We Decode",
+      description:
+        "We don't operate on assumptions. Every solution we create is backed by insight, intent, and intelligent architecture.",
     },
     {
-      icon: Award,
-      title: "Quality Assurance",
-      description: "Rigorous testing and quality control ensure robust, reliable solutions.",
+      icon: Zap, // Represents speed, energy, and personalized tech
+      title: "Tech that Understands You",
+      description:
+        "No two businesses are the same. That's why our digital strategy begins with understanding your DNA and ends with building a tech backbone that's truly yours.",
     },
     {
-      icon: Clock,
-      title: "On-Time Delivery",
-      description: "We respect your timeline and consistently deliver projects on schedule.",
+      icon: Sparkles, // Represents innovation and magical, invisible tech
+      title: "Invisible Innovation, Visible Impact",
+      description:
+        "When tech works right, it becomes invisible. We focus on making things effortlessly intuitive so the results speak louder than the interface.",
     },
   ];
 
   return (
     <section className="py-24 bg-background">
       <div className="container mx-auto px-6 lg:px-8">
-        <div className="text-center mb-16 animate-fade-in">
-          <div className="accent-line mx-auto mb-6" />
-          <h2 className="text-4xl lg:text-5xl font-bold heading-luxury mb-6">
+        <div
+          className="text-center mb-16"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-delay="100"
+        >
+          <div
+            className="accent-line mx-auto mb-6"
+            data-aos="fade-up"
+            data-aos-duration="600"
+            data-aos-delay="150"
+          />
+          <h2
+            className="text-4xl lg:text-5xl font-bold heading-luxury mb-6"
+            data-aos="fade-up"
+            data-aos-duration="600"
+            data-aos-delay="200"
+          >
             Why <span className="text-gradient-luxury">Choose Us?</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            We work side-by-side with your team through agile sprints and iterative feedback. 
-            You're always in the loop, and your input shapes the final product.
+          <p
+            className="text-xl text-muted-foreground max-w-3xl mx-auto"
+            data-aos="fade-up"
+            data-aos-duration="600"
+            data-aos-delay="250"
+          >
+            We combine innovation with reliability to deliver solutions that
+            last. At CumulusClad, Your growth is not our goal, it’s our
+            guarantee.
           </p>
         </div>
 
@@ -59,12 +78,14 @@ const WhyChooseUs = () => {
           {features.map((feature, index) => (
             <div
               key={feature.title}
-              className="group relative p-8 rounded-2xl bg-card border border-border hover:border-primary transition-all duration-300 hover:shadow-luxury animate-scale-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="group relative p-8 rounded-2xl bg-card border border-border hover:border-primary transition-all duration-300 hover:shadow-luxury"
+              data-aos="fade-up"
+              data-aos-duration="500"
+              data-aos-delay={300 + index * 100} // Staggered delay: 300ms, 400ms, 500ms, etc.
             >
               {/* Background Glow Effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              
+
               <div className="relative z-10">
                 {/* Icon */}
                 <div className="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/30 transition-colors duration-300">

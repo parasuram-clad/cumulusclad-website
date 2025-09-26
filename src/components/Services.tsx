@@ -13,7 +13,7 @@ const Services = () => {
       image: aiSolutionsImg,
       title: "AI Solutions",
       description:
-        "Intelligent systems that learn, adapt, and transform your business operations.",
+        "Intelligent systems that analyze, learn, and optimize to accelerate business growth with smarter decisions.",
       gradient: "from-primary to-red-500",
     },
     {
@@ -21,7 +21,7 @@ const Services = () => {
       image: digitalExperienceImg,
       title: "Digital Experience",
       description:
-        "User-centric design and development that creates meaningful digital interactions.",
+        "Seamless designs, engaging platforms that redefine customer journeys through innovation and creativity.",
       gradient: "from-red-500 to-primary",
     },
     {
@@ -29,7 +29,7 @@ const Services = () => {
       image: cloudSolutionsImg,
       title: "Cloud Solutions",
       description:
-        "Scalable, secure, and cost-effective cloud infrastructure for modern businesses.",
+        "Future-ready cloud infrastructure that scales with your business while ensuring security and efficiency.",
       gradient: "from-primary to-red-600",
     },
     {
@@ -37,7 +37,7 @@ const Services = () => {
       image: digitalTransformationImg,
       title: "Digital Transformation",
       description:
-        "Complete business modernization with cutting-edge technology strategies.",
+        "Reimagining processes with technology to unlock opportunities, enhance agility, and drive innovation.",
       gradient: "from-red-600 to-primary",
     },
     {
@@ -45,15 +45,15 @@ const Services = () => {
       image: iotSolutionsImg,
       title: "IoT Solutions",
       description:
-        "Connected devices and smart systems that bring intelligence to everything.",
+        "Smart connectivity that transforms devices into data-driven assets, enabling automation and insights.",
       gradient: "from-primary to-red-500",
     },
     {
-      id: "cyber-security",
+      id: "cybersecurity",
       image: cybersecurityImg,
       title: "Cyber Security",
       description:
-        "Comprehensive protection against modern threats with advanced security protocols.",
+        "Advanced protection that secures your digital ecosystem against evolving threats with proactive defense.",
       gradient: "from-red-500 to-primary",
     },
   ];
@@ -61,24 +61,49 @@ const Services = () => {
   return (
     <section className="py-24 bg-gradient-hero">
       <div className="container mx-auto px-6 lg:px-8">
-        <div className="text-center mb-16 animate-fade-in">
-          <div className="accent-line mx-auto mb-6" />
-          <h2 className="text-4xl lg:text-5xl font-bold heading-luxury mb-6">
+        {/* Title Section - Faster animations */}
+        <div
+          className="text-center mb-16"
+          data-aos="fade-up"
+          data-aos-duration="400" // Faster: 400ms instead of 800ms
+          data-aos-delay="50" // Shorter delay
+        >
+          <div
+            className="accent-line mx-auto mb-6"
+            data-aos="fade-up"
+            data-aos-duration="400"
+            data-aos-delay="100"
+          />
+          <h2
+            className="text-4xl lg:text-5xl font-bold heading-luxury mb-6"
+            data-aos="fade-up"
+            data-aos-duration="400"
+            data-aos-delay="150"
+          >
             Our <span className="text-gradient-luxury">Services</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Comprehensive technology solutions designed to accelerate your
-            business growth and digital transformation.
+          <p
+            className="text-xl text-muted-foreground max-w-3xl mx-auto"
+            data-aos="fade-up"
+            data-aos-duration="400"
+            data-aos-delay="200"
+          >
+            Comprehensive solutions that blend innovation and intelligence to
+            transform your business.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Services Grid - Faster card animations */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {services.map((service, index) => (
             <Link
               key={service.title}
               to={`/services/${service.id}`}
-              className="card-luxury2 group cursor-pointer animate-scale-in overflow-hidden w-full p-0 flex flex-col h-full"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="card-luxury2 group cursor-pointer overflow-hidden w-full p-0 flex flex-col h-full"
+              data-aos="fade-up"
+              data-aos-duration="400" // Faster: 400ms instead of 800ms
+              data-aos-delay={200 + index * 50} // Faster staggered delay: 200ms, 250ms, 300ms, etc.
+              data-aos-easing="ease-out" // Faster easing
             >
               <div className="relative flex flex-col h-full">
                 {/* Service Image - Full Width Without Padding */}
@@ -93,7 +118,7 @@ const Services = () => {
 
                 {/* Content */}
                 <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
+                  <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
                     {service.title}
                   </h3>
                   <p className="text-muted-foreground leading-relaxed text-sm flex-grow">

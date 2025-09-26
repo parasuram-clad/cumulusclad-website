@@ -9,6 +9,16 @@ import {
   Award,
   Zap,
   Clock,
+  Globe,
+  Server,
+  DollarSign,
+  Shield,
+  ShoppingCart,
+  RefreshCw,
+  Video,
+  TrendingDown,
+  Heart,
+  Activity,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useSearchParams, useNavigate } from "react-router-dom";
@@ -20,122 +30,144 @@ import retail from "@/assets/works/inventory-management.jpeg";
 import smartCity from "@/assets/works/smart-city-infrastructure.jpeg";
 import caseStudy1 from "@/assets/case-study-1.jpg";
 import caseStudy2 from "@/assets/case-study-2.jpg";
+
 const Work = () => {
   const [searchParams, setSearchParams] = useSearchParams(); // Use setSearchParams instead of navigate
   const categoryFromUrl = searchParams.get("category");
   const navigate = useNavigate();
   const projects = [
     {
-      id: "healthcare-platform",
-      title: "AI-Powered Healthcare Platform",
-      category: "Healthcare",
-      image: healthcare,
-      description:
-        "Revolutionary telemedicine platform with AI diagnostics and patient management system.",
-      fullDescription:
-        "We developed a comprehensive healthcare platform that combines telemedicine, AI-powered diagnostics, and patient management into a single, intuitive system. The platform serves over 50,000 patients and has improved diagnostic accuracy by 40%.",
-      technologies: ["React", "Node.js", "TensorFlow", "AWS", "MongoDB"],
-      stats: [
-        { label: "Patients Served", value: "50K+", icon: Users },
-        { label: "Diagnostic Accuracy", value: "95%", icon: Target },
-        { label: "Response Time", value: "2s", icon: Zap },
-      ],
-      results: [
-        "Reduced patient wait times by 60%",
-        "Improved diagnostic accuracy by 40%",
-        "Increased patient satisfaction to 98%",
-        "Expanded healthcare access to rural areas",
-      ],
-      year: "2024",
-      duration: "8 months",
-    },
-    {
-      id: "fintech-trading-platform",
-      title: "Real-Time Trading Platform",
-      category: "FinTech",
-      image: trading,
-      description:
-        "High-frequency trading platform with real-time analytics and risk management.",
-      fullDescription:
-        "Built a cutting-edge trading platform capable of processing millions of transactions per second with real-time market analytics, automated risk management, and compliance monitoring.",
-      technologies: ["React", "WebSocket", "Python", "Redis", "PostgreSQL"],
-      stats: [
-        { label: "Transactions/Second", value: "100K+", icon: TrendingUp },
-        { label: "Uptime", value: "99.99%", icon: Award },
-        { label: "Latency", value: "<1ms", icon: Clock },
-      ],
-      results: [
-        "Processed $2B+ in trading volume",
-        "Achieved 99.99% uptime",
-        "Reduced trading latency by 80%",
-        "Improved risk management accuracy",
-      ],
-      year: "2024",
-      duration: "12 months",
-    },
-    {
-      id: "smart-manufacturing",
-      title: "Smart Manufacturing IoT System",
-      category: "Manufacturing",
-      image: manufacturing,
-      description:
-        "Industrial IoT platform for predictive maintenance and production optimization.",
-      fullDescription:
-        "Implemented a comprehensive IoT solution for smart manufacturing, including sensor networks, predictive maintenance algorithms, and real-time production monitoring across multiple facilities.",
-      technologies: [
-        "IoT Sensors",
-        "Edge Computing",
-        "Machine Learning",
-        "Azure IoT",
-        "Power BI",
-      ],
-      stats: [
-        { label: "Equipment Monitored", value: "500+", icon: Users },
-        { label: "Downtime Reduction", value: "70%", icon: TrendingUp },
-        { label: "Cost Savings", value: "$2M", icon: Target },
-      ],
-      results: [
-        "Reduced unplanned downtime by 70%",
-        "Improved production efficiency by 25%",
-        "Saved $2M annually in maintenance costs",
-        "Enhanced equipment lifespan by 30%",
-      ],
-      year: "2025",
-      duration: "10 months",
-    },
-    {
-      id: "e-learning-platform",
-      title: "Interactive E-Learning Platform",
+      id: "nextgen-learning-ecosystem",
+      title: "NextGen Learning Ecosystem",
       category: "Education",
       image: education,
       description:
-        "AI-powered personalized learning platform with virtual classrooms and progress tracking.",
+        "Unified digital learning environment with AI-powered personalization for global university network.",
       fullDescription:
-        "Created an innovative e-learning platform that personalizes education through AI, offering virtual classrooms, adaptive learning paths, and comprehensive progress analytics for educators and students.",
-      technologies: ["React", "GraphQL", "Python", "TensorFlow", "AWS"],
+        "A global university network sought a unified digital learning environment that could adapt to individual student needs and support real-time analytics across multiple campuses. We built a cloud-based learning ecosystem with intelligent course recommendations, virtual classrooms, and adaptive assessments. Educators could track performance in real-time, and students received dynamic content tailored to their learning pace and style.",
+      technologies: [
+        "React",
+        "TensorFlow",
+        "Scikit-Learn",
+        "WebRTC",
+        "AWS EduStack",
+        "Node.js",
+        "Power BI",
+      ],
       stats: [
-        { label: "Active Students", value: "25K+", icon: Users },
-        { label: "Course Completion", value: "85%", icon: Award },
-        { label: "Learning Improvement", value: "60%", icon: TrendingUp },
+        { label: "Student Engagement", value: "45%", icon: TrendingUp },
+        { label: "Course Completion", value: "30% faster", icon: Target },
+        { label: "Countries Deployed", value: "9+", icon: Globe },
+        { label: "Platform Uptime", value: "99.98%", icon: Server },
       ],
       results: [
-        "Increased course completion rates by 45%",
-        "Improved learning outcomes by 60%",
-        "Reduced instructor workload by 30%",
-        "Expanded global reach to 50+ countries",
+        "45% improvement in student engagement",
+        "30% faster course completion rates",
+        "Used in 9+ countries across global campuses",
+        "Platform uptime exceeded 99.98% in first year",
       ],
+      challenges: [
+        "Fragmented systems with no centralized content delivery",
+        "Limited real-time tracking of student engagement",
+        "Poor accessibility for students in remote regions",
+        "Lack of personalization in the learning journey",
+      ],
+      solution:
+        "We developed a comprehensive learning ecosystem featuring AI-powered learning paths, virtual classrooms using WebRTC, and cloud-native infrastructure. The platform provides real-time analytics dashboards for educators and personalized learning experiences for students, addressing accessibility and engagement challenges across diverse geographical locations.",
       year: "2024",
-      duration: "6 months",
+      duration: "6.5 months",
     },
     {
-      id: "retail-analytics",
-      title: "Retail Analytics & Inventory Management",
+      id: "quantum-risk-analytics",
+      title: "Quantum Risk Analytics Suite",
+      category: "FinTech",
+      image: trading,
+      description:
+        "Futuristic risk management tool with quantum-inspired modeling for real-time high-risk scenario prediction.",
+      fullDescription:
+        "A multinational investment firm needed a futuristic risk management tool capable of scanning global data sources and predicting high-risk scenarios with minimal latency. We developed a hybrid quantum-classical system that scanned financial news, social sentiment, and portfolio data in real time. AI flagged risk patterns and visualized alerts in a compliance-friendly dashboard with full traceability.",
+      technologies: [
+        "React",
+        "WebSocket",
+        "Python",
+        "Redis",
+        "PostgreSQL",
+        "AWS",
+      ],
+      stats: [
+        { label: "Risk Identification", value: "30% faster", icon: TrendingUp },
+        { label: "Compliance Review", value: "60% reduction", icon: Award },
+        { label: "Cost Savings", value: "$2M/year", icon: DollarSign },
+        {
+          label: "Model Transparency",
+          value: "Regulator Approved",
+          icon: Shield,
+        },
+      ],
+      results: [
+        "30% faster identification of high-risk events",
+        "60% reduction in manual compliance review time",
+        "$2M/year in cost savings from early risk intervention",
+        "Enhanced trust from regulators through transparent AI models",
+      ],
+      challenges: [
+        "Inability to process large-scale unstructured data in real time",
+        "Poor visibility into systemic risks across portfolios",
+        "Compliance requirements for model transparency",
+        "Delays in risk mitigation due to manual reviews",
+      ],
+      solution:
+        "We developed a hybrid quantum-classical system that scanned financial news, social sentiment, and portfolio data in real time. AI flagged risk patterns and visualized alerts in a compliance-friendly dashboard with full traceability, addressing compliance requirements while providing unprecedented risk visibility.",
+      year: "2024",
+      duration: "4.5 months",
+    },
+    {
+      id: "smart-factory-automation",
+      title: "Smart Factory Automation",
+      category: "Manufacturing",
+      image: manufacturing,
+      description:
+        "Industry 4.0 smart factory transformation with real-time machine monitoring and predictive maintenance.",
+      fullDescription:
+        "A legacy manufacturer wanted to modernize its plants into Industry 4.0-ready smart factories with real-time machine monitoring and predictive maintenance. We equipped production lines with IoT sensors and built edge AI systems to detect anomalies before breakdowns. The central dashboard visualized real-time KPIs across plants and recommended energy-saving adjustments.",
+      technologies: ["Arduino", "Docker", "PyTorch", "Azure IoT", "Power BI"],
+      stats: [
+        {
+          label: "Unplanned Downtime",
+          value: "35% reduction",
+          icon: TrendingDown,
+        },
+        { label: "Energy Usage", value: "25% drop", icon: Zap },
+        { label: "Equipment Uptime", value: "98%", icon: Activity },
+        { label: "ROI Period", value: "7 months", icon: DollarSign },
+      ],
+      results: [
+        "35% reduction in unplanned downtime",
+        "25% drop in energy usage",
+        "98% equipment uptime maintained across 3 global sites",
+        "ROI achieved within 7 months through cost savings and efficiency gains",
+      ],
+      challenges: [
+        "Manual workflows prone to human error",
+        "Unexpected machine failures causing delays",
+        "No visibility into production line efficiency",
+        "Inconsistent energy usage across sites",
+      ],
+      solution:
+        "We equipped production lines with IoT sensors and built edge AI systems to detect anomalies before breakdowns. The central dashboard visualized real-time KPIs across plants and recommended energy-saving adjustments, transforming legacy manufacturing into data-driven smart factories.",
+      year: "2025",
+      duration: "4 months",
+    },
+
+    {
+      id: "personalized-shopper-experience",
+      title: "Hyper-Personalized Shopper Experience",
       category: "Retail",
       image: retail,
       description:
-        "AI-driven retail analytics platform with demand forecasting and inventory optimization.",
+        "AI-driven omnichannel personalization platform for global fashion retailer boosting customer loyalty and conversion.",
       fullDescription:
-        "Developed a sophisticated retail analytics platform that combines customer behavior analysis, demand forecasting, and automated inventory management to optimize retail operations and increase profitability.",
+        "A global fashion retailer wanted to elevate customer loyalty and boost conversion by delivering personalized content and product recommendations across web, mobile, and physical stores. We unified all customer touchpoints into a real-time engagement engine, delivering smart recommendations and personalized campaigns. In-store kiosks recognized repeat visitors and showed tailored promotions using edge AI and facial analytics (privacy-compliant).",
       technologies: [
         "React",
         "Python",
@@ -144,18 +176,69 @@ const Work = () => {
         "Apache Kafka",
       ],
       stats: [
-        { label: "Inventory Accuracy", value: "98%", icon: Target },
-        { label: "Sales Increase", value: "35%", icon: TrendingUp },
-        { label: "Waste Reduction", value: "50%", icon: Award },
+        { label: "Conversion Rate", value: "50% increase", icon: TrendingUp },
+        { label: "Customer Retention", value: "35% boost", icon: Users },
+        {
+          label: "In-Store Engagement",
+          value: "40% increase",
+          icon: ShoppingCart,
+        },
+        { label: "Product Returns", value: "20% decrease", icon: RefreshCw },
       ],
       results: [
-        "Increased sales revenue by 35%",
-        "Reduced inventory waste by 50%",
-        "Improved customer satisfaction by 40%",
-        "Optimized supply chain efficiency",
+        "50% increase in conversion rates",
+        "35% boost in customer retention",
+        "40% increase in in-store engagement via smart kiosks",
+        "20% decrease in product return rates thanks to AR try-ons",
       ],
-      year: "2025",
-      duration: "8 months",
+      challenges: [
+        "Data silos between online and offline systems",
+        "Poor personalization across devices",
+        "Static promotions with low engagement",
+        "No real-time behavioral segmentation",
+      ],
+      solution:
+        "We unified all customer touchpoints into a real-time engagement engine, delivering smart recommendations and personalized campaigns. In-store kiosks recognized repeat visitors and showed tailored promotions using edge AI and facial analytics (privacy-compliant), creating seamless omnichannel experiences.",
+      year: "2024",
+      duration: "4.5 months",
+    },
+
+    {
+      id: "ai-telehealth-network",
+      title: "AI-Driven Telehealth Network",
+      category: "Healthcare",
+      image: healthcare,
+      description:
+        "Scalable virtual care platform with AI diagnostics and IoT integration for hospital group serving remote patients.",
+      fullDescription:
+        "A hospital group needed a scalable virtual care platform to serve patients remotely, automate diagnostics, and reduce pressure on emergency departments. We launched a digital care platform with virtual consultations, AI-powered symptom triage, and IoT-based patient monitoring. The system auto-updated EMRs and alerted doctors when critical thresholds were crossed.",
+      technologies: ["React", "GraphQL", "Python", "TensorFlow", "AWS"],
+      stats: [
+        { label: "Virtual Consultations", value: "60% increase", icon: Video },
+        {
+          label: "ER Overflow Reduction",
+          value: "50% reduction",
+          icon: TrendingDown,
+        },
+        { label: "Patient Satisfaction", value: "92%", icon: Heart },
+        { label: "Patients Monitored", value: "20K+", icon: Users },
+      ],
+      results: [
+        "60% increase in virtual patient consultations",
+        "50% reduction in ER overflow visits",
+        "92% patient satisfaction score",
+        "Real-time vitals tracking enabled proactive care for 20,000+ patients",
+      ],
+      challenges: [
+        "Overburdened in-person clinics",
+        "Delayed access to diagnostics",
+        "Low digital literacy among patients",
+        "Strict healthcare compliance requirements",
+      ],
+      solution:
+        "We launched a digital care platform with virtual consultations, AI-powered symptom triage, and IoT-based patient monitoring. The system auto-updated EMRs and alerted doctors when critical thresholds were crossed, ensuring compliance while improving accessibility and care quality.",
+      year: "2024",
+      duration: "4.5 months",
     },
     {
       id: "smart-city-infrastructure",
@@ -463,11 +546,13 @@ const Work = () => {
               <Link
                 to={`/work/${project.id}`}
                 key={project.id}
-                className="group relative overflow-hidden rounded-2xl bg-card border border-border hover:border-primary transition-all duration-500 hover:shadow-luxury animate-scale-in cursor-pointer block"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="group relative overflow-hidden rounded-2xl bg-card border border-border hover:border-primary transition-all duration-500 hover:shadow-luxury cursor-pointer block flex flex-col h-full"
+                data-aos="fade-up"
+                data-aos-duration="500"
+                data-aos-delay={index * 100} // Staggered delay: 0ms, 100ms, 200ms, etc.
               >
                 {/* Project Image */}
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-64 overflow-hidden flex-shrink-0">
                   <img
                     src={project.image}
                     alt={project.title}
@@ -475,14 +560,12 @@ const Work = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-card" />
                   <div className="absolute inset-0 bg-luxury-black/60 group-hover:bg-luxury-black/40 transition-colors duration-300" />
-
                   {/* Category Badge */}
                   <div className="absolute top-4 left-4">
                     <span className="px-3 py-1 bg-primary/90 text-white text-sm font-medium rounded-lg backdrop-blur-sm">
                       {project.category}
                     </span>
                   </div>
-
                   {/* Year */}
                   <div className="absolute top-4 right-4">
                     <span className="px-3 py-1 bg-background/90 text-foreground text-sm font-medium rounded-lg backdrop-blur-sm">
@@ -492,14 +575,13 @@ const Work = () => {
                 </div>
 
                 {/* Project Content */}
-                <div className="p-6">
+                <div className="p-6 flex flex-col flex-grow">
                   <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
                     {project.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-grow">
                     {project.description}
                   </p>
-
                   {/* Technologies */}
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.slice(0, 3).map((tech) => (
@@ -516,11 +598,12 @@ const Work = () => {
                       </span>
                     )}
                   </div>
-
-                  {/* View Project Link */}
-                  <div className="flex items-center text-primary font-semibold text-sm group-hover:underline transition-all duration-300">
-                    View Case Study
-                    <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  {/* View Project Link - Now consistently positioned at bottom */}
+                  <div className="mt-auto pt-4 border-t border-border">
+                    <div className="flex items-center text-primary font-semibold text-sm group-hover:underline transition-all duration-300">
+                      View Case Study
+                      <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </div>
                   </div>
                 </div>
 

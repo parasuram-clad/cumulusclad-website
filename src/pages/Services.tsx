@@ -26,154 +26,51 @@ const Services = () => {
   const services = [
     {
       id: "ai-solutions",
-      icon: Brain,
       image: aiSolutionsImg,
       title: "AI Solutions",
       description:
-        "Intelligent systems that learn, adapt, and transform your business operations.",
-      offerings: [
-        "Machine Learning Models",
-        "Natural Language Processing",
-        "Computer Vision",
-        "Predictive Analytics",
-        "AI Chatbots & Virtual Assistants",
-      ],
-      benefits: [
-        "Automated Decision Making",
-        "Enhanced Efficiency",
-        "Data-Driven Insights",
-        "Reduced Operational Costs",
-      ],
-      techStack: [
-        "TensorFlow",
-        "PyTorch",
-        "OpenAI",
-        "AWS SageMaker",
-        "Azure AI",
-      ],
+        "Intelligent systems that analyze, learn, and optimize to accelerate business growth with smarter decisions.",
+      gradient: "from-primary to-red-500",
     },
     {
       id: "digital-experience",
-      icon: Monitor,
       image: digitalExperienceImg,
       title: "Digital Experience",
       description:
-        "User-centric design and development that creates meaningful digital interactions.",
-      offerings: [
-        "UI/UX Design",
-        "Web Development",
-        "Mobile Applications",
-        "Progressive Web Apps",
-        "Digital Strategy",
-      ],
-      benefits: [
-        "Improved User Engagement",
-        "Higher Conversion Rates",
-        "Brand Differentiation",
-        "Mobile-First Approach",
-      ],
-      techStack: ["React", "Vue.js", "React Native", "Flutter", "Figma"],
+        "Seamless designs, engaging platforms that redefine customer journeys through innovation and creativity.",
+      gradient: "from-red-500 to-primary",
     },
     {
       id: "cloud-solutions",
-      icon: Cloud,
       image: cloudSolutionsImg,
       title: "Cloud Solutions",
       description:
-        "Scalable, secure, and cost-effective cloud infrastructure for modern businesses.",
-      offerings: [
-        "Cloud Migration",
-        "Infrastructure as Code",
-        "Serverless Architecture",
-        "DevOps & CI/CD",
-        "Cloud Security",
-      ],
-      benefits: [
-        "Scalability & Flexibility",
-        "Cost Optimization",
-        "Enhanced Security",
-        "Improved Reliability",
-      ],
-      techStack: ["AWS", "Azure", "Google Cloud", "Kubernetes", "Docker"],
+        "Future-ready cloud infrastructure that scales with your business while ensuring security and efficiency.",
+      gradient: "from-primary to-red-600",
     },
     {
       id: "digital-transformation",
-      icon: Rocket,
       image: digitalTransformationImg,
-
       title: "Digital Transformation",
       description:
-        "Complete business modernization with cutting-edge technology strategies.",
-      offerings: [
-        "Process Automation",
-        "Legacy System Modernization",
-        "Digital Strategy Consulting",
-        "Change Management",
-        "Technology Roadmapping",
-      ],
-      benefits: [
-        "Operational Efficiency",
-        "Competitive Advantage",
-        "Future-Ready Infrastructure",
-        "Enhanced Customer Experience",
-      ],
-      techStack: [
-        "Microservices",
-        "API Gateway",
-        "Event-Driven Architecture",
-        "Blockchain",
-      ],
+        "Reimagining processes with technology to unlock opportunities, enhance agility, and drive innovation.",
+      gradient: "from-red-600 to-primary",
     },
     {
       id: "iot-solutions",
-      icon: Globe,
       image: iotSolutionsImg,
-
       title: "IoT Solutions",
       description:
-        "Connected devices and smart systems that bring intelligence to everything.",
-      offerings: [
-        "IoT Platform Development",
-        "Sensor Integration",
-        "Edge Computing",
-        "Data Analytics",
-        "Smart Device Management",
-      ],
-      benefits: [
-        "Real-time Monitoring",
-        "Predictive Maintenance",
-        "Energy Efficiency",
-        "Remote Management",
-      ],
-      techStack: ["Arduino", "Raspberry Pi", "MQTT", "LoRaWAN", "AWS IoT"],
+        "Smart connectivity that transforms devices into data-driven assets, enabling automation and insights.",
+      gradient: "from-primary to-red-500",
     },
     {
       id: "cybersecurity",
-      icon: Shield,
       image: cybersecurityImg,
-
       title: "Cyber Security",
       description:
-        "Comprehensive protection against modern threats with advanced security protocols.",
-      offerings: [
-        "Security Assessments",
-        "Penetration Testing",
-        "Identity Management",
-        "Compliance Solutions",
-        "Incident Response",
-      ],
-      benefits: [
-        "Risk Mitigation",
-        "Regulatory Compliance",
-        "Business Continuity",
-        "Trust & Reputation",
-      ],
-      techStack: [
-        "SIEM",
-        "Zero Trust",
-        "Multi-Factor Authentication",
-        "Encryption",
-      ],
+        "Advanced protection that secures your digital ecosystem against evolving threats with proactive defense.",
+      gradient: "from-red-500 to-primary",
     },
   ];
 
@@ -198,49 +95,50 @@ const Services = () => {
 
       {/* Services Grid */}
       <section className="py-24 bg-background">
-        <div className="container mx-auto px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <Link
-                key={service.title}
-                to={`/services/${service.id}`}
-                className="card-luxury2 group cursor-pointer animate-scale-in overflow-hidden w-full p-0 flex flex-col h-full"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="relative flex flex-col h-full">
-                  {/* Service Image - Full Width Without Padding */}
-                  <div className="relative overflow-hidden rounded-t-lg flex-shrink-0">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-black/20" />
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-6 flex flex-col flex-grow">
-                    <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
-                      {service.title}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed text-sm flex-grow">
-                      {service.description}
-                    </p>
-
-                    {/* Learn More Link - Fixed at bottom */}
-                    <div className="mt-4 pt-4 border-t border-border">
-                      <span className="text-primary font-normal text-sm uppercase tracking-wide group-hover:underline transition-all duration-300">
-                        Learn More →
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Hover Effect Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {services.map((service, index) => (
+            <Link
+              key={service.title}
+              to={`/services/${service.id}`}
+              className="card-luxury2 group cursor-pointer overflow-hidden w-full p-0 flex flex-col h-full"
+              data-aos="fade-up"
+              data-aos-duration="400" // Faster: 400ms instead of 800ms
+              data-aos-delay={200 + index * 50} // Faster staggered delay: 200ms, 250ms, 300ms, etc.
+              data-aos-easing="ease-out" // Faster easing
+            >
+              <div className="relative flex flex-col h-full">
+                {/* Service Image - Full Width Without Padding */}
+                <div className="relative overflow-hidden rounded-t-lg flex-shrink-0">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-black/20" />
                 </div>
-              </Link>
-            ))}
-          </div>
+
+                {/* Content */}
+                <div className="p-6 flex flex-col flex-grow">
+                  <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
+                    {service.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed text-sm flex-grow">
+                    {service.description}
+                  </p>
+
+                  {/* Learn More Link - Fixed at bottom */}
+                  <div className="mt-4 pt-4 border-t border-border">
+                    <span className="text-primary font-normal text-sm uppercase tracking-wide group-hover:underline transition-all duration-300">
+                      Learn More →
+                    </span>
+                  </div>
+                </div>
+
+                {/* Hover Effect Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 
