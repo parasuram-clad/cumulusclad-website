@@ -63,29 +63,35 @@ const Hero = () => {
                 {/* Main Title */}
                 <div className="space-y-3 sm:space-y-4 md:space-y-5">
                   {" "}
-                  <h1 className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+                  <h1
+                    className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 "
+                    style={{ fontWeight: 100 }}
+                  >
                     <span
                       data-aos="fade-right"
                       data-aos-delay="200"
                       data-aos-duration="800"
                       data-aos-easing="ease-out-cubic"
                       className="text-3xl xs:text-5xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-thin heading-luxury leading-tight whitespace-nowrap"
-                      style={{ fontWeight: 100 }}
                     >
                       Think Deep
                     </span>
 
                     {/* Separator bar - hidden on mobile, visible on tablet and desktop */}
-                    <span className="hidden sm:inline text-3xl md:text-6xl [font-weight:700] text-black">
+                    <span
+                      className="hidden sm:inline text-3xl md:text-6xl text-black"
+                      style={{ fontWeight: 100 }}
+                    >
                       |
                     </span>
 
                     <span
+                      style={{ fontWeight: 100 }}
                       data-aos="fade-left"
                       data-aos-delay="200"
                       data-aos-duration="800"
                       data-aos-easing="ease-out-cubic"
-                      className="text-3xl xs:text-5xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold heading-luxury leading-tight [font-weight:700] whitespace-nowrap"
+                      className="text-3xl xs:text-5xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl  heading-luxury leading-tight whitespace-nowrap"
                     >
                       <span className="text-gradient-luxury">Make Impact</span>
                     </span>
