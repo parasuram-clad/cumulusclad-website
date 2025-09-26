@@ -60,7 +60,8 @@ const Hero = () => {
                 {/* Main Title */}
                 <div className="space-y-3 sm:space-y-4 md:space-y-5">
                   <h1 className="text-3xl xs:text-5xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold heading-luxury leading-tight [font-weight:700] mb-4 md:mb-6 whitespace-normal sm:whitespace-nowrap">
-                    Think Deep&nbsp;|&nbsp;
+                    Think Deep
+                    <span className="hidden sm:inline">&nbsp;|&nbsp;</span>
                     <span className="text-gradient-luxury inline-block sm:inline">
                       Make Impact
                     </span>
