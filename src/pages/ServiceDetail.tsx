@@ -43,6 +43,7 @@ import {
 import CTABanner from "@/components/CTABanner";
 import ai from "@/assets/services/page-image/ai.jpeg";
 import digitalExperience from "@/assets/services/page-image/digital-experience.jpeg";
+import cyberimage from "@/assets/services/page-image/cyber.jpeg";
 import cloud from "@/assets/services/page-image/cloud.jpeg";
 import digitalTransformation from "@/assets/services/page-image/digital-transformation.jpeg";
 import aiSolutionsImg from "@/assets/services/ai-solutions.jpg";
@@ -78,8 +79,20 @@ import legacySystemImg from "@/assets/services/digital-transformation/legacy-sys
 import digitalStrategy from "@/assets/services/digital-transformation/digital-strategy .jpeg";
 import changeManagementImg from "@/assets/services/digital-transformation/change-management.jpeg";
 import cloudTransformationImg from "@/assets/services/digital-transformation/cloud-transformation.jpeg";
-import dataAnalyticsImg from "@/assets/services/digital-transformation/data-analytics.jpeg";
 
+import iotPlatformImg from "@/assets/services/iot/iot-platform.jpeg";
+import sensorIntegrationImg from "@/assets/services/iot/sensor-integration.jpeg";
+import edgeComputingImg from "@/assets/services/iot/edge-computing.jpeg";
+import dataAnalyticsImg from "@/assets/services/iot/data-analytics.jpeg";
+import predictiveMaintenanceImg from "@/assets/services/iot/predictive-maintenance.jpeg";
+import iotSecurityImg from "@/assets/services/iot/iot-security.jpeg";
+
+import securityAssessmentsImg from "@/assets/services/cyber/security-assessments.jpeg";
+import penetrationTestingImg from "@/assets/services/cyber/penetration-testing.jpeg";
+import identityManagementImg from "@/assets/services/cyber/identity-management.jpeg";
+import complianceSolutionsImg from "@/assets/services/cyber/compliance-solutions.jpeg";
+import managedDetectionImg from "@/assets/services/cyber/managed-detection.jpeg";
+import cloudSecurityArchitectureImg from "@/assets/services/cyber/cloud-security-architecture.jpeg";
 const ServiceDetail = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const getFilteredTechStack = (techStack: any, activeCategory: string) => {
@@ -624,43 +637,37 @@ const ServiceDetail = () => {
           title: "IoT Platform Development",
           description:
             "End-to-end IoT platforms for device management, data collection, and analytics. Build scalable IoT ecosystems that connect millions of devices, process real-time data streams, and provide actionable insights through advanced dashboards.",
-          image:
-            "https://64.media.tumblr.com/f2422bf41f75935449a3d7426c2a7fe1/tumblr_inline_pskgtgzPpx1wd3x7h_500.pnj",
+          image: iotPlatformImg,
         },
         {
           title: "Sensor Integration",
           description:
             "Smart sensor networks for environmental monitoring and industrial automation. Deploy wireless sensor networks that collect environmental data, monitor equipment health, and trigger automated responses based on predefined conditions.",
-          image:
-            "https://cdn.thingsup.io/wp-content/uploads/2023/09/11186-scaled.jpg",
+          image: sensorIntegrationImg,
         },
         {
           title: "Edge Computing",
           description:
             "Local data processing and real-time decision making at the edge of your network. Reduce latency and bandwidth costs by processing data closer to the source, enabling real-time analytics and autonomous device behavior.",
-          image:
-            "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&w=400&h=250&fit=crop",
+          image: edgeComputingImg,
         },
         {
           title: "Data Analytics",
           description:
             "Advanced analytics and machine learning on IoT data for actionable insights. Transform raw sensor data into valuable business intelligence with predictive maintenance, anomaly detection, and performance optimization algorithms.",
-          image:
-            "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop",
+          image: dataAnalyticsImg,
         },
         {
           title: "Predictive Maintenance Solutions",
           description:
             "AI-driven maintenance systems that anticipate equipment failures before they occur. Reduce downtime and maintenance costs by analyzing sensor data to predict component failures and schedule proactive repairs.",
-          image:
-            "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=400&h=250&fit=crop",
+          image: predictiveMaintenanceImg,
         },
         {
           title: "IoT Security & Compliance",
           description:
             "End-to-end security frameworks for protecting connected devices and data. Implement robust security protocols, device authentication, data encryption, and compliance measures to safeguard your IoT ecosystem from cyber threats.",
-          image:
-            "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=250&fit=crop",
+          image: iotSecurityImg,
         },
       ],
       benefits: [
@@ -732,50 +739,43 @@ const ServiceDetail = () => {
       title: "Cyber Security",
       description:
         "Your digital trust is only as strong as your security. We deliver advanced cybersecurity frameworks that protect against evolving threats, ensuring your data, systems, and reputation remain uncompromised.",
-      heroImage:
-        "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&h=600&fit=crop",
+      heroImage: cyberimage,
       offerings: [
         {
           title: "Security Assessments",
           description:
             "Comprehensive security audits to identify vulnerabilities and compliance gaps. Conduct thorough penetration testing, code reviews, and infrastructure assessments to uncover potential security risks and provide actionable remediation strategies.",
-          image:
-            "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&h=250&fit=crop",
+          image: securityAssessmentsImg,
         },
         {
           title: "Penetration Testing",
           description:
             "Ethical hacking to test your systems' defenses against real-world attacks. Simulate sophisticated cyber attacks to identify weaknesses in your security posture and validate the effectiveness of your security controls.",
-          image:
-            "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=250&fit=crop",
+          image: penetrationTestingImg,
         },
         {
           title: "Identity Management",
           description:
             "Secure access control and user authentication systems with multi-factor authentication. Implement zero-trust security models with advanced identity verification, privileged access management, and single sign-on solutions.",
-          image:
-            "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=400&h=250&fit=crop",
+          image: identityManagementImg,
         },
         {
           title: "Compliance Solutions",
           description:
             "Ensure regulatory compliance with GDPR, HIPAA, SOX, and other standards. Implement comprehensive compliance frameworks that meet industry regulations while maintaining operational efficiency and user experience.",
-          image:
-            "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=250&fit=crop",
+          image: complianceSolutionsImg,
         },
         {
           title: "Managed Detection & Response",
           description:
             "24/7 security monitoring and incident response services to protect against advanced threats. Leverage advanced SIEM systems, threat intelligence, and security automation to detect and respond to cyber threats in real-time.",
-          image:
-            "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=250&fit=crop",
+          image: managedDetectionImg,
         },
         {
           title: "Cloud Security Architecture",
           description:
             "Secure cloud infrastructure design and implementation for multi-cloud environments. Build robust security frameworks for AWS, Azure, and GCP with proper network segmentation, data encryption, and cloud-native security controls.",
-          image:
-            "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=250&fit=crop",
+          image: cloudSecurityArchitectureImg,
         },
       ],
       benefits: [
