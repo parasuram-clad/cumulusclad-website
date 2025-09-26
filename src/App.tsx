@@ -14,8 +14,9 @@ import Careers from "./pages/Careers";
 import Contact from "./pages/Contact";
 import EmailSignature from "./pages/EmailSignature";
 import CaseStudyDetail from "./pages/CaseStudyDetail";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
-
 const queryClient = new QueryClient();
 
 // Wrapper component to handle scroll to top on route change
@@ -49,6 +50,8 @@ const App = () => (
             <Route path="/careers" element={<Careers />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/email-signature" element={<EmailSignature />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

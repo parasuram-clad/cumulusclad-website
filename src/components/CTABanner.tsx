@@ -54,7 +54,7 @@ const CTABanner = () => {
                px-6 sm:px-8 py-3 sm:py-4 
                text-base sm:text-lg 
                group shadow-2xl relative z-10
-               w-full sm:w-auto text-center"
+               w-full sm:w-auto text-center hover:[scale:1.05] transition-all duration-300 ease-out"
               >
                 Connect With Us
                 <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" />
@@ -68,7 +68,7 @@ const CTABanner = () => {
                  hover:bg-white/20 hover:text-white 
                  px-6 sm:px-8 py-3 sm:py-4 
                  text-base sm:text-lg 
-                 relative z-10 w-full text-center"
+                 relative z-10 w-full text-center hover:[scale:1.05] transition-all duration-300 ease-out"
                 >
                   View Our Work
                 </Button>

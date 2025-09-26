@@ -102,7 +102,7 @@ const CaseStudy = ({
             </div>
 
             <Link to={`/work/case-study-${caseStudyId}`}>
-              <Button className="btn-luxury group mt-8">
+              <Button className="btn-luxury group mt-8  transition-all duration-300 ease-out ">
                 View Case Study
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>

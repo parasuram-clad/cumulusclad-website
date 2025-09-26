@@ -101,7 +101,7 @@ const Hero = () => {
                 <Link to="/work" className="flex w-full sm:w-auto">
                   <Button
                     variant="outline"
-                    className="border-luxury-red text-luxury-red hover:bg-luxury-red/10 hover:text-red transition-all  ease-out duration-300 px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-lg tracking-wide uppercase text-sm sm:text-base md:text-base w-full"
+                    className="border-luxury-red text-luxury-red hover:bg-luxury-red/10 hover:text-red hover:[scale:1.05] transition-all  ease-out duration-300 px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4  tracking-wide uppercase text-sm sm:text-base md:text-base w-full"
                   >
                     View Our Work
                   </Button>

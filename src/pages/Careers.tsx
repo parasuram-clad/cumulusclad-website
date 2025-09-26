@@ -361,7 +361,7 @@ const Careers = () => {
                     </div>
                     <div className="mt-8 pt-6 border-t border-border flex justify-end">
                       <Button
-                        className="btn-luxury"
+                        className="btn-luxury transition-all duration-300 ease-out "
                         onClick={() => {
                           const subject = encodeURIComponent(
                             `Application: ${job.title} at CumulusClad`
@@ -391,7 +391,7 @@ const Careers = () => {
                 contribute.
               </p>
               <Button
-                className="btn-luxury"
+                className="btn-luxury transition-all duration-300 ease-out "
                 onClick={() => {
                   window.location.href =
                     "mailto:hr@cumulusclad.com?subject=General Application - CumulusClad Careers";

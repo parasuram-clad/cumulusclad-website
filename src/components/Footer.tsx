@@ -52,8 +52,8 @@ const Footer = () => {
   };
 
   const supportLinks = [
-    { name: "Terms of Service", href: "/terms" },
-    { name: "Privacy Policy", href: "/privacy" },
+    { name: "Terms of Service", href: "/terms-of-service" },
+    { name: "Privacy Policy", href: "/privacy-policy" },
   ];
 
   return (
@@ -105,7 +105,7 @@ const Footer = () => {
               >
                 <MapPin className="h-4 w-4 text-primary" />
                 <span className="text-muted-foreground group-hover:text-primary transition-colors duration-300 underline-offset-4 hover:underline">
-                  Chennai - 600 016, Tamil Nadu, India
+                  Chennai, Tamil Nadu, India
                 </span>
               </a>
             </div>
@@ -175,17 +175,17 @@ const Footer = () => {
         <div className="border-t border-border mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center  space-y-4 md:space-y-0">
             {/* Copyright */}
-            <p className="text-sm text-muted-foreground ">
+            <p className=" text-black/60  md:text-base">
               © {currentYear} CumulusClad Technologies. All rights reserved.
             </p>
 
             {/* Support Links */}
-            <div className="flex items-center space-x-6">
+            <div className="flex items-center space-x-6 ">
               {supportLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.href}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 hover:underline underline-offset-4"
+                  className=" hover:text-primary md:text-base text-black/60 transition-colors duration-300 hover:underline underline-offset-4"
                 >
                   {link.name}
                 </Link>

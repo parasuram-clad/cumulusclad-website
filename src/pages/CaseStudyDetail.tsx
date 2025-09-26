@@ -422,7 +422,9 @@ const CaseStudyDetail = () => {
   }
 
   if (id === "case-study-2") {
-    const project = projects.find((p) => p.id === "retail-analytics");
+    const project = projects.find(
+      (p) => p.id === "accelerating-growth-through-digital-innovation"
+    );
     if (!project) return <Navigate to="/work" replace />;
 
     return (

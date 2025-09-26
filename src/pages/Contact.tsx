@@ -149,7 +149,7 @@ const Contact = () => {
 
               {/* Inquiry Type Selection */}
               <div className="mb-6 md:mb-8">
-                <h3 className="text-base md:text-lg font-semibold mb-3 md:mb-4">
+                <h3 className="text-lg md:text-lg font-semibold mb-3 md:mb-4">
                   What can we help you with?
                 </h3>
                 <div className="grid grid-cols-1 gap-2 md:gap-3">
@@ -162,7 +162,7 @@ const Contact = () => {
                         <type.icon className="w-4 h-4 md:w-5 md:h-5 text-primary" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <div className="font-medium text-sm md:text-base">
+                        <div className="font-medium text-lg md:text-lg">
                           {type.title}
                         </div>
                         <div className="text-xs md:text-sm text-muted-foreground truncate">
@@ -279,17 +279,17 @@ const Contact = () => {
                         <info.icon className="w-4 h-4 md:w-6 md:h-6 text-primary" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        {info.title === "CumulusClad Technologies LLP." ? (
+                        {info.title === "CumulusClad Technologies." ? (
                           <a
                             href={info.links?.[0] || "#"}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="font-bold text-sm md:text-base mb-1 md:mb-2 hover:text-primary hover:underline transition-all duration-300 cursor-pointer block break-words"
+                            className="font-bold text-lg md:text-lg mb-1 md:mb-2 hover:text-primary hover:underline transition-all duration-300 cursor-pointer block break-words"
                           >
                             {info.title}
                           </a>
                         ) : (
-                          <h3 className="font-bold text-sm md:text-base mb-1 md:mb-2">
+                          <h3 className="font-bold text-lg md:text-lg mb-1 md:mb-2">
                             {info.title}
                           </h3>
                         )}
@@ -335,7 +335,7 @@ const Contact = () => {
                     >
                       <social.icon className="w-4 h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
                       <div className="min-w-0">
-                        <div className="font-medium text-sm md:text-base truncate">
+                        <div className="font-medium text-sm md:text-lg truncate">
                           {social.name}
                         </div>
                         <div className="text-xs text-muted-foreground truncate">
@@ -359,7 +359,7 @@ const Contact = () => {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold heading-luxury mb-3 md:mb-4">
               Visit Our <span className="text-gradient-luxury">Office</span>
             </h2>
-            <p className="text-muted-foreground text-sm md:text-base px-2">
+            <p className="text-muted-foreground text-sm md:text-lg px-2">
               Come see us at our main headquarters in Chennai. We'd love to meet
               you in person and discuss how we can help your business thrive.
             </p>
@@ -380,13 +380,13 @@ const Contact = () => {
             </div>
             <div className="p-4 md:p-6 lg:p-8">
               <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">
-                CumulusClad Technologies LLP
+                CumulusClad Technologies
               </h3>
-              <p className="text-muted-foreground text-sm md:text-base mb-2">
+              <p className="text-muted-foreground text-sm md:text-lg mb-2">
                 No. 39B, 2nd Floor, Kongunadu Trust, 1st Street, Chakrapani
                 Colony,
               </p>
-              <p className="text-muted-foreground text-sm md:text-base">
+              <p className="text-muted-foreground text-sm md:text-lg">
                 North Parade Road, St.Thomas Mount, Chennai - 600 016
               </p>
             </div>
