@@ -163,18 +163,28 @@ const Careers = () => {
               IoT, healthcare, and application security, we are at the forefront
               of a technological revolution.
             </p>
-            <div className="grid md:grid-cols-3 gap-6 mt-12">
+            <div className="grid grid-cols-3 gap-3 sm:gap-4 md:gap-6 mt-8 sm:mt-10 md:mt-12">
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary mb-2">50+</div>
-                <div className="text-muted-foreground">Team Members</div>
+                <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-primary mb-1 sm:mb-2">
+                  50+
+                </div>
+                <div className="text-xs sm:text-sm md:text-base text-muted-foreground">
+                  Team Members
+                </div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary mb-2">15+</div>
-                <div className="text-muted-foreground">Countries</div>
+                <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-primary mb-1 sm:mb-2">
+                  15+
+                </div>
+                <div className="text-xs sm:text-sm md:text-base text-muted-foreground">
+                  Countries
+                </div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary mb-2">98%</div>
-                <div className="text-muted-foreground">
+                <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-primary mb-1 sm:mb-2">
+                  98%
+                </div>
+                <div className="text-xs sm:text-sm md:text-base text-muted-foreground leading-tight">
                   Employee Satisfaction
                 </div>
               </div>
@@ -363,13 +373,14 @@ const Careers = () => {
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex-1">
-                      <div className="flex items-center space-x-4 mb-2">
+                      {/* Title and Department - Stack on mobile */}
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:space-x-4 mb-2">
                         <h3 className="text-xl font-bold">{job.title}</h3>
-                        <span className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-lg">
+                        <span className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-lg w-fit">
                           {job.department}
                         </span>
                       </div>
-                      <p className="text-muted-foreground mb-4">
+                      <p className="text-sm sm:text-base text-muted-foreground mb-4">
                         {job.description}
                       </p>
                       <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">

@@ -569,27 +569,29 @@ const CaseStudyContent = ({ project }: { project: any }) => {
       </section>
 
       {/* Stats Grid */}
-      <section className="py-16 bg-card">
-        <div className="container mx-auto px-6 lg:px-8">
+      <section className="py-8 sm:py-12 md:py-16 bg-card">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div
-            className="flex overflow-x-auto gap-8 animate-fade-in scrollbar-hide justify-center px-4"
+            className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 md:gap-8 animate-fade-in justify-center"
             data-aos="fade-up"
           >
             {project.stats.map((stat: any, index: number) => (
               <div
                 key={index}
-                className="min-w-[250px] text-center p-8 bg-background rounded-2xl border border-border hover:border-primary transition-all duration-300 flex-shrink-0"
+                className="w-full text-center p-3 sm:p-6 md:p-8 bg-background rounded-lg md:rounded-2xl border border-border hover:border-primary transition-all duration-300"
                 data-aos="zoom-in"
                 data-aos-delay={index * 100}
                 data-aos-duration="400"
               >
-                <div className="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <stat.icon className="w-8 h-8 text-primary" />
+                <div className="w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-primary/20 rounded-lg md:rounded-xl flex items-center justify-center mx-auto mb-2 sm:mb-4">
+                  <stat.icon className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 text-primary" />
                 </div>
-                <div className="text-3xl font-bold text-primary mb-2">
+                <div className="text-lg sm:text-2xl md:text-3xl font-bold text-primary mb-1 sm:mb-2">
                   {stat.value}
                 </div>
-                <div className="text-muted-foreground">{stat.label}</div>
+                <div className="text-xs sm:text-base text-muted-foreground leading-tight">
+                  {stat.label}
+                </div>
               </div>
             ))}
           </div>
