@@ -69,7 +69,8 @@ const Hero = () => {
                       data-aos-delay="200"
                       data-aos-duration="800"
                       data-aos-easing="ease-out-cubic"
-                      className="text-3xl xs:text-5xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold heading-luxury leading-tight [font-weight:700] whitespace-nowrap"
+                      className="text-3xl xs:text-5xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-thin heading-luxury leading-tight whitespace-nowrap"
+                      style={{ fontWeight: 100 }}
                     >
                       Think Deep
                     </span>
