@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import cybersecurityBg from "@/assets/cybersecurity-bg.jpg";
+import CTABanner from "@/components/CTABanner";
 
 const About = () => {
   const values = [
@@ -343,7 +344,7 @@ const About = () => {
       </section>
 
       {/* Join Our Team Teaser */}
-      <section className="py-24 bg-card relative overflow-hidden">
+      {/* <section className="py-24 bg-card relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent" />
 
         <div className="relative z-10 container mx-auto px-6 lg:px-8 text-center">
@@ -396,7 +397,9 @@ const About = () => {
             </Button>
           </div>
         </div>
-      </section>
+      </section> */}
+
+      <CTABanner />
     </Layout>
   );
 };

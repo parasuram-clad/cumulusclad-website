@@ -49,7 +49,7 @@ const App = () => {
               <Route path="/work/:id" element={<CaseStudyDetail />} />
               <Route path="/industries" element={<Industries />} />
               <Route path="/industries/:industryId" element={<Industries />} />
-              <Route path="/careers" element={<Careers />} />
+              {/* <Route path="/careers" element={<Careers />} /> */}
               <Route path="/contact" element={<Contact />} />
               <Route path="/email-signature" element={<EmailSignature />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />

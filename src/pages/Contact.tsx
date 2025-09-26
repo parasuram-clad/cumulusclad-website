@@ -196,7 +196,7 @@ const Contact = () => {
                   {inquiryTypes.map((type, index) => (
                     <div
                       key={index}
-                      className="flex items-center space-x-3 p-4 bg-card rounded-xl border border-border hover:border-primary transition-all duration-300"
+                      className="flex items-center space-x-3 p-4 bg-card rounded-xl border border-border "
                       data-aos="fade-up"
                       data-aos-delay={`${300 + index * 100}`}
                       data-aos-duration="400"
@@ -332,13 +332,14 @@ const Contact = () => {
                 <Button
                   type="submit"
                   size="lg"
-                  className="btn-luxury w-full transit-all duration-300 ease-out"
+                  className="btn-luxury w-full transition-all duration-300 ease-out"
                 >
                   Send Message
                   <Send className="ml-2 h-5 w-5" />
                 </Button>
               </form>
             </div>
+            {/* Contact Information */}
 
             {/* Contact Information */}
             <div
@@ -347,60 +348,63 @@ const Contact = () => {
               data-aos-duration="500"
               data-aos-easing="ease-out"
               data-aos-once="true"
+              className="w-full max-w-full overflow-hidden"
             >
-              <div className="space-y-8">
+              <div className="space-y-6 md:space-y-8 w-full">
                 {contactInfo.map((info, index) => (
                   <div
                     key={index}
-                    className="card-luxury"
+                    className="bg-background border border-border rounded-lg p-4 md:p-6 w-full max-w-full"
                     data-aos="fade-up"
                     data-aos-delay={`${300 + index * 100}`}
                     data-aos-duration="400"
                     data-aos-easing="ease-out"
                     data-aos-once="true"
                   >
-                    <div className="flex items-start space-x-4">
+                    <div className="flex items-start space-x-3 md:space-x-4">
                       <div
-                        className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center flex-shrink-0"
+                        className="w-10 h-10 md:w-12 md:h-12 bg-primary/20 rounded-lg md:rounded-xl flex items-center justify-center flex-shrink-0"
                         data-aos="zoom-in"
                         data-aos-delay={`${400 + index * 100}`}
                         data-aos-duration="400"
                         data-aos-easing="ease-out"
                         data-aos-once="true"
                       >
-                        <info.icon className="w-6 h-6 text-primary" />
+                        <info.icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                       </div>
-                      <div className="flex-1">
+                      <div className="flex-1 min-w-0 overflow-hidden">
                         {info.title === "CumulusClad Technologies LLP." ? (
                           <a
                             href={info.links?.[0] || "#"}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="font-bold mb-2 hover:text-primary hover:underline transition-all duration-300 cursor-pointer block"
+                            className="font-bold mb-2 hover:text-primary hover:underline transition-all duration-300 cursor-pointer block text-sm md:text-base break-words"
                           >
                             {info.title}
                           </a>
                         ) : (
-                          <h3 className="font-bold mb-2">{info.title}</h3>
+                          <h3 className="font-bold mb-2 text-sm md:text-base break-words">
+                            {info.title}
+                          </h3>
                         )}
                         {info.details.map((detail, idx) => (
-                          <div key={idx}>
+                          <div key={idx} className="break-words">
                             {info.title === "Phone" ||
                             info.title === "Email" ? (
                               <a
                                 href={info.links?.[idx] || "#"}
-                                className="text-muted-foreground mb-1 hover:text-primary hover:underline transition-all duration-300 cursor-pointer block"
+                                className="text-muted-foreground mb-1 hover:text-primary hover:underline transition-all duration-300 cursor-pointer block text-xs md:text-sm break-words leading-relaxed"
                               >
                                 {detail}
                               </a>
                             ) : (
-                              <p className="text-muted-foreground mb-1">
+                              <p className="text-muted-foreground mb-1 text-xs md:text-sm break-words leading-relaxed">
                                 {detail}
                               </p>
                             )}
                           </div>
                         ))}
-                        <p className="text-sm text-muted-foreground mt-2">
+                        <p className="text-xs md:text-sm text-muted-foreground mt-2">
                           {info.description}
                         </p>
                       </div>
@@ -411,7 +415,7 @@ const Contact = () => {
 
               {/* Social Media */}
               <div
-                className="mt-12"
+                className="mt-6 md:mt-12 w-full max-w-full"
                 data-aos="fade-up"
                 data-aos-delay="600"
                 data-aos-duration="500"
@@ -419,7 +423,7 @@ const Contact = () => {
                 data-aos-once="true"
               >
                 <h3
-                  className="text-xl font-bold mb-6"
+                  className="text-lg md:text-xl font-bold mb-4 md:mb-6"
                   data-aos="fade-up"
                   data-aos-delay="700"
                   data-aos-duration="400"
@@ -428,24 +432,26 @@ const Contact = () => {
                 >
                   Follow Us
                 </h3>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 w-full max-w-full">
                   {socialMedia.map((social, index) => (
                     <a
                       key={index}
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center space-x-3 p-4 bg-card rounded-xl border border-border hover:border-primary hover:shadow-md transition-all duration-300"
+                      className="flex items-center space-x-3 p-3 md:p-4 bg-card rounded-lg md:rounded-xl border border-border hover:border-primary hover:shadow-md transition-all duration-300 w-full max-w-full"
                       data-aos="zoom-in"
                       data-aos-delay={`${800 + index * 100}`}
                       data-aos-duration="400"
                       data-aos-easing="ease-out"
                       data-aos-once="true"
                     >
-                      <social.icon className="w-5 h-5 text-primary" />
-                      <div>
-                        <div className="font-medium text-sm">{social.name}</div>
-                        <div className="text-xs text-muted-foreground">
+                      <social.icon className="w-4 h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
+                      <div className="min-w-0 flex-1 overflow-hidden">
+                        <div className="font-medium text-xs md:text-sm truncate">
+                          {social.name}
+                        </div>
+                        <div className="text-xs text-muted-foreground truncate">
                           {social.handle}
                         </div>
                       </div>
