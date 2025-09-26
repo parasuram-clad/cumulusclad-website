@@ -96,14 +96,14 @@ const Hero = () => {
                     data-aos-duration="600"
                     className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold heading-luxury leading-tight whitespace-normal mt-4 sm:mt-6"
                   >
-                    From Idea to Execution{" "}
+                    Progress Thrive Where Knowledge And
                     <span
                       data-aos="fade-up"
                       data-aos-delay="1000"
                       data-aos-duration="600"
                       className="text-gradient-luxury inline-block sm:inline"
                     >
-                      We're Your Tech Team
+                      Technology Converge
                     </span>
                   </p>
                 </div>
