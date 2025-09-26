@@ -23,6 +23,9 @@ import manufacturing from "@/assets/works/projects/manufacturing-iot-hero.jpg";
 import education from "@/assets/works/projects/education-platform-hero.jpg";
 import retail from "@/assets/works/projects/inventory-management.jpeg";
 import smartCity from "@/assets/works/smart-city-infrastructure.jpeg";
+import caseStudy1 from "@/assets/case-study-1.jpg";
+import caseStudy2 from "@/assets/case-study-2.jpg";
+
 const TechCard = ({ tech, index }: { tech: string; index: number }) => (
   <div className="group relative flex items-center justify-center" title={tech}>
     <div className="w-10 h-10 md:w-14 md:h-14 flex items-center justify-center">
@@ -253,11 +256,162 @@ const CaseStudyDetail = () => {
       year: "2024",
       duration: "14 months",
     },
+    {
+      id: "real-world-impact-through-smart-software-engineering",
+      title: "Real-World Impact Through Smart Software Engineering",
+      category: "Government",
+      image: caseStudy1,
+      description:
+        "From education to enterprise, we've helped organizations of all sizes solve complex challenges, streamline operations, and innovate faster through custom-built technology solutions.",
+      fullDescription:
+        "This comprehensive enterprise solution transformed how organizations manage their operations, leveraging cutting-edge technology to drive efficiency and innovation. The platform was designed to scale with growing business needs while maintaining optimal performance. Our team delivered a robust system that handles complex workflows, integrates with existing infrastructure, and provides actionable insights through advanced analytics.",
+      technologies: [
+        "React",
+        "Node.js",
+        "TypeScript",
+        "PostgreSQL",
+        "AWS",
+        "Docker",
+        "Kubernetes",
+        "Redis",
+      ],
+      stats: [
+        { label: "Users", value: "50K+", icon: Users },
+        { label: "Growth", value: "300%", icon: TrendingUp },
+        { label: "Time Saved", value: "40%", icon: Clock },
+      ],
+      results: [
+        "Achieved 300% user growth within first year",
+        "Reduced operational time by 40% through automation",
+        "Improved system reliability to 99.9% uptime",
+        "Scaled to support 50,000+ concurrent users",
+        "Reduced operational costs by 35%",
+      ],
+      challenges: [
+        "Legacy system integration and migration",
+        "Ensuring scalability for rapid user growth",
+        "Maintaining data security and compliance",
+        "Real-time data processing and analytics",
+        "Cross-platform compatibility requirements",
+      ],
+      solution:
+        "We engineered a modern, cloud-native architecture that seamlessly integrated with existing legacy systems while providing a scalable foundation for future growth. The solution included automated workflows, real-time analytics dashboard, and a responsive interface that works across all devices. Our agile approach allowed for continuous delivery and rapid iteration based on user feedback.",
+      year: "2024",
+      duration: "12 months",
+      client: "Enterprise Solutions Inc.",
+      industry: "Technology & Enterprise Software",
+      teamSize: "15 professionals",
+      methodology: "Agile Scrum",
+      keyFeatures: [
+        "Real-time analytics dashboard",
+        "Automated workflow management",
+        "Multi-tenant architecture",
+        "Advanced reporting system",
+        "Mobile-responsive design",
+        "API-first development approach",
+      ],
+
+      nextCaseStudy: {
+        id: "2",
+        title: "Next Case Study Title",
+        category: "Next Category",
+      },
+    },
+    {
+      id: "accelerating-growth-through-digital-innovation",
+      title: "Accelerating Growth Through Digital Innovation",
+      category: "Digital Transformation",
+      image: caseStudy2,
+      description:
+        "Helping businesses streamline operations, launch products, and accelerate growth through smart, scalable software solutions",
+      fullDescription:
+        "This digital transformation initiative revolutionized how businesses approach growth and operational efficiency. CumulusClad partnered with multiple organizations across different industries to implement cutting-edge software solutions that drive measurable results. Our comprehensive approach combined strategic planning with technical excellence to deliver solutions that not only meet current needs but also scale for future growth.",
+      technologies: [
+        "React",
+        "Node.js",
+        "Python",
+        "AWS Cloud",
+        "Machine Learning",
+        "Docker",
+        "Kubernetes",
+        "Microservices Architecture",
+      ],
+      stats: [
+        { label: "Efficiency", value: "85%", icon: TrendingUp },
+        { label: "Accuracy", value: "99.9%", icon: Target },
+        { label: "Performance", value: "5x", icon: Zap },
+      ],
+      results: [
+        "Increased operational efficiency by 85%",
+        "Achieved 99.9% system accuracy and reliability",
+        "Improved application performance by 5x",
+        "Reduced time-to-market for new features by 60%",
+        "Scaled to support 100,000+ daily active users",
+        "Decreased operational costs by 45%",
+      ],
+      challenges: [
+        "Legacy systems hindering growth and innovation",
+        "Inconsistent data accuracy across multiple platforms",
+        "Poor performance affecting user experience",
+        "Lack of scalability for increasing user demand",
+        "Integration complexities with existing infrastructure",
+      ],
+      solution:
+        "CumulusClad designed and implemented a comprehensive digital innovation framework that modernized legacy systems, introduced AI-powered automation, and established a scalable cloud infrastructure. Our solution focused on creating a unified platform that seamlessly integrates with existing systems while providing robust APIs for future expansion. We employed agile methodologies to ensure rapid delivery and continuous improvement.",
+      year: "2024",
+      duration: "10 months",
+      client: "Multiple Enterprise Clients",
+      industry: "Cross-Industry Digital Transformation",
+      teamSize: "20+ experts across domains",
+      methodology: "Agile & DevOps",
+      keyFeatures: [
+        "AI-powered automation systems",
+        "Real-time analytics and reporting",
+        "Scalable cloud-native architecture",
+        "Advanced data validation and accuracy engines",
+        "Performance optimization modules",
+        "Cross-platform compatibility",
+        "Secure API gateway",
+      ],
+      clientQuote: {
+        text: "CumulusClad's digital innovation approach transformed our growth trajectory. The 85% efficiency gain and 5x performance improvement exceeded our expectations.",
+        author: "Michael Chen",
+        position: "Digital Transformation Lead",
+        company: "Global Enterprise Client",
+      },
+      servicesProvided: [
+        "Digital Strategy Consulting",
+        "Custom Software Development",
+        "Cloud Migration & Optimization",
+        "Performance Engineering",
+        "AI & Machine Learning Integration",
+        "DevOps Implementation",
+      ],
+      impactMetrics: [
+        {
+          metric: "Revenue Growth",
+          value: "2.3x",
+          description: "Increase in client revenue",
+        },
+        {
+          metric: "User Satisfaction",
+          value: "4.8/5",
+          description: "Average rating across platforms",
+        },
+        {
+          metric: "System Uptime",
+          value: "99.99%",
+          description: "Production environment reliability",
+        },
+      ],
+    },
   ];
 
   // Handle case study routes (case-study-1, case-study-2)
   if (id === "case-study-1") {
-    const project = projects.find((p) => p.id === "fintech-trading-platform");
+    const project = projects.find(
+      (p) => p.id === "real-world-impact-through-smart-software-engineering"
+    );
     if (!project) return <Navigate to="/work" replace />;
 
     return (
