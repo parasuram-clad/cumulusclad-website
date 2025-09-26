@@ -72,17 +72,17 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <Link
               key={service.title}
               to={`/services/${service.id}`}
-              className="card-luxury2 group cursor-pointer animate-scale-in overflow-hidden w-full max-w-sm mx-auto p-0"
+              className="card-luxury2 group cursor-pointer animate-scale-in overflow-hidden w-full p-0 flex flex-col h-full"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="relative">
+              <div className="relative flex flex-col h-full">
                 {/* Service Image - Full Width Without Padding */}
-                <div className="relative overflow-hidden rounded-t-lg">
+                <div className="relative overflow-hidden rounded-t-lg flex-shrink-0">
                   <img
                     src={service.image}
                     alt={service.title}
@@ -92,16 +92,16 @@ const Services = () => {
                 </div>
 
                 {/* Content */}
-                <div className="p-6">
-                  <h3 className="text-xl font-bold  mb-3 group-hover:text-primary transition-colors duration-300">
+                <div className="p-6 flex flex-col flex-grow">
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
                     {service.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm">
+                  <p className="text-muted-foreground leading-relaxed text-sm flex-grow">
                     {service.description}
                   </p>
 
-                  {/* Learn More Link */}
-                  <div className="mt-4">
+                  {/* Learn More Link - Fixed at bottom */}
+                  <div className="mt-4 pt-4 border-t border-border">
                     <span className="text-primary font-normal text-sm uppercase tracking-wide group-hover:underline transition-all duration-300">
                       Learn More →
                     </span>

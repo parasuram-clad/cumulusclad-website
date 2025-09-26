@@ -259,7 +259,7 @@ All colors MUST be HSL. Black (#000000), Deep Red (#8B0000), White (#FFFFFF)
 
   /* Accent Lines */
   .accent-line {
-    @apply w-20 h-1 bg-gradient-to-r from-primary to-red-600 rounded-full;
+    @apply w-20 h-1 bg-gradient-to-r from-primary to-red-800 rounded-full;
   }
 
   /* Glow Effects */
@@ -319,5 +319,11 @@ All colors MUST be HSL. Black (#000000), Deep Red (#8B0000), White (#FFFFFF)
   }
   .rounded-xl {
     border-radius: 0.25rem;
+  }
+  .text-sm {
+    font-size: 1.25rem;
+  }
+  .text-muted-foreground {
+    font-size: 1.25rem;
   }
 }

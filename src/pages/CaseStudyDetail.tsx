@@ -17,11 +17,11 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import DynamicIcon from "../components/DynamicIcon";
-import healthcare from "@/assets/works/ai-powered-healthcare-platform.jpeg";
-import trading from "@/assets/works/real-time-trading.jpeg";
-import manufacturing from "@/assets/works/smart-manufacturing-IoT-system.jpeg";
-import education from "@/assets/works/interactive-e-learning -platform.jpg";
-import retail from "@/assets/works/inventory-management.jpeg";
+import healthcare from "@/assets/works/projects/healthcare-platform-hero.jpg";
+import trading from "@/assets/works/projects/trading-platform.jpeg";
+import manufacturing from "@/assets/works/projects/manufacturing-iot-hero.jpg";
+import education from "@/assets/works/projects/education-platform-hero.jpg";
+import retail from "@/assets/works/projects/inventory-management.jpeg";
 import smartCity from "@/assets/works/smart-city-infrastructure.jpeg";
 const TechCard = ({ tech, index }: { tech: string; index: number }) => (
   <div className="group relative flex items-center justify-center" title={tech}>

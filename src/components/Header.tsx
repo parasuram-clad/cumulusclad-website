@@ -74,7 +74,7 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`nav-link text-sm font-medium uppercase ${
+                className={`nav-link [font-size:1rem] font-medium uppercase ${
                   isActive(item.href)
                     ? "text-primary"
                     : "text-foreground hover:text-primary"
