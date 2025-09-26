@@ -85,7 +85,7 @@ import sensorIntegrationImg from "@/assets/services/iot/sensor-integration.jpeg"
 import edgeComputingImg from "@/assets/services/iot/edge-computing.jpeg";
 import dataAnalyticsImg from "@/assets/services/iot/data-analytics.jpeg";
 import predictiveMaintenanceImg from "@/assets/services/iot/predictive-maintenance.jpeg";
-import iotSecurityImg from "@/assets/services/iot/iot-security.jpeg";
+import iotSecurityImg from "@/assets/services/iot/iot-sec.jpeg";
 
 import securityAssessmentsImg from "@/assets/services/cyber/security-assessments.jpeg";
 import penetrationTestingImg from "@/assets/services/cyber/penetration-testing.jpeg";
