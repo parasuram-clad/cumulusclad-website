@@ -24,6 +24,8 @@ import {
   TrendingDown,
   Heart,
   Activity,
+  FileText,
+  Package,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import DynamicIcon from "../components/DynamicIcon";
@@ -35,19 +37,27 @@ import retail from "@/assets/works/projects/inventory-management.jpeg";
 import smartCity from "@/assets/works/smart-city-infrastructure.jpeg";
 import caseStudy1 from "@/assets/case-study-1.jpg";
 import caseStudy2 from "@/assets/case-study-2.jpg";
-
+import automationBot from "@/assets/works/projects/ai-bot.jpeg";
+import hospitalManagement from "@/assets/works/projects/hms.jpeg";
 const TechCard = ({ tech, index }: { tech: string; index: number }) => (
   <div className="group relative flex items-center justify-center" title={tech}>
-    <div className="w-10 h-10 md:w-14 md:h-14 flex items-center justify-center">
-      <DynamicIcon iconName={tech} alt={tech} />
-    </div>
-    <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+    {/* Icon */}
+    <DynamicIcon
+      iconName={tech}
+      alt={tech}
+      size="xl" // base mobile size
+      className="sm:size-md md:size-lg lg:size-xl" // responsive growth
+    />
+
+    {/* Tooltip - hidden on mobile, visible on md+ */}
+    <div className="hidden md:block absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
       <span className="bg-foreground text-background text-xs px-2 py-1 rounded-md whitespace-nowrap">
         {tech}
       </span>
     </div>
   </div>
 );
+
 const icons = ShieldCheckIcon;
 const CaseStudyDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -94,49 +104,61 @@ const CaseStudyDetail = () => {
       duration: "6.5 months",
     },
     {
-      id: "quantum-risk-analytics",
-      title: "Quantum Risk Analytics Suite",
-      category: "FinTech",
-      image: trading,
+      id: "enterprise-automation-bot",
+      title: "Enterprise Automation Bot",
+      category: "Enterprise",
+      image: automationBot,
       description:
-        "Futuristic risk management tool with quantum-inspired modeling for real-time high-risk scenario prediction.",
+        "Intelligent automation solution for cross-portal file handling with secure data transfer and compliance tracking.",
       fullDescription:
-        "A multinational investment firm needed a futuristic risk management tool capable of scanning global data sources and predicting high-risk scenarios with minimal latency. We developed a hybrid quantum-classical system that scanned financial news, social sentiment, and portfolio data in real time. AI flagged risk patterns and visualized alerts in a compliance-friendly dashboard with full traceability.",
+        "The Automation Bot was designed to streamline file handling and data transfers between enterprise portals. The solution automates scheduled logins, file downloads, metadata extraction, CSV generation, and secure uploads into a secondary portal — reducing manual intervention, increasing accuracy, and ensuring compliance with organizational policies.",
       technologies: [
-        "React",
-        "WebSocket",
         "Python",
-        "Redis",
+
         "PostgreSQL",
-        "AWS",
+        "Redis",
+        "Docker",
+
+        "Pandas",
+
+        "Amazon S3",
+        "CloudWatch",
       ],
       stats: [
-        { label: "Risk Identification", value: "30% faster", icon: TrendingUp },
-        { label: "Compliance Review", value: "60% reduction", icon: Award },
-        { label: "Cost Savings", value: "$2M/year", icon: DollarSign },
         {
-          label: "Model Transparency",
-          value: "Regulator Approved",
-          icon: Shield,
+          label: "Manual Effort Reduction",
+          value: "70%",
+          icon: TrendingDown,
         },
+        {
+          label: "Processing Accuracy",
+          value: "90% improvement",
+          icon: Target,
+        },
+        { label: "Turnaround Time", value: "60% faster", icon: Clock },
+        { label: "Cost Savings", value: "Significant ROI", icon: DollarSign },
       ],
       results: [
-        "30% faster identification of high-risk events",
-        "60% reduction in manual compliance review time",
-        "$2M/year in cost savings from early risk intervention",
-        "Enhanced trust from regulators through transparent AI models",
+        "70% reduction in manual data handling effort",
+        "90% improvement in processing accuracy",
+        "60% faster turnaround time for file transfers and reporting",
+        "Enhanced compliance with secure logging and audit trails",
+        "Scalable design enabling quick extension to new portals",
+        "Significant cost savings by reducing repetitive manual labour",
       ],
       challenges: [
-        "Inability to process large-scale unstructured data in real time",
-        "Poor visibility into systemic risks across portfolios",
-        "Compliance requirements for model transparency",
-        "Delays in risk mitigation due to manual reviews",
+        "Manual file downloads and uploads were time-consuming and error-prone",
+        "Lack of structured data extraction and validation slowed reporting",
+        "Compliance risks due to missing audit trails and weak authentication practices",
+        "High dependency on manual staff intervention, increasing turnaround times",
+        "Inefficient collaboration due to delayed availability of processed data",
       ],
       solution:
-        "We developed a hybrid quantum-classical system that scanned financial news, social sentiment, and portfolio data in real time. AI flagged risk patterns and visualized alerts in a compliance-friendly dashboard with full traceability, addressing compliance requirements while providing unprecedented risk visibility.",
+        "We delivered a secure, fully automated bot that executes cross-portal file handling with minimal human intervention. The system dynamically extracts and validates data, generates structured CSV files, and uploads them into the target portal with error handling and retry logic. Comprehensive logs, audit reports, and monitoring ensure compliance and traceability.",
       year: "2024",
-      duration: "4.5 months",
+      duration: "3 months",
     },
+
     {
       id: "smart-factory-automation",
       title: "Smart Factory Automation",
@@ -288,38 +310,56 @@ const CaseStudyDetail = () => {
       year: "2024",
       duration: "4.5 months",
     },
+
     {
-      id: "smart-city-infrastructure",
-      title: "Smart City Infrastructure",
-      category: "Government",
-      image: smartCity,
+      id: "hospital-management-system",
+      title: "Hospital Management System",
+      category: "Healthcare",
+      image: hospitalManagement,
       description:
-        "Comprehensive smart city solution with traffic management and environmental monitoring.",
+        "Comprehensive healthcare platform streamlining patient care, digital records, financial management, and inventory control.",
       fullDescription:
-        "Implemented a city-wide smart infrastructure system including intelligent traffic management, environmental monitoring, waste management optimization, and citizen services portal. The solution transforms urban management through data-driven insights and automation.",
-      technologies: ["IoT", "Docker", "React", "Node.js", "PostgreSQL"],
+        "A comprehensive Hospital Management System was developed to streamline patient care, reduce waiting times, ensure transparent financial management, digitize medical records, and manage hospital stock inventory efficiently. The solution aimed to improve both patient experience and hospital operational efficiency.",
+      technologies: ["React", "Node.js", "MongoDB", "Redis", "Docker", "AWS"],
       stats: [
-        { label: "Traffic Efficiency", value: "+40%", icon: TrendingUp },
-        { label: "Energy Savings", value: "25%", icon: Award },
-        { label: "Citizen Satisfaction", value: "92%", icon: Users },
+        {
+          label: "Patient Waiting Time",
+          value: "40% reduction",
+          icon: Clock,
+        },
+        {
+          label: "Recordkeeping Efficiency",
+          value: "85% reduction",
+          icon: FileText,
+        },
+        {
+          label: "Scheduling Efficiency",
+          value: "25% improvement",
+          icon: Calendar,
+        },
+        { label: "Stock Shortages", value: "30% fewer", icon: Package },
       ],
       results: [
-        "Improved traffic flow by 40%",
-        "Reduced energy consumption by 25%",
-        "Enhanced public safety response time",
-        "Increased citizen engagement by 60%",
+        "40% reduction in average patient waiting times",
+        "100% transparency in payments and revenue reporting",
+        "85% reduction in paper-based recordkeeping",
+        "25% improvement in appointment scheduling efficiency",
+        "30% fewer stock shortages due to real-time inventory alerts",
+        "Higher patient satisfaction through accessible digital services",
       ],
       challenges: [
-        "City-wide infrastructure integration",
-        "Real-time data processing from multiple sources",
-        "Citizen privacy and data security",
-        "Scalable IoT network deployment",
+        "Manual appointment scheduling caused longer patient waiting times",
+        "Lack of transparency in financial tracking and reporting",
+        "Paper-based medical recordkeeping made history retrieval difficult",
+        "Stock mismanagement led to shortages and over-purchasing",
+        "Limited integration across departments (patients, doctors, receptionists, inventory, and finance)",
       ],
       solution:
-        "We designed a comprehensive smart city platform that integrates various urban systems into a unified dashboard. Our solution includes IoT sensors, data analytics, and citizen engagement tools.",
+        "We delivered a secure, scalable, and user-friendly HMS platform with integrated patient management, digital records, financial tracking, and real-time inventory control. Patients could easily book appointments, access prescriptions, and view history online, while doctors and admins benefitted from centralized records and analytics. The system provided real-time financial reports and stock alerts, ensuring smooth operations across all hospital departments.",
       year: "2024",
-      duration: "14 months",
+      duration: "5 months",
     },
+
     {
       id: "real-world-impact-through-smart-software-engineering",
       title: "Real-World Impact Through Smart Software Engineering",
@@ -516,14 +556,14 @@ const CaseStudyContent = ({ project }: { project: any }) => {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-hero relative overflow-hidden">
+      <section className="pt-24 md:pt-32 pb-12 md:pb-20 bg-gradient-hero relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-luxury-red/5 to-luxury-red/10" />
-        <div className="container mx-auto px-6 lg:px-8 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-6xl mx-auto">
             {/* Back to Work link - left aligned */}
             <Link
               to="/work"
-              className="inline-flex items-center text-primary hover:text-primary/80 transition-colors duration-300 mb-12"
+              className="inline-flex items-center text-primary hover:text-primary/80 transition-colors duration-300 mb-8 md:mb-12"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Work
@@ -531,23 +571,20 @@ const CaseStudyContent = ({ project }: { project: any }) => {
 
             <div className="animate-fade-in">
               {/* Centered title and description */}
-              <div className="text-center mb-5">
-                <h1 className="text-5xl lg:text-6xl font-bold heading-luxury mb-6">
+              <div className="text-center mb-4 md:mb-5">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold heading-luxury mb-4 md:mb-6">
                   {project.title}
                 </h1>
-                <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+                <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto px-2">
                   {project.description}
                 </p>
               </div>
 
               {/* Category and date at the bottom */}
-              <div className="flex flex-col items-center justify-center gap-4 mt-2">
-                <p className="px-4 py-2 bg-primary/20 text-primary rounded-lg font-medium">
+              <div className="flex flex-col items-center justify-center gap-3 md:gap-4 mt-2">
+                <p className="px-3 py-1 md:px-4 md:py-2 bg-primary/20 text-primary rounded-lg font-medium text-sm md:text-base">
                   {project.category}
                 </p>
-                {/* <p className="text-muted-foreground">
-                  Year: {project.year} • Duration: {project.duration}
-                </p> */}
               </div>
             </div>
           </div>
@@ -555,13 +592,13 @@ const CaseStudyContent = ({ project }: { project: any }) => {
       </section>
 
       {/* Project Image */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-6 lg:px-8">
-          <div className="relative overflow-hidden rounded-2xl shadow-luxury animate-fade-in">
+      <section className="py-8 md:py-16 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative overflow-hidden rounded-xl md:rounded-2xl shadow-luxury animate-fade-in">
             <img
               src={project.image}
               alt={project.title}
-              className="w-full h-96 lg:h-[800px] object-cover"
+              className="w-full h-48 sm:h-64 md:h-80 lg:h-96 xl:h-[500px] 2xl:h-[600px] object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent" />
           </div>
@@ -569,27 +606,27 @@ const CaseStudyContent = ({ project }: { project: any }) => {
       </section>
 
       {/* Stats Grid */}
-      <section className="py-8 sm:py-12 md:py-16 bg-card">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-6 sm:py-8 md:py-12 lg:py-16 bg-card">
+        <div className="container mx-auto px-3 sm:px-4 lg:px-8">
           <div
-            className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 md:gap-8 animate-fade-in justify-center"
+            className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 md:gap-6 lg:gap-8 animate-fade-in justify-center"
             data-aos="fade-up"
           >
             {project.stats.map((stat: any, index: number) => (
               <div
                 key={index}
-                className="w-full text-center p-3 sm:p-6 md:p-8 bg-background rounded-lg md:rounded-2xl border border-border hover:border-primary transition-all duration-300"
+                className="w-full text-center p-3 sm:p-4 md:p-6 lg:p-8 bg-background rounded-lg md:rounded-xl lg:rounded-2xl border border-border hover:border-primary transition-all duration-300"
                 data-aos="zoom-in"
                 data-aos-delay={index * 100}
                 data-aos-duration="400"
               >
-                <div className="w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-primary/20 rounded-lg md:rounded-xl flex items-center justify-center mx-auto mb-2 sm:mb-4">
-                  <stat.icon className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 text-primary" />
+                <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 bg-primary/20 rounded-lg md:rounded-xl flex items-center justify-center mx-auto mb-2 sm:mb-3 md:mb-4">
+                  <stat.icon className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-primary" />
                 </div>
-                <div className="text-lg sm:text-2xl md:text-3xl font-bold text-primary mb-1 sm:mb-2">
+                <div className="text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-primary mb-1 sm:mb-2">
                   {stat.value}
                 </div>
-                <div className="text-xs sm:text-base text-muted-foreground leading-tight">
+                <div className="text-xs sm:text-sm md:text-base text-muted-foreground leading-tight px-1">
                   {stat.label}
                 </div>
               </div>
@@ -597,25 +634,28 @@ const CaseStudyContent = ({ project }: { project: any }) => {
           </div>
         </div>
       </section>
+
       {/* Project Details */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-6 lg:px-8">
+      <section className="pt-8 md:pt-12 lg:pt-16 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12">
+            <div className="grid lg:grid-cols-2 gap-8 md:gap-10 lg:gap-12">
               {/* Overview */}
               <div className="animate-fade-in">
-                <h2 className="text-3xl font-bold mb-6">Project Overview</h2>
-                <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-4 md:mb-6">
+                  Project Overview
+                </h2>
+                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6 md:mb-8">
                   {project.fullDescription}
                 </p>
 
-                <div className="space-y-4">
+                <div className="space-y-3 md:space-y-4">
                   <div>
-                    <h3 className="text-lg font-semibold mb-2 flex items-center">
-                      <Calendar className="w-5 h-5 mr-2 text-primary" />
+                    <h3 className="text-base sm:text-lg font-semibold mb-2 flex items-center">
+                      <Calendar className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-primary" />
                       Project Timeline
                     </h3>
-                    <div className="text-muted-foreground">
+                    <div className="text-muted-foreground text-sm sm:text-base">
                       <p>
                         <strong>Year:</strong> {project.year}
                       </p>
@@ -630,18 +670,18 @@ const CaseStudyContent = ({ project }: { project: any }) => {
               {/* Technologies */}
               <div className="animate-fade-in">
                 {project.challenges?.length > 0 && (
-                  <div className="mb-8">
-                    <h3 className="text-xl font-semibold mb-4">
+                  <div className="mb-6 md:mb-8">
+                    <h3 className="text-xl sm:text-2xl font-semibold mb-3 md:mb-4">
                       Key Challenges
                     </h3>
-                    <ul className="space-y-3">
+                    <ul className="space-y-2 md:space-y-3">
                       {project.challenges.map(
                         (challenge: string, index: number) => {
-                          const Icon = icons; // Cycle through icons
+                          const Icon = icons;
                           return (
-                            <li key={index} className="flex items-center">
-                              <Icon className="w-5 h-5 text-primary mr-3 flex-shrink-0" />
-                              <span className="text-muted-foreground">
+                            <li key={index} className="flex items-start">
+                              <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary mr-3 mt-0.5 flex-shrink-0" />
+                              <span className="text-muted-foreground text-base sm:text-lg leading-relaxed">
                                 {challenge}
                               </span>
                             </li>
@@ -652,14 +692,28 @@ const CaseStudyContent = ({ project }: { project: any }) => {
                   </div>
                 )}
 
-                <h2 className="text-xl font-semibold mb-4">
+                <h2 className="text-2xl sm:text-3xl font-semibold mb-4 md:mb-6">
                   Technologies Used
                 </h2>
-                <div className="flex flex-wrap gap-3">
+
+                <div
+                  className="
+    flex flex-wrap 
+    gap-3 sm:gap-4 md:gap-5 
+    justify-start 
+  "
+                >
                   {project.technologies.map((tech, index) => (
                     <TechCard key={tech} tech={tech} index={index} />
                   ))}
                 </div>
+
+                {/* Alternative: Flex layout if grid doesn't work well */}
+                {/* <div className="flex flex-wrap gap-3 sm:gap-4 md:gap-5 justify-center">
+    {project.technologies.map((tech, index) => (
+      <TechCard key={tech} tech={tech} index={index} />
+    ))}
+  </div> */}
               </div>
             </div>
           </div>
@@ -667,15 +721,17 @@ const CaseStudyContent = ({ project }: { project: any }) => {
       </section>
 
       {/* Solution & Results */}
-      <section className="py-16 bg-card">
-        <div className="container mx-auto px-6 lg:px-8">
+      <section className="py-8 md:py-12 lg:py-16 bg-card">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12">
+            <div className="grid lg:grid-cols-2 gap-8 md:gap-10 lg:gap-12">
               {/* Solution */}
               {project.solution && (
                 <div className="animate-fade-in">
-                  <h2 className="text-3xl font-bold mb-6">Our Solution</h2>
-                  <p className="text-lg text-muted-foreground leading-relaxed">
+                  <h2 className="text-2xl sm:text-3xl font-bold mb-4 md:mb-6">
+                    Our Solution
+                  </h2>
+                  <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
                     {project.solution}
                   </p>
                 </div>
@@ -683,16 +739,17 @@ const CaseStudyContent = ({ project }: { project: any }) => {
 
               {/* Results */}
               <div className="animate-fade-in">
-                <h2 className="text-3xl font-bold mb-6">Key Results</h2>
-                <div className="flex flex-col gap-2">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-4 md:mb-6">
+                  Key Results
+                </h2>
+                <div className="flex flex-col gap-2 md:gap-3">
                   {project.results.map((result: string, index: number) => (
                     <div
                       key={index}
-                      className="flex items-center bg-transparent m-0 p-0"
+                      className="flex items-start bg-transparent m-0 p-0"
                     >
-                      {/* ✅ Tick icon */}
-                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                      <span className="ml-2 text-muted-foreground text-base sm:text-lg">
+                      <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                      <span className="ml-2 text-muted-foreground text-sm sm:text-base md:text-lg">
                         {result}
                       </span>
                     </div>
@@ -705,28 +762,22 @@ const CaseStudyContent = ({ project }: { project: any }) => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-luxury relative overflow-hidden">
-        <div className="container mx-auto px-6 lg:px-8">
+      <section className="py-12 md:py-16 lg:py-20 xl:py-24 bg-gradient-luxury relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center animate-fade-in">
-            <h2 className="text-4xl lg:text-6xl font-bold text-white leading-tight mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-3 md:mb-4">
               Ready to Start Your Project?
             </h2>
-            <p className="text-xl lg:text-2xl text-white/90 leading-relaxed mb-4">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed mb-4 md:mb-6">
               Let's discuss how we can help transform your business with
               cutting-edge technology solutions.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
               <Link to="/contact">
-                <Button className="bg-white text-[hsl(0_100%_27%)] hover:bg-white/90 px-8 py-4 text-lg  group shadow-2xl relative z-10">
-                  {" "}
+                <Button className="bg-white text-[hsl(0_100%_27%)] hover:bg-white/90 px-6 py-3 md:px-8 md:py-4 text-base md:text-lg group shadow-2xl relative z-10 w-full sm:w-auto">
                   Connect With Us
                 </Button>
               </Link>
-              {/* <Link to="/work">
-                <Button variant="outline" className="btn-ghost-luxury">
-                  View More Projects
-                </Button>
-              </Link> */}
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
+import { useParams, Navigate } from "react-router-dom";
 import Layout from "@/components/Layout";
-import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
 import {
-  ExternalLink,
   Calendar,
   Users,
   TrendingUp,
@@ -9,40 +9,58 @@ import {
   Award,
   Zap,
   Clock,
-  Globe,
+  ArrowLeft,
+  CheckCircle,
+  CheckCircleIcon,
+  ShieldCheckIcon,
+  BoltIcon,
   Server,
-  DollarSign,
+  Globe,
   Shield,
+  DollarSign,
   ShoppingCart,
   RefreshCw,
   Video,
   TrendingDown,
   Heart,
   Activity,
+  FileText,
+  Package,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Link, useSearchParams, useNavigate } from "react-router-dom";
-import healthcare from "@/assets/works/ai-powered-healthcare-platform.jpeg";
-import trading from "@/assets/works/real-time-trading.jpeg";
-import manufacturing from "@/assets/works/smart-manufacturing-IoT-system.jpeg";
-import education from "@/assets/works/interactive-e-learning -platform.jpg";
-import retail from "@/assets/works/inventory-management.jpeg";
+import { Link } from "react-router-dom";
+import DynamicIcon from "../components/DynamicIcon";
+import healthcare from "@/assets/works/projects/healthcare-platform-hero.jpg";
+import trading from "@/assets/works/projects/trading-platform.jpeg";
+import manufacturing from "@/assets/works/projects/manufacturing-iot-hero.jpg";
+import education from "@/assets/works/projects/education-platform-hero.jpg";
+import retail from "@/assets/works/projects/inventory-management.jpeg";
 import smartCity from "@/assets/works/smart-city-infrastructure.jpeg";
 import caseStudy1 from "@/assets/case-study-1.jpg";
 import caseStudy2 from "@/assets/case-study-2.jpg";
-import automationBot from "@/assets/works/bot-2.jpeg";
-import hospitalManagement from "@/assets/works/hms-card.jpeg";
+import automationBot from "@/assets/works/projects/ai-bot.jpeg";
+import hospitalManagement from "@/assets/works/projects/hms.jpeg";
+const TechCard = ({ tech, index }: { tech: string; index: number }) => (
+  <div className="group relative flex items-center justify-center" title={tech}>
+    <div className="w-10 h-10 md:w-14 md:h-14 flex items-center justify-center">
+      <DynamicIcon iconName={tech} alt={tech} />
+    </div>
+    <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+      <span className="bg-foreground text-background text-xs px-2 py-1 rounded-md whitespace-nowrap">
+        {tech}
+      </span>
+    </div>
+  </div>
+);
+const icons = ShieldCheckIcon;
+const CaseStudyDetail = () => {
+  const { id } = useParams<{ id: string }>();
 
-const Work = () => {
-  const [searchParams, setSearchParams] = useSearchParams(); // Use setSearchParams instead of navigate
-  const categoryFromUrl = searchParams.get("category");
-  const navigate = useNavigate();
   const projects = [
     {
       id: "nextgen-learning-ecosystem",
       title: "NextGen Learning Ecosystem",
       category: "Education",
-      image: education,
+      image: healthcare,
       description:
         "Unified digital learning environment with AI-powered personalization for global university network.",
       fullDescription:
@@ -51,8 +69,7 @@ const Work = () => {
         "React",
         "TensorFlow",
         "Scikit-Learn",
-        "WebRTC",
-        "AWS EduStack",
+
         "Node.js",
         "Power BI",
       ],
@@ -90,31 +107,29 @@ const Work = () => {
         "The Automation Bot was designed to streamline file handling and data transfers between enterprise portals. The solution automates scheduled logins, file downloads, metadata extraction, CSV generation, and secure uploads into a secondary portal — reducing manual intervention, increasing accuracy, and ensuring compliance with organizational policies.",
       technologies: [
         "Python",
-        "FastAPI",
+
         "PostgreSQL",
         "Redis",
         "Docker",
-        "Celery",
-        "Selenium",
+
         "Pandas",
-        "JWT Authentication",
-        "HTTPS/SSL",
-        "AWS S3",
+
+        "Amazon S3",
         "CloudWatch",
       ],
       stats: [
         {
           label: "Manual Effort Reduction",
           value: "70%",
-          icon: "TrendingDown",
+          icon: TrendingDown,
         },
         {
           label: "Processing Accuracy",
           value: "90% improvement",
-          icon: "Target",
+          icon: Target,
         },
-        { label: "Turnaround Time", value: "60% faster", icon: "Clock" },
-        { label: "Cost Savings", value: "Significant ROI", icon: "DollarSign" },
+        { label: "Turnaround Time", value: "60% faster", icon: Clock },
+        { label: "Cost Savings", value: "Significant ROI", icon: DollarSign },
       ],
       results: [
         "70% reduction in manual data handling effort",
@@ -136,6 +151,7 @@ const Work = () => {
       year: "2024",
       duration: "3 months",
     },
+
     {
       id: "smart-factory-automation",
       title: "Smart Factory Automation",
@@ -175,6 +191,38 @@ const Work = () => {
     },
 
     {
+      id: "e-learning-platform",
+      title: "Interactive E-Learning Platform",
+      category: "Education",
+      image: education,
+      description:
+        "AI-powered personalized learning platform with virtual classrooms and progress tracking.",
+      fullDescription:
+        "Created an innovative e-learning platform that personalizes education through AI, offering virtual classrooms, adaptive learning paths, and comprehensive progress analytics for educators and students. The platform revolutionizes online education with interactive content and personalized learning experiences.",
+      technologies: ["React", "GraphQL", "Python", "TensorFlow", "AWS"],
+      stats: [
+        { label: "Active Students", value: "25K+", icon: Users },
+        { label: "Course Completion", value: "85%", icon: Award },
+        { label: "Learning Improvement", value: "60%", icon: TrendingUp },
+      ],
+      results: [
+        "Increased course completion rates by 45%",
+        "Improved learning outcomes by 60%",
+        "Reduced instructor workload by 30%",
+        "Expanded global reach to 50+ countries",
+      ],
+      challenges: [
+        "Personalized learning at scale",
+        "Real-time virtual classroom interactions",
+        "Content recommendation algorithms",
+        "Multi-device accessibility",
+      ],
+      solution:
+        "We developed an AI-driven platform that adapts to individual learning styles and pace. Our solution includes interactive virtual classrooms, intelligent content recommendations, and comprehensive analytics for both students and instructors.",
+      year: "2024",
+      duration: "6 months",
+    },
+    {
       id: "personalized-shopper-experience",
       title: "Hyper-Personalized Shopper Experience",
       category: "Retail",
@@ -183,6 +231,7 @@ const Work = () => {
         "AI-driven omnichannel personalization platform for global fashion retailer boosting customer loyalty and conversion.",
       fullDescription:
         "A global fashion retailer wanted to elevate customer loyalty and boost conversion by delivering personalized content and product recommendations across web, mobile, and physical stores. We unified all customer touchpoints into a real-time engagement engine, delivering smart recommendations and personalized campaigns. In-store kiosks recognized repeat visitors and showed tailored promotions using edge AI and facial analytics (privacy-compliant).",
+
       technologies: [
         "React",
         "Python",
@@ -217,7 +266,6 @@ const Work = () => {
       year: "2024",
       duration: "4.5 months",
     },
-
     {
       id: "ai-telehealth-network",
       title: "AI-Driven Telehealth Network",
@@ -281,19 +329,19 @@ const Work = () => {
         {
           label: "Patient Waiting Time",
           value: "40% reduction",
-          icon: "Clock",
+          icon: Clock,
         },
         {
           label: "Recordkeeping Efficiency",
           value: "85% reduction",
-          icon: "FileText",
+          icon: FileText,
         },
         {
           label: "Scheduling Efficiency",
           value: "25% improvement",
-          icon: "Calendar",
+          icon: Calendar,
         },
-        { label: "Stock Shortages", value: "30% fewer", icon: "Package" },
+        { label: "Stock Shortages", value: "30% fewer", icon: Package },
       ],
       results: [
         "40% reduction in average patient waiting times",
@@ -322,7 +370,7 @@ const Work = () => {
       category: "Government",
       image: caseStudy1,
       description:
-        "Helping organizations solve complex challenges and innovate faster through custom technology solutions",
+        "From education to enterprise, we've helped organizations of all sizes solve complex challenges, streamline operations, and innovate faster through custom-built technology solutions.",
       fullDescription:
         "This comprehensive enterprise solution transformed how organizations manage their operations, leveraging cutting-edge technology to drive efficiency and innovation. The platform was designed to scale with growing business needs while maintaining optimal performance. Our team delivered a robust system that handles complex workflows, integrates with existing infrastructure, and provides actionable insights through advanced analytics.",
       technologies: [
@@ -380,7 +428,7 @@ const Work = () => {
     {
       id: "accelerating-growth-through-digital-innovation",
       title: "Accelerating Growth Through Digital Innovation",
-      category: "FinTech",
+      category: "Digital Transformation",
       image: caseStudy2,
       description:
         "Helping businesses streamline operations, launch products, and accelerate growth through smart, scalable software solutions",
@@ -467,206 +515,268 @@ const Work = () => {
     },
   ];
 
-  const categories = [
-    "All",
-    ...Array.from(new Set(projects.map((p) => p.category))),
-  ];
+  // Handle case study routes (case-study-1, case-study-2)
+  if (id === "case-study-1") {
+    const project = projects.find(
+      (p) => p.id === "real-world-impact-through-smart-software-engineering"
+    );
+    if (!project) return <Navigate to="/work" replace />;
 
-  // Initialize activeCategory with category from URL or "All"
-  const [activeCategory, setActiveCategory] = useState(
-    categoryFromUrl && categories.includes(categoryFromUrl)
-      ? categoryFromUrl
-      : "All"
-  );
+    return (
+      <Layout>
+        <CaseStudyContent project={project} />
+      </Layout>
+    );
+  }
 
-  // Update activeCategory when URL parameter changes
-  useEffect(() => {
-    if (categoryFromUrl && categories.includes(categoryFromUrl)) {
-      setActiveCategory(categoryFromUrl);
-    } else if (!categoryFromUrl) {
-      setActiveCategory("All");
-    }
-  }, [categoryFromUrl, categories]);
+  if (id === "case-study-2") {
+    const project = projects.find(
+      (p) => p.id === "accelerating-growth-through-digital-innovation"
+    );
+    if (!project) return <Navigate to="/work" replace />;
 
-  // Function to handle category filter click
-  const handleCategoryClick = (category: string) => {
-    setActiveCategory(category);
+    return (
+      <Layout>
+        <CaseStudyContent project={project} />
+      </Layout>
+    );
+  }
 
-    if (category === "All") {
-      // Remove category parameter from URL
-      const newSearchParams = new URLSearchParams(searchParams);
-      newSearchParams.delete("category");
-      setSearchParams(newSearchParams);
-    } else {
-      // Update URL with new category
-      setSearchParams({ category });
-    }
-  };
+  // Handle individual project routes
+  const project = projects.find((p) => p.id === id);
 
-  const filteredProjects =
-    activeCategory === "All"
-      ? projects
-      : projects.filter((p) => p.category === activeCategory);
+  if (!project) {
+    return <Navigate to="/work" replace />;
+  }
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-hero relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-luxury-red/5 to-luxury-red/10" />
-        <div className="container mx-auto px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-4xl mx-auto animate-fade-in">
-            {" "}
-            <div className="accent-line mx-auto mb-6" />
-            <h1 className="text-5xl lg:text-6xl font-bold heading-luxury mb-6">
-              Our <span className="text-gradient-luxury">Work</span>
-            </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              Transforming businesses through innovative technology solutions.
-              Explore our portfolio of successful projects across various
-              industries.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Category Filter */}
-      <section className="pt-12 sm:pt-14 md:pt-16 bg-background">
-        <div className="container mx-auto px-4 sm:px-5 md:px-6 lg:px-8">
-          {/* Mobile Select Dropdown (only on small screens) */}
-          <div className="block md:hidden mb-6 sm:mb-8">
-            <div className="relative">
-              <select
-                value={activeCategory}
-                onChange={(e) => handleCategoryClick(e.target.value)}
-                className="w-full px-4 py-3 bg-background border-2 border-primary/20 rounded-xl text-foreground font-medium focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 appearance-none transition-all duration-200 text-base"
-              >
-                {categories.map((category) => (
-                  <option key={category} value={category}>
-                    {category === "All" ? "All Categories" : category}
-                  </option>
-                ))}
-              </select>
-              <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
-                <svg
-                  className="h-5 w-5 text-primary"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
-
-          {/* Tablet & Desktop Tabs */}
-          <div className="hidden md:flex flex-wrap justify-center gap-3 md:gap-4 lg:gap-6 xl:gap-8 mb-10 md:mb-14 lg:mb-16">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => handleCategoryClick(category)}
-                className={`group relative px-3 md:px-4 py-3 md:py-3 font-medium transition-all duration-300 text-base md:text-lg lg:text-lg ${
-                  activeCategory === category
-                    ? "text-primary font-semibold"
-                    : "text-muted-foreground hover:text-primary/80"
-                }`}
-              >
-                {category}
-                <span
-                  className={`absolute bottom-2 md:bottom-2.5 left-0 w-full h-0.5 bg-primary transition-all duration-300 ${
-                    activeCategory === category
-                      ? "scale-100 opacity-100"
-                      : "scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-50"
-                  }`}
-                />
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-      {/* Projects Grid */}
-      <section className="pb-24 bg-background">
-        <div className="container mx-auto px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project, index) => (
-              <Link
-                to={`/work/${project.id}`}
-                key={project.id}
-                className="group relative overflow-hidden rounded-2xl bg-card border border-border hover:border-primary transition-all duration-500 hover:shadow-luxury cursor-pointer block flex flex-col h-full"
-                data-aos="fade-up"
-                data-aos-duration="500"
-                data-aos-delay={index * 100} // Staggered delay: 0ms, 100ms, 200ms, etc.
-              >
-                {/* Project Image */}
-                <div className="relative h-64 overflow-hidden flex-shrink-0">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-card" />
-                  <div className="absolute inset-0 bg-luxury-black/60 group-hover:bg-luxury-black/40 transition-colors duration-300" />
-                  {/* Category Badge */}
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-primary/90 text-white text-sm font-medium rounded-lg backdrop-blur-sm">
-                      {project.category}
-                    </span>
-                  </div>
-                  {/* Year */}
-                  <div className="absolute top-4 right-4">
-                    <span className="px-3 py-1 bg-background/90 text-foreground text-sm font-medium rounded-lg backdrop-blur-sm">
-                      {project.year}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Project Content */}
-                <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
-                    {project.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-grow">
-                    {project.description}
-                  </p>
-                  {/* Technologies */}
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.slice(0, 3).map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-md"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                    {project.technologies.length > 3 && (
-                      <span className="px-2 py-1 bg-muted text-muted-foreground text-xs rounded-md">
-                        +{project.technologies.length - 3} more
-                      </span>
-                    )}
-                  </div>
-                  {/* View Project Link - Now consistently positioned at bottom */}
-                  <div className="mt-auto pt-4 border-t border-border">
-                    <div className="flex items-center text-primary font-semibold text-sm group-hover:underline transition-all duration-300">
-                      View Case Study
-                      <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Hover Glow Effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <CaseStudyContent project={project} />
     </Layout>
   );
 };
 
-export default Work;
+const CaseStudyContent = ({ project }: { project: any }) => {
+  return (
+    <>
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 bg-gradient-hero relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-luxury-red/5 to-luxury-red/10" />
+        <div className="container mx-auto px-6 lg:px-8 relative z-10">
+          <div className="max-w-6xl mx-auto">
+            {/* Back to Work link - left aligned */}
+            <Link
+              to="/work"
+              className="inline-flex items-center text-primary hover:text-primary/80 transition-colors duration-300 mb-12"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Work
+            </Link>
+
+            <div className="animate-fade-in">
+              {/* Centered title and description */}
+              <div className="text-center mb-5">
+                <h1 className="text-5xl lg:text-6xl font-bold heading-luxury mb-6">
+                  {project.title}
+                </h1>
+                <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+                  {project.description}
+                </p>
+              </div>
+
+              {/* Category and date at the bottom */}
+              <div className="flex flex-col items-center justify-center gap-4 mt-2">
+                <p className="px-4 py-2 bg-primary/20 text-primary rounded-lg font-medium">
+                  {project.category}
+                </p>
+                {/* <p className="text-muted-foreground">
+                  Year: {project.year} • Duration: {project.duration}
+                </p> */}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Project Image */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="relative overflow-hidden rounded-2xl shadow-luxury animate-fade-in">
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full h-96 lg:h-[800px] object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent" />
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Grid */}
+      <section className="py-8 sm:py-12 md:py-16 bg-card">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 md:gap-8 animate-fade-in justify-center"
+            data-aos="fade-up"
+          >
+            {project.stats.map((stat: any, index: number) => (
+              <div
+                key={index}
+                className="w-full text-center p-3 sm:p-6 md:p-8 bg-background rounded-lg md:rounded-2xl border border-border hover:border-primary transition-all duration-300"
+                data-aos="zoom-in"
+                data-aos-delay={index * 100}
+                data-aos-duration="400"
+              >
+                <div className="w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-primary/20 rounded-lg md:rounded-xl flex items-center justify-center mx-auto mb-2 sm:mb-4">
+                  <stat.icon className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 text-primary" />
+                </div>
+                <div className="text-lg sm:text-2xl md:text-3xl font-bold text-primary mb-1 sm:mb-2">
+                  {stat.value}
+                </div>
+                <div className="text-xs sm:text-base text-muted-foreground leading-tight">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* Project Details */}
+      <section className="pt-16 bg-background">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12">
+              {/* Overview */}
+              <div className="animate-fade-in">
+                <h2 className="text-3xl font-bold mb-6">Project Overview</h2>
+                <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                  {project.fullDescription}
+                </p>
+
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2 flex items-center">
+                      <Calendar className="w-5 h-5 mr-2 text-primary" />
+                      Project Timeline
+                    </h3>
+                    <div className="text-muted-foreground">
+                      <p>
+                        <strong>Year:</strong> {project.year}
+                      </p>
+                      <p>
+                        <strong>Duration:</strong> {project.duration}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Technologies */}
+              <div className="animate-fade-in">
+                {project.challenges?.length > 0 && (
+                  <div className="mb-8">
+                    <h3 className="text-xl font-semibold mb-4">
+                      Key Challenges
+                    </h3>
+                    <ul className="space-y-3">
+                      {project.challenges.map(
+                        (challenge: string, index: number) => {
+                          const Icon = icons; // Cycle through icons
+                          return (
+                            <li key={index} className="flex items-center">
+                              <Icon className="w-5 h-5 text-primary mr-3 flex-shrink-0" />
+                              <span className="text-muted-foreground">
+                                {challenge}
+                              </span>
+                            </li>
+                          );
+                        }
+                      )}
+                    </ul>
+                  </div>
+                )}
+
+                <h2 className="text-xl font-semibold mb-4">
+                  Technologies Used
+                </h2>
+                <div className="flex flex-wrap gap-3">
+                  {project.technologies.map((tech, index) => (
+                    <TechCard key={tech} tech={tech} index={index} />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Solution & Results */}
+      <section className="py-16 bg-card">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12">
+              {/* Solution */}
+              {project.solution && (
+                <div className="animate-fade-in">
+                  <h2 className="text-3xl font-bold mb-6">Our Solution</h2>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    {project.solution}
+                  </p>
+                </div>
+              )}
+
+              {/* Results */}
+              <div className="animate-fade-in">
+                <h2 className="text-3xl font-bold mb-6">Key Results</h2>
+                <div className="flex flex-col gap-2">
+                  {project.results.map((result: string, index: number) => (
+                    <div
+                      key={index}
+                      className="flex items-center bg-transparent m-0 p-0"
+                    >
+                      {/* ✅ Tick icon */}
+                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                      <span className="ml-2 text-muted-foreground text-base sm:text-lg">
+                        {result}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 bg-gradient-luxury relative overflow-hidden">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center animate-fade-in">
+            <h2 className="text-4xl lg:text-6xl font-bold text-white leading-tight mb-4">
+              Ready to Start Your Project?
+            </h2>
+            <p className="text-xl lg:text-2xl text-white/90 leading-relaxed mb-4">
+              Let's discuss how we can help transform your business with
+              cutting-edge technology solutions.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to="/contact">
+                <Button className="bg-white text-[hsl(0_100%_27%)] hover:bg-white/90 px-8 py-4 text-lg  group shadow-2xl relative z-10">
+                  {" "}
+                  Connect With Us
+                </Button>
+              </Link>
+              {/* <Link to="/work">
+                <Button variant="outline" className="btn-ghost-luxury">
+                  View More Projects
+                </Button>
+              </Link> */}
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default CaseStudyDetail;
