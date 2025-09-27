@@ -348,7 +348,8 @@ const Contact = () => {
                 <Button
                   type="submit"
                   size="lg"
-                  className="btn-luxury w-full transition-all duration-300 ease-out"
+                  className="btn-luxury w-auto max-w-[220px] mx-auto sm:mx-0 
+             transition-all duration-300 ease-out"
                 >
                   Send Message
                   <Send className="ml-2 h-5 w-5" />
