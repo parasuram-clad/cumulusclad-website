@@ -131,7 +131,7 @@ const Services = () => {
 
                   {/* Learn More Link - Fixed at bottom */}
                   <div className="mt-4 pt-4 border-t border-border">
-                    <span className="text-primary font-normal text-sm uppercase tracking-wide group-hover:underline transition-all duration-300">
+                    <span className="text-primary font-normal text-2sm capitalize tracking-wide leading-snug group-hover:underline transition-all duration-300">
                       Learn More →
                     </span>
                   </div>
