@@ -127,7 +127,7 @@ const CaseStudy = ({
               ))}
             </div>
 
-            <Link to={`/work/case-study-${caseStudyId}`}>
+            {/* <Link to={`/work/case-study-${caseStudyId}`}>
               <Button
                 className="btn-luxury group mt-8 transition-all duration-300 ease-out"
                 data-aos="fade-up"
@@ -137,7 +137,7 @@ const CaseStudy = ({
                 View Case Study
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>
