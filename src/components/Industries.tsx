@@ -13,9 +13,21 @@ import enterprise from "../assets/industries/enterprise.jpeg";
 import finance from "../assets/industries/finances.jpeg";
 import retail from "../assets/industries/retail.jpeg";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const Industries = () => {
   const navigate = useNavigate();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const industries = [
     {
@@ -67,59 +79,14 @@ const Industries = () => {
       category: "Logistics & Transportation",
     },
   ];
-  // const industries = [
-  //   {
-  //     icon: GraduationCap,
-  //     title: "Education",
-  //     description:
-  //       "Learning management systems, student portals, and educational technology platforms.",
-  //     image: education,
-  //     category: "Education",
-  //   },
-  //   {
-  //     icon: Banknote,
-  //     title: "Finance",
-  //     description:
-  //       "Secure financial applications, trading platforms, and banking solutions.",
-  //     image: finance,
-  //     category: "FinTech",
-  //   },
-  //   {
-  //     icon: ShoppingCart,
-  //     title: "Retail",
-  //     description:
-  //       "E-commerce platforms, inventory management, and customer experience solutions.",
-  //     image: retail,
-  //     category: "Retail",
-  //   },
-  //   {
-  //     icon: Heart,
-  //     title: "Healthcare",
-  //     description:
-  //       "Patient management systems, telemedicine platforms, and health monitoring apps.",
-  //     image: healthcare,
-  //     category: "Healthcare",
-  //   },
-  //   {
-  //     icon: Factory,
-  //     title: "Manufacturing",
-  //     description:
-  //       "Supply chain optimization, IoT integration, and production management systems.",
-  //     image: manufacturing,
-  //     category: "Manufacturing",
-  //   },
-  //   {
-  //     icon: Building2,
-  //     title: "Enterprise",
-  //     description:
-  //       "Custom business solutions, workflow automation, and enterprise integrations.",
-  //     image: enterprise,
-  //     category: "Enterprise",
-  //   },
-  // ];
 
   const handleIndustryClick = (category: string) => {
     navigate(`/work?category=${encodeURIComponent(category)}`);
+  };
+
+  // Calculate delay based on device type
+  const getCardDelay = (index: number) => {
+    return isMobile ? 150 + index * 50 : 300 + index * 100;
   };
 
   return (
@@ -129,22 +96,22 @@ const Industries = () => {
           <div
             className="accent-line mx-auto mb-6"
             data-aos="fade-up"
-            data-aos-duration="600"
-            data-aos-delay="100"
+            data-aos-duration="400"
+            data-aos-delay={isMobile ? "50" : "100"}
           />
           <h2
             className="text-4xl lg:text-5xl font-bold heading-luxury mb-6"
             data-aos="fade-up"
-            data-aos-duration="600"
-            data-aos-delay="150"
+            data-aos-duration="400"
+            data-aos-delay={isMobile ? "75" : "150"}
           >
             Industries <span className="text-gradient-luxury">We Serve</span>
           </h2>
           <p
             className="text-xl text-muted-foreground max-w-3xl mx-auto"
             data-aos="fade-up"
-            data-aos-duration="600"
-            data-aos-delay="200"
+            data-aos-duration="400"
+            data-aos-delay={isMobile ? "100" : "200"}
           >
             Driving innovation beyond limits, we craft transformative technology
             that empowers businesses to lead, evolve, and redefine the future.
@@ -159,8 +126,8 @@ const Industries = () => {
               onClick={() => handleIndustryClick(industry.category)}
               className="group relative overflow-hidden rounded-2xl bg-background border border-border hover:border-primary transition-all duration-500 hover:shadow-luxury cursor-pointer flex flex-col h-full"
               data-aos="fade-up"
-              data-aos-duration="500"
-              data-aos-delay={300 + index * 100} // Staggered delay: 300ms, 400ms, 500ms, etc.
+              data-aos-duration="400"
+              data-aos-delay={getCardDelay(index)}
             >
               {/* Background Image */}
               <div className="relative h-48 overflow-hidden flex-shrink-0">
