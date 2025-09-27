@@ -131,7 +131,7 @@ const ServiceDetail = () => {
       title={tech}
     >
       <div className="w-10 h-10 md:w-14 md:h-14 flex items-center justify-center">
-        <DynamicIcon iconName={tech} alt={tech} />
+        <DynamicIcon iconName={tech} size="xl" alt={tech} />
       </div>
 
       {/* Tech name tooltip */}
