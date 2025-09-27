@@ -74,7 +74,7 @@ const About = () => {
             <div className="pt-4">
               {" "}
               {/* Added padding-top instead of margin */}
-              <Link to="/work">
+              <Link to="/contact">
                 <Button
                   className="btn-luxury group text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 
              relative overflow-hidden
@@ -83,9 +83,9 @@ const About = () => {
              transform-gpu
              before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/10 before:to-transparent 
              before:translate-x-[-100%] before:transition-transform before:duration-500 
-             hover:before:translate-x-[100%]"
+             hover:before:translate-x-[100%] capitalize"
                 >
-                  View Our Works
+                  We're Always Open
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>

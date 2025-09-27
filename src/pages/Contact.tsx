@@ -82,7 +82,7 @@ const Contact = () => {
     },
     {
       icon: MapPin,
-      title: "CumulusClad Technologies LLP.",
+      title: "CumulusClad Technologies",
       details: [
         "No. 39B, 2nd Floor, Kongunadu Trust, 1st Street, Chakrapani Colony, North Parade Road, St.Thomas Mount, Chennai - 600 016",
       ],
@@ -349,7 +349,7 @@ const Contact = () => {
                   type="submit"
                   size="lg"
                   className="btn-luxury w-auto max-w-[220px] mx-auto sm:mx-0 
-             transition-all duration-300 ease-out"
+             transition-all duration-300 ease-out capitalize"
                 >
                   Send Message
                   <Send className="ml-2 h-5 w-5" />
@@ -537,7 +537,7 @@ const Contact = () => {
             </div>
             <div className="p-8">
               <h3 className="text-2xl font-bold mb-4">
-                CumulusClad Technologies LLP
+                CumulusClad Technologies
               </h3>
               <p className="text-muted-foreground mb-2">
                 No. 39B, 2nd Floor, Kongunadu Trust, 1st Street, Chakrapani

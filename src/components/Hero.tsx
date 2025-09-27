@@ -131,7 +131,9 @@ const Hero = () => {
              w-auto mx-auto sm:mx-0 sm:w-auto max-w-[150px] sm:max-w-none"
                   onClick={handleButtonClick}
                 >
-                  <span className="relative z-10">We're Always Open</span>
+                  <span className="relative z-10 capitalize">
+                    We're Always Open
+                  </span>
                   <svg
                     className="ml-2 h-4 w-4 sm:h-5 sm:w-5 relative z-10"
                     fill="none"
@@ -157,7 +159,7 @@ const Hero = () => {
                transition-all ease-out duration-300 
                px-3 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 
                tracking-wide uppercase text-sm sm:text-base md:text-base 
-               w-auto mx-auto sm:mx-0 sm:w-auto max-w-[150px] sm:max-w-none"
+               w-auto mx-auto sm:mx-0 sm:w-auto max-w-[150px] sm:max-w-none capitalize"
                   >
                     Take a Tour
                   </Button>
