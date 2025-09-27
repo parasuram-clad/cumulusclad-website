@@ -282,7 +282,7 @@ const Header = () => {
                 </p>
                 <Link
                   to="/contact"
-                  className="btn-luxury group transition-all duration-300 ease-out  px-6 py-3  font-semibold text-sm hover:shadow-lg  w-full max-w-xs"
+                  className="btn-luxury group transition-all duration-300 ease-out capitalize  px-6 py-3  font-semibold text-sm hover:shadow-lg  w-full max-w-xs"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   We’re Always Open
