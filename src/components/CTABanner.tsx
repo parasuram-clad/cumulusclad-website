@@ -75,7 +75,7 @@ const CTABanner = () => {
                 We’re Always Open
                 <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" />
               </Button>
-
+              {/* 
               <Link to="/work" className="mx-auto sm:mx-0">
                 <Button
                   size="lg"
@@ -89,7 +89,7 @@ const CTABanner = () => {
                 >
                   View Our Work
                 </Button>
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
