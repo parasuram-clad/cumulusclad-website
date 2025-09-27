@@ -17,20 +17,41 @@ import {
   Headphones,
   Instagram,
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Contact = () => {
-  // Update initial form state
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Calculate delay based on device type
+  const getDelay = (
+    baseDelay: number,
+    index: number = 0,
+    multiplier: number = 100
+  ) => {
+    return isMobile
+      ? baseDelay / 2 + index * (multiplier / 2)
+      : baseDelay + index * multiplier;
+  };
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     company: "",
     subject: "",
-    service: "", // Add this line
+    service: "",
     message: "",
   });
 
-  // Make sure your handleInputChange handles select elements
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -38,9 +59,9 @@ const Contact = () => {
       [name]: value,
     }));
   };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
     console.log("Form submitted:", formData);
   };
 
@@ -83,12 +104,6 @@ const Contact = () => {
       url: "https://www.instagram.com/cumulusclad/",
       handle: "@cumulusclad",
     },
-    // {
-    //   icon: Github,
-    //   name: "GitHub",
-    //   url: "https://github.com/cumulusclad",
-    //   handle: "@cumulusclad",
-    // },
     {
       icon: Globe,
       name: "Website",
@@ -136,6 +151,7 @@ const Contact = () => {
           </div>
         </div>
       </section>
+
       {/* Inquiry Form Section */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-6 lg:px-8">
@@ -143,8 +159,8 @@ const Contact = () => {
             {/* Contact Form */}
             <div
               data-aos="fade-right"
-              data-aos-delay="100"
-              data-aos-duration="500"
+              data-aos-delay={getDelay(50)}
+              data-aos-duration="400"
               data-aos-easing="ease-out"
               data-aos-once="true"
             >
@@ -152,16 +168,16 @@ const Contact = () => {
                 <div
                   className="accent-line mb-6"
                   data-aos="zoom-in"
-                  data-aos-delay="200"
-                  data-aos-duration="400"
+                  data-aos-delay={getDelay(75)}
+                  data-aos-duration="300"
                   data-aos-easing="ease-out"
                   data-aos-once="true"
                 />
                 <h2
                   className="text-4xl font-bold heading-luxury mb-4"
                   data-aos="fade-up"
-                  data-aos-delay="300"
-                  data-aos-duration="500"
+                  data-aos-delay={getDelay(100)}
+                  data-aos-duration="400"
                   data-aos-easing="ease-out"
                   data-aos-once="true"
                 >
@@ -170,8 +186,8 @@ const Contact = () => {
                 <p
                   className="text-muted-foreground"
                   data-aos="fade-up"
-                  data-aos-delay="400"
-                  data-aos-duration="500"
+                  data-aos-delay={getDelay(125)}
+                  data-aos-duration="400"
                   data-aos-easing="ease-out"
                   data-aos-once="true"
                 >
@@ -185,8 +201,8 @@ const Contact = () => {
                 <h3
                   className="text-lg font-semibold mb-4"
                   data-aos="fade-up"
-                  data-aos-delay="200"
-                  data-aos-duration="400"
+                  data-aos-delay={getDelay(150)}
+                  data-aos-duration="300"
                   data-aos-easing="ease-out"
                   data-aos-once="true"
                 >
@@ -196,10 +212,10 @@ const Contact = () => {
                   {inquiryTypes.map((type, index) => (
                     <div
                       key={index}
-                      className="flex items-center space-x-3 p-4 bg-card rounded-xl border border-border "
+                      className="flex items-center space-x-3 p-4 bg-card rounded-xl border border-border"
                       data-aos="fade-up"
-                      data-aos-delay={`${300 + index * 100}`}
-                      data-aos-duration="400"
+                      data-aos-delay={getDelay(200, index, 50)}
+                      data-aos-duration="300"
                       data-aos-easing="ease-out"
                       data-aos-once="true"
                     >
@@ -221,7 +237,8 @@ const Contact = () => {
                 onSubmit={handleSubmit}
                 className="space-y-6"
                 data-aos="fade-up"
-                data-aos-delay="400"
+                data-aos-delay={getDelay(300)}
+                data-aos-duration="400"
               >
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -284,7 +301,6 @@ const Contact = () => {
                   </div>
                 </div>
 
-                {/* Service Field Added Here */}
                 <div>
                   <label className="block text-sm font-medium mb-2">
                     Service Interested In
@@ -339,13 +355,12 @@ const Contact = () => {
                 </Button>
               </form>
             </div>
-            {/* Contact Information */}
 
             {/* Contact Information */}
             <div
               data-aos="fade-left"
-              data-aos-delay="200"
-              data-aos-duration="500"
+              data-aos-delay={getDelay(100)}
+              data-aos-duration="400"
               data-aos-easing="ease-out"
               data-aos-once="true"
               className="w-full max-w-full overflow-hidden"
@@ -356,8 +371,8 @@ const Contact = () => {
                     key={index}
                     className="bg-background border border-border rounded-lg p-4 md:p-6 w-full max-w-full"
                     data-aos="fade-up"
-                    data-aos-delay={`${300 + index * 100}`}
-                    data-aos-duration="400"
+                    data-aos-delay={getDelay(200, index, 75)}
+                    data-aos-duration="300"
                     data-aos-easing="ease-out"
                     data-aos-once="true"
                   >
@@ -365,8 +380,8 @@ const Contact = () => {
                       <div
                         className="w-10 h-10 md:w-12 md:h-12 bg-primary/20 rounded-lg md:rounded-xl flex items-center justify-center flex-shrink-0"
                         data-aos="zoom-in"
-                        data-aos-delay={`${400 + index * 100}`}
-                        data-aos-duration="400"
+                        data-aos-delay={getDelay(250, index, 75)}
+                        data-aos-duration="300"
                         data-aos-easing="ease-out"
                         data-aos-once="true"
                       >
@@ -417,16 +432,16 @@ const Contact = () => {
               <div
                 className="mt-6 md:mt-12 w-full max-w-full"
                 data-aos="fade-up"
-                data-aos-delay="600"
-                data-aos-duration="500"
+                data-aos-delay={getDelay(400)}
+                data-aos-duration="300"
                 data-aos-easing="ease-out"
                 data-aos-once="true"
               >
                 <h3
                   className="text-lg md:text-xl font-bold mb-4 md:mb-6"
                   data-aos="fade-up"
-                  data-aos-delay="700"
-                  data-aos-duration="400"
+                  data-aos-delay={getDelay(450)}
+                  data-aos-duration="300"
                   data-aos-easing="ease-out"
                   data-aos-once="true"
                 >
@@ -441,8 +456,8 @@ const Contact = () => {
                       rel="noopener noreferrer"
                       className="flex items-center space-x-3 p-3 md:p-4 bg-card rounded-lg md:rounded-xl border border-border hover:border-primary hover:shadow-md transition-all duration-300 w-full max-w-full"
                       data-aos="zoom-in"
-                      data-aos-delay={`${800 + index * 100}`}
-                      data-aos-duration="400"
+                      data-aos-delay={getDelay(500, index, 75)}
+                      data-aos-duration="300"
                       data-aos-easing="ease-out"
                       data-aos-once="true"
                     >
@@ -463,30 +478,35 @@ const Contact = () => {
           </div>
         </div>
       </section>
-      {/* Office Locations */} {/* Office Locations */}
-      <section className="py-6 bg-muted/20" data-aos="fade-up">
+
+      {/* Office Locations */}
+      <section
+        className="py-6 bg-muted/20"
+        data-aos="fade-up"
+        data-aos-delay={getDelay(50)}
+      >
         <div className="container mx-auto px-6 lg:px-8">
           <div
             className="text-center max-w-3xl mx-auto mb-16"
             data-aos="zoom-in"
-            data-aos-delay="100"
+            data-aos-delay={getDelay(75)}
           >
             <div
               className="accent-line mx-auto mb-6"
               data-aos="fade-right"
-              data-aos-delay="200"
+              data-aos-delay={getDelay(100)}
             />
             <h2
               className="text-4xl font-bold heading-luxury mb-4"
               data-aos="fade-up"
-              data-aos-delay="150"
+              data-aos-delay={getDelay(125)}
             >
               Visit Our <span className="text-gradient-luxury">Office</span>
             </h2>
             <p
               className="text-muted-foreground"
               data-aos="fade-up"
-              data-aos-delay="200"
+              data-aos-delay={getDelay(150)}
             >
               Come see us at our main headquarters in Chennai. We'd love to meet
               you in person and discuss how we can help your business thrive.
@@ -496,12 +516,12 @@ const Contact = () => {
           <div
             className="bg-card rounded-2xl overflow-hidden shadow-lg border border-border"
             data-aos="fade-up"
-            data-aos-delay="300"
+            data-aos-delay={getDelay(200)}
           >
             <div
               className="aspect-video w-full lg:h-[400px]"
               data-aos="zoom-in"
-              data-aos-delay="400"
+              data-aos-delay={getDelay(250)}
             >
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.4539074212375!2d80.19774327489361!3d13.0067413873119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b9b1f2258ba00f%3A0x9ff63e961b67ee17!2sCumulusClad%20Technologies!5e0!3m2!1sen!2sin!4v1758619260665!5m2!1sen!2sin"

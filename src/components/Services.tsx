@@ -58,8 +58,19 @@ const Services = () => {
     },
   ];
 
+  // Function to calculate delay based on screen size
+  const getCardDelay = (index: number) => {
+    if (typeof window !== "undefined") {
+      // Check if mobile screen (tailwind md breakpoint is 768px)
+      if (window.innerWidth < 768) {
+        return 100 + index * 20; // Much faster delays for mobile
+      }
+    }
+    return 200 + index * 50; // Original delays for desktop
+  };
+
   return (
-    <section className="py-24 bg-gradient-hero">
+    <section className="pt-24 bg-gradient-hero">
       <div className="container mx-auto px-6 lg:px-8">
         {/* Title Section - Faster animations */}
         <div
@@ -102,7 +113,7 @@ const Services = () => {
               className="card-luxury2 group cursor-pointer overflow-hidden w-full p-0 flex flex-col h-full"
               data-aos="fade-up"
               data-aos-duration="400" // Faster: 400ms instead of 800ms
-              data-aos-delay={200 + index * 50} // Faster staggered delay: 200ms, 250ms, 300ms, etc.
+              data-aos-delay={getCardDelay(index)} // Dynamic delay based on screen size
               data-aos-easing="ease-out" // Faster easing
             >
               <div className="relative flex flex-col h-full">

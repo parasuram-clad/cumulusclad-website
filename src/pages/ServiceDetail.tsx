@@ -45,6 +45,7 @@ import ai from "@/assets/services/page-image/ai.jpeg";
 import digitalExperience from "@/assets/services/page-image/digital-experience.jpeg";
 import cyberimage from "@/assets/services/page-image/cyber.jpeg";
 import cloud from "@/assets/services/page-image/cloud.jpeg";
+import iot from "@/assets/services/page-image/iot.jpeg";
 import digitalTransformation from "@/assets/services/page-image/digital-transformation.jpeg";
 import aiSolutionsImg from "@/assets/services/ai-solutions.jpg";
 import digitalExperienceImg from "@/assets/services/digital-experience.jpg";
@@ -185,7 +186,7 @@ const ServiceDetail = () => {
       title: "AI Solutions",
       description:
         "We design intelligent systems that learn, adapt, and grow with your business. From automation to predictive analytics, our AI solutions empower smarter decisions and unlock future-ready capabilities across your operations.",
-      heroImage: aiSolutionsImg,
+      heroImage: ai,
       offerings: [
         {
           title: "Machine Learning Models",
@@ -292,7 +293,7 @@ const ServiceDetail = () => {
       title: "Digital Experience",
       description:
         "Exceptional digital experiences are born where design meets purpose. We create intuitive, responsive, and emotionally engaging interfaces that turn every customer touchpoint into a powerful brand connection.",
-      heroImage: digitalExperienceImg,
+      heroImage: digitalExperience,
       offerings: [
         {
           title: "UI/UX Design",
@@ -406,13 +407,13 @@ const ServiceDetail = () => {
       title: "Cloud Solutions",
       description:
         "Fuel innovation with cloud strategies engineered for dynamic growth, seamless performance, and enterprise-grade security. From seamless migrations to cloud-native innovations, we help you accelerate transformation and operate with freedom and confidence.",
-      heroImage: cloudSolutionsImg,
+      heroImage: cloud,
       offerings: [
         {
           title: "Cloud Migration",
           description:
             "Seamless migration of your existing infrastructure to cloud platforms with minimal downtime. Our comprehensive migration strategy ensures data integrity, security compliance, and optimal performance throughout the transition process.",
-          image: cloudMigrationImg,
+          image: cloud,
         },
         {
           title: "Infrastructure as Code",
@@ -530,7 +531,7 @@ const ServiceDetail = () => {
       title: "Digital Transformation",
       description:
         "Transformation is more than going digital—it’s about reimagining how your business works and evolves. We help you modernize core systems, adopt new technologies, and align digital strategy with real-world impact.",
-      heroImage: digitalTransformationImg,
+      heroImage: digitalTransformation,
       offerings: [
         {
           title: "Process Automation",
@@ -630,8 +631,7 @@ const ServiceDetail = () => {
       title: "IoT Solutions",
       description:
         "In an interconnected world, data is power. Our IoT solutions transform physical environments into intelligent ecosystems—enabling smarter operations, real-time insights, and automated control at scale.",
-      heroImage:
-        "https://research.aimultiple.com/wp-content/uploads/2021/11/smart-factory-concept-2020-724x432-1.jpg",
+      heroImage: iot,
       offerings: [
         {
           title: "IoT Platform Development",

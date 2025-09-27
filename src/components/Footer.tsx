@@ -168,19 +168,19 @@ const Footer = () => {
 
         {/* Bottom Section with Support Links */}
         <div className="border-t border-border mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center  space-y-4 md:space-y-0">
+          <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-4 md:space-y-0">
             {/* Copyright */}
-            <p className=" text-black/60  md:text-sm">
+            <p className="text-black/60 md:text-sm w-full md:w-auto">
               © {currentYear} CumulusClad Technologies. All rights reserved.
             </p>
 
             {/* Support Links */}
-            <div className="flex items-center space-x-6 ">
+            <div className="flex items-center justify-center space-x-6 w-full md:w-auto">
               {supportLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.href}
-                  className=" hover:text-primary md:text-sm text-black/60 transition-colors duration-300 hover:underline underline-offset-4"
+                  className="hover:text-primary md:text-sm text-black/60 transition-colors duration-300 hover:underline underline-offset-4"
                 >
                   {link.name}
                 </Link>

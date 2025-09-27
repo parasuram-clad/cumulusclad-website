@@ -95,16 +95,18 @@ const Services = () => {
 
       {/* Services Grid */}
       <section className="py-24 bg-background">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto container  px-6 lg:px-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto container px-6 lg:px-8">
           {services.map((service, index) => (
             <Link
               key={service.title}
               to={`/services/${service.id}`}
               className="card-luxury2 group cursor-pointer overflow-hidden w-full p-0 flex flex-col h-full"
               data-aos="fade-up"
-              data-aos-duration="400" // Faster: 400ms instead of 800ms
-              data-aos-delay={200 + index * 50} // Faster staggered delay: 200ms, 250ms, 300ms, etc.
-              data-aos-easing="ease-out" // Faster easing
+              data-aos-duration="400"
+              data-aos-delay={
+                window.innerWidth < 768 ? 100 + index * 20 : 200 + index * 50
+              }
+              data-aos-easing="ease-out"
             >
               <div className="relative flex flex-col h-full">
                 {/* Service Image - Full Width Without Padding */}
@@ -141,7 +143,6 @@ const Services = () => {
           ))}
         </div>
       </section>
-
       <CTABanner />
     </Layout>
   );

@@ -1,6 +1,22 @@
 import { Heart, Users, Palette, Search, Zap, Sparkles } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const WhyChooseUs = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    // Check initially
+    checkMobile();
+
+    // Add resize listener
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const features = [
     {
       icon: Heart, // Represents "understanding" and personal connection
@@ -39,26 +55,31 @@ const WhyChooseUs = () => {
     },
   ];
 
+  // Calculate delay based on device type
+  const getCardDelay = (index: number) => {
+    return isMobile ? 150 + index * 50 : 300 + index * 100;
+  };
+
   return (
-    <section className="py-24 bg-background">
+    <section className="pt-24 bg-background">
       <div className="container mx-auto px-6 lg:px-8">
         <div
           className="text-center mb-16"
           data-aos="fade-up"
           data-aos-duration="600"
-          data-aos-delay="100"
+          data-aos-delay={isMobile ? "50" : "100"}
         >
           <div
             className="accent-line mx-auto mb-6"
             data-aos="fade-up"
             data-aos-duration="600"
-            data-aos-delay="150"
+            data-aos-delay={isMobile ? "75" : "150"}
           />
           <h2
             className="text-4xl lg:text-5xl font-bold heading-luxury mb-6"
             data-aos="fade-up"
             data-aos-duration="600"
-            data-aos-delay="200"
+            data-aos-delay={isMobile ? "100" : "200"}
           >
             Why <span className="text-gradient-luxury">Choose Us?</span>
           </h2>
@@ -66,10 +87,10 @@ const WhyChooseUs = () => {
             className="text-xl text-muted-foreground max-w-3xl mx-auto"
             data-aos="fade-up"
             data-aos-duration="600"
-            data-aos-delay="250"
+            data-aos-delay={isMobile ? "125" : "250"}
           >
             We combine innovation with reliability to deliver solutions that
-            last. At CumulusClad, Your growth is not our goal, it’s our
+            last. At CumulusClad, Your growth is not our goal, it's our
             guarantee.
           </p>
         </div>
@@ -81,7 +102,7 @@ const WhyChooseUs = () => {
               className="group relative p-8 rounded-2xl bg-card border border-border hover:border-primary transition-all duration-300 hover:shadow-luxury"
               data-aos="fade-up"
               data-aos-duration="500"
-              data-aos-delay={300 + index * 100} // Staggered delay: 300ms, 400ms, 500ms, etc.
+              data-aos-delay={getCardDelay(index)}
             >
               {/* Background Glow Effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

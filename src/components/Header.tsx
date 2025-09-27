@@ -1,6 +1,18 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "@/assets/logo.png";
+import {
+  Home,
+  Briefcase,
+  FolderOpen,
+  Users,
+  Phone,
+  Cloud,
+  Palette,
+  Cpu,
+  Shield,
+  Zap,
+} from "lucide-react";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -21,33 +33,51 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   }, [location]);
 
-  // Prevent body scroll when mobile menu is open
+  // Prevent body scroll when mobile menu is open - IMPROVED VERSION
   useEffect(() => {
     if (isMobileMenuOpen) {
-      document.body.style.overflow = "hidden";
+      // Store the current scroll position
+      const scrollY = window.scrollY;
       document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
       document.body.style.width = "100%";
+      document.body.style.overflow = "hidden";
     } else {
+      // Restore scroll position when closing menu
+      const scrollY = document.body.style.top;
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
       document.body.style.overflow = "unset";
-      document.body.style.position = "static";
-      document.body.style.width = "auto";
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || "0") * -1);
+      }
     }
 
     return () => {
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
       document.body.style.overflow = "unset";
-      document.body.style.position = "static";
-      document.body.style.width = "auto";
     };
   }, [isMobileMenuOpen]);
 
   const navigation = [
-    { name: "Home", href: "/" },
-    { name: "Services", href: "/services" },
-    { name: "Work", href: "/work" },
-    { name: "About", href: "/about" },
-    // { name: "Careers", href: "/careers" },
-    { name: "Contact", href: "/contact" },
+    { name: "Home", href: "/", icon: Home },
+    { name: "Services", href: "/services", icon: Briefcase },
+    { name: "Work", href: "/work", icon: FolderOpen },
+    { name: "About", href: "/about", icon: Users },
+    { name: "Contact", href: "/contact", icon: Phone },
   ];
+
+  const serviceIcons = {
+    ai: Cpu,
+    "digital-experience": Palette,
+    cloud: Cloud,
+    "digital-transformation": Zap,
+    iot: Cpu,
+    cybersecurity: Shield,
+  };
 
   const isActive = (href: string) => location.pathname === href;
 
@@ -55,15 +85,31 @@ const Header = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  // Get relevant icon based on current page
+  const getCurrentPageIcon = () => {
+    if (location.pathname.startsWith("/services/")) {
+      const serviceId = location.pathname.split("/")[2];
+      const IconComponent = serviceIcons[serviceId] || Briefcase;
+      return <IconComponent className="w-5 h-5" />;
+    }
+
+    const currentNav = navigation.find((item) => isActive(item.href));
+    return currentNav ? (
+      <currentNav.icon className="w-5 h-5" />
+    ) : (
+      <Home className="w-5 h-5" />
+    );
+  };
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-luxury w-full prevent-overflow ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 w-full ${
         isScrolled
           ? "bg-white/95 backdrop-blur-lg shadow-elegant"
           : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-6 sm:px-6 lg:px-8 ">
+      <div className="container mx-auto px-6 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 w-full">
           {/* Logo */}
           <Link
@@ -98,13 +144,70 @@ const Header = () => {
           <div className="md:hidden flex-shrink-0">
             <button
               onClick={toggleMobileMenu}
-              className="text-foreground hover:text-primary transition-colors duration-300 p-2"
+              className="relative w-10 h-10 flex items-center justify-center text-foreground hover:text-primary transition-colors duration-300"
               aria-label="Toggle menu"
             >
-              {isMobileMenuOpen ? (
-                // Close icon (X)
+              <span
+                className={`absolute w-6 h-0.5 bg-current transition-all duration-300 ${
+                  isMobileMenuOpen
+                    ? "rotate-45 translate-y-0"
+                    : "-translate-y-2"
+                }`}
+              />
+              <span
+                className={`absolute w-6 h-0.5 bg-current transition-all duration-300 ${
+                  isMobileMenuOpen ? "opacity-0" : "opacity-100"
+                }`}
+              />
+              <span
+                className={`absolute w-6 h-0.5 bg-current transition-all duration-300 ${
+                  isMobileMenuOpen
+                    ? "-rotate-45 translate-y-0"
+                    : "translate-y-2"
+                }`}
+              />
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu Overlay */}
+        <div
+          className={`md:hidden fixed inset-0 z-40 transition-all duration-500 ${
+            isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+          }`}
+          style={{ pointerEvents: isMobileMenuOpen ? "auto" : "none" }}
+        >
+          {/* Animated Backdrop */}
+          <div
+            className={`absolute inset-0 bg-black/50 transition-opacity duration-500 ${
+              isMobileMenuOpen ? "opacity-100" : "opacity-0"
+            }`}
+            onClick={() => setIsMobileMenuOpen(false)}
+            style={{ pointerEvents: isMobileMenuOpen ? "auto" : "none" }}
+          />
+
+          {/* Animated Menu Panel - IMPROVED SLIDING */}
+          <div
+            className={`absolute top-0 right-0 h-full w-80 max-w-full bg-white shadow-2xl transform transition-all duration-500 ease-out overflow-y-auto ${
+              isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+            }`}
+            style={{
+              maxHeight: "100vh",
+              overscrollBehavior: "contain",
+            }}
+          >
+            {/* Header Section with Close Button Only */}
+            <div className="p-4 flex items-center justify-end sticky top-0 bg-white z-10 border-b border-gray-200">
+              {/* Current Page Indicator */}
+
+              {/* Close Button */}
+              <button
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="w-10 h-10 flex items-center justify-center text-gray-600 hover:text-primary transition-colors duration-300"
+                aria-label="Close menu"
+              >
                 <svg
-                  className="h-6 w-6"
+                  className="w-8 h-8"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -116,56 +219,78 @@ const Header = () => {
                     d="M6 18L18 6M6 6l12 12"
                   />
                 </svg>
-              ) : (
-                // Hamburger icon
-                <svg
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              )}
-            </button>
-          </div>
-        </div>
+              </button>
+            </div>
 
-        {/* Mobile Menu Overlay */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden fixed inset-0 z-40 w-full h-full prevent-overflow">
-            {/* Backdrop */}
-            <div
-              className="absolute inset-0 bg-black/20 w-full h-full"
-              onClick={() => setIsMobileMenuOpen(false)}
-            />
-
-            {/* Mobile Menu Panel - FIXED: Proper containment */}
-            <div className="absolute top-20 left-0 right-0 w-full bg-white/95 backdrop-blur-lg shadow-elegant z-50 overflow-hidden max-w-full">
-              <nav className="flex flex-col py-4 w-full">
-                {navigation.map((item) => (
+            {/* Navigation Items with Icons */}
+            <nav className="flex flex-col p-4 space-y-3">
+              {navigation.map((item, index) => {
+                const IconComponent = item.icon;
+                return (
                   <Link
                     key={item.name}
                     to={item.href}
-                    className={`px-6 py-3 text-lg font-medium uppercase transition-colors duration-300 w-full whitespace-nowrap overflow-hidden text-ellipsis ${
+                    className={`group relative p-2 rounded-xl transition-all duration-500 transform flex items-center space-x-4 ${
                       isActive(item.href)
-                        ? "text-primary bg-primary/10 border-l-4 border-primary"
-                        : "text-foreground hover:text-primary hover:bg-primary/5"
+                        ? "bg-gradient-to-r from-primary/20 to-primary/10 border-l-4 border-primary shadow-md"
+                        : "hover:bg-gray-50 border-l-4 border-transparent"
                     }`}
+                    style={{
+                      transitionDelay: isMobileMenuOpen
+                        ? `${index * 60}ms`
+                        : "0ms",
+                      transform: isMobileMenuOpen
+                        ? "translateX(0) scale(1)"
+                        : "translateX(30px) scale(0.95)",
+                      opacity: isMobileMenuOpen ? 1 : 0,
+                    }}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    {item.name}
+                    {/* Icon */}
+                    <div
+                      className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${
+                        isActive(item.href)
+                          ? "bg-primary text-white"
+                          : "bg-gray-100 text-gray-600 group-hover:bg-primary group-hover:text-white"
+                      }`}
+                    >
+                      <IconComponent className="w-6 h-6" />
+                    </div>
+
+                    {/* Text */}
+                    <div className="flex-1">
+                      <span
+                        className={`text-lg font-semibold transition-colors duration-300 block ${
+                          isActive(item.href)
+                            ? "text-primary"
+                            : "text-gray-900 group-hover:text-primary"
+                        }`}
+                      >
+                        {item.name}
+                      </span>
+                    </div>
                   </Link>
-                ))}
-              </nav>
+                );
+              })}
+            </nav>
+
+            {/* Footer Section */}
+            <div className="sticky bottom-0 left-0 right-0 p-6 border-t border-gray-200 bg-white">
+              <div className="text-center">
+                <p className="text-sm text-gray-600 mb-4">
+                  Ready to transform your business?
+                </p>
+                <Link
+                  to="/contact"
+                  className="btn-luxury group transition-all duration-300 ease-out  px-6 py-3  font-semibold text-sm hover:shadow-lg  w-full max-w-xs"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  We’re Always Open
+                </Link>
+              </div>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </header>
   );
