@@ -15,12 +15,13 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import aiSolutionsImg from "@/assets/services/ai-solutions.jpg";
-import digitalExperienceImg from "@/assets/services/digital-experience.jpg";
-import cloudSolutionsImg from "@/assets/services/cloud-solutions.jpg";
-import digitalTransformationImg from "@/assets/services/digital-transformation.jpg";
-import iotSolutionsImg from "@/assets/services/iot-solutions.jpg";
-import cybersecurityImg from "@/assets/services/cybersecurity.jpg";
+import aiSolutionsImg from "@/assets/services/page-image/ai.jpeg";
+import digitalExperienceImg from "@/assets/services/page-image/digital-experience.jpeg";
+import cloudSolutionsImg from "@/assets/services/page-image/cloud.jpeg";
+import digitalTransformationImg from "@/assets/services/page-image/digital-transformation.jpeg";
+import iotSolutionsImg from "@/assets/services/page-image/iot.jpeg";
+import cybersecurityImg from "@/assets/services/page-image/cyber.jpeg";
+
 import CTABanner from "@/components/CTABanner";
 const Services = () => {
   const services = [

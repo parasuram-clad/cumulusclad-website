@@ -117,6 +117,7 @@ const Hero = () => {
               </div>
 
               {/* Buttons - animations removed */}
+              {/* Buttons - animations removed */}
               <div
                 data-aos="fade-up"
                 data-aos-delay="1200"
@@ -124,10 +125,13 @@ const Hero = () => {
                 className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 justify-center w-full max-w-xs sm:max-w-md mx-auto"
               >
                 <Button
-                  className="btn-luxury group transition-all duration-300 ease-out hover:bg-primary/90 px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 tracking-wide uppercase text-sm sm:text-base md:text-base w-full sm:w-auto"
+                  className="btn-luxury group transition-all duration-300 ease-out hover:bg-primary/90 
+             px-3 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 
+             tracking-wide uppercase text-sm sm:text-base md:text-base 
+             w-auto mx-auto sm:mx-0 sm:w-auto max-w-[150px] sm:max-w-none"
                   onClick={handleButtonClick}
                 >
-                  <span className="relative z-10">We’re Always Open</span>
+                  <span className="relative z-10">We're Always Open</span>
                   <svg
                     className="ml-2 h-4 w-4 sm:h-5 sm:w-5 relative z-10"
                     fill="none"
@@ -143,10 +147,17 @@ const Hero = () => {
                   </svg>
                 </Button>
 
-                <Link to="/work" className="flex w-full sm:w-auto">
+                <Link
+                  to="/work"
+                  className="flex justify-center sm:justify-start"
+                >
                   <Button
                     variant="outline"
-                    className="border-luxury-red text-luxury-red hover:bg-luxury-red/10 hover:text-red hover:[scale:1.05] transition-all ease-out duration-300 px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 tracking-wide uppercase text-sm sm:text-base md:text-base w-full"
+                    className="border-luxury-red text-luxury-red hover:bg-luxury-red/10 hover:text-red hover:[scale:1.05] 
+               transition-all ease-out duration-300 
+               px-3 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 
+               tracking-wide uppercase text-sm sm:text-base md:text-base 
+               w-auto mx-auto sm:mx-0 sm:w-auto max-w-[150px] sm:max-w-none"
                   >
                     Take a Tour
                   </Button>
