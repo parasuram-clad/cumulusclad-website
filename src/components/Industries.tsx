@@ -81,7 +81,7 @@ const Industries = () => {
   ];
 
   const handleIndustryClick = (category: string) => {
-    navigate(`/work?category=${encodeURIComponent(category)}`);
+    // navigate(`/work?category=${encodeURIComponent(category)}`);
   };
 
   // Calculate delay based on device type
@@ -123,8 +123,8 @@ const Industries = () => {
           {industries.map((industry, index) => (
             <div
               key={industry.title}
-              onClick={() => handleIndustryClick(industry.category)}
-              className="group relative overflow-hidden rounded-2xl bg-background border border-border hover:border-primary transition-all duration-500 hover:shadow-luxury cursor-pointer flex flex-col h-full"
+              // onClick={() => handleIndustryClick(industry.category)}
+              className="group relative overflow-hidden rounded-2xl bg-background border border-border hover:border-primary transition-all duration-500 hover:shadow-luxury flex flex-col h-full"
               data-aos="fade-up"
               data-aos-duration="400"
               data-aos-delay={getCardDelay(index)}
@@ -155,11 +155,11 @@ const Industries = () => {
                   {industry.description}
                 </p>
                 {/* Learn More Link - Now consistently positioned at bottom */}
-                <div className="mt-6 pt-4 border-t border-border">
+                {/* <div className="mt-6 pt-4 border-t border-border">
                   <span className="text-primary font-semibold text-sm uppercase tracking-wide group-hover:underline transition-all duration-300">
                     View Projects →
                   </span>
-                </div>
+                </div> */}
               </div>
 
               {/* Hover Glow Effect */}
