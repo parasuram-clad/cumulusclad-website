@@ -21,7 +21,7 @@ import cloudSolutionsImg from "@/assets/services/page-image/cloud.jpeg";
 import digitalTransformationImg from "@/assets/services/page-image/digital-transformation.jpeg";
 import iotSolutionsImg from "@/assets/services/page-image/iot.jpeg";
 import cybersecurityImg from "@/assets/services/page-image/cyber.jpeg";
-
+import heroBackground from "@/assets/hero-bg.jpg"; // Replace with your image path
 import CTABanner from "@/components/CTABanner";
 const Services = () => {
   const services = [
@@ -79,7 +79,15 @@ const Services = () => {
     <Layout>
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-hero relative overflow-hidden">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
+          style={{ backgroundImage: `url(${heroBackground})` }} // Replace with your image path
+        />
+
+        {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-luxury-red/5 to-luxury-red/10" />
+
         <div className="container mx-auto px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-4xl mx-auto animate-fade-in">
             <div className="accent-line mx-auto mb-6" />

@@ -66,7 +66,7 @@ const About = () => {
               Fortify Your Business with{" "}
               <span className="text-gradient-luxury">Trusted IT Security</span>
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed font-light">
+            <p className="text-xl text-muted-foreground leading-relaxed font-thin">
               We're a team of passionate technologists, designers, and
               strategists who believe in the power of technology to transform
               businesses and improve lives.
@@ -117,7 +117,7 @@ const About = () => {
                 </h2>
 
                 <p
-                  className="text-xl text-muted-foreground leading-relaxed"
+                  className="text-xl text-muted-foreground leading-relaxed font-thin"
                   data-aos="fade-right"
                   data-aos-duration="600"
                   data-aos-delay="200"
@@ -237,7 +237,7 @@ const About = () => {
                 <h2 className="text-4xl lg:text-5xl font-bold heading-luxury">
                   Our Vision
                 </h2>
-                <p className="text-xl text-muted-foreground leading-relaxed">
+                <p className="text-xl text-muted-foreground leading-relaxed font-thin">
                   To be a global leader in driving intelligent, secure, and
                   transformative digital solutions, empowering industries to
                   innovate, connect, and thrive in an increasingly digital
@@ -267,7 +267,7 @@ const About = () => {
                 <h2 className="text-4xl lg:text-5xl font-bold heading-luxury">
                   Our Mission
                 </h2>
-                <p className="text-xl text-muted-foreground leading-relaxed">
+                <p className="text-xl text-muted-foreground leading-relaxed font-thin">
                   Deliver cutting-edge solutions in artificial intelligence,
                   cloud, and IoT to accelerate business transformation.
                   Strengthen industries through secure and scalable application
