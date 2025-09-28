@@ -86,10 +86,11 @@ const Services = () => {
             data-aos-delay="100"
           />
           <h2
-            className="text-4xl lg:text-5xl font-bold heading-luxury mb-6"
+            className="text-4xl lg:text-5xl  heading-luxury mb-6"
             data-aos="fade-up"
             data-aos-duration="400"
             data-aos-delay="150"
+            style={{ fontWeight: 100 }}
           >
             Our <span className="text-gradient-luxury">Services</span>
           </h2>
