@@ -108,8 +108,18 @@ const Hero = () => {
                       data-aos-duration="600"
                       className="text-gradient-luxury inline-block sm:inline"
                     >
-                      knowledge and technology converge
+                      knowledge
                     </span>
+                    and
+                    <span
+                      data-aos="fade-up"
+                      data-aos-delay="1000"
+                      data-aos-duration="600"
+                      className="text-gradient-luxury inline-block sm:inline"
+                    >
+                      technology
+                    </span>
+                    converge
                   </p>
                 </div>
               </div>
