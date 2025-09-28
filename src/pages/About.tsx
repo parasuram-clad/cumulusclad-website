@@ -73,11 +73,11 @@ const About = () => {
         <div className="relative z-10 container mx-auto px-6 lg:px-8 text-center">
           <div className="max-w-4xl mx-auto space-y-8 animate-fade-in">
             <div className="accent-line mx-auto mb-0" />
-            <h1 className="text-5xl lg:text-7xl font-bold heading-luxury mt-0">
+            <h1 className="text-4xl lg:text-7xl font-bold heading-luxury mt-0">
               Building Resilient, Future-Ready Enterprises with&nbsp;
               <span className="text-gradient-luxury">AI and IT Expertise</span>
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed font-thin">
+            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed font-thin">
               We're a team of passionate technologists, designers, and
               strategists who believe in the power of technology to transform
               businesses and improve lives.
