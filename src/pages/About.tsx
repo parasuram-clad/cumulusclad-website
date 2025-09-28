@@ -14,6 +14,7 @@ import { Link } from "react-router-dom";
 import cybersecurityBg from "@/assets/cybersecurity-bg.jpg";
 import CTABanner from "@/components/CTABanner";
 import SimpleEnquiryModal from "@/components/EnquiryModal";
+import heroBackground from "@/assets/about-bg.png";
 const About = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleButtonClick = () => {
@@ -68,8 +69,16 @@ const About = () => {
       />
       {/* Hero Section */}
       <section className="relative py-32 overflow-hidden">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+          style={{ backgroundImage: `url(${heroBackground})` }} // Replace with your image path
+        />
+
+        {/* Gradient Overlays */}
         <div className="absolute inset-0 bg-gradient-to-br from-luxury-red/5 to-luxury-red/10" />
         <div className="absolute inset-0 bg-gradient-hero" />
+
         <div className="relative z-10 container mx-auto px-6 lg:px-8 text-center">
           <div className="max-w-4xl mx-auto space-y-8 animate-fade-in">
             <div className="accent-line mx-auto mb-0" />
@@ -87,9 +96,9 @@ const About = () => {
               {/* Added padding-top instead of margin */}
               <Button
                 className="btn-luxury group transition-all duration-300 ease-out hover:bg-primary/90 
-            
-             tracking-wide uppercase text-sm sm:text-base md:text-base 
-             w-auto mx-auto sm:mx-0 sm:w-auto max-w-[150px] sm:max-w-none"
+        
+       tracking-wide uppercase text-sm sm:text-base md:text-base 
+       w-auto mx-auto sm:mx-0 sm:w-auto max-w-[150px] sm:max-w-none"
                 onClick={handleButtonClick}
               >
                 <span className="relative z-10 capitalize ">Let's Speak</span>

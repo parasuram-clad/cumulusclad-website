@@ -18,7 +18,7 @@ import {
   Instagram,
 } from "lucide-react";
 import { useState, useEffect } from "react";
-
+import heroBackground from "@/assets/contact-bg.png"; // or your image path
 const Contact = () => {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -134,6 +134,13 @@ const Contact = () => {
     <Layout>
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-hero relative overflow-hidden">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+          style={{ backgroundImage: `url(${heroBackground})` }} // Replace with your image path
+        />
+
+        {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-luxury-red/5 to-luxury-red/10" />
 
         <div className="container mx-auto px-6 lg:px-8 relative z-10">
