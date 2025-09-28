@@ -86,7 +86,7 @@ const Services = () => {
             <h1 className="text-5xl lg:text-6xl font-bold heading-luxury mb-6">
               Our <span className="text-gradient-luxury">Services</span>
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
+            <p className="text-xl text-muted-foreground leading-relaxed font-light">
               Comprehensive technology solutions designed to accelerate your
               business growth and digital transformation.
             </p>

@@ -66,7 +66,7 @@ const About = () => {
               Fortify Your Business with{" "}
               <span className="text-gradient-luxury">Trusted IT Security</span>
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
+            <p className="text-xl text-muted-foreground leading-relaxed font-light">
               We're a team of passionate technologists, designers, and
               strategists who believe in the power of technology to transform
               businesses and improve lives.

@@ -73,17 +73,27 @@ const CTABanner = () => {
               data-aos-delay="300"
             >
               <Button
-                size="lg"
                 onClick={handleButtonClick}
                 className="bg-white text-[hsl(0_100%_27%)] hover:bg-white/90 
-               
-               text-base sm:text-lg 
-               group shadow-2xl relative z-10
-               w-auto mx-auto sm:mx-0 sm:w-auto text-center 
-               hover:[scale:1.05] transition-all duration-300 ease-out"
+             tracking-wide uppercase text-sm sm:text-base md:text-base 
+             w-auto mx-auto sm:mx-0 sm:w-auto max-w-[150px] sm:max-w-none
+             group shadow-2xl relative z-10
+             hover:[scale:1.05] transition-all duration-300 ease-out"
               >
-                Let's Speak
-                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" />
+                <span className="relative z-10 capitalize">Let's Speak</span>
+                <svg
+                  className="ml-2 h-4 w-4 sm:h-5 sm:w-5 relative z-10 transition-transform group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
               </Button>
               {/* 
               <Link to="/work" className="mx-auto sm:mx-0">
