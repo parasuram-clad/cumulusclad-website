@@ -315,7 +315,7 @@ const About = () => {
             <h2 className="text-4xl lg:text-5xl font-bold heading-luxury mb-6">
               Our Values & <span className="text-gradient-luxury">Culture</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-thin">
               These core values guide everything we do and shape the culture
               that makes CumulusClad Technologies a great place to work and
               partner with.
