@@ -87,10 +87,11 @@ const CaseStudy = ({
                 data-aos-delay="150"
               />
               <h2
-                className="text-4xl lg:text-5xl font-bold heading-luxury"
+                className="text-4xl lg:text-5xl heading-luxury"
                 data-aos={reverse ? "fade-right" : "fade-left"}
                 data-aos-duration="600"
                 data-aos-delay="200"
+                style={{ fontWeight: 100 }}
               >
                 {title}
               </h2>
