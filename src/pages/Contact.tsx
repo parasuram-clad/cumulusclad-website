@@ -143,7 +143,7 @@ const Contact = () => {
               Simplifying IT,{" "}
               <span className="text-gradient-luxury">Amplifying Success</span>
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed font-light">
+            <p className="text-xl text-muted-foreground leading-relaxed font-thin">
               Ready to transform your business with cutting-edge technology?
               Let's start a conversation about your vision and how we can help
               bring it to life.
@@ -184,7 +184,7 @@ const Contact = () => {
                   Get in <span className="text-gradient-luxury">Touch</span>
                 </h2>
                 <p
-                  className="text-muted-foreground"
+                  className="text-muted-foreground "
                   data-aos="fade-up"
                   data-aos-delay={getDelay(125)}
                   data-aos-duration="400"
@@ -505,7 +505,7 @@ const Contact = () => {
               Visit Our <span className="text-gradient-luxury">Office</span>
             </h2>
             <p
-              className="text-muted-foreground"
+              className="text-muted-foreground font-thin"
               data-aos="fade-up"
               data-aos-delay={getDelay(150)}
             >
