@@ -108,7 +108,7 @@ const Hero = () => {
                       data-aos-duration="600"
                       className="text-gradient-luxury inline-block sm:inline"
                     >
-                      &nbsp; knowledge
+                      &nbsp;knowledge
                     </span>
                     &nbsp;and&nbsp;
                     <span

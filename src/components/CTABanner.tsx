@@ -39,9 +39,17 @@ const CTABanner = () => {
                 data-aos-delay="100"
                 style={{ fontWeight: 100 }}
               >
-                Dream It. Design It.{" "}
+                Dream It. Design It.&nbsp;
                 <span className="text-transparent bg-gradient-to-r from-white to-red-200 bg-clip-text">
-                  Dominate the Digital World.
+                  Dominate the&nbsp;
+                  <span className="text-transparent bg-gradient-to-r from-white to-red-200 bg-clip-text">
+                    AI&nbsp;
+                  </span>
+                  and&nbsp;
+                  <span className="text-transparent bg-gradient-to-r from-white to-red-200 bg-clip-text">
+                    Digital World
+                  </span>
+                  .
                 </span>
               </h2>
 
@@ -67,7 +75,7 @@ const CTABanner = () => {
                 size="lg"
                 onClick={handleButtonClick}
                 className="bg-white text-[hsl(0_100%_27%)] hover:bg-white/90 
-               px-6 sm:px-8 py-3 sm:py-4 
+               
                text-base sm:text-lg 
                group shadow-2xl relative z-10
                w-auto mx-auto sm:mx-0 sm:w-auto text-center 
