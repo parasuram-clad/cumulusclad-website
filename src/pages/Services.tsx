@@ -81,7 +81,7 @@ const Services = () => {
       <section className="pt-32 pb-20 bg-gradient-hero relative overflow-hidden">
         {/* Background Image */}
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
           style={{ backgroundImage: `url(${heroBackground})` }} // Replace with your image path
         />
 
