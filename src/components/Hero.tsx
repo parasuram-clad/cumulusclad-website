@@ -27,7 +27,7 @@ const Hero = () => {
       <section className="relative w-full flex items-center justify-center overflow-hidden py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28">
         {/* Background */}
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
           style={{ backgroundImage: `url(${heroBackground})` }}
         />
 
