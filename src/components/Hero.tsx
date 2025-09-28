@@ -101,25 +101,25 @@ const Hero = () => {
                     className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl heading-luxury leading-tight whitespace-normal mt-4 sm:mt-6"
                     style={{ fontWeight: 100 }}
                   >
-                    Progress thrive where{" "}
+                    Progress thrive where
                     <span
                       data-aos="fade-up"
                       data-aos-delay="1000"
                       data-aos-duration="600"
                       className="text-gradient-luxury inline-block sm:inline"
                     >
-                      knowledge{" "}
+                      &nbsp; knowledge
                     </span>
-                    and{" "}
+                    &nbsp;and&nbsp;
                     <span
                       data-aos="fade-up"
                       data-aos-delay="1000"
                       data-aos-duration="600"
                       className="text-gradient-luxury inline-block sm:inline"
                     >
-                      technology{" "}
+                      technology
                     </span>
-                    converge
+                    &nbsp;converge
                   </p>
                 </div>
               </div>
