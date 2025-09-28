@@ -125,7 +125,7 @@ const Hero = () => {
               </div>
 
               {/* Buttons - animations removed */}
-              {/* Buttons - animations removed */}
+              {/* Buttons - animations removed  px-3 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4  */}
               <div
                 data-aos="fade-up"
                 data-aos-delay="1200"
@@ -134,7 +134,7 @@ const Hero = () => {
               >
                 <Button
                   className="btn-luxury group transition-all duration-300 ease-out hover:bg-primary/90 
-             px-3 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 
+            
              tracking-wide uppercase text-sm sm:text-base md:text-base 
              w-auto mx-auto sm:mx-0 sm:w-auto max-w-[150px] sm:max-w-none"
                   onClick={handleButtonClick}
