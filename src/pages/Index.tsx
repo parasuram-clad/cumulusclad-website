@@ -29,7 +29,7 @@ const Index = () => {
       <Services />
 
       <CaseStudy
-        title="Real-World Impact Through Smart Software Engineering"
+        title="Unlocking Impact with AI Innovation and Next-Gen Software Engineering"
         description="From education to enterprise, we've helped organizations of all sizes solve complex challenges, streamline operations, and innovate faster through custom-built technology solutions."
         imageUrl={caseStudy1}
         stats={caseStudy1Stats}
@@ -41,7 +41,7 @@ const Index = () => {
       {/* <TrustedCompanies /> */}
 
       <CaseStudy
-        title="Accelerating Growth Through Digital Innovation"
+        title="Accelerating growth through digital innovation"
         description="At CumulusClad, we don't just build software; we solve problems. From early-stage startups to large-scale enterprises, we've helped our clients streamline operations, launch innovative products, and accelerate growth through smart, scalable, and secure custom software solutions."
         imageUrl={caseStudy2}
         stats={caseStudy2Stats}

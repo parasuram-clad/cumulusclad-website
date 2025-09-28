@@ -76,10 +76,11 @@ const WhyChooseUs = () => {
             data-aos-delay={isMobile ? "75" : "150"}
           />
           <h2
-            className="text-4xl lg:text-5xl font-bold heading-luxury mb-6"
+            className="text-4xl lg:text-5xl  heading-luxury mb-6"
             data-aos="fade-up"
             data-aos-duration="600"
             data-aos-delay={isMobile ? "100" : "200"}
+            style={{ fontWeight: 100 }}
           >
             Why <span className="text-gradient-luxury">Choose Us?</span>
           </h2>
