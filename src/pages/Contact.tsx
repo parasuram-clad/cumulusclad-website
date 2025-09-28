@@ -104,12 +104,12 @@ const Contact = () => {
       url: "https://www.instagram.com/cumulusclad/",
       handle: "@cumulusclad",
     },
-    {
-      icon: Globe,
-      name: "Website",
-      url: "https://cumulusclad.com",
-      handle: "cumulusclad.com",
-    },
+    // {
+    //   icon: Globe,
+    //   name: "Website",
+    //   url: "https://cumulusclad.com",
+    //   handle: "cumulusclad.com",
+    // },
   ];
 
   const inquiryTypes = [
