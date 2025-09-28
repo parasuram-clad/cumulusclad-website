@@ -199,7 +199,7 @@ const Hero = () => {
                   className="text-center"
                 >
                   <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-primary">
-                    0+
+                    10+
                   </div>
                   <div className="text-xs text-muted-foreground text-black/60 uppercase tracking-wide mt-1">
                     Clients
