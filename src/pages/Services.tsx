@@ -21,7 +21,7 @@ import cloudSolutionsImg from "@/assets/services/page-image/cloud.jpeg";
 import digitalTransformationImg from "@/assets/services/page-image/digital-transformation.jpeg";
 import iotSolutionsImg from "@/assets/services/page-image/iot.jpeg";
 import cybersecurityImg from "@/assets/services/page-image/cyber.jpeg";
-import heroBackground from "@/assets/hero-bg.jpg"; // Replace with your image path
+import heroBackground from "@/assets/services-bg.png"; // Replace with your image path
 import CTABanner from "@/components/CTABanner";
 const Services = () => {
   const services = [
