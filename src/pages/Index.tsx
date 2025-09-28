@@ -51,7 +51,14 @@ const Index = () => {
       {/* <TrustedCompanies /> */}
 
       <CaseStudy
-        title="Accelerating growth through digital innovation"
+        title={
+          <>
+            Accelerating growth through&nbsp;
+            <span className="text-gradient-luxury inline-block sm:inline">
+              digital innovation
+            </span>
+          </>
+        }
         description="At CumulusClad, we don't just build software; we solve problems. From early-stage startups to large-scale enterprises, we've helped our clients streamline operations, launch innovative products, and accelerate growth through smart, scalable, and secure custom software solutions."
         imageUrl={caseStudy2}
         stats={caseStudy2Stats}

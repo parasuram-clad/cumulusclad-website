@@ -33,10 +33,11 @@ const CTABanner = () => {
             </div>
             <div className="space-y-6 max-w-4xl mx-auto">
               <h2
-                className="text-4xl lg:text-6xl font-bold text-white leading-tight"
+                className="text-4xl lg:text-5xl heading-luxury text-white"
                 data-aos="fade-up"
                 data-aos-duration="700"
                 data-aos-delay="100"
+                style={{ fontWeight: 100 }}
               >
                 Dream It. Design It.{" "}
                 <span className="text-transparent bg-gradient-to-r from-white to-red-200 bg-clip-text">
@@ -45,7 +46,7 @@ const CTABanner = () => {
               </h2>
 
               <p
-                className="text-xl lg:text-2xl text-white/90 leading-relaxed"
+                className="text-xl  text-white/90 leading-relaxed"
                 data-aos="fade-up"
                 data-aos-duration="600"
                 data-aos-delay="200"
@@ -72,7 +73,7 @@ const CTABanner = () => {
                w-auto mx-auto sm:mx-0 sm:w-auto text-center 
                hover:[scale:1.05] transition-all duration-300 ease-out"
               >
-                We’re Always Open
+                Let's Speak
                 <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" />
               </Button>
               {/* 
