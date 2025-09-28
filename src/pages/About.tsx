@@ -64,7 +64,7 @@ const About = () => {
             <div className="accent-line mx-auto mb-0" />
             <h1 className="text-5xl lg:text-7xl font-bold heading-luxury mt-0">
               Fortify Your Business with{" "}
-              <span className="text-gradient-luxury">Trusted IT Security</span>
+              <span className="text-gradient-luxury">Trusted IT Partners</span>
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed font-thin">
               We're a team of passionate technologists, designers, and
