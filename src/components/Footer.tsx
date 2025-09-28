@@ -71,9 +71,15 @@ const Footer = () => {
             </Link>
             <p className="text-muted-foreground leading-relaxed">
               Transforming ideas into cutting-edge technology solutions. We're
-              your trusted partner in digital innovation.
+              your trusted partner in&nbsp;
+              <span className="text-gradient-luxury inline-block sm:inline">
+                AI&nbsp;
+              </span>
+              and&nbsp;
+              <span className="text-gradient-luxury inline-block sm:inline">
+                digital innovation.
+              </span>
             </p>
-
             {/* Contact Info */}
             <div className="space-y-3">
               <a

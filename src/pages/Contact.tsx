@@ -143,7 +143,7 @@ const Contact = () => {
               Simplifying IT,{" "}
               <span className="text-gradient-luxury">Amplifying Success</span>
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
+            <p className="text-xl text-muted-foreground leading-relaxed font-light">
               Ready to transform your business with cutting-edge technology?
               Let's start a conversation about your vision and how we can help
               bring it to life.
