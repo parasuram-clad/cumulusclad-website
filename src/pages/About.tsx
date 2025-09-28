@@ -156,10 +156,10 @@ const About = () => {
 
             {/* Right Content - Stats Cards */}
             <div className="relative">
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 justify-items-center">
                 {/* Project Delivered Card */}
                 <div
-                  className="card-luxury p-6 text-center"
+                  className="card-luxury p-6 text-center flex flex-col items-center justify-center w-full sm:w-64 min-h-[200px]"
                   data-aos="fade-up"
                   data-aos-duration="500"
                   data-aos-delay="300"
@@ -168,7 +168,7 @@ const About = () => {
                     <Award className="w-6 h-6 text-primary" />
                   </div>
                   <div className="text-4xl font-bold text-primary mb-2">
-                    150+
+                    50+
                   </div>
                   <div className="text-sm text-muted-foreground uppercase tracking-wide">
                     Projects Delivered
@@ -177,7 +177,7 @@ const About = () => {
 
                 {/* Happy Clients Card */}
                 <div
-                  className="card-luxury p-6 text-center"
+                  className="card-luxury p-6 text-center flex flex-col items-center justify-center w-full sm:w-64 min-h-[200px]"
                   data-aos="fade-up"
                   data-aos-duration="500"
                   data-aos-delay="400"
@@ -186,7 +186,7 @@ const About = () => {
                     <Users className="w-6 h-6 text-primary" />
                   </div>
                   <div className="text-4xl font-bold text-primary mb-2">
-                    50+
+                    10+
                   </div>
                   <div className="text-sm text-muted-foreground uppercase tracking-wide">
                     Happy Clients
@@ -195,7 +195,7 @@ const About = () => {
 
                 {/* Industries Served Card */}
                 <div
-                  className="card-luxury p-6 text-center"
+                  className="card-luxury p-6 text-center flex flex-col items-center justify-center w-full sm:w-64 min-h-[200px]"
                   data-aos="fade-up"
                   data-aos-duration="500"
                   data-aos-delay="500"
@@ -206,22 +206,6 @@ const About = () => {
                   <div className="text-4xl font-bold text-primary mb-2">8+</div>
                   <div className="text-sm text-muted-foreground uppercase tracking-wide">
                     Industries Served
-                  </div>
-                </div>
-
-                {/* Years Experience Card */}
-                <div
-                  className="card-luxury p-6 text-center"
-                  data-aos="fade-up"
-                  data-aos-duration="500"
-                  data-aos-delay="600"
-                >
-                  <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Heart className="w-6 h-6 text-primary" />
-                  </div>
-                  <div className="text-4xl font-bold text-primary mb-2">5</div>
-                  <div className="text-sm text-muted-foreground uppercase tracking-wide">
-                    Years Experience
                   </div>
                 </div>
               </div>
