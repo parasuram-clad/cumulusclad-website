@@ -35,7 +35,7 @@ const Index = () => {
             <span className="text-gradient-luxury inline-block sm:inline">
               AI Innovation
             </span>
-            &nbsp; and&nbsp;
+            &nbsp;and&nbsp;
             <span className="text-gradient-luxury inline-block sm:inline">
               Next-Gen Software Engineering
             </span>
