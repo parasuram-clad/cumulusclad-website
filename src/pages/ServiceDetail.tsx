@@ -886,7 +886,7 @@ const ServiceDetail = () => {
               <h1 className="text-5xl lg:text-6xl font-bold heading-luxury mb-6">
                 {service.title}
               </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed">
+              <p className="text-xl text-muted-foreground leading-relaxed font-thin">
                 {service.description}
               </p>
             </div>
@@ -930,7 +930,7 @@ const ServiceDetail = () => {
               Our <span className="text-gradient-luxury">Offerings</span>
             </h2>
             <p
-              className="text-xl text-muted-foreground max-w-3xl mx-auto"
+              className="text-xl text-muted-foreground max-w-3xl mx-auto font-thin"
               data-aos="fade-up"
               data-aos-delay="200"
             >
@@ -998,7 +998,7 @@ const ServiceDetail = () => {
               Key <span className="text-gradient-luxury">Benefits</span>
             </h2>
             <p
-              className="text-xl text-muted-foreground max-w-3xl mx-auto"
+              className="text-xl text-muted-foreground max-w-3xl mx-auto font-thin"
               data-aos="fade-up"
               data-aos-delay="200"
             >
@@ -1132,7 +1132,7 @@ const ServiceDetail = () => {
               Technology <span className="text-gradient-luxury">Stack</span>
             </h2>
             <p
-              className="text-xl text-muted-foreground max-w-3xl mx-auto"
+              className="text-xl text-muted-foreground max-w-3xl mx-auto font-thin"
               data-aos="fade-up"
               data-aos-delay="100"
               data-aos-duration="300"
