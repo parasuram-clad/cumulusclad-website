@@ -74,8 +74,8 @@ const About = () => {
           <div className="max-w-4xl mx-auto space-y-8 animate-fade-in">
             <div className="accent-line mx-auto mb-0" />
             <h1 className="text-5xl lg:text-7xl font-bold heading-luxury mt-0">
-              Fortify Your Business with{" "}
-              <span className="text-gradient-luxury">Trusted IT Partners</span>
+              Building Resilient, Future-Ready Enterprises with&nbsp;
+              <span className="text-gradient-luxury">AI and IT Expertise</span>
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed font-thin">
               We're a team of passionate technologists, designers, and
