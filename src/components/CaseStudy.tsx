@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 // Import the hook
 
 interface CaseStudyProps {
-  title: string;
+  title: string | React.ReactNode; // Allow React nodes
   description: string;
   imageUrl: string;
   stats: {
@@ -16,7 +16,6 @@ interface CaseStudyProps {
   darkBg?: boolean;
   caseStudyId?: string;
 }
-
 const CaseStudy = ({
   title,
   description,
@@ -46,7 +45,6 @@ const CaseStudy = ({
             >
               <img
                 src={imageUrl}
-                alt={title}
                 className="w-full h-96 object-cover transition-transform duration-700 hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-transparent" />
@@ -87,7 +85,7 @@ const CaseStudy = ({
                 data-aos-delay="150"
               />
               <h2
-                className="text-4xl lg:text-5xl heading-luxury "
+                className="text-4xl lg:text-5xl heading-luxury"
                 data-aos={reverse ? "fade-right" : "fade-left"}
                 data-aos-duration="600"
                 data-aos-delay="200"

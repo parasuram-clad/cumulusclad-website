@@ -29,13 +29,23 @@ const Index = () => {
       <Services />
 
       <CaseStudy
-        title="Unlocking Impact with AI Innovation and Next-Gen Software Engineering"
+        title={
+          <>
+            Unlocking Impact with&nbsp;
+            <span className="text-gradient-luxury inline-block sm:inline">
+              AI Innovation
+            </span>
+            &nbsp; and&nbsp;
+            <span className="text-gradient-luxury inline-block sm:inline">
+              Next-Gen Software Engineering
+            </span>
+          </>
+        }
         description="From education to enterprise, we've helped organizations of all sizes solve complex challenges, streamline operations, and innovate faster through custom-built technology solutions."
         imageUrl={caseStudy1}
         stats={caseStudy1Stats}
         caseStudyId="1"
       />
-
       <WhyChooseUs />
 
       {/* <TrustedCompanies /> */}
