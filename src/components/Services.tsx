@@ -99,6 +99,7 @@ const Services = () => {
             data-aos="fade-up"
             data-aos-duration="400"
             data-aos-delay="200"
+            style={{ fontWeight: 100 }}
           >
             Comprehensive solutions that blend innovation and intelligence to
             transform your business.

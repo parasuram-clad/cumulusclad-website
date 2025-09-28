@@ -58,6 +58,7 @@ const CTABanner = () => {
                 data-aos="fade-up"
                 data-aos-duration="600"
                 data-aos-delay="200"
+                style={{ fontWeight: 100 }}
               >
                 Break free from the ordinary. We transform your wildest ideas
                 into stunning, high-performance digital experiences — custom

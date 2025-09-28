@@ -98,6 +98,7 @@ const CaseStudy = ({
                 data-aos="fade-up"
                 data-aos-duration="600"
                 data-aos-delay="300"
+                style={{ fontWeight: 100 }}
               >
                 {description}
               </p>

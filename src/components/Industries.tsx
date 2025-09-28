@@ -112,6 +112,7 @@ const Industries = () => {
             data-aos="fade-up"
             data-aos-duration="400"
             data-aos-delay={isMobile ? "100" : "200"}
+            style={{ fontWeight: 100 }}
           >
             Driving innovation beyond limits, we craft transformative technology
             that empowers businesses to lead, evolve, and redefine the future.

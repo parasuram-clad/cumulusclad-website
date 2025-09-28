@@ -89,6 +89,7 @@ const WhyChooseUs = () => {
             data-aos="fade-up"
             data-aos-duration="600"
             data-aos-delay={isMobile ? "125" : "250"}
+            style={{ fontWeight: 100 }}
           >
             We combine innovation with reliability to deliver solutions that
             last. At CumulusClad, Your growth is not our goal, it's our
