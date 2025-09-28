@@ -63,10 +63,7 @@ const Hero = () => {
                 {/* Main Title */}
                 <div className="space-y-3 sm:space-y-4 md:space-y-5">
                   {" "}
-                  <h1
-                    className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 "
-                    style={{ fontWeight: 100 }}
-                  >
+                  <h1 className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 ">
                     <span
                       data-aos="fade-right"
                       data-aos-delay="200"
@@ -101,7 +98,8 @@ const Hero = () => {
                     data-aos="fade-up"
                     data-aos-delay="800"
                     data-aos-duration="600"
-                    className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold heading-luxury leading-tight whitespace-normal mt-4 sm:mt-6"
+                    className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl heading-luxury leading-tight whitespace-normal mt-4 sm:mt-6"
+                    style={{ fontWeight: 100 }}
                   >
                     Progress thrive where{" "}
                     <span
@@ -131,7 +129,7 @@ const Hero = () => {
              w-auto mx-auto sm:mx-0 sm:w-auto max-w-[150px] sm:max-w-none"
                   onClick={handleButtonClick}
                 >
-                  <span className="relative z-10 capitalize">Let's Speak</span>
+                  <span className="relative z-10 capitalize ">Let's Speak</span>
                   <svg
                     className="ml-2 h-4 w-4 sm:h-5 sm:w-5 relative z-10"
                     fill="none"
@@ -147,7 +145,7 @@ const Hero = () => {
                   </svg>
                 </Button>
 
-                <Link
+                {/* <Link
                   to="/work"
                   className="flex justify-center sm:justify-start"
                 >
@@ -161,7 +159,7 @@ const Hero = () => {
                   >
                     Take a Tour
                   </Button>
-                </Link>
+                </Link> */}
               </div>
 
               {/* Stats - come from bottom */}
@@ -178,7 +176,7 @@ const Hero = () => {
                   className="text-center"
                 >
                   <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-primary">
-                    150+
+                    50+
                   </div>
                   <div className="text-xs text-muted-foreground text-black/60 uppercase tracking-wide mt-1">
                     Projects
@@ -191,7 +189,7 @@ const Hero = () => {
                   className="text-center"
                 >
                   <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-primary">
-                    50+
+                    0+
                   </div>
                   <div className="text-xs text-muted-foreground text-black/60 uppercase tracking-wide mt-1">
                     Clients
