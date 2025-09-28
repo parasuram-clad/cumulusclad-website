@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Eye,
@@ -12,8 +13,13 @@ import {
 import { Link } from "react-router-dom";
 import cybersecurityBg from "@/assets/cybersecurity-bg.jpg";
 import CTABanner from "@/components/CTABanner";
-
+import SimpleEnquiryModal from "@/components/EnquiryModal";
 const About = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const handleButtonClick = () => {
+    console.log("Button clicked");
+    setIsModalOpen(true);
+  };
   const values = [
     {
       icon: Eye,
@@ -55,6 +61,11 @@ const About = () => {
 
   return (
     <Layout>
+      {" "}
+      <SimpleEnquiryModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
       {/* Hero Section */}
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-luxury-red/5 to-luxury-red/10" />
@@ -74,26 +85,32 @@ const About = () => {
             <div className="pt-4">
               {" "}
               {/* Added padding-top instead of margin */}
-              <Link to="/contact">
-                <Button
-                  className="btn-luxury group text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 
-             relative overflow-hidden
-             transition-all duration-500 ease-out 
-             hover:scale-105 hover:shadow-2xl hover:bg-primary/90
-             transform-gpu
-             before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/10 before:to-transparent 
-             before:translate-x-[-100%] before:transition-transform before:duration-500 
-             hover:before:translate-x-[100%] capitalize"
+              <Button
+                className="btn-luxury group transition-all duration-300 ease-out hover:bg-primary/90 
+            
+             tracking-wide uppercase text-sm sm:text-base md:text-base 
+             w-auto mx-auto sm:mx-0 sm:w-auto max-w-[150px] sm:max-w-none"
+                onClick={handleButtonClick}
+              >
+                <span className="relative z-10 capitalize ">Let's Speak</span>
+                <svg
+                  className="ml-2 h-4 w-4 sm:h-5 sm:w-5 relative z-10"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                  We're Always Open
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </Button>
             </div>
           </div>
         </div>
       </section>
-
       {/* Our Story */}
       <section className="pt-24 bg-background">
         <div className="container mx-auto px-6 lg:px-8">
@@ -238,10 +255,9 @@ const About = () => {
                   Our Vision
                 </h2>
                 <p className="text-xl text-muted-foreground leading-relaxed font-thin">
-                  To be a global leader in driving intelligent, secure, and
-                  transformative digital solutions, empowering industries to
-                  innovate, connect, and thrive in an increasingly digital
-                  world.
+                  To build a digitally empowered society where intelligent,
+                  secure, and sustainable technologies drive inclusive growth,
+                  elevate quality of life, and shape a better future for all.
                 </p>
               </div>
             </div>
@@ -268,21 +284,15 @@ const About = () => {
                   Our Mission
                 </h2>
                 <p className="text-xl text-muted-foreground leading-relaxed font-thin">
-                  Deliver cutting-edge solutions in artificial intelligence,
-                  cloud, and IoT to accelerate business transformation.
-                  Strengthen industries through secure and scalable application
-                  infrastructure. Innovate in healthcare technology to improve
-                  outcomes and efficiency. Champion digital transformation with
-                  customer-centric, agile, and future-ready technologies. Foster
-                  a culture of continuous innovation, collaboration, and ethical
-                  growth.
+                  We innovate responsibly to deliver digital solutions that
+                  enhance human experiences, foster trust and security, and help
+                  build a more connected, equitable, and sustainable world.
                 </p>
               </div>
             </div>
           </div>
         </div>
       </section>
-
       {/* Values & Culture */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-6 lg:px-8">
@@ -342,7 +352,6 @@ const About = () => {
           </div>
         </div>
       </section>
-
       {/* Join Our Team Teaser */}
       {/* <section className="py-24 bg-card relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent" />
@@ -398,7 +407,6 @@ const About = () => {
           </div>
         </div>
       </section> */}
-
       <CTABanner />
     </Layout>
   );
