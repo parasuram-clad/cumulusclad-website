@@ -63,13 +63,13 @@ const Hero = () => {
                 {/* Main Title */}
                 <div className="space-y-3 sm:space-y-4 md:space-y-5">
                   {" "}
-                  <h1 className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 ">
+                  <h1 className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-5xl lg:text-6xl  heading-luxury ">
                     <span
                       data-aos="fade-right"
                       data-aos-delay="200"
                       data-aos-duration="800"
                       data-aos-easing="ease-out-cubic"
-                      className="text-4xl xs:text-5xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-thin heading-luxury leading-tight whitespace-nowrap"
+                      className=" font-thin heading-luxury leading-tight whitespace-nowrap"
                     >
                       Think Deep
                     </span>
@@ -88,7 +88,7 @@ const Hero = () => {
                       data-aos-delay="200"
                       data-aos-duration="800"
                       data-aos-easing="ease-out-cubic"
-                      className="text-4xl xs:text-5xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl heading-luxury leading-tight whitespace-nowrap"
+                      className=" heading-luxury leading-tight whitespace-nowrap"
                     >
                       <span className="text-gradient-luxury">Make Impact</span>
                     </span>
@@ -98,7 +98,7 @@ const Hero = () => {
                     data-aos="fade-up"
                     data-aos-delay="800"
                     data-aos-duration="600"
-                    className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl heading-luxury leading-tight whitespace-normal mt-4 sm:mt-6"
+                    className="text-2xl sm:text-3xl md:text-4xl lg:text-3xl xl:text-4xl heading-luxury leading-tight whitespace-normal mt-4 sm:mt-6"
                     style={{ fontWeight: 100 }}
                   >
                     Progress thrive where
