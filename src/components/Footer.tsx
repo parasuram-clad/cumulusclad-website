@@ -70,14 +70,9 @@ const Footer = () => {
               />
             </Link>
             <p className="text-muted-foreground leading-relaxed">
-              Transforming ideas into cutting-edge technology solutions. We're
-              your trusted partner in&nbsp;
+              Transforming ideas into cutting-edge technology solutions.&nbsp;
               <span className="text-gradient-luxury inline-block sm:inline">
-                AI&nbsp;
-              </span>
-              and&nbsp;
-              <span className="text-gradient-luxury inline-block sm:inline">
-                digital innovation.
+                We're your trusted partner in AI and digital innovation.
               </span>
             </p>
             {/* Contact Info */}
