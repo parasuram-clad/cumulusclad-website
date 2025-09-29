@@ -2,6 +2,7 @@ import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
 import {
   MapPin,
   Phone,
@@ -52,12 +53,16 @@ const Contact = () => {
     name: "",
     email: "",
     company: "",
-    subject: "",
+    phone: "",
     service: "",
     message: "",
   });
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -69,22 +74,71 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      // Using Web3Forms - FREE forever
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "74b1a2d4-c1a5-457f-b0bd-86437921b61d", // Replace with your actual Web3Forms key
+          subject: `New Contact Form: ${formData.service} - ${formData.name}`,
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          phone: formData.phone,
+          service: formData.service,
+          message: formData.message,
+          from_name: "CumulusClad Website Contact Form",
+          botcheck: "", // Web3Forms bot check
+        }),
+      });
 
-    console.log("Form submitted:", formData);
-    setIsSubmitted(true);
-    setIsSubmitting(false);
+      const result = await response.json();
 
-    // Reset form after successful submission
-    setFormData({
-      name: "",
-      email: "",
-      company: "",
-      subject: "",
-      service: "",
-      message: "",
-    });
+      if (result.success) {
+        console.log("Form submitted successfully:", result);
+        setIsSubmitted(true);
+
+        // Reset form after successful submission
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          phone: "",
+          service: "",
+          message: "",
+        });
+      } else {
+        throw new Error(result.message || "Form submission failed");
+      }
+    } catch (error) {
+      console.error("Failed to submit form:", error);
+
+      // Fallback: Open user's email client
+      const subject = `Website Contact Form: ${formData.service}`;
+      const body = `
+Name: ${formData.name}
+Email: ${formData.email}
+Company: ${formData.company}
+Phone: ${formData.phone}
+Service Interested In: ${formData.service}
+
+Message:
+${formData.message}
+
+---
+This message was sent from the CumulusClad website contact form.
+      `.trim();
+
+      window.location.href = `mailto:info@cumulusclad.com?subject=${encodeURIComponent(
+        subject
+      )}&body=${encodeURIComponent(body)}`;
+      setIsSubmitted(true); // Still show success since we provided fallback
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -269,7 +323,7 @@ const Contact = () => {
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-medium mb-2">
-                        Name
+                        Name *
                       </label>
                       <Input
                         type="text"
@@ -282,12 +336,12 @@ const Contact = () => {
                     </div>
                     <div>
                       <label className="block text-sm font-medium mb-2">
-                        Email
+                        Phone *
                       </label>
                       <Input
-                        type="email"
-                        name="email"
-                        value={formData.email}
+                        type="tel"
+                        name="phone"
+                        value={formData.phone}
                         onChange={handleInputChange}
                         required
                         className="focus:ring-primary"
@@ -298,6 +352,19 @@ const Contact = () => {
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-medium mb-2">
+                        Email *
+                      </label>
+                      <Input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        required
+                        className="focus:ring-primary"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-2">
                         Company
                       </label>
                       <Input
@@ -305,19 +372,6 @@ const Contact = () => {
                         name="company"
                         value={formData.company}
                         onChange={handleInputChange}
-                        className="focus:ring-primary"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2">
-                        Subject
-                      </label>
-                      <Input
-                        type="text"
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleInputChange}
-                        required
                         className="focus:ring-primary"
                       />
                     </div>
@@ -331,21 +385,20 @@ const Contact = () => {
                       name="service"
                       value={formData.service}
                       onChange={handleInputChange}
-                      className="w-full p-2 rounded border border-border bg-background focus:ring-primary focus:border-primary"
-                      required
+                      className="w-full p-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm"
                     >
                       <option value="">Select a service</option>
-                      <option value="ai">AI Solutions</option>
-                      <option value="digital-experience">
+                      <option value="AI Solutions">AI Solutions</option>
+                      <option value="Digital Experience">
                         Digital Experience
                       </option>
-                      <option value="cloud">Cloud Solutions</option>
-                      <option value="digital-transformation">
+                      <option value="Cloud Solutions">Cloud Solutions</option>
+                      <option value="Digital Transformation">
                         Digital Transformation
                       </option>
-                      <option value="iot">IoT Solutions</option>
-                      <option value="cybersecurity">Cyber Security</option>
-                      <option value="other">Other</option>
+                      <option value="IoT Solutions">IoT Solutions</option>
+                      <option value="Cyber Security">Cyber Security</option>
+                      <option value="Other">Other</option>
                     </select>
                   </div>
 
@@ -361,8 +414,7 @@ const Contact = () => {
                       value={formData.message}
                       onChange={handleInputChange}
                       rows={6}
-                      required
-                      className="focus:ring-primary"
+                      className="focus:ring-primary resize-none"
                     />
                   </div>
 
@@ -372,8 +424,17 @@ const Contact = () => {
                     disabled={isSubmitting}
                     className="btn-luxury w-auto max-w-[220px] mx-auto sm:mx-0 transition-all duration-300 ease-out capitalize"
                   >
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                    {!isSubmitting && <Send className="ml-2 h-5 w-5" />}
+                    {isSubmitting ? (
+                      <div className="flex items-center gap-2">
+                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                        Sending...
+                      </div>
+                    ) : (
+                      <div className="flex items-center gap-2">
+                        Send Message
+                        <Send className="ml-2 h-5 w-5" />
+                      </div>
+                    )}
                   </Button>
                 </form>
               ) : (
@@ -403,7 +464,7 @@ const Contact = () => {
               )}
             </div>
 
-            {/* Contact Information - Remains the same */}
+            {/* Contact Information */}
             <div
               data-aos="fade-left"
               data-aos-delay={getDelay(100)}
@@ -412,7 +473,6 @@ const Contact = () => {
               data-aos-once="true"
               className="w-full max-w-full overflow-hidden"
             >
-              {/* ... rest of the contact info section remains unchanged ... */}
               <div className="space-y-6 md:space-y-8 w-full">
                 {contactInfo.map((info, index) => (
                   <div
@@ -538,13 +598,12 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Office Locations - Remains the same */}
+      {/* Office Locations */}
       <section
         className="py-6 bg-muted/20"
         data-aos="fade-up"
         data-aos-delay={getDelay(50)}
       >
-        {/* ... office locations section remains unchanged ... */}
         <div className="container mx-auto px-6 lg:px-8">
           <div
             className="text-center max-w-3xl mx-auto mb-16"
@@ -595,9 +654,15 @@ const Contact = () => {
               />
             </div>
             <div className="p-8">
-              <h3 className="text-2xl font-bold mb-4">
-                CumulusClad Technologies
-              </h3>
+              <a
+                href="https://www.google.com/maps/place/CumulusClad+Technologies/@13.0067414,80.1977433,17z/data=!3m1!4b1!4m6!3m5!1s0x89b9b1f2258ba00f:0x9ff63e961b67ee17!8m2!3d13.0067414!4d80.1977433!16s%2Fg%2F11b1h4220h?entry=ttu"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h3 className="text-2xl font-bold mb-4  hover:text-primary hover:underline underline-offset-4">
+                  CumulusClad Technologies
+                </h3>{" "}
+              </a>
               <p className="text-muted-foreground mb-2">
                 No. 39B, 2nd Floor, Kongunadu Trust, 1st Street, Chakrapani
                 Colony,

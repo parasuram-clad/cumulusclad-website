@@ -90,7 +90,7 @@ const Footer = () => {
               </a>
 
               {/* Second Email - info@cumulusclad.com */}
-              <a
+              {/* <a
                 href="mailto:info@cumulusclad.com"
                 className="flex items-center space-x-3 text-sm group justify-center md:justify-start"
               >
@@ -98,7 +98,7 @@ const Footer = () => {
                 <span className="text-muted-foreground group-hover:text-primary transition-colors duration-300 underline-offset-4 hover:underline">
                   info@cumulusclad.com
                 </span>
-              </a>
+              </a> */}
 
               <a
                 href="tel:+91446688777"
@@ -131,7 +131,7 @@ const Footer = () => {
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm hover:underline"
+                    className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm hover:underline underline-offset-4"
                   >
                     {link.name}
                   </Link>
@@ -148,7 +148,7 @@ const Footer = () => {
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm hover:underline"
+                    className="text-muted-foreground hover:text-primary underline-offset-4 transition-colors duration-300 text-sm hover:underline"
                   >
                     {link.name}
                   </Link>

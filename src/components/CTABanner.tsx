@@ -67,7 +67,7 @@ const CTABanner = () => {
             </div>
 
             <div
-              className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center pt-6 sm:pt-8 w-full max-w-md mx-auto sm:max-w-none"
+              className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center pt-4 sm:pt-8 w-full max-w-md mx-auto sm:max-w-none"
               data-aos="fade-up"
               data-aos-duration="600"
               data-aos-delay="300"

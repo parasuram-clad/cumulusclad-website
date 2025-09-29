@@ -10,24 +10,112 @@ interface EnquiryModalProps {
   onClose: () => void;
 }
 
+interface FormData {
+  name: string;
+  email: string;
+  company: string;
+  phone: string;
+  service: string;
+  message: string;
+}
+
 const SimpleEnquiryModal = ({ isOpen, onClose }: EnquiryModalProps) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    email: "",
+    company: "",
+    phone: "",
+    service: "",
+    message: "",
+  });
+
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [id]: value,
+    }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      // Using Web3Forms - FREE forever
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "74b1a2d4-c1a5-457f-b0bd-86437921b61d",
+          subject: `New Enquiry: ${formData.service}`,
+          from_name: "CumulusClad Website",
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          phone: formData.phone,
+          service: formData.service,
+          message: formData.message,
 
-    console.log("Form submitted");
-    setIsSubmitted(true);
-    setIsSubmitting(false);
+          // Custom HTML Email Template
+          html: `
+    <div style="font-family: Arial, sans-serif; padding:20px; border:1px solid #eee;">
+      <h2 style="color:#8B0000;">New Enquiry Received</h2>
+      <p><strong>Name:</strong> ${formData.name}</p>
+      <p><strong>Email:</strong> ${formData.email}</p>
+      <p><strong>Company:</strong> ${formData.company}</p>
+      <p><strong>Phone:</strong> ${formData.phone}</p>
+      <p><strong>Service:</strong> ${formData.service}</p>
+      <p><strong>Message:</strong></p>
+      <p style="background:#f9f9f9; padding:10px; border-radius:5px;">${formData.message}</p>
+      <br />
+      <p style="font-size:12px; color:#666;">Sent from CumulusClad Website</p>
+    </div>
+  `,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setIsSubmitted(true);
+      } else {
+        throw new Error("Form submission failed");
+      }
+    } catch (error) {
+      console.error("Failed to submit form:", error);
+      // Fallback to mailto
+      const subject = `Enquiry: ${formData.service}`;
+      const body = `Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company}\nPhone: ${formData.phone}\nService: ${formData.service}\n\nMessage:\n${formData.message}`;
+      window.open(
+        `mailto:info@cumulusclad.com?subject=${encodeURIComponent(
+          subject
+        )}&body=${encodeURIComponent(body)}`
+      );
+      setIsSubmitted(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleClose = () => {
     setIsSubmitted(false);
+    setFormData({
+      name: "",
+      email: "",
+      company: "",
+      phone: "",
+      service: "",
+      message: "",
+    });
     onClose();
   };
 
@@ -35,7 +123,7 @@ const SimpleEnquiryModal = ({ isOpen, onClose }: EnquiryModalProps) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
-      <div className="bg-card border-border border rounded-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+      <div className="bg-card border-border border rounded-xl w-full max-w-2xl max-h-[94vh] overflow-y-auto">
         <div className="relative p-4 sm:p-6 md:p-8">
           {/* Header */}
           <div className="flex justify-between items-start mb-4 sm:mb-6">
@@ -65,24 +153,27 @@ const SimpleEnquiryModal = ({ isOpen, onClose }: EnquiryModalProps) => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 <div className="space-y-2 sm:space-y-3">
                   <Label htmlFor="name" className="text-sm font-medium">
-                    Full Name
+                    Name *
                   </Label>
                   <Input
                     id="name"
                     type="text"
                     required
+                    value={formData.name}
+                    onChange={handleInputChange}
                     className="h-10 sm:h-11"
                   />
                 </div>
-
                 <div className="space-y-2 sm:space-y-3">
-                  <Label htmlFor="email" className="text-sm font-medium">
-                    Email Address
+                  <Label htmlFor="phone" className="text-sm font-medium">
+                    Phone Number *
                   </Label>
                   <Input
-                    id="email"
-                    type="email"
+                    id="phone"
+                    type="tel"
                     required
+                    value={formData.phone}
+                    onChange={handleInputChange}
                     className="h-10 sm:h-11"
                   />
                 </div>
@@ -90,17 +181,29 @@ const SimpleEnquiryModal = ({ isOpen, onClose }: EnquiryModalProps) => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 <div className="space-y-2 sm:space-y-3">
+                  <Label htmlFor="email" className="text-sm font-medium">
+                    Email Address *
+                  </Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="h-10 sm:h-11"
+                  />
+                </div>
+                <div className="space-y-2 sm:space-y-3">
                   <Label htmlFor="company" className="text-sm font-medium">
                     Company Name
                   </Label>
-                  <Input id="company" type="text" className="h-10 sm:h-11" />
-                </div>
-
-                <div className="space-y-2 sm:space-y-3">
-                  <Label htmlFor="phone" className="text-sm font-medium">
-                    Phone Number
-                  </Label>
-                  <Input id="phone" type="tel" className="h-10 sm:h-11" />
+                  <Input
+                    id="company"
+                    type="text"
+                    value={formData.company}
+                    onChange={handleInputChange}
+                    className="h-10 sm:h-11"
+                  />
                 </div>
               </div>
 
@@ -110,40 +213,50 @@ const SimpleEnquiryModal = ({ isOpen, onClose }: EnquiryModalProps) => {
                 </Label>
                 <select
                   id="service"
+                  value={formData.service}
+                  onChange={handleInputChange}
                   className="w-full h-10 sm:h-11 px-3 rounded-lg border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
                 >
                   <option value="">Select a service</option>
-                  <option value="ai">AI Solutions</option>
-                  <option value="digital-experience">Digital Experience</option>
-                  <option value="cloud">Cloud Solutions</option>
-                  <option value="digital-transformation">
+                  <option value="AI Solutions">AI Solutions</option>
+                  <option value="Digital Experience">Digital Experience</option>
+                  <option value="Cloud Solutions">Cloud Solutions</option>
+                  <option value="Digital Transformation">
                     Digital Transformation
                   </option>
-                  <option value="iot">IoT Solutions</option>
-                  <option value="cybersecurity">Cyber Security</option>
-                  <option value="other">Other</option>
+                  <option value="IoT Solutions">IoT Solutions</option>
+                  <option value="Cyber Security">Cyber Security</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
 
               <div className="space-y-2 sm:space-y-3">
                 <Label htmlFor="message" className="text-sm font-medium">
-                  Project Details
+                  Message
                 </Label>
                 <Textarea
                   id="message"
-                  required
                   rows={3}
+                  value={formData.message}
+                  onChange={handleInputChange}
                   className="resize-none text-sm"
                 />
               </div>
-
+              <div className="h-captcha" data-captcha="true"></div>
               <div className="flex flex-row gap-3 sm:gap-4 pt-2">
                 <Button
                   type="submit"
                   disabled={isSubmitting}
                   className="flex-1 h-11 sm:h-12 bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 text-sm sm:text-base"
                 >
-                  {isSubmitting ? "Submitting..." : "Submit"}
+                  {isSubmitting ? (
+                    <div className="flex items-center gap-2">
+                      <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                      Sending...
+                    </div>
+                  ) : (
+                    " Send Message"
+                  )}
                 </Button>
                 <Button
                   type="button"
