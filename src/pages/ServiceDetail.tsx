@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import StackIcon from "tech-stack-icons";
 import { FC } from "react";
 import DynamicIcon from "../components/DynamicIcon";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Brain,
   Monitor,
@@ -95,7 +95,19 @@ import complianceSolutionsImg from "@/assets/services/cyber/compliance-solutions
 import managedDetectionImg from "@/assets/services/cyber/managed-detection.jpeg";
 import cloudSecurityArchitectureImg from "@/assets/services/cyber/cloud-security-architecture.jpeg";
 const ServiceDetail = () => {
+  const { serviceId } = useParams();
   const [activeCategory, setActiveCategory] = useState("All");
+
+  useEffect(() => {
+    if (serviceId) {
+      const serviceTitle = serviceId
+        .split("-")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ");
+
+      document.title = `${serviceTitle} Services | CumulusClad Technologies`;
+    }
+  }, [serviceId]);
   const getFilteredTechStack = (techStack: any, activeCategory: string) => {
     if (!techStack || typeof techStack !== "object") return [];
 
@@ -178,7 +190,6 @@ const ServiceDetail = () => {
 
     return iconMap[iconName] || <Star className="w-6 h-6 text-white" />;
   };
-  const { serviceId } = useParams();
 
   const services = {
     "ai-solutions": {

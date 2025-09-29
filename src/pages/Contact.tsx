@@ -16,11 +16,16 @@ import {
   Users,
   Headphones,
   Instagram,
+  CheckCircle,
 } from "lucide-react";
 import { useState, useEffect } from "react";
-import heroBackground from "@/assets/contact-bg.png"; // or your image path
+import heroBackground from "@/assets/contact-bg.png";
+import { usePageTitle } from "@/hooks/usePageTitle";
+
 const Contact = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -60,9 +65,26 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+
+    // Simulate API call
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
     console.log("Form submitted:", formData);
+    setIsSubmitted(true);
+    setIsSubmitting(false);
+
+    // Reset form after successful submission
+    setFormData({
+      name: "",
+      email: "",
+      company: "",
+      subject: "",
+      service: "",
+      message: "",
+    });
   };
 
   const contactInfo = [
@@ -104,12 +126,6 @@ const Contact = () => {
       url: "https://www.instagram.com/cumulusclad/",
       handle: "@cumulusclad",
     },
-    // {
-    //   icon: Globe,
-    //   name: "Website",
-    //   url: "https://cumulusclad.com",
-    //   handle: "cumulusclad.com",
-    // },
   ];
 
   const inquiryTypes = [
@@ -137,7 +153,7 @@ const Contact = () => {
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
-          style={{ backgroundImage: `url(${heroBackground})` }} // Replace with your image path
+          style={{ backgroundImage: `url(${heroBackground})` }}
         />
 
         {/* Gradient Overlay */}
@@ -191,7 +207,7 @@ const Contact = () => {
                   Get in <span className="text-gradient-luxury">Touch</span>
                 </h2>
                 <p
-                  className="text-muted-foreground "
+                  className="text-muted-foreground"
                   data-aos="fade-up"
                   data-aos-delay={getDelay(125)}
                   data-aos-duration="400"
@@ -204,167 +220,190 @@ const Contact = () => {
               </div>
 
               {/* Inquiry Type Selection */}
-              <div className="mb-8">
-                <h3
-                  className="text-lg font-semibold mb-4"
-                  data-aos="fade-up"
-                  data-aos-delay={getDelay(150)}
-                  data-aos-duration="300"
-                  data-aos-easing="ease-out"
-                  data-aos-once="true"
-                >
-                  What can we help you with?
-                </h3>
-                <div className="grid grid-cols-1 gap-3">
-                  {inquiryTypes.map((type, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center space-x-3 p-4 bg-card rounded-xl border border-border"
-                      data-aos="fade-up"
-                      data-aos-delay={getDelay(200, index, 50)}
-                      data-aos-duration="300"
-                      data-aos-easing="ease-out"
-                      data-aos-once="true"
-                    >
-                      <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
-                        <type.icon className="w-5 h-5 text-primary" />
-                      </div>
-                      <div>
-                        <div className="font-medium">{type.title}</div>
-                        <div className="text-sm text-muted-foreground">
-                          {type.description}
+              {!isSubmitted && (
+                <div className="mb-8">
+                  <h3
+                    className="text-lg font-semibold mb-4"
+                    data-aos="fade-up"
+                    data-aos-delay={getDelay(150)}
+                    data-aos-duration="300"
+                    data-aos-easing="ease-out"
+                    data-aos-once="true"
+                  >
+                    What can we help you with?
+                  </h3>
+                  <div className="grid grid-cols-1 gap-3">
+                    {inquiryTypes.map((type, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center space-x-3 p-4 bg-card rounded-xl border border-border"
+                        data-aos="fade-up"
+                        data-aos-delay={getDelay(200, index, 50)}
+                        data-aos-duration="300"
+                        data-aos-easing="ease-out"
+                        data-aos-once="true"
+                      >
+                        <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
+                          <type.icon className="w-5 h-5 text-primary" />
+                        </div>
+                        <div>
+                          <div className="font-medium">{type.title}</div>
+                          <div className="text-sm text-muted-foreground">
+                            {type.description}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <form
-                onSubmit={handleSubmit}
-                className="space-y-6"
-                data-aos="fade-up"
-                data-aos-delay={getDelay(300)}
-                data-aos-duration="400"
-              >
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Name
-                    </label>
-                    <Input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      placeholder="Your full name"
-                      required
-                      className="focus:ring-primary"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Email
-                    </label>
-                    <Input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      placeholder="your.email@company.com"
-                      required
-                      className="focus:ring-primary"
-                    />
+                    ))}
                   </div>
                 </div>
+              )}
 
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Company
-                    </label>
-                    <Input
-                      type="text"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleInputChange}
-                      placeholder="Your company name"
-                      className="focus:ring-primary"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Subject
-                    </label>
-                    <Input
-                      type="text"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleInputChange}
-                      placeholder="Brief subject line"
-                      required
-                      className="focus:ring-primary"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-2">
-                    Service Interested In
-                  </label>
-                  <select
-                    name="service"
-                    value={formData.service}
-                    onChange={handleInputChange}
-                    className="w-full p-2 rounded border border-border bg-background focus:ring-primary focus:border-primary"
-                    required
-                  >
-                    <option value="">Select a service</option>
-                    <option value="ai">AI Solutions</option>
-                    <option value="digital-experience">
-                      Digital Experience
-                    </option>
-                    <option value="cloud">Cloud Solutions</option>
-                    <option value="digital-transformation">
-                      Digital Transformation
-                    </option>
-                    <option value="iot">IoT Solutions</option>
-                    <option value="cybersecurity">Cyber Security</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label
-                    className="block text-sm font-medium mb-2"
-                    htmlFor="message"
-                  >
-                    Message
-                  </label>
-                  <Textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    placeholder="Tell us about your project, timeline, and any specific requirements..."
-                    rows={6}
-                    required
-                    className="focus:ring-primary"
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="btn-luxury w-auto max-w-[220px] mx-auto sm:mx-0 
-             transition-all duration-300 ease-out capitalize"
+              {!isSubmitted ? (
+                <form
+                  onSubmit={handleSubmit}
+                  className="space-y-6"
+                  data-aos="fade-up"
+                  data-aos-delay={getDelay(300)}
+                  data-aos-duration="400"
                 >
-                  Send Message
-                  <Send className="ml-2 h-5 w-5" />
-                </Button>
-              </form>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-medium mb-2">
+                        Name
+                      </label>
+                      <Input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        required
+                        className="focus:ring-primary"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-2">
+                        Email
+                      </label>
+                      <Input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        required
+                        className="focus:ring-primary"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-medium mb-2">
+                        Company
+                      </label>
+                      <Input
+                        type="text"
+                        name="company"
+                        value={formData.company}
+                        onChange={handleInputChange}
+                        className="focus:ring-primary"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-2">
+                        Subject
+                      </label>
+                      <Input
+                        type="text"
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleInputChange}
+                        required
+                        className="focus:ring-primary"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      Service Interested In
+                    </label>
+                    <select
+                      name="service"
+                      value={formData.service}
+                      onChange={handleInputChange}
+                      className="w-full p-2 rounded border border-border bg-background focus:ring-primary focus:border-primary"
+                      required
+                    >
+                      <option value="">Select a service</option>
+                      <option value="ai">AI Solutions</option>
+                      <option value="digital-experience">
+                        Digital Experience
+                      </option>
+                      <option value="cloud">Cloud Solutions</option>
+                      <option value="digital-transformation">
+                        Digital Transformation
+                      </option>
+                      <option value="iot">IoT Solutions</option>
+                      <option value="cybersecurity">Cyber Security</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label
+                      className="block text-sm font-medium mb-2"
+                      htmlFor="message"
+                    >
+                      Message
+                    </label>
+                    <Textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      rows={6}
+                      required
+                      className="focus:ring-primary"
+                    />
+                  </div>
+
+                  <Button
+                    type="submit"
+                    size="lg"
+                    disabled={isSubmitting}
+                    className="btn-luxury w-auto max-w-[220px] mx-auto sm:mx-0 transition-all duration-300 ease-out capitalize"
+                  >
+                    {isSubmitting ? "Sending..." : "Send Message"}
+                    {!isSubmitting && <Send className="ml-2 h-5 w-5" />}
+                  </Button>
+                </form>
+              ) : (
+                // Success State with option to send another message
+                <div className="text-center py-8 space-y-6">
+                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto">
+                    <CheckCircle className="w-8 h-8 text-green-600" />
+                  </div>
+
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-semibold text-foreground">
+                      Thank You for Your Message!
+                    </h3>
+                    <p className="text-muted-foreground text-sm">
+                      We've received your enquiry and will get back to you
+                      within 24 hours.
+                    </p>
+                  </div>
+
+                  <Button
+                    onClick={() => setIsSubmitted(false)}
+                    className="h-12 px-8 bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300"
+                  >
+                    Send Another Message
+                  </Button>
+                </div>
+              )}
             </div>
 
-            {/* Contact Information */}
+            {/* Contact Information - Remains the same */}
             <div
               data-aos="fade-left"
               data-aos-delay={getDelay(100)}
@@ -373,6 +412,7 @@ const Contact = () => {
               data-aos-once="true"
               className="w-full max-w-full overflow-hidden"
             >
+              {/* ... rest of the contact info section remains unchanged ... */}
               <div className="space-y-6 md:space-y-8 w-full">
                 {contactInfo.map((info, index) => (
                   <div
@@ -396,7 +436,7 @@ const Contact = () => {
                         <info.icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                       </div>
                       <div className="flex-1 min-w-0 overflow-hidden">
-                        {info.title === "CumulusClad Technologies LLP." ? (
+                        {info.title === "CumulusClad Technologies" ? (
                           <a
                             href={info.links?.[0] || "#"}
                             target="_blank"
@@ -427,9 +467,20 @@ const Contact = () => {
                             )}
                           </div>
                         ))}
-                        <p className="text-xs md:text-sm text-muted-foreground mt-2">
-                          {info.description}
-                        </p>
+                        {info.title === "CumulusClad Technologies" ? (
+                          <a
+                            href={info.links?.[0] || "#"}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-xs md:text-sm text-muted-foreground mt-2 hover:text-primary hover:underline transition-all duration-300 cursor-pointer block"
+                          >
+                            {info.description}
+                          </a>
+                        ) : (
+                          <p className="text-xs md:text-sm text-muted-foreground mt-2">
+                            {info.description}
+                          </p>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -487,12 +538,13 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Office Locations */}
+      {/* Office Locations - Remains the same */}
       <section
         className="py-6 bg-muted/20"
         data-aos="fade-up"
         data-aos-delay={getDelay(50)}
       >
+        {/* ... office locations section remains unchanged ... */}
         <div className="container mx-auto px-6 lg:px-8">
           <div
             className="text-center max-w-3xl mx-auto mb-16"
@@ -549,8 +601,7 @@ const Contact = () => {
               <p className="text-muted-foreground mb-2">
                 No. 39B, 2nd Floor, Kongunadu Trust, 1st Street, Chakrapani
                 Colony,
-              </p>
-              <p className="text-muted-foreground">
+                <br />
                 North Parade Road, St.Thomas Mount, Chennai - 600 016
               </p>
             </div>

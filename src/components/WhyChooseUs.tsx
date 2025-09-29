@@ -43,9 +43,9 @@ const WhyChooseUs = () => {
     },
     {
       icon: Zap, // Represents speed, energy, and personalized tech
-      title: "Tech that Understands You",
+      title: "Global Edge.",
       description:
-        "No two businesses are the same. That's why our digital strategy begins with understanding your DNA and ends with building a tech backbone that's truly yours.",
+        "We think globally, drawing insights and innovation from diverse industries and markets.Our solutions are scalable, adaptable, and future-ready across regions and industries.",
     },
     {
       icon: Sparkles, // Represents innovation and magical, invisible tech

@@ -19,6 +19,7 @@ import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
 const queryClient = new QueryClient();
 import { useAos } from "@/hooks/useAos";
+
 // Wrapper component to handle scroll to top on route change
 const ScrollToTopWrapper = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
@@ -31,6 +32,54 @@ const ScrollToTopWrapper = ({ children }: { children: React.ReactNode }) => {
   return <>{children}</>;
 };
 
+// Component to handle page titles based on routes
+const PageTitleHandler = () => {
+  const location = useLocation();
+
+  useLayoutEffect(() => {
+    const getPageTitle = (pathname: string) => {
+      const titleMap: { [key: string]: string } = {
+        "/": "CumulusClad Technologies - Think Deep | Make Impact",
+        "/about": "About Us - Transforming Ideas into Innovation",
+        "/services": "Services - Cutting-Edge Technology Solutions",
+        "/work": "Our Work - Success Stories & Case Studies",
+        "/industries": "Industries - Sector-Specific Solutions",
+        "/careers": "Careers - Join Our Team",
+        "/contact":
+          "Contact Us - We're Here to Help | CumulusClad Technologies",
+        "/email-signature": "Email Signature Generator",
+        "/terms-of-service": "Terms of Service",
+        "/privacy-policy": "Privacy Policy",
+      };
+
+      // Handle service detail pages
+      if (pathname.startsWith("/services/")) {
+        return "Service Details - CumulusClad Technologies";
+      }
+
+      // Handle industry detail pages
+      if (pathname.startsWith("/industries/")) {
+        return "Industry Solutions - CumulusClad Technologies";
+      }
+
+      // Handle case study pages
+      if (pathname.startsWith("/work/")) {
+        return "Case Study - CumulusClad Technologies";
+      }
+
+      return (
+        titleMap[pathname] ||
+        "CumulusClad Technologies - AI & Digital Innovation"
+      );
+    };
+
+    const pageTitle = getPageTitle(location.pathname);
+    document.title = pageTitle;
+  }, [location.pathname]);
+
+  return null;
+};
+
 const App = () => {
   useAos();
   return (
@@ -40,6 +89,7 @@ const App = () => {
         <Sonner />
         <BrowserRouter>
           <ScrollToTopWrapper>
+            <PageTitleHandler />
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/about" element={<About />} />

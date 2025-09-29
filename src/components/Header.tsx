@@ -285,7 +285,7 @@ const Header = () => {
                   className="btn-luxury group transition-all duration-300 ease-out capitalize  px-6 py-3  font-semibold text-sm hover:shadow-lg  w-full max-w-xs"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  We’re Always Open
+                  Let's Speak
                 </Link>
               </div>
             </div>

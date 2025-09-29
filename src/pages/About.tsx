@@ -15,6 +15,7 @@ import cybersecurityBg from "@/assets/cybersecurity-bg.jpg";
 import CTABanner from "@/components/CTABanner";
 import SimpleEnquiryModal from "@/components/EnquiryModal";
 import heroBackground from "@/assets/about-bg.png";
+
 const About = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleButtonClick = () => {

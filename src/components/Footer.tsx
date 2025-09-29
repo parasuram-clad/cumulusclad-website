@@ -70,13 +70,26 @@ const Footer = () => {
               />
             </Link>
             <p className="text-muted-foreground leading-relaxed">
-              Transforming ideas into cutting-edge technology solutions.&nbsp;
-              <span className="text-gradient-luxury inline-block sm:inline">
+              Transforming ideas into cutting-edge technology solutions.{" "}
+              <span className="text-gradient-luxury">
                 We're your trusted partner in AI and digital innovation.
               </span>
             </p>
+
             {/* Contact Info */}
             <div className="space-y-3">
+              {/* First Email - global@cumulusclad.com */}
+              <a
+                href="mailto:global@cumulusclad.com"
+                className="flex items-center space-x-3 text-sm group justify-center md:justify-start"
+              >
+                <Mail className="h-4 w-4 text-primary" />
+                <span className="text-muted-foreground group-hover:text-primary transition-colors duration-300 underline-offset-4 hover:underline">
+                  global@cumulusclad.com
+                </span>
+              </a>
+
+              {/* Second Email - info@cumulusclad.com */}
               <a
                 href="mailto:info@cumulusclad.com"
                 className="flex items-center space-x-3 text-sm group justify-center md:justify-start"
@@ -86,6 +99,7 @@ const Footer = () => {
                   info@cumulusclad.com
                 </span>
               </a>
+
               <a
                 href="tel:+91446688777"
                 className="flex items-center space-x-3 text-sm group justify-center md:justify-start"
@@ -117,7 +131,7 @@ const Footer = () => {
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm"
+                    className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm hover:underline"
                   >
                     {link.name}
                   </Link>
@@ -134,7 +148,7 @@ const Footer = () => {
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm"
+                    className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm hover:underline"
                   >
                     {link.name}
                   </Link>

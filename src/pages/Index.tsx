@@ -31,12 +31,9 @@ const Index = () => {
       <CaseStudy
         title={
           <>
-            Unlocking Impact with&nbsp;
-            <span className="text-gradient-luxury inline-block sm:inline">
-              AI Innovation
-            </span>
-            &nbsp;and&nbsp;
-            <span className="text-gradient-luxury inline-block sm:inline">
+            Unlocking Impact with{" "}
+            <span className="text-gradient-luxury">AI Innovation</span> and{" "}
+            <span className="text-gradient-luxury">
               Next-Gen Software Engineering
             </span>
           </>
@@ -53,10 +50,8 @@ const Index = () => {
       <CaseStudy
         title={
           <>
-            Accelerating growth through&nbsp;
-            <span className="text-gradient-luxury inline-block sm:inline">
-              digital innovation
-            </span>
+            Accelerating growth through{" "}
+            <span className="text-gradient-luxury">digital innovation</span>
           </>
         }
         description="At CumulusClad, we don't just build software; we solve problems. From early-stage startups to large-scale enterprises, we've helped our clients streamline operations, launch innovative products, and accelerate growth through smart, scalable, and secure custom software solutions."

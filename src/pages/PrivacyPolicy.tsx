@@ -135,9 +135,9 @@ const PrivacyPolicy = () => {
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold heading-luxury mb-4 md:mb-6">
               Privacy <span className="text-gradient-luxury">Policy</span>
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed px-2">
+            {/* <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed px-2">
               Last updated: {lastUpdated}
-            </p>
+            </p> */}
           </div>
         </div>
       </section>
